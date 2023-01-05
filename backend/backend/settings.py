@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'resenias',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +81,16 @@ DATABASES = {
     }
 }
 
+""" DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres', # tomar del env file
+        'PASSWORD': 'postgres', # tomar del env file
+        'HOST': 'database',
+        'PORT': 5432,
+    }
+} """
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
