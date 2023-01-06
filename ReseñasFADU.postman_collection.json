@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "3f30c1bf-f1aa-4efd-8a27-e6ac8fdd5fd7",
+		"name": "ReseñasFADU",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener carreras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/obtener-carreras",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"obtener-carreras"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener carreras",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/obtener-carreras",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"obtener-carreras"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"carreras\": [\n        {\n            \"nombre\": \"DI\",\n            \"id\": 0\n        },\n        {\n            \"nombre\": \"DG\",\n            \"id\": 1\n        },\n        {\n            \"nombre\": \"ARQ\",\n            \"id\": 2\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener materias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/obtener-materias?carrera=0",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"obtener-materias"
+					],
+					"query": [
+						{
+							"key": "carrera",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener materias",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/obtener-materias?carrera=8",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"obtener-materias"
+							],
+							"query": [
+								{
+									"key": "carrera",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"materias\": [\n        {\n            \"nombre\": \"Análisis Matemático II\",\n            \"id\": 0\n        },\n        {\n            \"nombre\": \"Álgebra II\",\n            \"id\": 1\n        },\n        {\n            \"nombre\": \"Física I\",\n            \"id\": 2\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener cátedras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/obtener-catedras?materia=1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"obtener-catedras"
+					],
+					"query": [
+						{
+							"key": "materia",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener cátedras",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/obtener-catedras?materia=2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"obtener-catedras"
+							],
+							"query": [
+								{
+									"key": "materia",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"catedras\": [\n        {\n            \"nombre\": \"Charmander\",\n            \"id\": 0\n        },\n        {\n            \"nombre\": \"Squirtle\",\n            \"id\": 1\n        },\n        {\n            \"nombre\": \"Bulbasaur\",\n            \"id\": 2\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener información de cátedra",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/obtener-info-de-catedra?catedra=1&mail=example@gmail.com",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"obtener-info-de-catedra"
+					],
+					"query": [
+						{
+							"key": "catedra",
+							"value": "1"
+						},
+						{
+							"key": "mail",
+							"value": "example@gmail.com"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener información de cátedra",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/obtener-info-de-catedra?catedra=2&mail=example@gmail.com",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"obtener-info-de-catedra"
+							],
+							"query": [
+								{
+									"key": "catedra",
+									"value": "2"
+								},
+								{
+									"key": "mail",
+									"value": "example@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"turno\": 3,\n    \"promedio\": 2.3,\n    \"resenia_propia\": {\n        \"anio\": \"2020\",\n        \"contenido\": \"Me reprobó por un diseño de una aspiradora, malísimo.\",\n        \"calificacion\": \"0\",\n        \"id\": 0\n    },\n    \"resenias\": [\n        {\n            \"anio\": \"2021\",\n            \"contenido\": \"Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.\",\n            \"calificacion\": \"2\",\n            \"id\": 1\n        },\n        {\n            \"anio\": \"2019\",\n            \"contenido\": \"Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.\",\n            \"calificacion\": \"1\",\n            \"id\": 2\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar reseña",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/borrar-resenia?id=3",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"borrar-resenia"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar reseña",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/borrar-resenia?id=3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"borrar-resenia"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{}"
+				}
+			]
+		},
+		{
+			"name": "Crear reseña",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"anio\": \"2020\",\r\n    \"contenido\": \"Re fácil esta cátedra.\",\r\n    \"calificacion\": 2,\r\n    \"mail\": \"example@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/crear-resenia",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"crear-resenia"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear reseña",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"anio\": \"2020\",\r\n    \"contenido\": \"Re fácil esta cátedra.\",\r\n    \"calificacion\": 2,\r\n    \"mail\": \"example@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/crear-resenia",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"crear-resenia"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{}"
+				}
+			]
+		}
+	]
+}
