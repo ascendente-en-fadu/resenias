@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 /**
- *
- * @param {*} param0
- * @returns
+ * Career selection button, composed by a nearly squared button with fixed width and height.
+ * @param {string} text buttont text
  */
-const Button = ({ text }) => {
+const CarreerButton = ({ text }) => {
   return (
     <button style={styles.buttonDefault}>
       <span style={styles.btnText}>{text}</span>
@@ -17,8 +16,8 @@ const Button = ({ text }) => {
   );
 };
 
-Button.propTypes = {
+CarreerButton.propTypes = {
   text: PropTypes.string,
 };
 
-export default Button;
+export default CarreerButton;

@@ -2,18 +2,19 @@ import Colors from '../../constants/colors';
 
 const styles = {
   buttonDefault: {
-    padding: 10,
     backgroundColor: Colors.button,
     border: 'none',
     borderRadius: 8,
-    display: 'flex',
-    justifyContent: 'center',
     position: 'relative',
+    width: 80,
+    height: 50,
+    margin: 20,
   },
   btnText: {
-    textAlign: 'center',
-    color: 'white',
-    zIndex: 1,
+    fontSize: 20,
+    color: Colors.normalText,
+    position: 'relative',
+    zIndex: 10,
   },
   shadow: {
     position: 'absolute',

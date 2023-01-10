@@ -1,4 +1,4 @@
-import { Button } from './components';
+import { CareersScreen } from './screens';
 import styles from './styles';
 
 /**
@@ -7,12 +7,8 @@ import styles from './styles';
  */
 function App() {
   return (
-    <div style={styles.container}>
-      <div style={styles.buttonsContainer}>
-        <Button text='Una carrera' />
-        <Button text='Otra carrera' />
-        <Button text='Otra carrera más' />
-      </div>
+    <div style={styles.page}>
+      <CareersScreen />
     </div>
   );
 }
