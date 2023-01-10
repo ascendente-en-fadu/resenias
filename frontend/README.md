@@ -6,7 +6,7 @@ Frontend de la página de reseñas de [@ascendente_en_fadu](https://www.instagra
 
 #### Levantar el proyecto
 
-En teoría, ejecutar npm install y después npm start desde este mismo directorio, debería levantar el proyecto en la URL http://localhost:3000.
+En teoría, ejecutar `npm install` y después `npm start` desde este mismo directorio, debería levantar el proyecto en la URL http://localhost:3000.
 
 #### Algunas convenciones
 
