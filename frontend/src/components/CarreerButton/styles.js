@@ -4,14 +4,14 @@ const styles = {
   buttonDefault: {
     backgroundColor: Colors.button,
     border: 'none',
-    borderRadius: 8,
+    borderRadius: 12,
     position: 'relative',
-    width: 80,
-    height: 50,
-    margin: 20,
+    width: '100%',
+    flex: 1,
+    margin: '25px 0',
   },
   btnText: {
-    fontSize: 20,
+    fontSize: 30,
     color: Colors.normalText,
     position: 'relative',
     zIndex: 10,
@@ -22,7 +22,7 @@ const styles = {
     left: '5px',
     bottom: '-5px',
     right: '-5px',
-    borderRadius: 8,
+    borderRadius: 12,
     backgroundColor: Colors.button,
   },
 };

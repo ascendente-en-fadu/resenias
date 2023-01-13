@@ -5,7 +5,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
   },
-  link: { color: Colors.normalText, fontSize: 12, margin: '5 0px' },
+  link: { color: Colors.normalText, fontSize: 12, margin: '5px 0' },
 };
 
 export default styles;

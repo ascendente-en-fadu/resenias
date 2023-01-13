@@ -1,3 +1,6 @@
+import React from 'react';
+import { useMediaQuery } from 'react-responsive';
+
 import { CareersScreen } from './screens';
 import styles from './styles';
 
@@ -6,9 +9,28 @@ import styles from './styles';
  * @returns
  */
 function App() {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' });
+
   return (
-    <div style={styles.page}>
-      <CareersScreen />
+    <div
+      style={
+        isTabletOrMobile && !isPortrait
+          ? { ...styles.page, ...styles.pageMobileLandscape }
+          : styles.page
+      }
+    >
+      <div
+        style={
+          isTabletOrMobile
+            ? isPortrait
+              ? styles.containerMobile
+              : styles.containerMobileLandscape
+            : styles.containerDesktop
+        }
+      >
+        <CareersScreen />
+      </div>
     </div>
   );
 }

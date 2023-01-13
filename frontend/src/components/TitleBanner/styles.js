@@ -6,7 +6,7 @@ const styles = {
     flexDirection: 'column',
   },
   title1: { color: Colors.normalText, fontSize: 12 },
-  title2: { color: Colors.bannerText, fontSize: 50 },
+  title2: { color: Colors.bannerText, fontSize: 60 },
   title3: { color: Colors.bannerText, fontSize: 30 },
 };
 
