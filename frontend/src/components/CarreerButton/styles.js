@@ -1,8 +1,8 @@
 import Colors from '../../constants/colors';
 
 const styles = {
-  buttonDefault: {
-    backgroundColor: Colors.buttonTop,
+  buttonBottom: {
+    backgroundColor: Colors.buttonBottom,
     border: 'none',
     borderRadius: 12,
     position: 'relative',
@@ -10,21 +10,21 @@ const styles = {
     flex: 1,
     margin: '25px 0',
   },
-  btnText: {
+  text: {
     fontSize: 30,
     color: Colors.lightGray,
-    position: 'relative',
-    zIndex: 10,
   },
-  shadow: {
+  buttonTop: {
     position: 'absolute',
-    top: '5px',
-    left: '5px',
-    bottom: '-5px',
-    right: '-5px',
+    top: '-5px',
+    left: '-5px',
+    bottom: '5px',
+    right: '5px',
     borderRadius: 12,
-    backgroundColor: Colors.buttonBottom,
-    zIndex: -1,
+    backgroundColor: Colors.buttonTop,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 };
 

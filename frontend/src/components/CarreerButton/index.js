@@ -9,9 +9,10 @@ import styles from './styles';
  */
 const CarreerButton = ({ text }) => {
   return (
-    <button style={styles.buttonDefault}>
-      <span style={styles.btnText}>{text}</span>
-      <div style={styles.shadow} />
+    <button style={styles.buttonBottom}>
+      <div style={styles.buttonTop}>
+        <span style={styles.text}>{text}</span>
+      </div>
     </button>
   );
 };

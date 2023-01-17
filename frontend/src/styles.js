@@ -8,7 +8,6 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    zIndex: -5,
     position: 'relative',
   },
   pageMobileLandscape: {
