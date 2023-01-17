@@ -2,7 +2,7 @@ import Colors from '../../constants/colors';
 
 const styles = {
   buttonDefault: {
-    backgroundColor: Colors.button,
+    backgroundColor: Colors.buttonTop,
     border: 'none',
     borderRadius: 12,
     position: 'relative',
@@ -12,7 +12,7 @@ const styles = {
   },
   btnText: {
     fontSize: 30,
-    color: Colors.normalText,
+    color: Colors.lightGray,
     position: 'relative',
     zIndex: 10,
   },
@@ -23,7 +23,8 @@ const styles = {
     bottom: '-5px',
     right: '-5px',
     borderRadius: 12,
-    backgroundColor: Colors.button,
+    backgroundColor: Colors.buttonBottom,
+    zIndex: -1,
   },
 };
 
