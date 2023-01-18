@@ -15,7 +15,7 @@ En teoría, ejecutar `npm install` y después `npm start` desde este mismo direc
 
 #### Diseño de UI
 
-Los diseños de UI están en el directorio `ui_design`, junto con algunas indicaciones adicionales.
+Los diseños de UI están en el directorio `ui_design`, junto con algunas convenciones de estilo.
 
 #### Mockear el Backend
 

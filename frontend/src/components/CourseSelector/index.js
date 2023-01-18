@@ -1,11 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import styles from './styles';
 
 /**
- *
- * @param {string} text buttont text
+ * Course selector component, with a career indicator and a subject and course selector.
  */
 const CourseSelector = () => {
   return (
@@ -19,10 +17,6 @@ const CourseSelector = () => {
       </div>
     </button>
   );
-};
-
-CourseSelector.propTypes = {
-  text: PropTypes.string,
 };
 
 export default CourseSelector;

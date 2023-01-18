@@ -4,7 +4,7 @@ import { CourseSelector, Footer } from '../../components';
 import styles from './styles';
 
 /**
- *
+ * Reviews screen that shows the course selector and the course information.
  */
 const ReviewsScreen = () => {
   return (

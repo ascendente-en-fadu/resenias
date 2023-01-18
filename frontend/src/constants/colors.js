@@ -4,7 +4,7 @@ const Colors = Object.freeze({
   buttonBottom: '#25203A',
   lightGray: '#D9D9D9',
   gray: '#808080',
-  highlightedButton: '#514C69',
+  pressedButton: '#514C69',
   bannerText: '#D17D00',
 });
 

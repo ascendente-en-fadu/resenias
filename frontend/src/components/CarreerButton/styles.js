@@ -32,7 +32,7 @@ const styles = {
     left: '0px',
     bottom: '0px',
     right: '0px',
-    backgroundColor: Colors.highlightedButton,
+    backgroundColor: Colors.pressedButton,
   },
 };
 

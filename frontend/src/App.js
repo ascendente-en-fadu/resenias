@@ -1,12 +1,11 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-import { ReviewsScreen } from './screens';
+import { CarreersScreen } from './screens';
 import styles from './styles';
 
 /**
- *
- * @returns
+ * Main app screen, with responsive logic to be adapted to desktop, phone portrait and phone landscape displays.
  */
 function App() {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
@@ -29,7 +28,7 @@ function App() {
             : styles.containerDesktop
         }
       >
-        <ReviewsScreen />
+        <CarreersScreen />
       </div>
     </div>
   );

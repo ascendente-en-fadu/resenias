@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 /**
- * Career selection button, composed by a nearly squared button with fixed width and height.
+ * Career selection button, with a centered text and a press animation.
  * @param {string} text buttont text
  */
 const CarreerButton = ({ text }) => {
