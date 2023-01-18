@@ -14,6 +14,7 @@ services:
     build: ./backend
     volumes:
       - ./backend:/app
+      - static_files:/app/static
     depends_on:
       - database
     environment:
@@ -33,7 +34,12 @@ services:
 
   nginx_backend_server:
     build: ./nginx_backend_server
+    volumes:
+      - static_files:/app/static
     ports:
         - 8000:8000
     depends_on:
         - backend
+
+volumes:
+  static_files:
