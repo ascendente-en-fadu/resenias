@@ -20,6 +20,9 @@ COPY requirements.txt /app/requirements.txt
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
+# recolectar archivos estaticos
+# RUN python manage.py collectstatic
+
 # correr las migraciones de la DB
 # RUN python manage.py makemigrations
 # RUN python manage.py migrate
