@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-import { CareersScreen } from './screens';
+import { ReviewsScreen } from './screens';
 import styles from './styles';
 
 /**
@@ -29,7 +29,7 @@ function App() {
             : styles.containerDesktop
         }
       >
-        <CareersScreen />
+        <ReviewsScreen />
       </div>
     </div>
   );

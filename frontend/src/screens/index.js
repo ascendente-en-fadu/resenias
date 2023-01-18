@@ -1,1 +1,2 @@
-export { default as CareersScreen } from './CareersScreen';
+export { default as CarreersScreen } from './CarreersScreen';
+export { default as ReviewsScreen } from './ReviewsScreen';

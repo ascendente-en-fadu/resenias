@@ -6,7 +6,7 @@ import styles from './styles';
 /**
  * Career selection screen that shows the careers list.
  */
-const CareersScreen = () => {
+const CarreersScreen = () => {
   return (
     <div style={styles.container}>
       <TitleBanner />
@@ -29,4 +29,4 @@ const CareersScreen = () => {
   );
 };
 
-export default CareersScreen;
+export default CarreersScreen;

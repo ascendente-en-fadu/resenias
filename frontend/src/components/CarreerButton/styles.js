@@ -25,6 +25,14 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    transition: 'all .05s',
+  },
+  buttonPressed: {
+    top: '0px',
+    left: '0px',
+    bottom: '0px',
+    right: '0px',
+    backgroundColor: Colors.highlightedButton,
   },
 };
 

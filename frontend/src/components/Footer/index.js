@@ -8,8 +8,15 @@ import styles from './styles';
 const Footer = () => {
   return (
     <div style={styles.container}>
-      <span style={styles.link}>Invitame un cafecito</span>
-      <span style={styles.link}>@ascendente_en_fadu</span>
+      <a href='https://cafecito.app/ascendente_en_fadu' style={styles.link}>
+        Invitame un cafecito
+      </a>
+      <a
+        href='https://www.instagram.com/ascendente_en_fadu/?hl=es'
+        style={styles.link}
+      >
+        @ascendente_en_fadu
+      </a>
     </div>
   );
 };
