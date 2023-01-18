@@ -1,4 +1,5 @@
 import Colors from '../../constants/colors';
+import { Fonts } from '../../fonts';
 
 const styles = {
   buttonBottom: {
@@ -13,6 +14,7 @@ const styles = {
   text: {
     fontSize: 30,
     color: Colors.lightGray,
+    fontFamily: Fonts.semiBold,
   },
   buttonTop: {
     position: 'absolute',

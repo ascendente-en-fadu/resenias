@@ -1,4 +1,5 @@
 import Colors from '../../constants/colors';
+import { Fonts } from '../../fonts';
 
 const styles = {
   bottom: {
@@ -29,6 +30,8 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+
+    fontFamily: Fonts.semiBold,
   },
   selectorsContainer: { flex: 1, display: 'flex' },
   subject: {
@@ -42,6 +45,8 @@ const styles = {
     justifyContent: 'flex-start',
     alignItems: 'center',
     paddingLeft: '10px',
+
+    fontFamily: Fonts.light,
   },
   course: {
     flex: 1,
@@ -53,6 +58,8 @@ const styles = {
     justifyContent: 'flex-start',
     alignItems: 'center',
     paddingLeft: '10px',
+
+    fontFamily: Fonts.light,
   },
 };
 

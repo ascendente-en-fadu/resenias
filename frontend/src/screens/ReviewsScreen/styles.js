@@ -1,4 +1,5 @@
 import Colors from '../../constants/colors';
+import { Fonts } from '../../fonts';
 
 const styles = {
   container: {
@@ -16,6 +17,7 @@ const styles = {
     color: Colors.gray,
     fontSize: 16,
     textAlign: 'center',
+    fontFamily: Fonts.light,
   },
 };
 
