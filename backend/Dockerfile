@@ -28,4 +28,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 # RUN python manage.py migrate
 
 # spins up the gunicorn server
-CMD gunicorn -b 0.0.0.0:8000 --worker-class=gevent --worker-connections=1000 --workers=5 backend.wsgi
+# CMD gunicorn -b 0.0.0.0:8000 --worker-class=gevent --worker-connections=1000 --workers=5 backend.wsgi
