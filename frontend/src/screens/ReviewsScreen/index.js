@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { CourseSelector, Footer } from '../../components';
+import NoCourseSubScreen from '../NoCourseSubScreen';
 import styles from './styles';
 
 /**
@@ -12,9 +13,8 @@ const ReviewsScreen = () => {
       <div style={styles.selectorContainer}>
         <CourseSelector />
       </div>
-      <div style={styles.censorshipAdvice}>
-        Ojito con las reseñas que escribís que si te vas de boca las borro.
-        Podés usar palabrotas pero mantené el respeto.
+      <div style={styles.subScreenContainer}>
+        <NoCourseSubScreen />
       </div>
       <Footer />
     </div>

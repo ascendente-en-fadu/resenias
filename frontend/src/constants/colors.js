@@ -6,6 +6,7 @@ const Colors = Object.freeze({
   gray: '#808080',
   pressedButton: '#514C69',
   bannerText: '#D17D00',
+  transparent: 'rgba(0, 0, 0, 0)',
 });
 
 export default Colors;

@@ -1,6 +1,3 @@
-import Colors from '../../constants/colors';
-import { Fonts } from '../../fonts';
-
 const styles = {
   container: {
     display: 'flex',
@@ -13,11 +10,8 @@ const styles = {
     height: '25%',
     display: 'flex',
   },
-  censorshipAdvice: {
-    color: Colors.gray,
-    fontSize: 16,
-    textAlign: 'center',
-    fontFamily: Fonts.light,
+  subScreenContainer: {
+    flex: 1,
   },
 };
 

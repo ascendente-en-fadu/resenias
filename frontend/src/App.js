@@ -1,7 +1,8 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-import { CarreersScreen } from './screens';
+import { mergeStyles } from './helpers';
+import { ReviewsScreen } from './screens';
 import styles from './styles';
 
 /**
@@ -13,11 +14,10 @@ function App() {
 
   return (
     <div
-      style={
-        isTabletOrMobile && !isPortrait
-          ? { ...styles.page, ...styles.pageMobileLandscape }
-          : styles.page
-      }
+      style={mergeStyles([
+        styles.page,
+        isTabletOrMobile && !isPortrait && styles.pageMobileLandscape,
+      ])}
     >
       <div
         style={
@@ -28,7 +28,7 @@ function App() {
             : styles.containerDesktop
         }
       >
-        <CarreersScreen />
+        <ReviewsScreen />
       </div>
     </div>
   );
