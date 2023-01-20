@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import { mergeStyles } from './helpers';
-import { ReviewsScreen } from './screens';
+import { CarreersScreen, ReviewsScreen } from './screens';
 import styles from './styles';
 
 /**
@@ -11,6 +11,21 @@ import styles from './styles';
 function App() {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   const isPortrait = useMediaQuery({ query: '(orientation: portrait)' });
+  const [carreer, setCarreer] = useState();
+
+  /**
+   *
+   */
+  const showCarreer = (value) => {
+    setTimeout(() => setCarreer(value), 100);
+  };
+
+  /**
+   *
+   */
+  const goBack = () => {
+    setTimeout(() => setCarreer(''), 100);
+  };
 
   return (
     <div
@@ -28,7 +43,11 @@ function App() {
             : styles.containerDesktop
         }
       >
-        <ReviewsScreen />
+        {carreer ? (
+          <ReviewsScreen carreer={carreer} goBack={goBack} />
+        ) : (
+          <CarreersScreen navigateToCarreer={showCarreer} />
+        )}
       </div>
     </div>
   );

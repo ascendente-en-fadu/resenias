@@ -10,14 +10,18 @@ import styles from './styles';
  * @param {object} customStyles
  *   @param {object} customStyles.top custom styles for the top layer of the button
  *   @param {object} customStyles.bottom custom styles for the bottom layer of the button
+ * @param {function} onPress function to be called when the button in pressed, passing it's text as argument
  */
-const CarreerButton = ({ text, customStyles = {} }) => {
+const CarreerButton = ({ text, customStyles = {}, onPress }) => {
   const [animate, setAnimate] = useState(false);
 
   return (
     <button
       style={mergeStyles([styles.buttonBottom, customStyles.bottom])}
-      onMouseDown={() => setAnimate(true)}
+      onMouseDown={() => {
+        setAnimate(true);
+        onPress(text);
+      }}
       onMouseUp={() => setAnimate(false)}
       onTouchStart={() => setAnimate(true)}
       onMouseLeave={() => {
@@ -45,6 +49,7 @@ CarreerButton.propTypes = {
     bottom: PropTypes.object,
     top: PropTypes.object,
   }),
+  onPress: PropTypes.function,
 };
 
 export default CarreerButton;
