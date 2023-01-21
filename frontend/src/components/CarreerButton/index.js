@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { ReactComponent as ArrowIcon } from '../../images/arrow.svg';
 import { mergeStyles } from '../../helpers';
 import styles from './styles';
 
@@ -12,8 +13,9 @@ import styles from './styles';
  *   @param {object} customStyles.bottom custom styles for the bottom layer of the button
  *   @param {object} customStyles.text custom styles for the button text
  * @param {function} onPress function to be called when the button in pressed, passing it's text as argument
+ * @param {bool} arrow if true, displays an arrow icon on the right of the button
  */
-const CarreerButton = ({ text, customStyles = {}, onPress }) => {
+const CarreerButton = ({ text, customStyles = {}, onPress, arrow }) => {
   const [animate, setAnimate] = useState(false);
 
   return (
@@ -38,6 +40,7 @@ const CarreerButton = ({ text, customStyles = {}, onPress }) => {
           animate && styles.buttonPressed,
         ])}
       >
+        {arrow && <ArrowIcon width='3em' style={styles.arrow} />}
         <span style={mergeStyles([styles.text, customStyles.text])}>
           {text}
         </span>
@@ -54,6 +57,7 @@ CarreerButton.propTypes = {
     text: PropTypes.object,
   }),
   onPress: PropTypes.func,
+  arrow: PropTypes.bool,
 };
 
 export default CarreerButton;

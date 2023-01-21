@@ -19,7 +19,7 @@ const CourseSelector = ({ carreer, goBack, setSelectedCourseData }) => {
   const [course, setCourse] = useState(INITIAL_COURSE_VALUE);
 
   /**
-   *
+   * Sets the current course selection on the local and external state
    */
   const setCurrentCourse = (value) => {
     setCourse(value);
@@ -27,7 +27,7 @@ const CourseSelector = ({ carreer, goBack, setSelectedCourseData }) => {
   };
 
   /**
-   *
+   * Sets the current subject selection on the local and external state
    */
   const _setSubject = (value) => {
     setSubject(value);
@@ -44,6 +44,7 @@ const CourseSelector = ({ carreer, goBack, setSelectedCourseData }) => {
             bottom: styles.carreerButtonBottom,
           }}
           onPress={goBack}
+          arrow
         />
       </div>
       <div style={styles.selectorsContainer}>

@@ -9,8 +9,13 @@ const styles = {
   link: {
     color: Colors.lightGray,
     fontSize: 12,
-    margin: '5px 0',
     fontFamily: Fonts.light,
+    marginLeft: '5px',
+  },
+  linkContainer: {
+    margin: '5px 0',
+    display: 'flex',
+    flexDirection: 'row',
   },
 };
 

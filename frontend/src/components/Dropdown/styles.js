@@ -31,8 +31,9 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     transition: 'all .05s',
-    paddingLeft: '16px',
+    padding: '0 16px',
     border: 'none',
+    justifyContent: 'space-between',
   },
   buttonPressed: {
     top: '0px',

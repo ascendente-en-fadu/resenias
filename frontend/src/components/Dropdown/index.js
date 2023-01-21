@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { ReactComponent as ArrowIcon } from '../../images/arrow.svg';
 import { mergeStyles } from '../../helpers';
 import styles from './styles';
 
@@ -48,6 +49,7 @@ const Dropdown = ({
         >
           {value}
         </span>
+        <ArrowIcon width='1.5em' />
       </button>
       <div
         style={mergeStyles([

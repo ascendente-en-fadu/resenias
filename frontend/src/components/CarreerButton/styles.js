@@ -36,6 +36,11 @@ const styles = {
     right: '0px',
     backgroundColor: Colors.pressedButton,
   },
+  arrow: {
+    position: 'absolute',
+    left: '10px',
+    rotate: '90deg',
+  },
 };
 
 export default styles;
