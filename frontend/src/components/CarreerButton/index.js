@@ -10,6 +10,7 @@ import styles from './styles';
  * @param {object} customStyles
  *   @param {object} customStyles.top custom styles for the top layer of the button
  *   @param {object} customStyles.bottom custom styles for the bottom layer of the button
+ *   @param {object} customStyles.text custom styles for the button text
  * @param {function} onPress function to be called when the button in pressed, passing it's text as argument
  */
 const CarreerButton = ({ text, customStyles = {}, onPress }) => {
@@ -37,7 +38,9 @@ const CarreerButton = ({ text, customStyles = {}, onPress }) => {
           animate && styles.buttonPressed,
         ])}
       >
-        <span style={styles.text}>{text}</span>
+        <span style={mergeStyles([styles.text, customStyles.text])}>
+          {text}
+        </span>
       </div>
     </button>
   );
@@ -48,8 +51,9 @@ CarreerButton.propTypes = {
   customStyles: PropTypes.shape({
     bottom: PropTypes.object,
     top: PropTypes.object,
+    text: PropTypes.object,
   }),
-  onPress: PropTypes.function,
+  onPress: PropTypes.func,
 };
 
 export default CarreerButton;

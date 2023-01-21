@@ -39,7 +39,7 @@ const CarreersScreen = ({ navigateToCarreer }) => {
 };
 
 CarreersScreen.propTypes = {
-  navigateToCarreer: PropTypes.function,
+  navigateToCarreer: PropTypes.func,
 };
 
 export default CarreersScreen;

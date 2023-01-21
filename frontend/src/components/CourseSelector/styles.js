@@ -2,13 +2,12 @@ import Colors from '../../constants/colors';
 import { Fonts } from '../../fonts';
 
 const styles = {
-  bottom: {
+  container: {
     backgroundColor: Colors.buttonBottom,
     borderRadius: 12,
     position: 'relative',
     width: '100%',
-    flex: 1,
-    margin: '25px 0',
+    height: '100%',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -16,18 +15,17 @@ const styles = {
     flex: 2,
     marginBottom: '10px',
     display: 'flex',
-    flexDirection: 'column',
+  },
+  selectorsContainer: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   carreerButtonBottom: {
     margin: '0px',
   },
   carreerButtonTop: {
     borderRadius: '24px',
-  },
-  selectorsContainer: {
-    flex: 1,
-    display: 'flex',
-    justifyContent: 'space-between',
   },
   subject: {
     flex: 1,
@@ -55,6 +53,7 @@ const styles = {
     fontFamily: Fonts.light,
   },
   dropdownLeft: { marginRight: '12px' },
+  list: { zIndex: 3 },
 };
 
 export default styles;
