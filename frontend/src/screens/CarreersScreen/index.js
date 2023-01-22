@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { CarreerButton, Footer, TitleBanner } from '../../components';
+import { CustomButton, Footer, TitleBanner } from '../../components';
 import styles from './styles';
 
 /**
@@ -24,12 +24,12 @@ const CarreersScreen = ({ navigateToCarreer }) => {
       <div style={styles.buttonsContainer}>
         <div style={styles.buttonsColumnContainer}>
           {CARREERS.slice(0, CARREERS.length / 2).map((text) => (
-            <CarreerButton text={text} key={text} onPress={selectCarreer} />
+            <CustomButton text={text} key={text} onPress={selectCarreer} />
           ))}
         </div>
         <div style={styles.buttonsColumnContainer}>
           {CARREERS.slice(CARREERS.length / 2, CARREERS.length).map((text) => (
-            <CarreerButton text={text} key={text} onPress={selectCarreer} />
+            <CustomButton text={text} key={text} onPress={selectCarreer} />
           ))}
         </div>
       </div>

@@ -7,6 +7,7 @@ import styles from './styles';
 
 /**
  * Career selection button, with a centered text and a press animation.
+ * @param {any} children if present, replaces the content of the button for the children component
  * @param {string} text buttont text
  * @param {object} customStyles
  *   @param {object} customStyles.top custom styles for the top layer of the button
@@ -15,7 +16,7 @@ import styles from './styles';
  * @param {function} onPress function to be called when the button in pressed, passing it's text as argument
  * @param {bool} arrow if true, displays an arrow icon on the right of the button
  */
-const CarreerButton = ({
+const CustomButton = ({
   children,
   text,
   customStyles = {},
@@ -61,7 +62,7 @@ const CarreerButton = ({
   );
 };
 
-CarreerButton.propTypes = {
+CustomButton.propTypes = {
   children: PropTypes.any,
   text: PropTypes.string,
   customStyles: PropTypes.shape({
@@ -73,4 +74,4 @@ CarreerButton.propTypes = {
   arrow: PropTypes.bool,
 };
 
-export default CarreerButton;
+export default CustomButton;

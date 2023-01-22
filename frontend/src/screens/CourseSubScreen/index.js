@@ -4,16 +4,17 @@ import { Dropdown, ReviewInput, ReviewsList, MyReview } from '../../components';
 import styles from './styles';
 
 /**
- *
+ * Subscreen that displays all the course data, including other's reviews and (depending on the user) the own review or the box to wirte one.
  */
 const CourseSubScreen = () => {
   const YEARS = ['2022', '2021', '2020', '2019', '2018', '2017'];
   const RATES = ['Sobre nivel', 'Nivel', 'Bajo nivel', 'Ni idea'];
-  const OWN_REVIEW_DATA = {
+  /*const OWN_REVIEW_DATA = {
     content: 'Esta reseña la escribí yo, porque soy el más capo.',
     year: '2025',
     rate: 'Sobre nivel',
-  };
+  };*/
+  const OWN_REVIEW_DATA = undefined;
   const [year, setYear] = useState('Año');
   const [rate, setRate] = useState('Calificación');
 

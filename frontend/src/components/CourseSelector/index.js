@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import CarreerButton from '../CarreerButton';
+import CustomButton from '../CustomButton';
 import Dropdown from '../Dropdown';
 import styles from './styles';
 
@@ -37,7 +37,7 @@ const CourseSelector = ({ carreer, goBack, setSelectedCourseData }) => {
   return (
     <div style={styles.container}>
       <div style={styles.careerIndicatorContainer}>
-        <CarreerButton
+        <CustomButton
           text={carreer}
           customStyles={{
             top: styles.carreerButtonTop,

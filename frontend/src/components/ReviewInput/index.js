@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CarreerButton from '../CarreerButton';
+import CustomButton from '../CustomButton';
 import styles from './styles';
 
 /**
@@ -10,7 +10,7 @@ const ReviewInput = () => {
   return (
     <div style={styles.buttonBottom}>
       <textarea style={styles.input} placeholder='Escribí una reseña' />
-      <CarreerButton
+      <CustomButton
         text={'ENVIAR'}
         customStyles={{ bottom: styles.button, text: styles.buttonText }}
       />

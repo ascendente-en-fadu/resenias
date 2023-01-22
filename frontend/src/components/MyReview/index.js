@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { DeleteIcon } from '../../images';
-import CarreerButton from '../CarreerButton';
+import CustomButton from '../CustomButton';
 import styles from './styles';
 
 /**
@@ -16,9 +16,9 @@ const MyReview = () => {
 
   return (
     <div style={styles.bottom}>
-      <CarreerButton customStyles={{ bottom: styles.deleteBottom }}>
+      <CustomButton customStyles={{ bottom: styles.deleteBottom }}>
         <DeleteIcon width='1.5em' />
-      </CarreerButton>
+      </CustomButton>
       <div style={styles.reviewContainer}>
         <span style={styles.title}>Tu reseña</span>
         <span style={styles.dataText}>{'Cursé en ' + MY_REVIEW.year}</span>
