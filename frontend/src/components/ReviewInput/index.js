@@ -1,7 +1,7 @@
 import React from 'react';
 
-import styles from './styles';
 import CarreerButton from '../CarreerButton';
+import styles from './styles';
 
 /**
  * Dropdown with a list of elements to choose.

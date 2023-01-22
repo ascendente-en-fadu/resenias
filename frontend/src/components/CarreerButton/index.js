@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { ReactComponent as ArrowIcon } from '../../images/arrow.svg';
 import { mergeStyles } from '../../helpers';
+import { ArrowIcon } from '../../images';
 import styles from './styles';
 
 /**

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ReactComponent as DeleteIcon } from '../../images/delete.svg';
+import { DeleteIcon } from '../../images';
 import CarreerButton from '../CarreerButton';
 import styles from './styles';
 
