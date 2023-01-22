@@ -1,0 +1,145 @@
+{
+  "obtener-carreras": {
+    "carreras": [
+      {
+        "nombre": "DI",
+        "id": 0
+      },
+      {
+        "nombre": "DG",
+        "id": 1
+      },
+      {
+        "nombre": "ARQ",
+        "id": 2
+      }
+    ]
+  },
+  "obtener-materias": [
+    {
+      "carrera": 0,
+      "materias": [
+        {
+          "nombre": "Análisis Matemático II",
+          "id": 0
+        },
+        {
+          "nombre": "Álgebra II",
+          "id": 1
+        },
+        {
+          "nombre": "Física I",
+          "id": 2
+        }
+      ]
+    },
+    {
+      "carrera": 1,
+      "materias": [
+        {
+          "nombre": "Probabilidad y Estadística",
+          "id": 3
+        },
+        {
+          "nombre": "Electromagnetismo",
+          "id": 4
+        },
+        {
+          "nombre": "Análisis de Circuitos",
+          "id": 5
+        }
+      ]
+    }
+  ],
+  "obtener-catedras": [
+    {
+      "materia": 0,
+      "catedras": [
+        {
+          "nombre": "Charmander",
+          "id": 0
+        },
+        {
+          "nombre": "Squirtle",
+          "id": 1
+        },
+        {
+          "nombre": "Bulbasaur",
+          "id": 2
+        }
+      ]
+    },
+    {
+      "materia": 1,
+      "catedras": [
+        {
+          "nombre": "Treecko",
+          "id": 3
+        },
+        {
+          "nombre": "Torchic",
+          "id": 4
+        },
+        {
+          "nombre": "Mudkip",
+          "id": 5
+        }
+      ]
+    }
+  ],
+  "obtener-info-de-catedra": [
+    {
+      "catedra": 0,
+      "mail": "no_tiene_resenias@gmail.com",
+      "turno": 3,
+      "promedio": 2.3,
+      "resenias": [
+        {
+          "anio": "2021",
+          "contenido": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
+          "calificacion": "2",
+          "id": 1
+        },
+        {
+          "anio": "2019",
+          "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
+          "calificacion": "1",
+          "id": 2
+        }
+      ]
+    },
+    {
+      "catedra": 0,
+      "mail": "tiene_resenias@gmail.com",
+      "turno": 3,
+      "promedio": 2.3,
+      "resenia_propia": {
+        "anio": "2020",
+        "contenido": "Me reprobó por un diseño de una aspiradora, malísimo.",
+        "calificacion": "0",
+        "id": 0
+      },
+      "resenias": [
+        {
+          "anio": "2021",
+          "contenido": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
+          "calificacion": "2",
+          "id": 1
+        },
+        {
+          "anio": "2019",
+          "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
+          "calificacion": "1",
+          "id": 2
+        }
+      ]
+    }
+  ],
+  "borrar-resenia": {},
+  "crear-resenia": {
+    "anio": "2020",
+    "contenido": "Re fácil esta cátedra.",
+    "calificacion": 2,
+    "mail": "example@gmail.com"
+  }
+}
