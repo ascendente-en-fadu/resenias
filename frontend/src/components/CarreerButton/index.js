@@ -15,7 +15,13 @@ import styles from './styles';
  * @param {function} onPress function to be called when the button in pressed, passing it's text as argument
  * @param {bool} arrow if true, displays an arrow icon on the right of the button
  */
-const CarreerButton = ({ text, customStyles = {}, onPress, arrow }) => {
+const CarreerButton = ({
+  children,
+  text,
+  customStyles = {},
+  onPress,
+  arrow,
+}) => {
   const [animate, setAnimate] = useState(false);
 
   return (
@@ -40,16 +46,23 @@ const CarreerButton = ({ text, customStyles = {}, onPress, arrow }) => {
           animate && styles.buttonPressed,
         ])}
       >
-        {arrow && <ArrowIcon width='3em' style={styles.arrow} />}
-        <span style={mergeStyles([styles.text, customStyles.text])}>
-          {text}
-        </span>
+        {children ? (
+          children
+        ) : (
+          <>
+            {arrow && <ArrowIcon width='3em' style={styles.arrow} />}
+            <span style={mergeStyles([styles.text, customStyles.text])}>
+              {text}
+            </span>
+          </>
+        )}
       </div>
     </button>
   );
 };
 
 CarreerButton.propTypes = {
+  children: PropTypes.any,
   text: PropTypes.string,
   customStyles: PropTypes.shape({
     bottom: PropTypes.object,

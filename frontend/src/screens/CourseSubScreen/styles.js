@@ -8,12 +8,17 @@ const styles = {
     alignItems: 'center',
     flexDirection: 'column',
   },
-  settingsContainer: {
+  ownReviewWriteContainer: {
     width: '80%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     flex: 1,
+  },
+  ownReviewReadContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   reviewListContainer: {
     flex: 1,
