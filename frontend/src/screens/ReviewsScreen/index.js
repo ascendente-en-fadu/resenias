@@ -8,16 +8,18 @@ import CourseSubScreen from '../CourseSubScreen';
 
 /**
  * Reviews screen that shows the course selector and the course information.
- * @param {string} carreer carreer name to display on top
+ * @param {object} carreer
+ *   @param {string} carreer.name name of the current selected carreer
+ *   @param {number} carreer.id id of the current selected carreer
  * @param {function} goBack function to be called when the carreer indicator is pressed
  */
-const ReviewsScreen = ({ carreer, goBack }) => {
+const ReviewsScreen = ({ carreer = {}, goBack }) => {
   const [selectedCourseData, setSelectedCourseData] = useState();
   return (
     <div style={styles.container}>
       <div style={styles.selectorContainer}>
         <CourseSelector
-          carreer={carreer}
+          carreer={carreer.name}
           goBack={goBack}
           setSelectedCourseData={setSelectedCourseData}
         />
@@ -35,7 +37,10 @@ const ReviewsScreen = ({ carreer, goBack }) => {
 };
 
 ReviewsScreen.propTypes = {
-  carreer: PropTypes.string,
+  carreer: PropTypes.shape({
+    name: PropTypes.string,
+    id: PropTypes.number,
+  }),
   goBack: PropTypes.func,
 };
 

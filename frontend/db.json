@@ -1,20 +1,38 @@
 {
-  "obtener-carreras": {
-    "carreras": [
-      {
-        "nombre": "DI",
-        "id": 0
-      },
-      {
-        "nombre": "DG",
-        "id": 1
-      },
-      {
-        "nombre": "ARQ",
-        "id": 2
-      }
-    ]
-  },
+  "obtener-carreras": [
+    {
+      "name": "CBC",
+      "id": 0
+    },
+    {
+      "name": "DG",
+      "id": 1
+    },
+    {
+      "name": "DInd",
+      "id": 2
+    },
+    {
+      "name": "DP",
+      "id": 3
+    },
+    {
+      "name": "Arq",
+      "id": 4
+    },
+    {
+      "name": "DI",
+      "id": 5
+    },
+    {
+      "name": "DIyS",
+      "id": 6
+    },
+    {
+      "name": "DT",
+      "id": 7
+    }
+  ],
   "obtener-materias": [
     {
       "carrera": 0,
