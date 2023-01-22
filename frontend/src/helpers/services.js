@@ -12,3 +12,25 @@ export const getCarreers = async () => {
   const { data } = await axiosInstance.get('/obtener-carreras');
   return data;
 };
+
+/**
+ * Gets the available carreers list
+ * @returns a carreers list
+ */
+export const getSubjects = async (carreerId) => {
+  const { data } = await axiosInstance.get('/obtener-materias', {
+    params: { carreer: carreerId },
+  });
+  return data[0].subjects;
+};
+
+/**
+ * Gets the available carreers list
+ * @returns a carreers list
+ */
+export const getCourses = async (subjectId) => {
+  const { data } = await axiosInstance.get('/obtener-catedras', {
+    params: { subject: subjectId },
+  });
+  return data[0].courses;
+};

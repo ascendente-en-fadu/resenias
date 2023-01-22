@@ -21,7 +21,6 @@ function App() {
     const getCarreerList = async () => {
       try {
         const response = await getCarreers();
-        console.log(response);
         setCarreers(response);
       } catch (error) {
         console.log(error);

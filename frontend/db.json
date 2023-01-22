@@ -35,35 +35,35 @@
   ],
   "obtener-materias": [
     {
-      "carrera": 0,
-      "materias": [
+      "carreer": 0,
+      "subjects": [
         {
-          "nombre": "Análisis Matemático II",
+          "name": "Análisis Matemático II",
           "id": 0
         },
         {
-          "nombre": "Álgebra II",
+          "name": "Álgebra II",
           "id": 1
         },
         {
-          "nombre": "Física I",
+          "name": "Física I",
           "id": 2
         }
       ]
     },
     {
-      "carrera": 1,
-      "materias": [
+      "carreer": 1,
+      "subjects": [
         {
-          "nombre": "Probabilidad y Estadística",
+          "name": "Probabilidad y Estadística",
           "id": 3
         },
         {
-          "nombre": "Electromagnetismo",
+          "name": "Electromagnetismo",
           "id": 4
         },
         {
-          "nombre": "Análisis de Circuitos",
+          "name": "Análisis de Circuitos",
           "id": 5
         }
       ]
@@ -71,35 +71,35 @@
   ],
   "obtener-catedras": [
     {
-      "materia": 0,
-      "catedras": [
+      "subject": 0,
+      "courses": [
         {
-          "nombre": "Charmander",
+          "name": "Charmander",
           "id": 0
         },
         {
-          "nombre": "Squirtle",
+          "name": "Squirtle",
           "id": 1
         },
         {
-          "nombre": "Bulbasaur",
+          "name": "Bulbasaur",
           "id": 2
         }
       ]
     },
     {
-      "materia": 1,
-      "catedras": [
+      "subject": 1,
+      "courses": [
         {
-          "nombre": "Treecko",
+          "name": "Treecko",
           "id": 3
         },
         {
-          "nombre": "Torchic",
+          "name": "Torchic",
           "id": 4
         },
         {
-          "nombre": "Mudkip",
+          "name": "Mudkip",
           "id": 5
         }
       ]

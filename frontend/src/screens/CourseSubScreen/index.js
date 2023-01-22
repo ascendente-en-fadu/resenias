@@ -7,16 +7,28 @@ import styles from './styles';
  * Subscreen that displays all the course data, including other's reviews and (depending on the user) the own review or the box to wirte one.
  */
 const CourseSubScreen = () => {
-  const YEARS = ['2022', '2021', '2020', '2019', '2018', '2017'];
-  const RATES = ['Sobre nivel', 'Nivel', 'Bajo nivel', 'Ni idea'];
+  const YEARS = [
+    { id: 0, name: '2022' },
+    { id: 1, name: '2021' },
+    { id: 2, name: '2020' },
+    { id: 3, name: '2019' },
+    { id: 4, name: '2018' },
+  ];
+  const RATES = [
+    { id: 0, name: 'Sobre nivel' },
+    { id: 1, name: 'Nivel' },
+    { id: 2, name: 'Bajo nivel' },
+    { id: 3, name: 'Ni idea' },
+  ];
+
   /*const OWN_REVIEW_DATA = {
     content: 'Esta reseña la escribí yo, porque soy el más capo.',
     year: '2025',
     rate: 'Sobre nivel',
   };*/
   const OWN_REVIEW_DATA = undefined;
-  const [year, setYear] = useState('Año');
-  const [rate, setRate] = useState('Calificación');
+  const [year, setYear] = useState();
+  const [rate, setRate] = useState();
 
   return (
     <div style={styles.container}>
@@ -30,6 +42,7 @@ const CourseSubScreen = () => {
           <div style={styles.selectionContainer}>
             <div style={styles.question}>¿En qué año cursaste?</div>
             <Dropdown
+              placeholder='Año'
               value={year}
               elements={YEARS}
               onChange={setYear}
@@ -39,6 +52,7 @@ const CourseSubScreen = () => {
           <div style={styles.selectionContainer}>
             <div style={styles.question}>Calificá tu experiencia</div>
             <Dropdown
+              placeholder='Calificación'
               value={rate}
               elements={RATES}
               onChange={setRate}

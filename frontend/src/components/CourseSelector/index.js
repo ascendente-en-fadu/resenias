@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import CustomButton from '../CustomButton';
@@ -10,35 +10,29 @@ import styles from './styles';
  * @param {string} carreer carreer name to display on top
  * @param {function} goBack function to be called when the carreer indicator is pressed
  */
-const CourseSelector = ({ carreer, goBack, setSelectedCourseData }) => {
-  const SUBJECTS = ['Análisis', 'Álgebra', 'Física', 'Química'];
-  const COURSES = ['Ato', 'Rodriguezberta', 'Berto', 'Jolms'];
-  const INITIAL_SUBJECT_VALUE = 'Materia';
-  const INITIAL_COURSE_VALUE = 'Cátedra';
-  const [subject, setSubject] = useState(INITIAL_SUBJECT_VALUE);
-  const [course, setCourse] = useState(INITIAL_COURSE_VALUE);
-
+const CourseSelector = ({
+  carreer,
+  goBack,
+  courses,
+  subjects,
+  course,
+  subject,
+  setCourse,
+  setSubject,
+}) => {
   /**
-   * Sets the current course selection on the local and external state
-   */
-  const setCurrentCourse = (value) => {
-    setCourse(value);
-    setSelectedCourseData({ course: value, subject: subject });
-  };
-
-  /**
-   * Sets the current subject selection on the local and external state
+   * Set current selected subject and reset course selection
    */
   const _setSubject = (value) => {
     setSubject(value);
-    setCourse(INITIAL_COURSE_VALUE);
+    setCourse(undefined);
   };
 
   return (
     <div style={styles.container}>
       <div style={styles.careerIndicatorContainer}>
         <CustomButton
-          text={carreer}
+          text={carreer.name}
           customStyles={{
             top: styles.carreerButtonTop,
             bottom: styles.carreerButtonBottom,
@@ -49,19 +43,19 @@ const CourseSelector = ({ carreer, goBack, setSelectedCourseData }) => {
       </div>
       <div style={styles.selectorsContainer}>
         <Dropdown
-          text='Materia'
+          placeholder='Materia'
           customStyles={{ bottom: styles.dropdownLeft, list: styles.list }}
           onChange={_setSubject}
           value={subject}
-          elements={SUBJECTS}
+          elements={subjects}
         />
         <Dropdown
-          text='Cátedra'
+          placeholder='Cátedra'
           customStyles={{ list: styles.list }}
-          onChange={setCurrentCourse}
+          onChange={setCourse}
           value={course}
-          disabled={subject === INITIAL_SUBJECT_VALUE}
-          elements={COURSES}
+          disabled={!subject}
+          elements={courses}
         />
       </div>
     </div>
@@ -69,9 +63,14 @@ const CourseSelector = ({ carreer, goBack, setSelectedCourseData }) => {
 };
 
 CourseSelector.propTypes = {
-  carreer: PropTypes.string,
+  carreer: PropTypes.object,
   goBack: PropTypes.func,
-  setSelectedCourseData: PropTypes.func,
+  courses: PropTypes.array,
+  subjects: PropTypes.array,
+  course: PropTypes.object,
+  subject: PropTypes.object,
+  setCourse: PropTypes.func,
+  setSubject: PropTypes.func,
 };
 
 export default CourseSelector;

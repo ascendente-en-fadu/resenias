@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { CourseSelector, Footer } from '../../components';
 import NoCourseSubScreen from '../NoCourseSubScreen';
-import styles from './styles';
 import CourseSubScreen from '../CourseSubScreen';
+import { getCourses, getSubjects } from '../../helpers';
+import styles from './styles';
 
 /**
  * Reviews screen that shows the course selector and the course information.
@@ -14,22 +15,60 @@ import CourseSubScreen from '../CourseSubScreen';
  * @param {function} goBack function to be called when the carreer indicator is pressed
  */
 const ReviewsScreen = ({ carreer = {}, goBack }) => {
-  const [selectedCourseData, setSelectedCourseData] = useState();
+  const [subject, setSubject] = useState();
+  const [course, setCourse] = useState();
+  const [subjects, setSubjects] = useState([]);
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    /**
+     * Gets the subjects list
+     */
+    const getSubjectsList = async () => {
+      try {
+        const response = await getSubjects(carreer.id);
+        setSubjects(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getSubjectsList();
+  }, [carreer]);
+
+  useEffect(() => {
+    /**
+     * Gets the courses list
+     */
+    const getCoursesList = async () => {
+      try {
+        const response = await getCourses(subject.id);
+        setCourses(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    if (subject) {
+      getCoursesList();
+    }
+  }, [subject]);
+
   return (
     <div style={styles.container}>
       <div style={styles.selectorContainer}>
         <CourseSelector
-          carreer={carreer.name}
+          subjects={subjects}
+          courses={courses}
+          subject={subject}
+          course={course}
+          carreer={carreer}
           goBack={goBack}
-          setSelectedCourseData={setSelectedCourseData}
+          setCourse={setCourse}
+          setSubject={setSubject}
         />
       </div>
       <div style={styles.subScreenContainer}>
-        {selectedCourseData?.course ? (
-          <CourseSubScreen />
-        ) : (
-          <NoCourseSubScreen />
-        )}
+        {course ? <CourseSubScreen /> : <NoCourseSubScreen />}
       </div>
       <Footer />
     </div>

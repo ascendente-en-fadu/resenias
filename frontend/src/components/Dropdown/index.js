@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
@@ -12,9 +11,10 @@ import styles from './styles';
  *   @param {object} customStyles.list custom styles for the list container
  *   @param {object} customStyles.bottom custom styles for the bottom layer of the button
  * @param {function} onChange callback to be called when an element is selected
- * @param {string} value current selected value
+ * @param {object} value current selected value
  * @param {boolean} disabled if true, the dropdown is disabled
  * @param {array} elements elements array to be displayed in the list
+ * @param {string} placeholder text to be shown when no option is selected
  */
 const Dropdown = ({
   customStyles = {},
@@ -22,9 +22,11 @@ const Dropdown = ({
   value,
   disabled,
   elements = [],
+  placeholder,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [animate, setAnimate] = useState(false);
+  const showPlaceholder = Boolean(value);
 
   return (
     <div style={mergeStyles([styles.buttonBottom, customStyles.bottom])}>
@@ -47,7 +49,7 @@ const Dropdown = ({
         <span
           style={mergeStyles([styles.text, disabled && styles.disabledText])}
         >
-          {value}
+          {showPlaceholder ? value.name : placeholder}
         </span>
         <ArrowIcon width='1.5em' />
       </button>
@@ -58,17 +60,17 @@ const Dropdown = ({
           isOpen && styles.listOpen,
         ])}
       >
-        {elements.map((text) => (
+        {elements.map((element) => (
           <button
             style={styles.items}
-            key={text}
+            key={element.id}
             onMouseDown={() => {
-              onChange(text);
+              onChange(element);
               setAnimate(false);
               setIsOpen((prev) => !prev);
             }}
           >
-            {text}
+            {element.name}
           </button>
         ))}
       </div>
@@ -77,15 +79,15 @@ const Dropdown = ({
 };
 
 Dropdown.propTypes = {
-  text: PropTypes.string,
+  placeholder: PropTypes.string,
   customStyles: PropTypes.shape({
     bottom: PropTypes.object,
     list: PropTypes.object,
   }),
   onChange: PropTypes.func,
-  value: PropTypes.string,
+  value: PropTypes.object,
   disabled: PropTypes.bool,
-  elements: PropTypes.arrayOf(PropTypes.string),
+  elements: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Dropdown;
