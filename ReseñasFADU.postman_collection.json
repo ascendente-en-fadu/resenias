@@ -11,37 +11,90 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/obtener-carreras",
+					"raw": "{{BASE_URL}}/get-carreers",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
-						"obtener-carreras"
+						"get-carreers"
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Obtener carreras",
+					"name": "Respuesta exitosa",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/obtener-carreras",
+							"raw": "{{BASE_URL}}/get-carreers",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
-								"obtener-carreras"
+								"get-carreers"
 							]
 						}
 					},
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "320"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"140-iSwk5vQ0do51sHRItNKmmNXe+gE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Jan 2023 20:59:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
 					"cookie": [],
-					"body": "{\n    \"carreras\": [\n        {\n            \"nombre\": \"DI\",\n            \"id\": 0\n        },\n        {\n            \"nombre\": \"DG\",\n            \"id\": 1\n        },\n        {\n            \"nombre\": \"ARQ\",\n            \"id\": 2\n        }\n    ]\n}"
+					"body": "[\n    {\n        \"name\": \"CBC\",\n        \"id\": 0\n    },\n    {\n        \"name\": \"DG\",\n        \"id\": 1\n    },\n    {\n        \"name\": \"DInd\",\n        \"id\": 2\n    },\n    {\n        \"name\": \"DP\",\n        \"id\": 3\n    },\n    {\n        \"name\": \"Arq\",\n        \"id\": 4\n    },\n    {\n        \"name\": \"DI\",\n        \"id\": 5\n    },\n    {\n        \"name\": \"DIyS\",\n        \"id\": 6\n    },\n    {\n        \"name\": \"DT\",\n        \"id\": 7\n    }\n]"
 				}
 			]
 		},
@@ -51,16 +104,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/obtener-materias?carrera=0",
+					"raw": "{{BASE_URL}}/get-subjects?carreer=0",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
-						"obtener-materias"
+						"get-subjects"
 					],
 					"query": [
 						{
-							"key": "carrera",
+							"key": "carreer",
 							"value": "0"
 						}
 					]
@@ -68,22 +121,22 @@
 			},
 			"response": [
 				{
-					"name": "Obtener materias",
+					"name": "Respuesta exitosa",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/obtener-materias?carrera=8",
+							"raw": "{{BASE_URL}}/get-subjects?carreer=0",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
-								"obtener-materias"
+								"get-subjects"
 							],
 							"query": [
 								{
-									"key": "carrera",
-									"value": "8"
+									"key": "carreer",
+									"value": "0"
 								}
 							]
 						}
@@ -91,9 +144,62 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "255"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ff-sBWFfhTwlhOJsFrYIqsGDCL3JKo\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Jan 2023 21:00:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
 					"cookie": [],
-					"body": "{\n    \"materias\": [\n        {\n            \"nombre\": \"Análisis Matemático II\",\n            \"id\": 0\n        },\n        {\n            \"nombre\": \"Álgebra II\",\n            \"id\": 1\n        },\n        {\n            \"nombre\": \"Física I\",\n            \"id\": 2\n        }\n    ]\n}"
+					"body": "[\n    {\n        \"carreer\": 0,\n        \"subjects\": [\n            {\n                \"name\": \"Análisis Matemático II\",\n                \"id\": 0\n            },\n            {\n                \"name\": \"Álgebra II\",\n                \"id\": 1\n            },\n            {\n                \"name\": \"Física I\",\n                \"id\": 2\n            }\n        ]\n    }\n]"
 				}
 			]
 		},
@@ -103,39 +209,39 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/obtener-catedras?materia=1",
+					"raw": "{{BASE_URL}}/get-courses?subject=0",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
-						"obtener-catedras"
+						"get-courses"
 					],
 					"query": [
 						{
-							"key": "materia",
-							"value": "1"
+							"key": "subject",
+							"value": "0"
 						}
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Obtener cátedras",
+					"name": "Respuesta exitosa",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/obtener-catedras?materia=2",
+							"raw": "{{BASE_URL}}/get-courses?subject=0",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
-								"obtener-catedras"
+								"get-courses"
 							],
 							"query": [
 								{
-									"key": "materia",
-									"value": "2"
+									"key": "subject",
+									"value": "0"
 								}
 							]
 						}
@@ -143,9 +249,62 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "237"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ed-1xERw1AZN07rb9FnuMwMtLR5KVk\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Jan 2023 21:00:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
 					"cookie": [],
-					"body": "{\n    \"catedras\": [\n        {\n            \"nombre\": \"Charmander\",\n            \"id\": 0\n        },\n        {\n            \"nombre\": \"Squirtle\",\n            \"id\": 1\n        },\n        {\n            \"nombre\": \"Bulbasaur\",\n            \"id\": 2\n        }\n    ]\n}"
+					"body": "[\n    {\n        \"subject\": 0,\n        \"courses\": [\n            {\n                \"name\": \"Charmander\",\n                \"id\": 0\n            },\n            {\n                \"name\": \"Squirtle\",\n                \"id\": 1\n            },\n            {\n                \"name\": \"Bulbasaur\",\n                \"id\": 2\n            }\n        ]\n    }\n]"
 				}
 			]
 		},
@@ -155,47 +314,47 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/obtener-info-de-catedra?catedra=1&mail=example@gmail.com",
+					"raw": "{{BASE_URL}}/get-course-info?course=0&email=no_tiene_resenias@gmail.com",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
-						"obtener-info-de-catedra"
+						"get-course-info"
 					],
 					"query": [
 						{
-							"key": "catedra",
-							"value": "1"
+							"key": "course",
+							"value": "0"
 						},
 						{
-							"key": "mail",
-							"value": "example@gmail.com"
+							"key": "email",
+							"value": "no_tiene_resenias@gmail.com"
 						}
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Obtener información de cátedra",
+					"name": "Respuesta exitosa con reseña propia",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/obtener-info-de-catedra?catedra=2&mail=example@gmail.com",
+							"raw": "{{BASE_URL}}/get-course-info?course=0&email=tiene_resenias@gmail.com",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
-								"obtener-info-de-catedra"
+								"get-course-info"
 							],
 							"query": [
 								{
-									"key": "catedra",
-									"value": "2"
+									"key": "course",
+									"value": "0"
 								},
 								{
-									"key": "mail",
-									"value": "example@gmail.com"
+									"key": "email",
+									"value": "tiene_resenias@gmail.com"
 								}
 							]
 						}
@@ -203,9 +362,147 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "647"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"287-ELnrppmCVSMUWviePifQZJgm1yg\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Jan 2023 21:01:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
 					"cookie": [],
-					"body": "{\n    \"turno\": 3,\n    \"promedio\": 2.3,\n    \"resenia_propia\": {\n        \"anio\": \"2020\",\n        \"contenido\": \"Me reprobó por un diseño de una aspiradora, malísimo.\",\n        \"calificacion\": \"0\",\n        \"id\": 0\n    },\n    \"resenias\": [\n        {\n            \"anio\": \"2021\",\n            \"contenido\": \"Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.\",\n            \"calificacion\": \"2\",\n            \"id\": 1\n        },\n        {\n            \"anio\": \"2019\",\n            \"contenido\": \"Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.\",\n            \"calificacion\": \"1\",\n            \"id\": 2\n        }\n    ]\n}"
+					"body": "[\n    {\n        \"course\": 0,\n        \"email\": \"tiene_resenias@gmail.com\",\n        \"shift\": 3,\n        \"mean\": 2.3,\n        \"own_review\": {\n            \"year\": \"2020\",\n            \"content\": \"Me reprobó por un diseño de una aspiradora, malísimo.\",\n            \"rate\": \"0\",\n            \"id\": 0\n        },\n        \"reviews\": [\n            {\n                \"year\": \"2021\",\n                \"content\": \"Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.\",\n                \"rate\": \"2\",\n                \"id\": 1\n            },\n            {\n                \"year\": \"2019\",\n                \"content\": \"Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.\",\n                \"rate\": \"1\",\n                \"id\": 2\n            }\n        ]\n    }\n]"
+				},
+				{
+					"name": "Respuesta exitosa sin reseña propia",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/get-course-info?course=0&email=no_tiene_resenias@gmail.com",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"get-course-info"
+							],
+							"query": [
+								{
+									"key": "course",
+									"value": "0"
+								},
+								{
+									"key": "email",
+									"value": "no_tiene_resenias@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "491"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1eb-gSPhk74atfSRLV0+J2CbZEP/Tuo\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Jan 2023 21:01:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"course\": 0,\n        \"email\": \"no_tiene_resenias@gmail.com\",\n        \"shift\": 3,\n        \"mean\": 2.3,\n        \"reviews\": [\n            {\n                \"year\": \"2021\",\n                \"content\": \"Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.\",\n                \"rate\": \"2\",\n                \"id\": 1\n            },\n            {\n                \"year\": \"2019\",\n                \"content\": \"Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.\",\n                \"rate\": \"1\",\n                \"id\": 2\n            }\n        ]\n    }\n]"
 				}
 			]
 		},
@@ -215,12 +512,12 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/borrar-resenia?id=3",
+					"raw": "{{BASE_URL}}/delete-review?id=3",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
-						"borrar-resenia"
+						"delete-review"
 					],
 					"query": [
 						{
@@ -237,12 +534,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/borrar-resenia?id=3",
+							"raw": "{{BASE_URL}}/delete-review?id=3",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
-								"borrar-resenia"
+								"delete-review"
 							],
 							"query": [
 								{
@@ -268,7 +565,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"anio\": \"2020\",\r\n    \"contenido\": \"Re fácil esta cátedra.\",\r\n    \"calificacion\": 2,\r\n    \"mail\": \"example@gmail.com\"\r\n}",
+					"raw": "{\r\n    \"year\": \"2020\",\r\n    \"content\": \"Re fácil esta cátedra.\",\r\n    \"rate\": 2,\r\n    \"email\": \"example@gmail.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -276,12 +573,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{BASE_URL}}/crear-resenia",
+					"raw": "{{BASE_URL}}/create-review",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
-						"crear-resenia"
+						"create-review"
 					]
 				}
 			},
@@ -290,17 +587,10 @@
 					"name": "Crear reseña",
 					"originalRequest": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"anio\": \"2020\",\r\n    \"contenido\": \"Re fácil esta cátedra.\",\r\n    \"calificacion\": 2,\r\n    \"mail\": \"example@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"year\": \"2020\",\r\n    \"content\": \"Re fácil esta cátedra.\",\r\n    \"rate\": 2,\r\n    \"email\": \"example@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -308,21 +598,82 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/crear-resenia",
+							"raw": "{{BASE_URL}}/create-review",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
-								"crear-resenia"
+								"create-review"
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
+					"status": "Created",
+					"code": 201,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, X-HTTP-Method-Override, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Location"
+						},
+						{
+							"key": "Location",
+							"value": "http://localhost:3004/create-review"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6a-DAy9O5BEm7nMTMqd1nSESYDPG5o\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Jan 2023 21:02:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
 					"cookie": [],
-					"body": "{}"
+					"body": "{\n    \"year\": \"2020\",\n    \"content\": \"Re fácil esta cátedra.\",\n    \"rate\": 2,\n    \"email\": \"example@gmail.com\"\n}"
 				}
 			]
 		}

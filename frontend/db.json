@@ -1,5 +1,5 @@
 {
-  "obtener-carreras": [
+  "get-carreers": [
     {
       "name": "CBC",
       "id": 0
@@ -33,7 +33,7 @@
       "id": 7
     }
   ],
-  "obtener-materias": [
+  "get-subjects": [
     {
       "carreer": 0,
       "subjects": [
@@ -69,7 +69,7 @@
       ]
     }
   ],
-  "obtener-catedras": [
+  "get-courses": [
     {
       "subject": 0,
       "courses": [
@@ -105,59 +105,59 @@
       ]
     }
   ],
-  "obtener-info-de-catedra": [
+  "get-course-info": [
     {
-      "catedra": 0,
-      "mail": "no_tiene_resenias@gmail.com",
-      "turno": 3,
-      "promedio": 2.3,
-      "resenias": [
+      "course": 0,
+      "email": "no_tiene_resenias@gmail.com",
+      "shift": 3,
+      "mean": 2.3,
+      "reviews": [
         {
-          "anio": "2021",
-          "contenido": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
-          "calificacion": "2",
+          "year": "2021",
+          "content": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
+          "rate": "2",
           "id": 1
         },
         {
-          "anio": "2019",
-          "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
-          "calificacion": "1",
+          "year": "2019",
+          "content": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
+          "rate": "1",
           "id": 2
         }
       ]
     },
     {
-      "catedra": 0,
-      "mail": "tiene_resenias@gmail.com",
-      "turno": 3,
-      "promedio": 2.3,
-      "resenia_propia": {
-        "anio": "2020",
-        "contenido": "Me reprobó por un diseño de una aspiradora, malísimo.",
-        "calificacion": "0",
+      "course": 0,
+      "email": "tiene_resenias@gmail.com",
+      "shift": 3,
+      "mean": 2.3,
+      "own_review": {
+        "year": "2020",
+        "content": "Me reprobó por un diseño de una aspiradora, malísimo.",
+        "rate": "0",
         "id": 0
       },
-      "resenias": [
+      "reviews": [
         {
-          "anio": "2021",
-          "contenido": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
-          "calificacion": "2",
+          "year": "2021",
+          "content": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
+          "rate": "2",
           "id": 1
         },
         {
-          "anio": "2019",
-          "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
-          "calificacion": "1",
+          "year": "2019",
+          "content": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
+          "rate": "1",
           "id": 2
         }
       ]
     }
   ],
-  "borrar-resenia": {},
-  "crear-resenia": {
-    "anio": "2020",
-    "contenido": "Re fácil esta cátedra.",
-    "calificacion": 2,
-    "mail": "example@gmail.com"
+  "delete-review": {},
+  "create-review": {
+    "year": "2020",
+    "content": "Re fácil esta cátedra.",
+    "rate": 2,
+    "email": "example@gmail.com"
   }
 }
