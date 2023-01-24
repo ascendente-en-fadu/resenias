@@ -1,7 +1,7 @@
 {
   "get-carreers": [
     {
-      "name": "CBC",
+      "name": "CBC+",
       "id": 0
     },
     {
@@ -38,7 +38,7 @@
       "carreer": 0,
       "subjects": [
         {
-          "name": "Análisis Matemático II",
+          "name": "Análisis Matemático II+",
           "id": 0
         },
         {
@@ -74,11 +74,11 @@
       "subject": 0,
       "courses": [
         {
-          "name": "Charmander",
+          "name": "Charmander+",
           "id": 0
         },
         {
-          "name": "Squirtle",
+          "name": "Squirtle+",
           "id": 1
         },
         {
@@ -113,51 +113,71 @@
       "mean": 2.3,
       "reviews": [
         {
-          "year": "2021",
+          "year": 2021,
           "content": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
-          "rate": "2",
+          "rate": 2,
           "id": 1
         },
         {
-          "year": "2019",
+          "year": 2019,
           "content": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
-          "rate": "1",
+          "rate": 1,
           "id": 2
         }
       ]
     },
     {
-      "course": 0,
+      "course": 1,
       "email": "tiene_resenias@gmail.com",
       "shift": 3,
       "mean": 2.3,
       "own_review": {
-        "year": "2020",
+        "year": 2020,
         "content": "Me reprobó por un diseño de una aspiradora, malísimo.",
-        "rate": "0",
+        "rate": 0,
         "id": 0
       },
       "reviews": [
         {
-          "year": "2021",
+          "year": 2021,
           "content": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
-          "rate": "2",
+          "rate": 2,
           "id": 1
         },
         {
-          "year": "2019",
+          "year": 2019,
           "content": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
-          "rate": "1",
+          "rate": 1,
           "id": 2
+        },
+        {
+          "year": 2020,
+          "content": "La mejor cátedra de todas. Va a estar piola cuando volvamos a la presencialidad el mes que viene.",
+          "rate": 2,
+          "id": 3
+        },
+        {
+          "year": 2022,
+          "content": "Ayudame loco.",
+          "rate": 0,
+          "id": 4
         }
       ]
     }
   ],
   "delete-review": {},
   "create-review": {
-    "year": "2020",
-    "content": "Re fácil esta cátedra.",
-    "rate": 2,
-    "email": "example@gmail.com"
+    "params": {
+      "review": {
+        "year": {
+          "id": 0,
+          "name": "2022"
+        },
+        "rate": {
+          "id": 1,
+          "name": "Nivel"
+        }
+      }
+    }
   }
 }

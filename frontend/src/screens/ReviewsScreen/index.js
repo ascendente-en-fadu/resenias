@@ -4,12 +4,18 @@ import PropTypes from 'prop-types';
 import { CourseSelector, Footer } from '../../components';
 import NoCourseSubScreen from '../NoCourseSubScreen';
 import CourseSubScreen from '../CourseSubScreen';
-import { getCourses, getSubjects } from '../../helpers';
+import {
+  deleteReview,
+  getCourseInfo,
+  getCourses,
+  getSubjects,
+  sendReview,
+} from '../../helpers';
 import styles from './styles';
 
 /**
- * Reviews screen that shows the course selector and the course information.
- * @param {object} carreer
+ * Reviews screen that shows the course selector, the course information and the review write input.
+ * @param {object} carreer current selected carreer
  *   @param {string} carreer.name name of the current selected carreer
  *   @param {number} carreer.id id of the current selected carreer
  * @param {function} goBack function to be called when the carreer indicator is pressed
@@ -19,10 +25,11 @@ const ReviewsScreen = ({ carreer = {}, goBack }) => {
   const [course, setCourse] = useState();
   const [subjects, setSubjects] = useState([]);
   const [courses, setCourses] = useState([]);
+  const [courseInfo, setCourseInfo] = useState({});
 
   useEffect(() => {
     /**
-     * Gets the subjects list
+     * Gets the subjects list from BE and saves it to local state
      */
     const getSubjectsList = async () => {
       try {
@@ -38,7 +45,7 @@ const ReviewsScreen = ({ carreer = {}, goBack }) => {
 
   useEffect(() => {
     /**
-     * Gets the courses list
+     * Gets the courses list for a given subject from BE and saves it to local state
      */
     const getCoursesList = async () => {
       try {
@@ -52,6 +59,50 @@ const ReviewsScreen = ({ carreer = {}, goBack }) => {
       getCoursesList();
     }
   }, [subject]);
+
+  useEffect(() => {
+    /**
+     * Gets the reviews list for a given course from BE and saves it to local state
+     */
+    const getReviewsList = async () => {
+      try {
+        const response = await getCourseInfo(course.id);
+        setCourseInfo(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    if (course) {
+      getReviewsList();
+    }
+  }, [course]);
+
+  /**
+   * Sends a review written by the user to BE
+   * @param {object} review review object to be sent
+   *   @param {number} review.year year when the course was taken
+   *   @param {string} review.content review text content
+   *   @param {number} review.rate rate value
+   */
+  const sendCurrentReview = async (review) => {
+    try {
+      await sendReview(review);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  /**
+   * Deletes the review written by the user on BE
+   * @param {number} reviewId id of the review to be deleted
+   */
+  const deleteOwnReview = async (reviewId) => {
+    try {
+      await deleteReview(reviewId);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div style={styles.container}>
@@ -68,7 +119,16 @@ const ReviewsScreen = ({ carreer = {}, goBack }) => {
         />
       </div>
       <div style={styles.subScreenContainer}>
-        {course ? <CourseSubScreen /> : <NoCourseSubScreen />}
+        {course ? (
+          <CourseSubScreen
+            sendCurrentReview={sendCurrentReview}
+            reviews={courseInfo?.reviews}
+            ownReview={courseInfo?.own_review}
+            deleteOwnReview={deleteOwnReview}
+          />
+        ) : (
+          <NoCourseSubScreen />
+        )}
       </div>
       <Footer />
     </div>

@@ -5,7 +5,7 @@ import { MOCK_URL } from '../constants/misc';
 const axiosInstance = axios.create({ baseURL: MOCK_URL, timeout: 3000 });
 
 /**
- * Gets the available carreers list
+ * Gets the carreers list
  * @returns a carreers list
  */
 export const getCarreers = async () => {
@@ -14,8 +14,9 @@ export const getCarreers = async () => {
 };
 
 /**
- * Gets the available carreers list
- * @returns a carreers list
+ * Gets the subjects list for a given carreer
+ * @param {number} carreerId id of the carreer to get it's subjects
+ * @returns a subjects list
  */
 export const getSubjects = async (carreerId) => {
   const { data } = await axiosInstance.get('/get-subjects', {
@@ -25,12 +26,48 @@ export const getSubjects = async (carreerId) => {
 };
 
 /**
- * Gets the available carreers list
- * @returns a carreers list
+ * Gets the courses list for a given subject
+ * @param {number} subjectId id of the subject to get it's courses
+ * @returns a courses list
  */
 export const getCourses = async (subjectId) => {
   const { data } = await axiosInstance.get('/get-courses', {
     params: { subject: subjectId },
   });
   return data[0].courses;
+};
+
+/**
+ * Sends a review written by the user
+ * @param {object} review review object to be sent
+ *   @param {number} review.year year when the course was taken
+ *   @param {string} review.content review text content
+ *   @param {number} review.rate rate value
+ */
+export const sendReview = async (review) => {
+  await axiosInstance.post('/create-review', {
+    params: { review: review },
+  });
+};
+
+/**
+ * Gets the course info for a given course
+ * @param {number} courseId id of the course to get it's information
+ * @returns a course information object
+ */
+export const getCourseInfo = async (courseId) => {
+  const { data } = await axiosInstance.get('/get-course-info', {
+    params: { course: courseId },
+  });
+  return data[0];
+};
+
+/**
+ * Delete a review previously written by the user
+ * @param {number} reviewId id of the review to be deleted
+ */
+export const deleteReview = async (reviewId) => {
+  await axiosInstance.delete('/delete-review', {
+    params: { id: reviewId },
+  });
 };

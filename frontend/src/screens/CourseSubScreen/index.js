@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { Dropdown, ReviewInput, ReviewsList, MyReview } from '../../components';
 import styles from './styles';
 
 /**
  * Subscreen that displays all the course data, including other's reviews and (depending on the user) the own review or the box to wirte one.
+ * @param {function} sendCurrentReview function to send the currently written review, recieving a review object as an argument
+ * @param {function} deleteOwnReview function to delete the review written by the user, taking the review id as an argument
+ * @param {array} reviews review list of the current selected course
+ * @param {object} ownReview object of the rewiew written by the user
+ *   @param {number} ownReview.year year when the course was taken
+ *   @param {string} ownReview.content review text content
+ *   @param {number} ownReview.rate rate value
  */
-const CourseSubScreen = () => {
+const CourseSubScreen = ({
+  sendCurrentReview,
+  deleteOwnReview,
+  reviews = [],
+  ownReview,
+}) => {
   const YEARS = [
     { id: 0, name: '2022' },
     { id: 1, name: '2021' },
@@ -21,20 +34,14 @@ const CourseSubScreen = () => {
     { id: 3, name: 'Ni idea' },
   ];
 
-  /*const OWN_REVIEW_DATA = {
-    content: 'Esta reseña la escribí yo, porque soy el más capo.',
-    year: '2025',
-    rate: 'Sobre nivel',
-  };*/
-  const OWN_REVIEW_DATA = undefined;
   const [year, setYear] = useState();
   const [rate, setRate] = useState();
 
   return (
     <div style={styles.container}>
-      {OWN_REVIEW_DATA ? (
+      {ownReview ? (
         <div style={styles.ownReviewReadContainer}>
-          <MyReview />
+          <MyReview review={ownReview} deleteOwnReview={deleteOwnReview} />
         </div>
       ) : (
         <div style={styles.ownReviewWriteContainer}>
@@ -60,13 +67,35 @@ const CourseSubScreen = () => {
             />
           </div>
           <div style={styles.reviewInputContainer}>
-            <ReviewInput />
+            <ReviewInput
+              onPress={(content) => {
+                sendCurrentReview({ content: content, year: year, rate: rate });
+              }}
+            />
           </div>
         </div>
       )}
-      <ReviewsList />
+      <ReviewsList reviews={reviews} />
     </div>
   );
+};
+
+CourseSubScreen.propTypes = {
+  sendCurrentReview: PropTypes.func,
+  reviews: PropTypes.arrayOf(
+    PropTypes.shape({
+      year: PropTypes.number,
+      content: PropTypes.string,
+      rate: PropTypes.number,
+      id: PropTypes.number,
+    }),
+  ),
+  ownReview: PropTypes.shape({
+    year: PropTypes.number,
+    content: PropTypes.string,
+    rate: PropTypes.number,
+  }),
+  deleteOwnReview: PropTypes.func,
 };
 
 export default CourseSubScreen;

@@ -6,14 +6,15 @@ import { ArrowIcon } from '../../images';
 import styles from './styles';
 
 /**
- * Career selection button, with a centered text and a press animation.
- * @param {any} children if present, replaces the content of the button for the children component
- * @param {string} text buttont text
+ * Career selection button, with a centered text and a press animation. Optionally, an arrow on the left side can be shown.
+ * Alternatively, the content con be replaced by a childer component.
+ * @param {any} children if present, replaces the whole content of the button for the children component
+ * @param {string} text button text
  * @param {object} customStyles
  *   @param {object} customStyles.top custom styles for the top layer of the button
  *   @param {object} customStyles.bottom custom styles for the bottom layer of the button
  *   @param {object} customStyles.text custom styles for the button text
- * @param {function} onPress function to be called when the button in pressed, passing it's text as argument
+ * @param {function} onPress function to be called when the button in pressed, passing it's text as en argument
  * @param {bool} arrow if true, displays an arrow icon on the right of the button
  */
 const CustomButton = ({

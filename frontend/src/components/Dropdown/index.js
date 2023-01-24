@@ -6,13 +6,14 @@ import { ArrowIcon } from '../../images';
 import styles from './styles';
 
 /**
- * Dropdown with a list of elements to choose.
+ * Dropdown that displays a list of elements to choose from.
  * @param {object} customStyles
  *   @param {object} customStyles.list custom styles for the list container
  *   @param {object} customStyles.bottom custom styles for the bottom layer of the button
- * @param {function} onChange callback to be called when an element is selected
+ * @param {function} onChange function to be called when an element is clicked, taking the element as an argument
  * @param {object} value current selected value
- * @param {boolean} disabled if true, the dropdown is disabled
+ *   @param {string} value.name current selected value name to be shown
+ * @param {boolean} disabled if true, the dropdown is not interactable
  * @param {array} elements elements array to be displayed in the list
  * @param {string} placeholder text to be shown when no option is selected
  */
@@ -26,7 +27,6 @@ const Dropdown = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [animate, setAnimate] = useState(false);
-  const showPlaceholder = Boolean(value);
 
   return (
     <div style={mergeStyles([styles.buttonBottom, customStyles.bottom])}>
@@ -49,7 +49,7 @@ const Dropdown = ({
         <span
           style={mergeStyles([styles.text, disabled && styles.disabledText])}
         >
-          {showPlaceholder ? value.name : placeholder}
+          {value?.name ?? placeholder}
         </span>
         <ArrowIcon width='1.5em' />
       </button>
@@ -85,9 +85,16 @@ Dropdown.propTypes = {
     list: PropTypes.object,
   }),
   onChange: PropTypes.func,
-  value: PropTypes.object,
+  value: PropTypes.shape({
+    name: PropTypes.string,
+  }),
   disabled: PropTypes.bool,
-  elements: PropTypes.arrayOf(PropTypes.object),
+  elements: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      id: PropTypes.number,
+    }),
+  ),
 };
 
 export default Dropdown;
