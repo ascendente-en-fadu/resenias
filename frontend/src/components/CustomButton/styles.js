@@ -16,6 +16,9 @@ const styles = {
     color: Colors.lightGray,
     fontFamily: Fonts.semiBold,
   },
+  disabledText: {
+    color: Colors.gray,
+  },
   buttonTop: {
     position: 'absolute',
     top: '-5px',

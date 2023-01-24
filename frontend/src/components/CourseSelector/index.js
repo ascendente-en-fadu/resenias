@@ -31,14 +31,6 @@ const CourseSelector = ({
   subject,
   setSubject,
 }) => {
-  /**
-   * Set current selected subject and reset course selection
-   */
-  const _setSubject = (value) => {
-    setSubject(value);
-    setCourse(undefined);
-  };
-
   return (
     <div style={styles.container}>
       <div style={styles.careerIndicatorContainer}>
@@ -56,8 +48,9 @@ const CourseSelector = ({
         <Dropdown
           placeholder='Materia'
           customStyles={{ bottom: styles.dropdownLeft, list: styles.list }}
-          onChange={_setSubject}
+          onChange={setSubject}
           value={subject}
+          disabled={!subjects}
           elements={subjects}
         />
         <Dropdown
@@ -65,7 +58,7 @@ const CourseSelector = ({
           customStyles={{ list: styles.list }}
           onChange={setCourse}
           value={course}
-          disabled={!subject}
+          disabled={!subject || !courses}
           elements={courses}
         />
       </div>
@@ -74,8 +67,8 @@ const CourseSelector = ({
 };
 
 CourseSelector.propTypes = {
-  goBack: PropTypes.func,
-  carreer: PropTypes.object,
+  goBack: PropTypes.func.isRequired,
+  carreer: PropTypes.object.isRequired,
   courses: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
@@ -92,12 +85,12 @@ CourseSelector.propTypes = {
     name: PropTypes.string,
     id: PropTypes.number,
   }),
-  setCourse: PropTypes.func,
+  setCourse: PropTypes.func.isRequired,
   subject: PropTypes.shape({
     name: PropTypes.string,
     id: PropTypes.number,
   }),
-  setSubject: PropTypes.func,
+  setSubject: PropTypes.func.isRequired,
 };
 
 export default CourseSelector;

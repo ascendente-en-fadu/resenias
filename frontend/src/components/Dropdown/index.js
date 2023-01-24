@@ -39,9 +39,7 @@ const Dropdown = ({
             setAnimate(false);
             setIsOpen((prev) => !prev);
           },
-          cancel: () => {
-            animate && setAnimate(false);
-          },
+          cancel: () => animate && setAnimate(false),
         })}
       >
         <span
@@ -62,11 +60,13 @@ const Dropdown = ({
           <button
             style={styles.items}
             key={element.id}
-            onMouseDown={() => {
-              onChange(element);
-              setAnimate(false);
-              setIsOpen((prev) => !prev);
-            }}
+            {...onPressEvents({
+              end: () => {
+                onChange(element);
+                setAnimate(false);
+                setIsOpen((prev) => !prev);
+              },
+            })}
           >
             {element.name}
           </button>
@@ -82,7 +82,7 @@ Dropdown.propTypes = {
     bottom: PropTypes.object,
     list: PropTypes.object,
   }),
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
   value: PropTypes.shape({
     name: PropTypes.string,
   }),

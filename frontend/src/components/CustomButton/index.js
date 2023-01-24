@@ -14,8 +14,9 @@ import styles from './styles';
  *   @param {object} customStyles.top custom styles for the top layer of the button
  *   @param {object} customStyles.bottom custom styles for the bottom layer of the button
  *   @param {object} customStyles.text custom styles for the button text
- * @param {function} onPress function to be called when the button in pressed, passing it's text as en argument
+ * @param {function} onPress function to be called when the button in pressed
  * @param {bool} arrow if true, displays an arrow icon on the right of the button
+ * @param {bool} disabled if true, the button is not interactable
  */
 const CustomButton = ({
   children,
@@ -23,17 +24,19 @@ const CustomButton = ({
   customStyles = {},
   onPress,
   arrow,
+  disabled,
 }) => {
   const [animate, setAnimate] = useState(false);
 
   return (
     <button
+      disabled={disabled}
       style={mergeStyles([styles.buttonBottom, customStyles.bottom])}
       {...onPressEvents({
-        start: () => setAnimate(true),
+        start: () => !disabled && setAnimate(true),
         end: () => {
           setAnimate(false);
-          onPress(text);
+          onPress();
         },
         cancel: () => animate && setAnimate(false),
       })}
@@ -50,7 +53,13 @@ const CustomButton = ({
         ) : (
           <>
             {arrow && <ArrowIcon width='3em' style={styles.arrow} />}
-            <span style={mergeStyles([styles.text, customStyles.text])}>
+            <span
+              style={mergeStyles([
+                styles.text,
+                customStyles.text,
+                disabled && styles.disabledText,
+              ])}
+            >
               {text}
             </span>
           </>
@@ -68,8 +77,9 @@ CustomButton.propTypes = {
     top: PropTypes.object,
     text: PropTypes.object,
   }),
-  onPress: PropTypes.func,
+  onPress: PropTypes.func.isRequired,
   arrow: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 export default CustomButton;

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { MOCK_URL } from '../constants/misc';
 
-const axiosInstance = axios.create({ baseURL: MOCK_URL, timeout: 3000 });
+const axiosInstance = axios.create({ baseURL: MOCK_URL, timeout: 15000 });
 
 /**
  * Gets the carreers list

@@ -20,12 +20,30 @@ import styles from './styles';
  *   @param {number} carreer.id id of the current selected carreer
  * @param {function} goBack function to be called when the carreer indicator is pressed
  */
-const ReviewsScreen = ({ carreer = {}, goBack }) => {
+const ReviewsScreen = ({ carreer, goBack }) => {
   const [subject, setSubject] = useState();
   const [course, setCourse] = useState();
-  const [subjects, setSubjects] = useState([]);
-  const [courses, setCourses] = useState([]);
-  const [courseInfo, setCourseInfo] = useState({});
+  const [subjects, setSubjects] = useState();
+  const [courses, setCourses] = useState();
+  const [courseInfo, setCourseInfo] = useState();
+
+  /**
+   * Sets the current selected course and removes the previously course information
+   */
+  const _setCourse = (value) => {
+    setCourse(value);
+    setCourseInfo(undefined);
+  };
+
+  /**
+   * Sets the current selected subject and removes the previously selected course, the course list, and the course info
+   */
+  const _setSubject = (value) => {
+    setSubject(value);
+    setCourse(undefined);
+    setCourses(undefined);
+    setCourseInfo(undefined);
+  };
 
   useEffect(() => {
     /**
@@ -114,16 +132,16 @@ const ReviewsScreen = ({ carreer = {}, goBack }) => {
           course={course}
           carreer={carreer}
           goBack={goBack}
-          setCourse={setCourse}
-          setSubject={setSubject}
+          setCourse={_setCourse}
+          setSubject={_setSubject}
         />
       </div>
       <div style={styles.subScreenContainer}>
-        {course ? (
+        {course && courseInfo ? (
           <CourseSubScreen
             sendCurrentReview={sendCurrentReview}
-            reviews={courseInfo?.reviews}
-            ownReview={courseInfo?.own_review}
+            reviews={courseInfo.reviews}
+            ownReview={courseInfo.own_review}
             deleteOwnReview={deleteOwnReview}
           />
         ) : (
@@ -139,8 +157,8 @@ ReviewsScreen.propTypes = {
   carreer: PropTypes.shape({
     name: PropTypes.string,
     id: PropTypes.number,
-  }),
-  goBack: PropTypes.func,
+  }).isRequired,
+  goBack: PropTypes.func.isRequired,
 };
 
 export default ReviewsScreen;

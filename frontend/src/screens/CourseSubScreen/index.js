@@ -81,7 +81,8 @@ const CourseSubScreen = ({
 };
 
 CourseSubScreen.propTypes = {
-  sendCurrentReview: PropTypes.func,
+  sendCurrentReview: PropTypes.func.isRequired,
+  deleteOwnReview: PropTypes.func.isRequired,
   reviews: PropTypes.arrayOf(
     PropTypes.shape({
       year: PropTypes.number,
@@ -95,7 +96,6 @@ CourseSubScreen.propTypes = {
     content: PropTypes.string,
     rate: PropTypes.number,
   }),
-  deleteOwnReview: PropTypes.func,
 };
 
 export default CourseSubScreen;

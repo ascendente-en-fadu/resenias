@@ -43,13 +43,13 @@ const CarreersScreen = ({ setCurrentCarreer, carreers }) => {
 };
 
 CarreersScreen.propTypes = {
-  setCurrentCarreer: PropTypes.func,
+  setCurrentCarreer: PropTypes.func.isRequired,
   carreers: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
       id: PropTypes.number,
     }),
-  ),
+  ).isRequired,
 };
 
 export default CarreersScreen;

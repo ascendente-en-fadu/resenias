@@ -21,6 +21,7 @@ const ReviewInput = ({ onPress }) => {
         }}
       />
       <CustomButton
+        disabled={!content}
         text={'ENVIAR'}
         customStyles={{ bottom: styles.button, text: styles.buttonText }}
         onPress={() => {
@@ -32,7 +33,7 @@ const ReviewInput = ({ onPress }) => {
 };
 
 ReviewInput.propTypes = {
-  onPress: PropTypes.func,
+  onPress: PropTypes.func.isRequired,
 };
 
 export default ReviewInput;

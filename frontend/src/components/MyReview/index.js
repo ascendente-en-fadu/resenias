@@ -13,7 +13,7 @@ import styles from './styles';
  *   @param {number} review.rate rate value
  * @param {function} deleteOwnReview function to be called when the delete button is pressed, receiving the review id as an argument
  */
-const MyReview = ({ review = {}, deleteOwnReview }) => {
+const MyReview = ({ review, deleteOwnReview }) => {
   return (
     <div style={styles.bottom}>
       <CustomButton
@@ -39,8 +39,9 @@ MyReview.propTypes = {
     year: PropTypes.number,
     content: PropTypes.string,
     rate: PropTypes.number,
-  }),
-  deleteOwnReview: PropTypes.func,
+    id: PropTypes.number,
+  }).isRequired,
+  deleteOwnReview: PropTypes.func.isRequired,
 };
 
 export default MyReview;
