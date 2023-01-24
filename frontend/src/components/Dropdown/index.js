@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { mergeStyles } from '../../helpers';
+import { mergeStyles, onPressEvents } from '../../helpers';
 import { ArrowIcon } from '../../images';
 import styles from './styles';
 
@@ -33,18 +33,16 @@ const Dropdown = ({
       <button
         disabled={disabled}
         style={mergeStyles([styles.buttonTop, animate && styles.buttonPressed])}
-        onMouseDown={() => !disabled && setAnimate(true)}
-        onMouseUp={() => {
-          setAnimate(false);
-          setIsOpen((prev) => !prev);
-        }}
-        onMouseLeave={() => {
-          if (animate) {
+        {...onPressEvents({
+          start: () => !disabled && setAnimate(true),
+          end: () => {
             setAnimate(false);
             setIsOpen((prev) => !prev);
-          }
-        }}
-        onTouchStart={() => !disabled && setAnimate(true)}
+          },
+          cancel: () => {
+            animate && setAnimate(false);
+          },
+        })}
       >
         <span
           style={mergeStyles([styles.text, disabled && styles.disabledText])}

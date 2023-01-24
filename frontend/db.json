@@ -5,7 +5,7 @@
       "id": 0
     },
     {
-      "name": "DG",
+      "name": "DG+",
       "id": 1
     },
     {
@@ -42,7 +42,7 @@
           "id": 0
         },
         {
-          "name": "Álgebra II",
+          "name": "Álgebra II+",
           "id": 1
         },
         {
@@ -65,6 +65,26 @@
         {
           "name": "Análisis de Circuitos",
           "id": 5
+        },
+        {
+          "name": "Análisis Numérico",
+          "id": 6
+        },
+        {
+          "name": "Dispositivos Semiconductores",
+          "id": 7
+        },
+        {
+          "name": "Física II",
+          "id": 8
+        },
+        {
+          "name": "Física III",
+          "id": 9
+        },
+        {
+          "name": "Algoritmos y Programación I",
+          "id": 10
         }
       ]
     }
@@ -82,7 +102,7 @@
           "id": 1
         },
         {
-          "name": "Bulbasaur",
+          "name": "Bulbasaur+",
           "id": 2
         }
       ]
@@ -91,16 +111,36 @@
       "subject": 1,
       "courses": [
         {
-          "name": "Treecko",
+          "name": "Fernández",
           "id": 3
         },
         {
-          "name": "Torchic",
+          "name": "Pérez",
           "id": 4
         },
         {
-          "name": "Mudkip",
+          "name": "Gómez",
           "id": 5
+        },
+        {
+          "name": "González",
+          "id": 6
+        },
+        {
+          "name": "Rodríguez",
+          "id": 7
+        },
+        {
+          "name": "Gutiérrez",
+          "id": 8
+        },
+        {
+          "name": "Hernández",
+          "id": 9
+        },
+        {
+          "name": "Martínez",
+          "id": 10
         }
       ]
     }
@@ -108,59 +148,100 @@
   "get-course-info": [
     {
       "course": 0,
-      "email": "no_tiene_resenias@gmail.com",
       "shift": 3,
       "mean": 2.3,
       "reviews": [
         {
-          "year": 2021,
-          "content": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
-          "rate": 2,
-          "id": 1
-        },
-        {
           "year": 2019,
           "content": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
           "rate": 1,
-          "id": 2
+          "id": 1
+        },
+        {
+          "year": 2021,
+          "content": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
+          "rate": 2,
+          "id": 0
         }
       ]
     },
     {
       "course": 1,
-      "email": "tiene_resenias@gmail.com",
       "shift": 3,
       "mean": 2.3,
       "own_review": {
         "year": 2020,
         "content": "Me reprobó por un diseño de una aspiradora, malísimo.",
         "rate": 0,
-        "id": 0
+        "id": 2
       },
       "reviews": [
         {
           "year": 2021,
           "content": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
           "rate": 2,
-          "id": 1
+          "id": 3
         },
         {
           "year": 2019,
           "content": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
           "rate": 1,
-          "id": 2
+          "id": 4
         },
         {
           "year": 2020,
           "content": "La mejor cátedra de todas. Va a estar piola cuando volvamos a la presencialidad el mes que viene.",
           "rate": 2,
-          "id": 3
+          "id": 5
         },
         {
           "year": 2022,
           "content": "Ayudame loco.",
           "rate": 0,
-          "id": 4
+          "id": 6
+        }
+      ]
+    },
+    {
+      "course": 2,
+      "shift": 3,
+      "mean": 2.3,
+      "reviews": [
+        {
+          "year": 2021,
+          "content": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
+          "rate": 2,
+          "id": 7
+        },
+        {
+          "year": 2019,
+          "content": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
+          "rate": 1,
+          "id": 8
+        },
+        {
+          "year": 2020,
+          "content": "La mejor cátedra de todas. Va a estar piola cuando volvamos a la presencialidad el mes que viene.",
+          "rate": 2,
+          "id": 9
+        },
+        {
+          "year": 2022,
+          "content": "Ayudame loco.",
+          "rate": 0,
+          "id": 10
+        },
+        {
+          "year": 2015,
+          "content": "Ya estoy empezando a necesitar un generador de data automático, porque esto de escribir tantas reseñas se está poniendo molesto. Lo bueno es que mientras escribo esto estoy llenado espacio jeje.",
+          "rate": 2,
+          "id": 11
+        },
+        {
+          "year": 2021,
+          "content": "Ya se me acabó la imaginación, equisde.",
+          "rate": 0,
+          "id": 12
         }
       ]
     }
@@ -170,12 +251,12 @@
     "params": {
       "review": {
         "year": {
-          "id": 0,
-          "name": "2022"
+          "id": 1,
+          "name": "2021"
         },
         "rate": {
-          "id": 1,
-          "name": "Nivel"
+          "id": 0,
+          "name": "Sobre nivel"
         }
       }
     }

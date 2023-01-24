@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { mergeStyles } from '../../helpers';
+import { mergeStyles, onPressEvents } from '../../helpers';
 import { ArrowIcon } from '../../images';
 import styles from './styles';
 
@@ -29,17 +29,14 @@ const CustomButton = ({
   return (
     <button
       style={mergeStyles([styles.buttonBottom, customStyles.bottom])}
-      onMouseDown={() => {
-        setAnimate(true);
-        onPress(text);
-      }}
-      onMouseUp={() => setAnimate(false)}
-      onTouchStart={() => setAnimate(true)}
-      onMouseLeave={() => {
-        if (animate) {
+      {...onPressEvents({
+        start: () => setAnimate(true),
+        end: () => {
           setAnimate(false);
-        }
-      }}
+          onPress(text);
+        },
+        cancel: () => animate && setAnimate(false),
+      })}
     >
       <div
         style={mergeStyles([
