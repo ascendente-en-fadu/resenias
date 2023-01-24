@@ -179,15 +179,15 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "255"
+							"value": "257"
 						},
 						{
 							"key": "ETag",
-							"value": "W/\"ff-sBWFfhTwlhOJsFrYIqsGDCL3JKo\""
+							"value": "W/\"101-tr8pcs+76XO917jr4geIZYiCJ2U\""
 						},
 						{
 							"key": "Date",
-							"value": "Sun, 22 Jan 2023 21:00:03 GMT"
+							"value": "Tue, 24 Jan 2023 02:43:28 GMT"
 						},
 						{
 							"key": "Connection",
@@ -284,15 +284,15 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "237"
+							"value": "240"
 						},
 						{
 							"key": "ETag",
-							"value": "W/\"ed-1xERw1AZN07rb9FnuMwMtLR5KVk\""
+							"value": "W/\"f0-F6RGYm6PeB0Z6R1bwq/uR+iS6pk\""
 						},
 						{
 							"key": "Date",
-							"value": "Sun, 22 Jan 2023 21:00:24 GMT"
+							"value": "Tue, 24 Jan 2023 02:44:29 GMT"
 						},
 						{
 							"key": "Connection",
@@ -314,7 +314,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/get-course-info?course=0&email=no_tiene_resenias@gmail.com",
+					"raw": "{{BASE_URL}}/get-course-info?course=0",
 					"host": [
 						"{{BASE_URL}}"
 					],
@@ -325,107 +325,18 @@
 						{
 							"key": "course",
 							"value": "0"
-						},
-						{
-							"key": "email",
-							"value": "no_tiene_resenias@gmail.com"
 						}
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Respuesta exitosa con reseña propia",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{BASE_URL}}/get-course-info?course=0&email=tiene_resenias@gmail.com",
-							"host": [
-								"{{BASE_URL}}"
-							],
-							"path": [
-								"get-course-info"
-							],
-							"query": [
-								{
-									"key": "course",
-									"value": "0"
-								},
-								{
-									"key": "email",
-									"value": "tiene_resenias@gmail.com"
-								}
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "X-Powered-By",
-							"value": "Express"
-						},
-						{
-							"key": "Vary",
-							"value": "Origin, Accept-Encoding"
-						},
-						{
-							"key": "Access-Control-Allow-Credentials",
-							"value": "true"
-						},
-						{
-							"key": "Cache-Control",
-							"value": "no-cache"
-						},
-						{
-							"key": "Pragma",
-							"value": "no-cache"
-						},
-						{
-							"key": "Expires",
-							"value": "-1"
-						},
-						{
-							"key": "X-Content-Type-Options",
-							"value": "nosniff"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "Content-Length",
-							"value": "647"
-						},
-						{
-							"key": "ETag",
-							"value": "W/\"287-ELnrppmCVSMUWviePifQZJgm1yg\""
-						},
-						{
-							"key": "Date",
-							"value": "Sun, 22 Jan 2023 21:01:06 GMT"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=5"
-						}
-					],
-					"cookie": [],
-					"body": "[\n    {\n        \"course\": 0,\n        \"email\": \"tiene_resenias@gmail.com\",\n        \"shift\": 3,\n        \"mean\": 2.3,\n        \"own_review\": {\n            \"year\": \"2020\",\n            \"content\": \"Me reprobó por un diseño de una aspiradora, malísimo.\",\n            \"rate\": \"0\",\n            \"id\": 0\n        },\n        \"reviews\": [\n            {\n                \"year\": \"2021\",\n                \"content\": \"Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.\",\n                \"rate\": \"2\",\n                \"id\": 1\n            },\n            {\n                \"year\": \"2019\",\n                \"content\": \"Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.\",\n                \"rate\": \"1\",\n                \"id\": 2\n            }\n        ]\n    }\n]"
-				},
-				{
 					"name": "Respuesta exitosa sin reseña propia",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/get-course-info?course=0&email=no_tiene_resenias@gmail.com",
+							"raw": "{{BASE_URL}}/get-course-info?course=0",
 							"host": [
 								"{{BASE_URL}}"
 							],
@@ -436,10 +347,6 @@
 								{
 									"key": "course",
 									"value": "0"
-								},
-								{
-									"key": "email",
-									"value": "no_tiene_resenias@gmail.com"
 								}
 							]
 						}
@@ -482,15 +389,15 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "491"
+							"value": "439"
 						},
 						{
 							"key": "ETag",
-							"value": "W/\"1eb-gSPhk74atfSRLV0+J2CbZEP/Tuo\""
+							"value": "W/\"1b7-st45iwIaUMEoYS0v2fbBfnon9hk\""
 						},
 						{
 							"key": "Date",
-							"value": "Sun, 22 Jan 2023 21:01:24 GMT"
+							"value": "Tue, 24 Jan 2023 02:45:03 GMT"
 						},
 						{
 							"key": "Connection",
@@ -502,7 +409,88 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n        \"course\": 0,\n        \"email\": \"no_tiene_resenias@gmail.com\",\n        \"shift\": 3,\n        \"mean\": 2.3,\n        \"reviews\": [\n            {\n                \"year\": \"2021\",\n                \"content\": \"Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.\",\n                \"rate\": \"2\",\n                \"id\": 1\n            },\n            {\n                \"year\": \"2019\",\n                \"content\": \"Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.\",\n                \"rate\": \"1\",\n                \"id\": 2\n            }\n        ]\n    }\n]"
+					"body": "[\n    {\n        \"course\": 0,\n        \"shift\": 3,\n        \"mean\": 2.3,\n        \"reviews\": [\n            {\n                \"year\": 2019,\n                \"content\": \"Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.\",\n                \"rate\": 1,\n                \"id\": 1\n            },\n            {\n                \"year\": 2021,\n                \"content\": \"Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.\",\n                \"rate\": 2,\n                \"id\": 0\n            }\n        ]\n    }\n]"
+				},
+				{
+					"name": "Respuesta exitosa con reseña propia",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/get-course-info?course=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"get-course-info"
+							],
+							"query": [
+								{
+									"key": "course",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "899"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"383-RAogkkGrWXBtV0aFw8uvCDl1Gy0\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 24 Jan 2023 02:45:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"course\": 1,\n        \"shift\": 3,\n        \"mean\": 2.3,\n        \"own_review\": {\n            \"year\": 2020,\n            \"content\": \"Me reprobó por un diseño de una aspiradora, malísimo.\",\n            \"rate\": 0,\n            \"id\": 2\n        },\n        \"reviews\": [\n            {\n                \"year\": 2021,\n                \"content\": \"Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.\",\n                \"rate\": 2,\n                \"id\": 3\n            },\n            {\n                \"year\": 2019,\n                \"content\": \"Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.\",\n                \"rate\": 1,\n                \"id\": 4\n            },\n            {\n                \"year\": 2020,\n                \"content\": \"La mejor cátedra de todas. Va a estar piola cuando volvamos a la presencialidad el mes que viene.\",\n                \"rate\": 2,\n                \"id\": 5\n            },\n            {\n                \"year\": 2022,\n                \"content\": \"Ayudame loco.\",\n                \"rate\": 0,\n                \"id\": 6\n            }\n        ]\n    }\n]"
 				}
 			]
 		},
@@ -512,7 +500,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/delete-review?id=3",
+					"raw": "{{BASE_URL}}/delete-review?id=0",
 					"host": [
 						"{{BASE_URL}}"
 					],
@@ -522,19 +510,19 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "3"
+							"value": "0"
 						}
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Borrar reseña",
+					"name": "Reseña borrada",
 					"originalRequest": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/delete-review?id=3",
+							"raw": "{{BASE_URL}}/delete-review?id=0",
 							"host": [
 								"{{BASE_URL}}"
 							],
@@ -544,7 +532,7 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "3"
+									"value": "0"
 								}
 							]
 						}
@@ -584,7 +572,7 @@
 			},
 			"response": [
 				{
-					"name": "Crear reseña",
+					"name": "Reseña creada",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
