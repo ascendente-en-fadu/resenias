@@ -45,7 +45,8 @@ export const getCourses = async (subjectId) => {
  *   @param {number} review.rate rate value
  */
 export const sendReview = async (review) => {
-  await axiosInstance.post('/create-review', {
+  // TODO change method to POST when working with the real BE
+  await axiosInstance.get('/create-review', {
     params: { review: review },
   });
 };
@@ -67,7 +68,8 @@ export const getCourseInfo = async (courseId) => {
  * @param {number} reviewId id of the review to be deleted
  */
 export const deleteReview = async (reviewId) => {
-  await axiosInstance.delete('/delete-review', {
+  // TODO change method to DELETE when working with the real BE
+  await axiosInstance.get('/delete-review', {
     params: { id: reviewId },
   });
 };

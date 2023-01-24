@@ -13,7 +13,8 @@ import styles from './styles';
  * @param {function} onChange function to be called when an element is clicked, taking the element as an argument
  * @param {object} value current selected value
  *   @param {string} value.name current selected value name to be shown
- * @param {boolean} disabled if true, the dropdown is not interactable
+ *   @param {number} value.id unique id of the current selected value
+ * @param {bool} disabled if true, the dropdown is not interactable
  * @param {array} elements elements array to be displayed in the list
  * @param {string} placeholder text to be shown when no option is selected
  */
@@ -62,7 +63,7 @@ const Dropdown = ({
             key={element.id}
             {...onPressEvents({
               end: () => {
-                onChange(element);
+                if (element.id !== value?.id) onChange(element);
                 setAnimate(false);
                 setIsOpen((prev) => !prev);
               },
@@ -85,6 +86,7 @@ Dropdown.propTypes = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.shape({
     name: PropTypes.string,
+    id: PropTypes.number,
   }),
   disabled: PropTypes.bool,
   elements: PropTypes.arrayOf(

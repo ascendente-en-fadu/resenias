@@ -7,8 +7,9 @@ import styles from './styles';
 /**
  * Input to write a review with a button to send it.
  * @param {function} onPress function to be called when the button is pressed, taking the textarea content as an argument
+ * @param {bool} buttonDisabled if true, the button is not interactable
  */
-const ReviewInput = ({ onPress }) => {
+const ReviewInput = ({ onPress, buttonDisabled }) => {
   const [content, setContent] = useState();
 
   return (
@@ -21,7 +22,7 @@ const ReviewInput = ({ onPress }) => {
         }}
       />
       <CustomButton
-        disabled={!content}
+        disabled={!content || buttonDisabled}
         text={'ENVIAR'}
         customStyles={{ bottom: styles.button, text: styles.buttonText }}
         onPress={() => {
@@ -34,6 +35,7 @@ const ReviewInput = ({ onPress }) => {
 
 ReviewInput.propTypes = {
   onPress: PropTypes.func.isRequired,
+  buttonDisabled: PropTypes.bool,
 };
 
 export default ReviewInput;

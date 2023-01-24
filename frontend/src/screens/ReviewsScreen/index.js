@@ -96,7 +96,7 @@ const ReviewsScreen = ({ carreer, goBack }) => {
   }, [course]);
 
   /**
-   * Sends a review written by the user to BE
+   * Sends a review written by the user to BE and refreshes the course info
    * @param {object} review review object to be sent
    *   @param {number} review.year year when the course was taken
    *   @param {string} review.content review text content
@@ -104,21 +104,37 @@ const ReviewsScreen = ({ carreer, goBack }) => {
    */
   const sendCurrentReview = async (review) => {
     try {
+      setCourseInfo(undefined);
       await sendReview(review);
     } catch (error) {
       console.log(error);
+    } finally {
+      try {
+        const response = await getCourseInfo(course.id);
+        setCourseInfo(response);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
   /**
-   * Deletes the review written by the user on BE
+   * Deletes the review written by the user on BE and refreshes the course info
    * @param {number} reviewId id of the review to be deleted
    */
   const deleteOwnReview = async (reviewId) => {
     try {
+      setCourseInfo(undefined);
       await deleteReview(reviewId);
     } catch (error) {
       console.log(error);
+    } finally {
+      try {
+        const response = await getCourseInfo(course.id);
+        setCourseInfo(response);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 

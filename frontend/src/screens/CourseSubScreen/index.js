@@ -71,6 +71,7 @@ const CourseSubScreen = ({
               onPress={(content) => {
                 sendCurrentReview({ content: content, year: year, rate: rate });
               }}
+              buttonDisabled={!year || !rate}
             />
           </div>
         </div>
