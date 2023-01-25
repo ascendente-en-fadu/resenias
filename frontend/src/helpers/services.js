@@ -1,6 +1,19 @@
 import axios from 'axios';
 
 import { MOCK_URL } from '../constants/misc';
+import {
+  carreersResponse,
+  carreersUrl,
+  courseInfoParams,
+  courseInfoResponse,
+  courseInfoUrl,
+  coursesParams,
+  coursesResponse,
+  coursesUrl,
+  subjectsParams,
+  subjectsResponse,
+  subjectsUrl,
+} from './apiTranslations';
 
 const axiosInstance = axios.create({ baseURL: MOCK_URL, timeout: 15000 });
 
@@ -29,10 +42,10 @@ axiosInstance.interceptors.response.use(
  * @returns a carreers list
  */
 export const getCarreers = async (controller) => {
-  const { data } = await axiosInstance.get('/get-carreers', {
+  const { data } = await axiosInstance.get(carreersUrl('/get-carreers'), {
     signal: controller?.signal,
   });
-  return data;
+  return carreersResponse(data);
 };
 
 /**
@@ -42,11 +55,11 @@ export const getCarreers = async (controller) => {
  * @returns a subjects list
  */
 export const getSubjects = async (carreerId, controller) => {
-  const { data } = await axiosInstance.get('/get-subjects', {
-    params: { carreer: carreerId },
+  const { data } = await axiosInstance.get(subjectsUrl('/get-subjects'), {
+    params: subjectsParams({ carreer: carreerId }),
     signal: controller?.signal,
   });
-  return data[0].subjects;
+  return subjectsResponse(data[0]);
 };
 
 /**
@@ -56,11 +69,11 @@ export const getSubjects = async (carreerId, controller) => {
  * @returns a courses list
  */
 export const getCourses = async (subjectId, controller) => {
-  const { data } = await axiosInstance.get('/get-courses', {
-    params: { subject: subjectId },
+  const { data } = await axiosInstance.get(coursesUrl('/get-courses'), {
+    params: coursesParams({ subject: subjectId }),
     signal: controller?.signal,
   });
-  return data[0].courses;
+  return coursesResponse(data[0]);
 };
 
 /**
@@ -70,11 +83,11 @@ export const getCourses = async (subjectId, controller) => {
  * @returns a course information object
  */
 export const getCourseInfo = async (courseId, controller) => {
-  const { data } = await axiosInstance.get('/get-course-info', {
-    params: { course: courseId },
+  const { data } = await axiosInstance.get(courseInfoUrl('/get-course-info'), {
+    params: courseInfoParams({ course: courseId }),
     signal: controller?.signal,
   });
-  return data[0];
+  return courseInfoResponse(data[0]);
 };
 
 /**
