@@ -46,53 +46,61 @@ const ReviewsScreen = ({ carreer, goBack }) => {
   };
 
   useEffect(() => {
+    const controller = new AbortController();
     /**
      * Gets the subjects list from BE and saves it to local state
      */
     const getSubjectsList = async () => {
       try {
-        const response = await getSubjects(carreer.id);
+        const response = await getSubjects(carreer.id, controller);
         setSubjects(response);
       } catch (error) {
-        console.log(error);
+        error && console.log(error);
       }
     };
 
     getSubjectsList();
+    return () => controller.abort();
   }, [carreer]);
 
   useEffect(() => {
+    const controller = new AbortController();
     /**
      * Gets the courses list for a given subject from BE and saves it to local state
      */
     const getCoursesList = async () => {
       try {
-        const response = await getCourses(subject.id);
+        const response = await getCourses(subject.id, controller);
         setCourses(response);
       } catch (error) {
-        console.log(error);
+        error && console.log(error);
       }
     };
+
     if (subject) {
       getCoursesList();
     }
+    return () => controller.abort();
   }, [subject]);
 
   useEffect(() => {
+    const controller = new AbortController();
     /**
      * Gets the reviews list for a given course from BE and saves it to local state
      */
     const getReviewsList = async () => {
       try {
-        const response = await getCourseInfo(course.id);
+        const response = await getCourseInfo(course.id, controller);
         setCourseInfo(response);
       } catch (error) {
-        console.log(error);
+        error && console.log(error);
       }
     };
+
     if (course) {
       getReviewsList();
     }
+    return () => controller.abort();
   }, [course]);
 
   /**

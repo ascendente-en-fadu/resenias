@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { mergeStyles, onPressEvents } from '../../helpers';
@@ -29,8 +29,30 @@ const Dropdown = ({
   const [isOpen, setIsOpen] = useState(false);
   const [animate, setAnimate] = useState(false);
 
+  const rootRef = useRef(null);
+
+  useEffect(() => {
+    if (!rootRef?.current) return;
+    /**
+     * If the target element of the event is part of the dropdown, hides the item list.
+     */
+    const handleClick = (evt) => {
+      if (!rootRef.current.contains(evt.target) && isOpen) {
+        setIsOpen(false);
+        setAnimate(false);
+      }
+    };
+    document.addEventListener(`mouseup`, handleClick);
+    return () => {
+      document.removeEventListener(`mouseup`, handleClick);
+    };
+  }, [rootRef, isOpen]);
+
   return (
-    <div style={mergeStyles([styles.buttonBottom, customStyles.bottom])}>
+    <div
+      style={mergeStyles([styles.buttonBottom, customStyles.bottom])}
+      ref={rootRef}
+    >
       <button
         disabled={disabled}
         style={mergeStyles([styles.buttonTop, animate && styles.buttonPressed])}

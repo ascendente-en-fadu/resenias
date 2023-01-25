@@ -15,19 +15,21 @@ function App() {
   const [carreers, setCarreers] = useState([]);
 
   useEffect(() => {
+    const controller = new AbortController();
     /**
      * Gets the carreers list
      */
     const getCarreerList = async () => {
       try {
-        const response = await getCarreers();
+        const response = await getCarreers(controller);
         setCarreers(response);
       } catch (error) {
-        console.log(error);
+        error && console.log(error);
       }
     };
 
     getCarreerList();
+    return () => controller.abort();
   }, []);
 
   /**
