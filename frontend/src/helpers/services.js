@@ -30,7 +30,7 @@ axiosInstance.interceptors.response.use(
  */
 export const getCarreers = async (controller) => {
   const { data } = await axiosInstance.get('/get-carreers', {
-    signal: controller.signal,
+    signal: controller?.signal,
   });
   return data;
 };
@@ -44,7 +44,7 @@ export const getCarreers = async (controller) => {
 export const getSubjects = async (carreerId, controller) => {
   const { data } = await axiosInstance.get('/get-subjects', {
     params: { carreer: carreerId },
-    signal: controller.signal,
+    signal: controller?.signal,
   });
   return data[0].subjects;
 };
@@ -58,7 +58,7 @@ export const getSubjects = async (carreerId, controller) => {
 export const getCourses = async (subjectId, controller) => {
   const { data } = await axiosInstance.get('/get-courses', {
     params: { subject: subjectId },
-    signal: controller.signal,
+    signal: controller?.signal,
   });
   return data[0].courses;
 };
@@ -72,7 +72,7 @@ export const getCourses = async (subjectId, controller) => {
 export const getCourseInfo = async (courseId, controller) => {
   const { data } = await axiosInstance.get('/get-course-info', {
     params: { course: courseId },
-    signal: controller.signal,
+    signal: controller?.signal,
   });
   return data[0];
 };
