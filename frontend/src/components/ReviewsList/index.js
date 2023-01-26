@@ -15,7 +15,9 @@ const ReviewsList = ({ reviews = [] }) => {
           <span style={styles.dataText}>{'Cursé en ' + year}</span>
           <span style={styles.contentText}>{content}</span>
           <span style={styles.dataText}>{'Nota a la cátedra: ' + rate} </span>
-          <div style={styles.divider} />
+          {id !== reviews[reviews.length - 1]?.id && (
+            <div style={styles.divider} />
+          )}
         </div>
       ))}
     </div>

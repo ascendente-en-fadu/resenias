@@ -15,33 +15,33 @@ const styles = {
     borderColor: Colors.gray,
     borderWidth: '1px',
     overflowY: 'auto',
+    padding: '16px 0',
   },
   contentText: {
     fontSize: 16,
     color: Colors.gray,
     fontFamily: Fonts.light,
-    paddingLeft: '24px',
   },
   dataText: {
     fontSize: 16,
     color: Colors.gray,
     fontFamily: Fonts.semiBold,
-    paddingLeft: '24px',
   },
   reviewContainer: {
     width: '100%',
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
-    paddingTop: '12px',
+    paddingLeft: '24px',
+    paddingRight: '24px',
     boxSizing: 'border-box',
   },
   divider: {
-    width: '80%',
+    width: '90%',
     height: '1px',
     backgroundColor: Colors.gray,
     alignSelf: 'center',
-    marginTop: '12px',
+    margin: '16px 0',
   },
 };
 
