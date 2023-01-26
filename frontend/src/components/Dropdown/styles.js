@@ -69,6 +69,7 @@ const styles = {
     backgroundColor: Colors.transparent,
     border: 'none',
     margin: '4px 0',
+    width: '100%',
   },
 };
 

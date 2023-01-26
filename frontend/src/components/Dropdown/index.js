@@ -85,7 +85,7 @@ const Dropdown = ({
             key={element.id}
             {...onPressEvents({
               end: () => {
-                if (element.id !== value?.id) onChange(element);
+                onChange(element);
                 setAnimate(false);
                 setIsOpen((prev) => !prev);
               },
