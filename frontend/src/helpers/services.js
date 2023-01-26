@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { MOCK_URL } from '../constants/misc';
+import { BASE_URL } from '../constants/misc';
 import {
   carreersResponse,
   carreersUrl,
@@ -10,12 +10,16 @@ import {
   coursesParams,
   coursesResponse,
   coursesUrl,
+  deleteReviewParams,
+  deleteReviewUrl,
+  sendReviewBody,
+  sendReviewUrl,
   subjectsParams,
   subjectsResponse,
   subjectsUrl,
 } from './apiTranslations';
 
-const axiosInstance = axios.create({ baseURL: MOCK_URL, timeout: 15000 });
+const axiosInstance = axios.create({ baseURL: BASE_URL, timeout: 15000 });
 
 axiosInstance.interceptors.request.use((req) => {
   console.log('Request ' + req.url);
@@ -98,10 +102,10 @@ export const getCourseInfo = async (courseId, controller) => {
  *   @param {number} review.rate rate value
  */
 export const sendReview = async (review) => {
-  // TODO change method to POST when working with the real BE
-  await axiosInstance.get('/create-review', {
-    params: { review: review },
-  });
+  await axiosInstance.post(
+    sendReviewUrl('/create-review'),
+    sendReviewBody({ review: review }),
+  );
 };
 
 /**
@@ -110,7 +114,7 @@ export const sendReview = async (review) => {
  */
 export const deleteReview = async (reviewId) => {
   // TODO change method to DELETE when working with the real BE
-  await axiosInstance.get('/delete-review', {
-    params: { id: reviewId },
+  await axiosInstance.get(deleteReviewUrl('/delete-review'), {
+    params: deleteReviewParams({ id: reviewId }),
   });
 };

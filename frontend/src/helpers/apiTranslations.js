@@ -29,7 +29,7 @@ export const subjectsResponse = (response) => {
 };
 
 export const coursesUrl = () => {
-  return '/obtener-cursos';
+  return '/obtener-catedras';
 };
 
 export const coursesParams = ({ subject }) => {
@@ -37,7 +37,7 @@ export const coursesParams = ({ subject }) => {
 };
 
 export const coursesResponse = (response) => {
-  const data = response.cursos.map(({ nombre, id }) => {
+  const data = response.catedras.map(({ nombre, id }) => {
     return { name: nombre, id: id };
   });
   return data;
@@ -48,7 +48,7 @@ export const courseInfoUrl = () => {
 };
 
 export const courseInfoParams = ({ course }) => {
-  return { curso: course };
+  return { catedra: course };
 };
 
 export const courseInfoResponse = (response) => {
@@ -72,4 +72,26 @@ export const courseInfoResponse = (response) => {
     }),
   };
   return data;
+};
+
+export const sendReviewUrl = () => {
+  return '/crear-resenia';
+};
+
+export const sendReviewBody = ({ review }) => {
+  return {
+    anio: review.year,
+    contenido: review.content,
+    calificacion: review.rate,
+  };
+};
+
+export const deleteReviewUrl = () => {
+  return '/borrar-resenia';
+};
+
+export const deleteReviewParams = ({ id }) => {
+  return {
+    id: id,
+  };
 };

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Dropdown, ReviewInput, ReviewsList, MyReview } from '../../components';
+import { RATES, YEARS } from '../../constants/misc';
 import styles from './styles';
 
 /**
@@ -13,6 +14,7 @@ import styles from './styles';
  *   @param {number} ownReview.year year when the course was taken
  *   @param {string} ownReview.content review text content
  *   @param {number} ownReview.rate rate value
+ *   @param {number} ownReview.id if of the review
  */
 const CourseSubScreen = ({
   sendCurrentReview,
@@ -20,20 +22,6 @@ const CourseSubScreen = ({
   reviews = [],
   ownReview,
 }) => {
-  const YEARS = [
-    { id: 0, name: '2022' },
-    { id: 1, name: '2021' },
-    { id: 2, name: '2020' },
-    { id: 3, name: '2019' },
-    { id: 4, name: '2018' },
-  ];
-  const RATES = [
-    { id: 0, name: 'Sobre nivel' },
-    { id: 1, name: 'Nivel' },
-    { id: 2, name: 'Bajo nivel' },
-    { id: 3, name: 'Ni idea' },
-  ];
-
   const [year, setYear] = useState();
   const [rate, setRate] = useState();
 
@@ -69,7 +57,11 @@ const CourseSubScreen = ({
           <div style={styles.reviewInputContainer}>
             <ReviewInput
               onPress={(content) => {
-                sendCurrentReview({ content: content, year: year, rate: rate });
+                sendCurrentReview({
+                  content: content,
+                  year: year.id,
+                  rate: rate.id,
+                });
               }}
               buttonDisabled={!year || !rate}
             />
@@ -96,6 +88,7 @@ CourseSubScreen.propTypes = {
     year: PropTypes.number,
     content: PropTypes.string,
     rate: PropTypes.number,
+    id: PropTypes.number,
   }),
 };
 

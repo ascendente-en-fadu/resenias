@@ -89,10 +89,10 @@
       ]
     }
   ],
-  "obtener-cursos": [
+  "obtener-catedras": [
     {
       "materia": 0,
-      "cursos": [
+      "catedras": [
         {
           "nombre": "Charmander+",
           "id": 0
@@ -109,7 +109,7 @@
     },
     {
       "materia": 1,
-      "cursos": [
+      "catedras": [
         {
           "nombre": "Fernández",
           "id": 3
@@ -147,7 +147,7 @@
   ],
   "obtener-info-de-catedra": [
     {
-      "curso": 0,
+      "catedra": 0,
       "promedio": 2.3,
       "resenias": [
         {
@@ -165,7 +165,7 @@
       ]
     },
     {
-      "curso": 1,
+      "catedra": 1,
       "promedio": 2.3,
       "resenia_propia": {
         "anio": 2020,
@@ -201,7 +201,7 @@
       ]
     },
     {
-      "curso": 2,
+      "catedra": 2,
       "promedio": 2.3,
       "resenias": [
         {
@@ -243,6 +243,6 @@
       ]
     }
   ],
-  "delete-review": {},
-  "create-review": {}
+  "borrar-resenia": {},
+  "crear-resenia": {}
 }

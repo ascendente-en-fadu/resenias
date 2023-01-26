@@ -11,6 +11,7 @@ import styles from './styles';
  *   @param {number} review.year year when the course was taken
  *   @param {string} review.content review text content
  *   @param {number} review.rate rate value
+ *   @param {number} review.id id of the review
  * @param {function} deleteOwnReview function to be called when the delete button is pressed, receiving the review id as an argument
  */
 const MyReview = ({ review, deleteOwnReview }) => {
