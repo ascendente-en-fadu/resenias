@@ -6,8 +6,8 @@ const styles = {
     backgroundColor: Colors.buttonBottom,
     borderRadius: 24,
     position: 'relative',
-    flex: 1,
     height: '100%',
+    width: '100%',
   },
   buttonNoBottom: {
     backgroundColor: Colors.transparent,
@@ -16,6 +16,9 @@ const styles = {
     fontSize: 16,
     color: Colors.lightGray,
     fontFamily: Fonts.light,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
   },
   disabledText: {
     color: Colors.gray,

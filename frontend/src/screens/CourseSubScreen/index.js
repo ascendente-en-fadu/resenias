@@ -28,9 +28,7 @@ const CourseSubScreen = ({
   return (
     <div style={styles.container}>
       {ownReview ? (
-        <div style={styles.ownReviewReadContainer}>
-          <MyReview review={ownReview} deleteOwnReview={deleteOwnReview} />
-        </div>
+        <MyReview review={ownReview} deleteOwnReview={deleteOwnReview} />
       ) : (
         <div style={styles.ownReviewWriteContainer}>
           <div style={styles.title}>Armá tu reseña</div>
@@ -41,7 +39,10 @@ const CourseSubScreen = ({
               value={year}
               elements={YEARS}
               onChange={setYear}
-              customStyles={{ list: styles.yearsList }}
+              customStyles={{
+                bottom: styles.dropdownBottom,
+                list: styles.yearsList,
+              }}
             />
           </div>
           <div style={styles.selectionContainer}>
@@ -51,21 +52,22 @@ const CourseSubScreen = ({
               value={rate}
               elements={RATES}
               onChange={setRate}
-              customStyles={{ list: styles.ratesList }}
-            />
-          </div>
-          <div style={styles.reviewInputContainer}>
-            <ReviewInput
-              onPress={(content) => {
-                sendCurrentReview({
-                  content: content,
-                  year: year.id,
-                  rate: rate.id,
-                });
+              customStyles={{
+                bottom: styles.dropdownBottom,
+                list: styles.ratesList,
               }}
-              buttonDisabled={!year || !rate}
             />
           </div>
+          <ReviewInput
+            onPress={(content) => {
+              sendCurrentReview({
+                content: content,
+                year: year.id,
+                rate: rate.id,
+              });
+            }}
+            buttonDisabled={!year || !rate}
+          />
         </div>
       )}
       <ReviewsList reviews={reviews} />

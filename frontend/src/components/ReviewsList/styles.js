@@ -4,13 +4,10 @@ import { Fonts } from '../../fonts';
 const styles = {
   bottom: {
     marginTop: '12px',
-    borderRadius: 16,
-    flex: 1,
+    borderRadius: 24,
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     border: 'solid',
     borderColor: Colors.gray,
     borderWidth: '1px',

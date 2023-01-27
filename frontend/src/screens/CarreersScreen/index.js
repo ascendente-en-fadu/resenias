@@ -22,6 +22,7 @@ const CarreersScreen = ({ setCurrentCarreer, carreers }) => {
               text={carreer.name}
               key={carreer.id}
               onPress={() => setCurrentCarreer(carreer)}
+              customStyles={{ bottom: styles.buttonsBottom }}
             />
           ))}
         </div>
@@ -33,6 +34,7 @@ const CarreersScreen = ({ setCurrentCarreer, carreers }) => {
                 text={carreer.name}
                 key={carreer.id}
                 onPress={() => setCurrentCarreer(carreer)}
+                customStyles={{ bottom: styles.buttonsBottom }}
               />
             ))}
         </div>

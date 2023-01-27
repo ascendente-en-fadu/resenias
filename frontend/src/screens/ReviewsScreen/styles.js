@@ -6,10 +6,13 @@ const styles = {
     justifyContent: 'space-between',
   },
   selectorContainer: {
-    height: '20%',
+    height: '130px',
+    flexShrink: 0,
   },
   subScreenContainer: {
-    height: '70%',
+    flex: 1,
+    overflowY: 'clip',
+    paddingBottom: '12px',
   },
 };
 

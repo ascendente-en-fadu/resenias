@@ -13,7 +13,7 @@ const ReviewInput = ({ onPress, buttonDisabled }) => {
   const [content, setContent] = useState();
 
   return (
-    <div style={styles.buttonBottom}>
+    <div style={styles.bottom}>
       <textarea
         style={styles.input}
         placeholder='Escribí una reseña'

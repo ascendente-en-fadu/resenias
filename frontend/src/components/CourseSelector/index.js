@@ -33,17 +33,14 @@ const CourseSelector = ({
 }) => {
   return (
     <div style={styles.container}>
-      <div style={styles.careerIndicatorContainer}>
-        <CustomButton
-          text={carreer.name}
-          customStyles={{
-            top: styles.carreerButtonTop,
-            bottom: styles.carreerButtonBottom,
-          }}
-          onPress={goBack}
-          arrow
-        />
-      </div>
+      <CustomButton
+        text={carreer.name}
+        customStyles={{
+          bottom: styles.carreerButtonBottom,
+        }}
+        onPress={goBack}
+        arrow
+      />
       <div style={styles.selectorsContainer}>
         <Dropdown
           placeholder='Materia'

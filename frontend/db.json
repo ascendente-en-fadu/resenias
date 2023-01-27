@@ -104,6 +104,10 @@
         {
           "nombre": "Bulbasaur+",
           "id": 2
+        },
+        {
+          "nombre": "Pikachu+",
+          "id": 3
         }
       ]
     },
@@ -112,35 +116,35 @@
       "catedras": [
         {
           "nombre": "Fernández",
-          "id": 3
-        },
-        {
-          "nombre": "Pérez",
           "id": 4
         },
         {
-          "nombre": "Gómez",
+          "nombre": "Pérez",
           "id": 5
         },
         {
-          "nombre": "González",
+          "nombre": "Gómez",
           "id": 6
         },
         {
-          "nombre": "Rodríguez",
+          "nombre": "González",
           "id": 7
         },
         {
-          "nombre": "Gutiérrez",
+          "nombre": "Rodríguez",
           "id": 8
         },
         {
-          "nombre": "Hernández",
+          "nombre": "Gutiérrez",
           "id": 9
         },
         {
-          "nombre": "Martínez",
+          "nombre": "Hernández",
           "id": 10
+        },
+        {
+          "nombre": "Martínez",
+          "id": 11
         }
       ]
     }
@@ -155,12 +159,6 @@
           "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
           "calificacion": 1,
           "id": 1
-        },
-        {
-          "anio": 2021,
-          "contenido": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
-          "calificacion": 2,
-          "id": 0
         }
       ]
     },
@@ -169,7 +167,7 @@
       "promedio": 2.3,
       "resenia_propia": {
         "anio": 2020,
-        "contenido": "Me reprobó por un diseño de una aspiradora, malísimo.",
+        "contenido": "Me reprobó por un diseño de una aspiradora, malísimo. Aunque ahora que lo pienso, quizás me excedí un poquito pero bueno, los voy a calificar mal igual.",
         "calificacion": 0,
         "id": 2
       },
@@ -239,6 +237,24 @@
           "contenido": "Ya se me acabó la imaginación, equisde.",
           "calificacion": 0,
           "id": 12
+        }
+      ]
+    },
+    {
+      "catedra": 3,
+      "promedio": 2.3,
+      "resenia_propia": {
+        "anio": 2020,
+        "contenido": "Me reprobó por un diseño de una aspiradora, malísimo. Aunque ahora que lo pienso, quizás me excedí un poquito pero bueno, los voy a calificar mal igual.",
+        "calificacion": 0,
+        "id": 13
+      },
+      "resenias": [
+        {
+          "anio": 2019,
+          "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
+          "calificacion": 1,
+          "id": 14
         }
       ]
     }
