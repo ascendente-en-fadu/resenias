@@ -22,7 +22,7 @@
 			},
 			"response": [
 				{
-					"name": "Obtener carreras",
+					"name": "Respuesta exitosa",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
@@ -39,9 +39,62 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "338"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"152-GxJi1NdCW+Qx7B/fZoF+jGvH6SE\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 26 Jan 2023 03:00:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
 					"cookie": [],
-					"body": "{\n    \"carreras\": [\n        {\n            \"nombre\": \"DI\",\n            \"id\": 0\n        },\n        {\n            \"nombre\": \"DG\",\n            \"id\": 1\n        },\n        {\n            \"nombre\": \"ARQ\",\n            \"id\": 2\n        }\n    ]\n}"
+					"body": "[\n    {\n        \"nombre\": \"CBC\",\n        \"id\": 0\n    },\n    {\n        \"nombre\": \"DG\",\n        \"id\": 1\n    },\n    {\n        \"nombre\": \"DInd\",\n        \"id\": 2\n    },\n    {\n        \"nombre\": \"DP\",\n        \"id\": 3\n    },\n    {\n        \"nombre\": \"Arq\",\n        \"id\": 4\n    },\n    {\n        \"nombre\": \"DI\",\n        \"id\": 5\n    },\n    {\n        \"nombre\": \"DIyS\",\n        \"id\": 6\n    },\n    {\n        \"nombre\": \"DT\",\n        \"id\": 7\n    }\n]"
 				}
 			]
 		},
@@ -68,12 +121,12 @@
 			},
 			"response": [
 				{
-					"name": "Obtener materias",
+					"name": "Respuesta exitosa",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/obtener-materias?carrera=8",
+							"raw": "{{BASE_URL}}/obtener-materias?carrera=0",
 							"host": [
 								"{{BASE_URL}}"
 							],
@@ -83,7 +136,7 @@
 							"query": [
 								{
 									"key": "carrera",
-									"value": "8"
+									"value": "0"
 								}
 							]
 						}
@@ -91,9 +144,62 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "263"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"107-ZlM13Av1p/XK4R1cwP2vG5hb04w\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 26 Jan 2023 03:01:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
 					"cookie": [],
-					"body": "{\n    \"materias\": [\n        {\n            \"nombre\": \"Análisis Matemático II\",\n            \"id\": 0\n        },\n        {\n            \"nombre\": \"Álgebra II\",\n            \"id\": 1\n        },\n        {\n            \"nombre\": \"Física I\",\n            \"id\": 2\n        }\n    ]\n}"
+					"body": "[\n    {\n        \"carrera\": 0,\n        \"materias\": [\n            {\n                \"nombre\": \"Análisis Matemático II\",\n                \"id\": 0\n            },\n            {\n                \"nombre\": \"Álgebra II\",\n                \"id\": 1\n            },\n            {\n                \"nombre\": \"Física I\",\n                \"id\": 2\n            }\n        ]\n    }\n]"
 				}
 			]
 		},
@@ -103,7 +209,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/obtener-catedras?materia=1",
+					"raw": "{{BASE_URL}}/obtener-catedras?materia=0",
 					"host": [
 						"{{BASE_URL}}"
 					],
@@ -113,19 +219,19 @@
 					"query": [
 						{
 							"key": "materia",
-							"value": "1"
+							"value": "0"
 						}
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Obtener cátedras",
+					"name": "Respuesta exitosa",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/obtener-catedras?materia=2",
+							"raw": "{{BASE_URL}}/obtener-catedras?materia=0",
 							"host": [
 								"{{BASE_URL}}"
 							],
@@ -135,7 +241,7 @@
 							"query": [
 								{
 									"key": "materia",
-									"value": "2"
+									"value": "0"
 								}
 							]
 						}
@@ -143,9 +249,62 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "247"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f7-F22E7LyJ/NN72v6uBKSYzO7nneU\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 26 Jan 2023 03:03:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
 					"cookie": [],
-					"body": "{\n    \"catedras\": [\n        {\n            \"nombre\": \"Charmander\",\n            \"id\": 0\n        },\n        {\n            \"nombre\": \"Squirtle\",\n            \"id\": 1\n        },\n        {\n            \"nombre\": \"Bulbasaur\",\n            \"id\": 2\n        }\n    ]\n}"
+					"body": "[\n    {\n        \"materia\": 0,\n        \"catedras\": [\n            {\n                \"nombre\": \"Charmander\",\n                \"id\": 0\n            },\n            {\n                \"nombre\": \"Squirtle\",\n                \"id\": 1\n            },\n            {\n                \"nombre\": \"Bulbasaur\",\n                \"id\": 2\n            }\n        ]\n    }\n]"
 				}
 			]
 		},
@@ -155,7 +314,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/obtener-info-de-catedra?catedra=1&mail=example@gmail.com",
+					"raw": "{{BASE_URL}}/obtener-info-de-catedra?catedra=0",
 					"host": [
 						"{{BASE_URL}}"
 					],
@@ -165,23 +324,19 @@
 					"query": [
 						{
 							"key": "catedra",
-							"value": "1"
-						},
-						{
-							"key": "mail",
-							"value": "example@gmail.com"
+							"value": "0"
 						}
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Obtener información de cátedra",
+					"name": "Respuesta exitosa sin reseña propia",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/obtener-info-de-catedra?catedra=2&mail=example@gmail.com",
+							"raw": "{{BASE_URL}}/obtener-info-de-catedra?catedra=0",
 							"host": [
 								"{{BASE_URL}}"
 							],
@@ -191,11 +346,7 @@
 							"query": [
 								{
 									"key": "catedra",
-									"value": "2"
-								},
-								{
-									"key": "mail",
-									"value": "example@gmail.com"
+									"value": "0"
 								}
 							]
 						}
@@ -203,9 +354,143 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "449"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1c1-8O1d3yo2JK0iPkjiUK6ZdvJGXJ4\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 26 Jan 2023 03:03:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
 					"cookie": [],
-					"body": "{\n    \"turno\": 3,\n    \"promedio\": 2.3,\n    \"resenia_propia\": {\n        \"anio\": \"2020\",\n        \"contenido\": \"Me reprobó por un diseño de una aspiradora, malísimo.\",\n        \"calificacion\": \"0\",\n        \"id\": 0\n    },\n    \"resenias\": [\n        {\n            \"anio\": \"2021\",\n            \"contenido\": \"Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.\",\n            \"calificacion\": \"2\",\n            \"id\": 1\n        },\n        {\n            \"anio\": \"2019\",\n            \"contenido\": \"Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.\",\n            \"calificacion\": \"1\",\n            \"id\": 2\n        }\n    ]\n}"
+					"body": "[\n    {\n        \"catedra\": 0,\n        \"promedio\": 2.3,\n        \"resenias\": [\n            {\n                \"anio\": 2019,\n                \"contenido\": \"Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.\",\n                \"calificacion\": 1,\n                \"id\": 1\n            },\n            {\n                \"anio\": 2021,\n                \"contenido\": \"Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.\",\n                \"calificacion\": 2,\n                \"id\": 0\n            }\n        ]\n    }\n]"
+				},
+				{
+					"name": "Respuesta exitosa con reseña propia",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/obtener-info-de-catedra?catedra=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"obtener-info-de-catedra"
+							],
+							"query": [
+								{
+									"key": "catedra",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "943"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3af-5aKD09LRylUzrWkbiGXxKnP50yc\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 26 Jan 2023 03:04:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"catedra\": 1,\n        \"promedio\": 2.3,\n        \"resenia_propia\": {\n            \"anio\": 2020,\n            \"contenido\": \"Me reprobó por un diseño de una aspiradora, malísimo.\",\n            \"calificacion\": 0,\n            \"id\": 2\n        },\n        \"resenias\": [\n            {\n                \"anio\": 2021,\n                \"contenido\": \"Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.\",\n                \"calificacion\": 2,\n                \"id\": 3\n            },\n            {\n                \"anio\": 2019,\n                \"contenido\": \"Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.\",\n                \"calificacion\": 1,\n                \"id\": 4\n            },\n            {\n                \"anio\": 2020,\n                \"contenido\": \"La mejor cátedra de todas. Va a estar piola cuando volvamos a la presencialidad el mes que viene.\",\n                \"calificacion\": 2,\n                \"id\": 5\n            },\n            {\n                \"anio\": 2022,\n                \"contenido\": \"Ayudame loco.\",\n                \"calificacion\": 0,\n                \"id\": 6\n            }\n        ]\n    }\n]"
 				}
 			]
 		},
@@ -215,7 +500,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/borrar-resenia?id=3",
+					"raw": "{{BASE_URL}}/borrar-resenia?id=0",
 					"host": [
 						"{{BASE_URL}}"
 					],
@@ -225,19 +510,19 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "3"
+							"value": "0"
 						}
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Borrar reseña",
+					"name": "Respuesta exitosa",
 					"originalRequest": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/borrar-resenia?id=3",
+							"raw": "{{BASE_URL}}/borrar-resenia?id=0",
 							"host": [
 								"{{BASE_URL}}"
 							],
@@ -247,7 +532,7 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "3"
+									"value": "0"
 								}
 							]
 						}
@@ -255,7 +540,60 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 26 Jan 2023 03:05:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
 					"cookie": [],
 					"body": "{}"
 				}
@@ -268,7 +606,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"anio\": \"2020\",\r\n    \"contenido\": \"Re fácil esta cátedra.\",\r\n    \"calificacion\": 2,\r\n    \"mail\": \"example@gmail.com\"\r\n}",
+					"raw": "{\r\n    \"anio\": 2020,\r\n    \"contenido\": \"Re fácil esta cátedra.\",\r\n    \"calificacion\": 2\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -287,20 +625,13 @@
 			},
 			"response": [
 				{
-					"name": "Crear reseña",
+					"name": "Respuesta exitosa",
 					"originalRequest": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"anio\": \"2020\",\r\n    \"contenido\": \"Re fácil esta cátedra.\",\r\n    \"calificacion\": 2,\r\n    \"mail\": \"example@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"anio\": 2020,\r\n    \"contenido\": \"Re fácil esta cátedra.\",\r\n    \"calificacion\": 2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -320,7 +651,60 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 26 Jan 2023 03:06:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
 					"cookie": [],
 					"body": "{}"
 				}

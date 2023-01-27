@@ -17,7 +17,10 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'space-around',
     height: '100%',
-    width: '35%',
+  },
+  buttonsBottom: {
+    width: '120px',
+    height: '70px',
   },
 };
 

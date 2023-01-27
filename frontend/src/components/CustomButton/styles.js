@@ -5,16 +5,18 @@ const styles = {
   buttonBottom: {
     backgroundColor: Colors.buttonBottom,
     border: 'none',
-    borderRadius: 12,
+    borderRadius: 18,
     position: 'relative',
     width: '100%',
-    flex: 1,
-    margin: '25px 0',
+    height: '100%',
   },
   text: {
     fontSize: 30,
     color: Colors.lightGray,
-    fontFamily: Fonts.semiBold,
+    fontFamily: Fonts.extraBold,
+  },
+  disabledText: {
+    color: Colors.gray,
   },
   buttonTop: {
     position: 'absolute',
@@ -22,7 +24,7 @@ const styles = {
     left: '-5px',
     bottom: '5px',
     right: '5px',
-    borderRadius: 12,
+    borderRadius: 18,
     backgroundColor: Colors.buttonTop,
     display: 'flex',
     alignItems: 'center',

@@ -7,15 +7,10 @@ const styles = {
     height: '100%',
     alignItems: 'center',
     flexDirection: 'column',
+    flex: 1,
   },
   ownReviewWriteContainer: {
     width: '80%',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    flex: 1,
-  },
-  ownReviewReadContainer: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -28,6 +23,7 @@ const styles = {
     fontSize: 32,
     fontFamily: Fonts.light,
     marginBottom: '12px',
+    marginTop: '6px',
   },
   selectionContainer: {
     display: 'flex',
@@ -35,10 +31,6 @@ const styles = {
     justifyContent: 'space-between',
     marginBottom: '12px',
     flex: 1,
-  },
-  reviewInputContainer: {
-    flex: 1,
-    width: '100%',
   },
   ratesList: {
     zIndex: 1,
@@ -51,6 +43,10 @@ const styles = {
     fontSize: 16,
     fontFamily: Fonts.light,
     flex: 1,
+  },
+  dropdownBottom: {
+    flex: 1,
+    minHeight: '40px',
   },
 };
 

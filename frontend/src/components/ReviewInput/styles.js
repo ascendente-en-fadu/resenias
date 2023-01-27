@@ -2,24 +2,17 @@ import Colors from '../../constants/colors';
 import { Fonts } from '../../fonts';
 
 const styles = {
-  buttonBottom: {
+  bottom: {
     backgroundColor: Colors.buttonBottom,
-    borderRadius: 16,
+    borderRadius: 24,
     position: 'relative',
-    flex: 3,
-    height: '100%',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  buttonNoBottom: {
-    backgroundColor: Colors.transparent,
   },
   input: {
     backgroundColor: Colors.transparent,
-    flex: 2,
+    height: '72px',
     width: '100%',
     outline: 'none',
     border: 'none',
@@ -31,9 +24,8 @@ const styles = {
     resize: 'none',
   },
   button: {
-    flex: 1,
-    margin: '0px',
     backgroundColor: Colors.transparent,
+    height: '32px',
   },
   buttonText: {
     fontSize: 16,

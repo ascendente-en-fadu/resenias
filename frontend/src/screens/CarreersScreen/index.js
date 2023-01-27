@@ -6,31 +6,37 @@ import styles from './styles';
 
 /**
  * Career selection screen that shows the careers list.
- * @param {function} navigateToCarreer function to navigate to a specific carreer to select a course
+ * @param {function} setCurrentCarreer function to navigate to a specific carreer to select a course
+ * @param {array} carreers carreers list to show in the screen
+ *   @param {string} carreers.name carreer visible name
+ *   @param {number} carreers.id carreer unique id
  */
-const CarreersScreen = ({ navigateToCarreer }) => {
-  const CARREERS = ['CBC', 'DG', 'DInd', 'DP', 'Arq', 'DI', 'DIyS', 'DT'];
-
-  /**
-   * Navigates to course selection screen of a specific carreer
-   */
-  const selectCarreer = (carreer) => {
-    navigateToCarreer(carreer);
-  };
-
+const CarreersScreen = ({ setCurrentCarreer, carreers }) => {
   return (
     <div style={styles.container}>
       <TitleBanner />
       <div style={styles.buttonsContainer}>
         <div style={styles.buttonsColumnContainer}>
-          {CARREERS.slice(0, CARREERS.length / 2).map((text) => (
-            <CustomButton text={text} key={text} onPress={selectCarreer} />
+          {carreers.slice(0, carreers.length / 2).map((carreer) => (
+            <CustomButton
+              text={carreer.name}
+              key={carreer.id}
+              onPress={() => setCurrentCarreer(carreer)}
+              customStyles={{ bottom: styles.buttonsBottom }}
+            />
           ))}
         </div>
         <div style={styles.buttonsColumnContainer}>
-          {CARREERS.slice(CARREERS.length / 2, CARREERS.length).map((text) => (
-            <CustomButton text={text} key={text} onPress={selectCarreer} />
-          ))}
+          {carreers
+            .slice(carreers.length / 2, carreers.length)
+            .map((carreer) => (
+              <CustomButton
+                text={carreer.name}
+                key={carreer.id}
+                onPress={() => setCurrentCarreer(carreer)}
+                customStyles={{ bottom: styles.buttonsBottom }}
+              />
+            ))}
         </div>
       </div>
       <Footer />
@@ -39,7 +45,13 @@ const CarreersScreen = ({ navigateToCarreer }) => {
 };
 
 CarreersScreen.propTypes = {
-  navigateToCarreer: PropTypes.func,
+  setCurrentCarreer: PropTypes.func.isRequired,
+  carreers: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      id: PropTypes.number,
+    }),
+  ).isRequired,
 };
 
 export default CarreersScreen;

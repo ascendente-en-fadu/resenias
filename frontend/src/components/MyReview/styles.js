@@ -4,9 +4,8 @@ import { Fonts } from '../../fonts';
 const styles = {
   bottom: {
     marginTop: '12px',
-    borderRadius: 16,
+    borderRadius: 24,
     width: '100%',
-    display: 'flex',
     backgroundColor: Colors.buttonBottom,
     position: 'relative',
   },
@@ -27,7 +26,6 @@ const styles = {
   },
   reviewContainer: {
     width: '100%',
-    flex: 1,
     display: 'flex',
     flexDirection: 'column',
     boxSizing: 'border-box',
