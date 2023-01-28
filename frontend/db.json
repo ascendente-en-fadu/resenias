@@ -152,7 +152,6 @@
   "obtener-info-de-catedra": [
     {
       "catedra": 0,
-      "promedio": 2.3,
       "resenias": [
         {
           "anio": 2019,
@@ -164,7 +163,6 @@
     },
     {
       "catedra": 1,
-      "promedio": 2.3,
       "resenia_propia": {
         "anio": 2020,
         "contenido": "Me reprobó por un diseño de una aspiradora, malísimo. Aunque ahora que lo pienso, quizás me excedí un poquito pero bueno, los voy a calificar mal igual.",
@@ -200,7 +198,6 @@
     },
     {
       "catedra": 2,
-      "promedio": 2.3,
       "resenias": [
         {
           "anio": 2021,
@@ -242,7 +239,6 @@
     },
     {
       "catedra": 3,
-      "promedio": 2.3,
       "resenia_propia": {
         "anio": 2020,
         "contenido": "Me reprobó por un diseño de una aspiradora, malísimo. Aunque ahora que lo pienso, quizás me excedí un poquito pero bueno, los voy a calificar mal igual.",

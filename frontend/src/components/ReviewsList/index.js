@@ -10,16 +10,22 @@ import styles from './styles';
 const ReviewsList = ({ reviews = [] }) => {
   return (
     <div style={styles.bottom}>
-      {reviews.map(({ content, rate, year, id }) => (
-        <div style={styles.reviewContainer} key={id}>
-          <span style={styles.dataText}>{'Cursé en ' + year}</span>
-          <span style={styles.contentText}>{content}</span>
-          <span style={styles.dataText}>{'Nota a la cátedra: ' + rate} </span>
-          {id !== reviews[reviews.length - 1]?.id && (
-            <div style={styles.divider} />
-          )}
-        </div>
-      ))}
+      {reviews.length > 0 ? (
+        reviews.map(({ content, rate, year, id }) => (
+          <div style={styles.reviewContainer} key={id}>
+            <span style={styles.dataText}>{'Cursé en ' + year}</span>
+            <span style={styles.contentText}>{content}</span>
+            <span style={styles.dataText}>{'Nota a la cátedra: ' + rate} </span>
+            {id !== reviews[reviews.length - 1]?.id && (
+              <div style={styles.divider} />
+            )}
+          </div>
+        ))
+      ) : (
+        <span style={styles.noReviewsText}>
+          No hay reseñas para esta cátedra
+        </span>
+      )}
     </div>
   );
 };

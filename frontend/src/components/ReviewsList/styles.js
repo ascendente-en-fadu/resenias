@@ -40,6 +40,12 @@ const styles = {
     alignSelf: 'center',
     margin: '16px 0',
   },
+  noReviewsText: {
+    fontSize: 16,
+    color: Colors.gray,
+    fontFamily: Fonts.light,
+    alignSelf: 'center',
+  },
 };
 
 export default styles;

@@ -7,7 +7,7 @@ export const carreersUrl = () => {
 };
 
 export const carreersResponse = (response) => {
-  const data = response.map(({ nombre, id }) => {
+  const data = response?.map(({ nombre, id }) => {
     return { name: nombre, id: id };
   });
   return data;
@@ -22,7 +22,7 @@ export const subjectsParams = ({ carreer }) => {
 };
 
 export const subjectsResponse = (response) => {
-  const data = response.materias.map(({ nombre, id }) => {
+  const data = response?.materias?.map(({ nombre, id }) => {
     return { name: nombre, id: id };
   });
   return data;
@@ -37,7 +37,7 @@ export const coursesParams = ({ subject }) => {
 };
 
 export const coursesResponse = (response) => {
-  const data = response.catedras.map(({ nombre, id }) => {
+  const data = response?.catedras?.map(({ nombre, id }) => {
     return { name: nombre, id: id };
   });
   return data;
@@ -53,8 +53,7 @@ export const courseInfoParams = ({ course }) => {
 
 export const courseInfoResponse = (response) => {
   const data = {
-    mean: response.promedio,
-    ...(response.resenia_propia && {
+    ...(response?.resenia_propia && {
       own_review: {
         year: response.resenia_propia.anio,
         content: response.resenia_propia.contenido,
@@ -62,14 +61,16 @@ export const courseInfoResponse = (response) => {
         id: response.resenia_propia.id,
       },
     }),
-    reviews: response.resenias.map(({ anio, contenido, calificacion, id }) => {
-      return {
-        year: anio,
-        content: contenido,
-        rate: calificacion,
-        id: id,
-      };
-    }),
+    reviews: response?.resenias?.map(
+      ({ anio, contenido, calificacion, id }) => {
+        return {
+          year: anio,
+          content: contenido,
+          rate: calificacion,
+          id: id,
+        };
+      },
+    ),
   };
   return data;
 };
