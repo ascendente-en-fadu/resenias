@@ -24,6 +24,7 @@ const CourseSubScreen = ({
 }) => {
   const [year, setYear] = useState();
   const [rate, setRate] = useState();
+  const [missingFields, setMissingFields] = useState();
 
   return (
     <div style={styles.container}>
@@ -43,6 +44,7 @@ const CourseSubScreen = ({
                 bottom: styles.dropdownBottom,
                 list: styles.yearsList,
               }}
+              required={missingFields}
             />
           </div>
           <div style={styles.selectionContainer}>
@@ -56,17 +58,22 @@ const CourseSubScreen = ({
                 bottom: styles.dropdownBottom,
                 list: styles.ratesList,
               }}
+              required={missingFields}
             />
           </div>
           <ReviewInput
             onPress={(content) => {
-              sendCurrentReview({
-                content: content,
-                year: year.id,
-                rate: rate.id,
-              });
+              if (year && rate && content) {
+                sendCurrentReview({
+                  content: content,
+                  year: year.id,
+                  rate: rate.id,
+                });
+              } else {
+                setMissingFields(true);
+              }
             }}
-            buttonDisabled={!year || !rate}
+            required={missingFields}
           />
         </div>
       )}

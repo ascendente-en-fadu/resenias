@@ -10,6 +10,9 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
   },
+  requiredStyle: {
+    backgroundColor: Colors.fieldWarning,
+  },
   input: {
     backgroundColor: Colors.transparent,
     height: '72px',

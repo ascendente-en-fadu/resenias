@@ -16,3 +16,5 @@ export const RATES = [
   { id: 2, name: 'Bajo nivel' },
   { id: 3, name: 'Ni idea' },
 ];
+
+export const APP_VERSION = 'v0.0.1';

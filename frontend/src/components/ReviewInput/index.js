@@ -2,18 +2,24 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import CustomButton from '../CustomButton';
+import { mergeStyles } from '../../helpers';
 import styles from './styles';
 
 /**
  * Input to write a review with a button to send it.
  * @param {function} onPress function to be called when the button is pressed, taking the textarea content as an argument
- * @param {bool} buttonDisabled if true, the button is not interactable
+ * @param {bool} required if there is no text written, displays a warning style
  */
-const ReviewInput = ({ onPress, buttonDisabled }) => {
+const ReviewInput = ({ onPress, required }) => {
   const [content, setContent] = useState();
 
   return (
-    <div style={styles.bottom}>
+    <div
+      style={mergeStyles([
+        styles.bottom,
+        required && !content && styles.requiredStyle,
+      ])}
+    >
       <textarea
         style={styles.input}
         placeholder='Escribí una reseña'
@@ -22,7 +28,6 @@ const ReviewInput = ({ onPress, buttonDisabled }) => {
         }}
       />
       <CustomButton
-        disabled={!content || buttonDisabled}
         text={'ENVIAR'}
         customStyles={{ bottom: styles.button, text: styles.buttonText }}
         onPress={() => {
@@ -35,7 +40,7 @@ const ReviewInput = ({ onPress, buttonDisabled }) => {
 
 ReviewInput.propTypes = {
   onPress: PropTypes.func.isRequired,
-  buttonDisabled: PropTypes.bool,
+  required: PropTypes.bool,
 };
 
 export default ReviewInput;

@@ -17,6 +17,13 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
   },
+  version: {
+    color: Colors.gray,
+    fontSize: 12,
+    fontFamily: Fonts.light,
+    flex: 1,
+    textAlign: 'end',
+  },
 };
 
 export default styles;

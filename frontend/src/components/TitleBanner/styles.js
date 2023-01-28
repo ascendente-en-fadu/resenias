@@ -15,6 +15,7 @@ const styles = {
     color: Colors.bannerText,
     fontSize: 60,
     fontFamily: Fonts.extraBold,
+    lineHeight: 1,
   },
   title3: {
     color: Colors.bannerText,

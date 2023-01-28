@@ -17,6 +17,7 @@ import styles from './styles';
  * @param {bool} disabled if true, the dropdown is not interactable
  * @param {array} elements elements array to be displayed in the list
  * @param {string} placeholder text to be shown when no option is selected
+ * @param {bool} required if there is no option selected, displays a warning style
  */
 const Dropdown = ({
   customStyles = {},
@@ -25,6 +26,7 @@ const Dropdown = ({
   disabled,
   elements = [],
   placeholder,
+  required,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [animate, setAnimate] = useState(false);
@@ -55,7 +57,11 @@ const Dropdown = ({
     >
       <button
         disabled={disabled}
-        style={mergeStyles([styles.buttonTop, animate && styles.buttonPressed])}
+        style={mergeStyles([
+          styles.buttonTop,
+          animate && styles.buttonPressed,
+          required && !value && styles.requiredStyle,
+        ])}
         {...onPressEvents({
           start: () => !disabled && setAnimate(true),
           end: () => {
@@ -117,6 +123,7 @@ Dropdown.propTypes = {
       id: PropTypes.number,
     }),
   ),
+  required: PropTypes.bool,
 };
 
 export default Dropdown;

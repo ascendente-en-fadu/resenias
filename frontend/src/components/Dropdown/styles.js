@@ -38,6 +38,9 @@ const styles = {
     border: 'none',
     justifyContent: 'space-between',
   },
+  requiredStyle: {
+    backgroundColor: Colors.fieldWarning,
+  },
   buttonPressed: {
     top: '0px',
     left: '0px',
@@ -61,6 +64,7 @@ const styles = {
     transformOrigin: 'top',
     maxHeight: '1000%',
     borderRadius: '16px',
+    border: '1px solid #000000',
   },
   listOpen: {
     transform: 'scaleY(1)',

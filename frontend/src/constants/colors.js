@@ -1,6 +1,7 @@
 const Colors = Object.freeze({
   screenBackground: '#06001F',
   buttonTop: 'rgba(217, 217, 217, 0.15)',
+  fieldWarning: 'rgba(217, 127, 0, 0.4)',
   buttonBottom: '#25203A',
   lightGray: '#D9D9D9',
   gray: '#808080',
