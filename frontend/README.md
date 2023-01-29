@@ -19,4 +19,4 @@ Los diseños de UI están en el directorio `ui_design`, junto con algunas conven
 
 #### Mockear el Backend
 
-Tenemos configurado un un mock del backend hecho con [json-server](https://github.com/typicode/json-server). Para correrlo, ejecutar `npm run start-mock`. Para modificar las respuestas del mock, modificar el archivo `db.json`. La idea es que este mock, la colección del Postman y el backend coincidan siempre en sus rutas y en las estructuras de sus respuestas.
+Tenemos configurado un mock del backend hecho con [json-server](https://github.com/typicode/json-server). Para correrlo, ejecutar `npm run start-mock`. Para modificar las respuestas del mock, modificar el archivo `db.json`. La idea es que este mock, la colección de Postman y el backend coincidan siempre en sus rutas y en las estructuras de sus respuestas.
