@@ -4,12 +4,12 @@ from .serializers import *
 from .models import *
 
 
-class CarreraView(viewsets.ModelViewSet):
+class CarreraView(viewsets.ReadOnlyModelViewSet):
     serializer_class = CarreraSerializer
     queryset = Carrera.objects.all()
 
 
-class MateriaView(viewsets.ModelViewSet):
+class MateriaView(viewsets.ReadOnlyModelViewSet):
     serializer_class = MateriaSerializer
 
     def get_queryset(self):
@@ -24,7 +24,7 @@ class MateriaView(viewsets.ModelViewSet):
         return queryset
 
 
-class CatedraView(viewsets.ModelViewSet):
+class CatedraView(viewsets.ReadOnlyModelViewSet):
     serializer_class = CatedraSerializer
 
     def get_queryset(self):
