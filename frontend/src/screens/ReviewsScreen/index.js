@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { CourseSelector, Footer } from '../../components';
+import { CourseSelector, Footer, FullScreenModal } from '../../components';
 import NoCourseSubScreen from '../NoCourseSubScreen';
 import CourseSubScreen from '../CourseSubScreen';
 import {
@@ -26,6 +26,8 @@ const ReviewsScreen = ({ carreer, goBack }) => {
   const [subjects, setSubjects] = useState();
   const [courses, setCourses] = useState();
   const [courseInfo, setCourseInfo] = useState();
+  const [showModal, setShowModal] = useState();
+  const [modalData, setModalData] = useState({});
 
   /**
    * Sets the current selected course and removes the previously course information
@@ -111,19 +113,21 @@ const ReviewsScreen = ({ carreer, goBack }) => {
    *   @param {number} review.rate rate value
    */
   const sendCurrentReview = async (review) => {
-    try {
-      setCourseInfo(undefined);
-      await sendReview(review);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      try {
+    setModalData({
+      onConfirm: async () => {
+        await sendReview(review);
+      },
+      onResultConfirm: async () => {
+        setCourseInfo(undefined);
         const response = await getCourseInfo(course.id);
         setCourseInfo(response);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+      },
+      questionText:
+        '¿Mandamos esta reseña, master? Igual si te mandaste una cagada podés borrarla y escribir otra.',
+      errorText: 'No pudimos guardar tu reseña.',
+      successText: 'Tu reseña se guardó con éxito.',
+    });
+    setShowModal(true);
   };
 
   /**
@@ -131,19 +135,21 @@ const ReviewsScreen = ({ carreer, goBack }) => {
    * @param {number} reviewId id of the review to be deleted
    */
   const deleteOwnReview = async (reviewId) => {
-    try {
-      setCourseInfo(undefined);
-      await deleteReview(reviewId);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      try {
+    setModalData({
+      onConfirm: async () => {
+        await deleteReview(reviewId);
+      },
+      onResultConfirm: async () => {
+        setCourseInfo(undefined);
         const response = await getCourseInfo(course.id);
         setCourseInfo(response);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+      },
+      questionText:
+        '¿Querés borrar la reseña, master? Igual no pasa nada, vas a poder escribir una reseña nueva.',
+      errorText: 'No pudimos borrar tu reseña.',
+      successText: 'Tu reseña se borró con éxito.',
+    });
+    setShowModal(true);
   };
 
   return (
@@ -173,6 +179,20 @@ const ReviewsScreen = ({ carreer, goBack }) => {
         )}
       </div>
       <Footer />
+      {showModal && (
+        <FullScreenModal
+          text={modalData.text}
+          onConfirm={modalData.onConfirm}
+          onResultConfirm={modalData.onResultConfirm}
+          questionText={modalData.questionText}
+          errorText={modalData.errorText}
+          successText={modalData.successText}
+          onClose={() => {
+            setShowModal(false);
+            setModalData({});
+          }}
+        />
+      )}
     </div>
   );
 };
