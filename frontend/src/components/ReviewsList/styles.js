@@ -14,6 +14,13 @@ const styles = {
     overflowY: 'auto',
     padding: '16px 0',
   },
+  bottomNoReviews: {
+    flex: 1,
+    padding: '16px 34px',
+    boxSizing: 'border-box',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   contentText: {
     fontSize: 16,
     color: Colors.gray,
@@ -44,7 +51,8 @@ const styles = {
     fontSize: 16,
     color: Colors.gray,
     fontFamily: Fonts.light,
-    alignSelf: 'center',
+    marginTop: '12px',
+    textAlign: 'center',
   },
 };
 

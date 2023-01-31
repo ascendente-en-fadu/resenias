@@ -3,3 +3,4 @@ export { ReactComponent as CafecitoIcon } from './cafecito.svg';
 export { ReactComponent as DeleteIcon } from './delete.svg';
 export { ReactComponent as GoogleIcon } from './google.svg';
 export { ReactComponent as InstagramIcon } from './instagram.svg';
+export { ReactComponent as NoReviewsIcon } from './noReviews.svg';

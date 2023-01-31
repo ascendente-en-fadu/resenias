@@ -39,7 +39,8 @@ const styles = {
     justifyContent: 'space-between',
   },
   requiredStyle: {
-    backgroundColor: Colors.fieldWarning,
+    border: '1px solid',
+    borderColor: Colors.bannerText,
   },
   buttonPressed: {
     top: '0px',
