@@ -8,6 +8,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     width: '80%',
+    maxWidth: '500px', // TODO: find a better way to avoid extremely wide modals on desktop screens
   },
   buttonsContainer: {
     flex: 1,
@@ -47,6 +48,9 @@ const styles = {
   },
   rightButtonTop: {
     backgroundColor: Colors.confirmationButton,
+  },
+  rightButtonHighlight: {
+    backgroundColor: Colors.confirmationButtonHighlight,
   },
 };
 

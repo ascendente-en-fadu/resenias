@@ -36,7 +36,7 @@ const Dropdown = ({
   useEffect(() => {
     if (!rootRef?.current) return;
     /**
-     * If the target element of the event is part of the dropdown, hides the item list.
+     * If the target element of the event isn't part of the dropdown, hides the item list.
      */
     const handleClick = (evt) => {
       if (!rootRef.current.contains(evt.target) && isOpen) {

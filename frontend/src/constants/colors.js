@@ -8,6 +8,7 @@ const Colors = Object.freeze({
   pressedButton: '#514C69',
   bannerText: '#D17D00',
   confirmationButton: 'rgba(209, 125, 0, 0.6)',
+  confirmationButtonHighlight: 'rgba(239, 155, 30, 1)',
   transparent: 'rgba(0, 0, 0, 0)',
 });
 

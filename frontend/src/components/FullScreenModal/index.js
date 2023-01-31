@@ -75,6 +75,7 @@ const FullScreenModal = ({
                 text: styles.buttonText,
                 bottom: styles.rightButtonBottom,
                 top: styles.rightButtonTop,
+                highlight: styles.rightButtonHighlight,
               }}
               onPress={onPressConfirmButton}
               disabled={modalState === LOADING_STATE}
