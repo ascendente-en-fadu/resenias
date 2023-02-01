@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { NoReviewsIcon } from '../../images';
+import { mergeStyles } from '../../helpers';
 import styles from './styles';
 
 /**
@@ -9,24 +11,31 @@ import styles from './styles';
  */
 const ReviewsList = ({ reviews = [] }) => {
   return (
-    <div style={styles.bottom}>
+    <>
       {reviews.length > 0 ? (
-        reviews.map(({ content, rate, year, id }) => (
-          <div style={styles.reviewContainer} key={id}>
-            <span style={styles.dataText}>{'Cursé en ' + year}</span>
-            <span style={styles.contentText}>{content}</span>
-            <span style={styles.dataText}>{'Nota a la cátedra: ' + rate} </span>
-            {id !== reviews[reviews.length - 1]?.id && (
-              <div style={styles.divider} />
-            )}
-          </div>
-        ))
+        <div style={styles.bottom}>
+          {reviews.map(({ content, rate, year, id }) => (
+            <div style={styles.reviewContainer} key={id}>
+              <span style={styles.dataText}>{'Cursé en ' + year}</span>
+              <span style={styles.contentText}>{content}</span>
+              <span style={styles.dataText}>
+                {'Nota a la cátedra: ' + rate}{' '}
+              </span>
+              {id !== reviews[reviews.length - 1]?.id && (
+                <div style={styles.divider} />
+              )}
+            </div>
+          ))}
+        </div>
       ) : (
-        <span style={styles.noReviewsText}>
-          No hay reseñas para esta cátedra
-        </span>
+        <div style={mergeStyles([styles.bottom, styles.bottomNoReviews])}>
+          <NoReviewsIcon width='4em' />
+          <span style={styles.noReviewsText}>
+            {'Todavía no hay reseñas para esta cátedra :('}
+          </span>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

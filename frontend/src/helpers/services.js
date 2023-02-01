@@ -36,7 +36,7 @@ axiosInstance.interceptors.response.use(
       console.log('Canceled ' + err.config.url);
       return Promise.reject(undefined);
     }
-    return err;
+    return Promise.reject(err);
   },
 );
 

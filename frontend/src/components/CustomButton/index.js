@@ -14,6 +14,7 @@ import styles from './styles';
  *   @param {object} customStyles.top custom styles for the top layer of the button
  *   @param {object} customStyles.bottom custom styles for the bottom layer of the button
  *   @param {object} customStyles.text custom styles for the button text
+ *   @param {object} customStyles.highlight custom styles for the button higlight color
  * @param {function} onPress function to be called when the button in pressed
  * @param {bool} arrow if true, displays an arrow icon on the right of the button
  * @param {bool} disabled if true, the button is not interactable
@@ -45,7 +46,7 @@ const CustomButton = ({
         style={mergeStyles([
           styles.buttonTop,
           customStyles.top,
-          animate && styles.buttonPressed,
+          animate && { ...styles.buttonPressed, ...customStyles.highlight },
         ])}
       >
         {children ? (
@@ -75,6 +76,7 @@ CustomButton.propTypes = {
   customStyles: PropTypes.shape({
     bottom: PropTypes.object,
     top: PropTypes.object,
+    highlight: PropTypes.object,
     text: PropTypes.object,
   }),
   onPress: PropTypes.func.isRequired,

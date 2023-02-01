@@ -108,20 +108,20 @@
         {
           "nombre": "Pikachu+",
           "id": 3
+        },
+        {
+          "nombre": "Gastly+",
+          "id": 4
+        },
+        {
+          "nombre": "Magikarp+",
+          "id": 5
         }
       ]
     },
     {
       "materia": 1,
       "catedras": [
-        {
-          "nombre": "Fernández",
-          "id": 4
-        },
-        {
-          "nombre": "Pérez",
-          "id": 5
-        },
         {
           "nombre": "Gómez",
           "id": 6
@@ -145,6 +145,14 @@
         {
           "nombre": "Martínez",
           "id": 11
+        },
+        {
+          "nombre": "Fernández",
+          "id": 12
+        },
+        {
+          "nombre": "Pérez",
+          "id": 13
         }
       ]
     }
@@ -253,6 +261,15 @@
           "id": 14
         }
       ]
+    },
+    {
+      "catedra": 4,
+      "resenia_propia": {
+        "anio": 2020,
+        "contenido": "Me reprobó por un diseño de una aspiradora, malísimo. Aunque ahora que lo pienso, quizás me excedí un poquito pero bueno, los voy a calificar mal igual.",
+        "calificacion": 0,
+        "id": 13
+      }
     }
   ],
   "borrar-resenia": {},

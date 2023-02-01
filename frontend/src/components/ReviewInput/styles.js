@@ -11,7 +11,8 @@ const styles = {
     flexDirection: 'column',
   },
   requiredStyle: {
-    backgroundColor: Colors.fieldWarning,
+    border: '1px solid',
+    borderColor: Colors.bannerText,
   },
   input: {
     backgroundColor: Colors.transparent,
