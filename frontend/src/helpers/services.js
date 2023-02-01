@@ -63,7 +63,7 @@ export const getSubjects = async (carreerId, controller) => {
     params: subjectsParams({ carreer: carreerId }),
     signal: controller?.signal,
   });
-  return subjectsResponse(data[0]);
+  return subjectsResponse(data);
 };
 
 /**
@@ -77,7 +77,7 @@ export const getCourses = async (subjectId, controller) => {
     params: coursesParams({ subject: subjectId }),
     signal: controller?.signal,
   });
-  return coursesResponse(data[0]);
+  return coursesResponse(data);
 };
 
 /**
@@ -91,7 +91,7 @@ export const getCourseInfo = async (courseId, controller) => {
     params: courseInfoParams({ course: courseId }),
     signal: controller?.signal,
   });
-  return courseInfoResponse(data[0]);
+  return courseInfoResponse(data);
 };
 
 /**
