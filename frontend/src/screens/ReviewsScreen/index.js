@@ -186,7 +186,6 @@ const ReviewsScreen = ({ carreer, goBack, currentUser }) => {
       <Footer />
       {showModal && (
         <FullScreenModal
-          text={modalData.text}
           onConfirm={modalData.onConfirm}
           onResultConfirm={modalData.onResultConfirm}
           questionText={modalData.questionText}

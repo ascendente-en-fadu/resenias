@@ -30,7 +30,7 @@ const LoginScreen = ({ setCurrentUser }) => {
           .catch((err) => console.log(err));
       }
     },
-    onError: (error) => console.log('Login Failed:', error),
+    onError: (error) => console.log(error),
   });
 
   return (
