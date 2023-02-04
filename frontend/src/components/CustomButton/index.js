@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { mergeStyles, onPressEvents } from '../../helpers';
-import { ArrowIcon } from '../../images';
+import { ArrowIcon, GoogleIcon } from '../../images';
 import styles from './styles';
 
 /**
@@ -17,6 +17,7 @@ import styles from './styles';
  *   @param {object} customStyles.highlight custom styles for the button higlight color
  * @param {function} onPress function to be called when the button in pressed
  * @param {bool} arrow if true, displays an arrow icon on the right of the button
+ * @param {bool} googleLogo if true, displays a Google icon on the right of the button
  * @param {bool} disabled if true, the button is not interactable
  */
 const CustomButton = ({
@@ -25,6 +26,7 @@ const CustomButton = ({
   customStyles = {},
   onPress,
   arrow,
+  googleLogo,
   disabled,
 }) => {
   const [animate, setAnimate] = useState(false);
@@ -54,6 +56,7 @@ const CustomButton = ({
         ) : (
           <>
             {arrow && <ArrowIcon width='3em' style={styles.arrow} />}
+            {googleLogo && <GoogleIcon width='2em' style={styles.googleLogo} />}
             <span
               style={mergeStyles([
                 styles.text,
@@ -81,6 +84,7 @@ CustomButton.propTypes = {
   }),
   onPress: PropTypes.func.isRequired,
   arrow: PropTypes.bool,
+  googleLogo: PropTypes.bool,
   disabled: PropTypes.bool,
 };
 

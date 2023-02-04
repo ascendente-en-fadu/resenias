@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import { getCarreers, mergeStyles } from './helpers';
-import { CarreersScreen, ReviewsScreen } from './screens';
+import { CarreersScreen, LoginScreen, ReviewsScreen } from './screens';
 import styles from './styles';
 
 /**
@@ -13,6 +13,7 @@ function App() {
   const isPortrait = useMediaQuery({ query: '(orientation: portrait)' });
   const [carreer, setCarreer] = useState();
   const [carreers, setCarreers] = useState([]);
+  const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
     const controller = new AbortController();
@@ -63,12 +64,18 @@ function App() {
         }
       >
         {carreer ? (
-          <ReviewsScreen carreer={carreer} goBack={goBack} />
-        ) : (
+          <ReviewsScreen
+            carreer={carreer}
+            goBack={goBack}
+            currentUser={currentUser}
+          />
+        ) : currentUser ? (
           <CarreersScreen
             setCurrentCarreer={setCurrentCarreer}
             carreers={carreers}
           />
+        ) : (
+          <LoginScreen setCurrentUser={setCurrentUser} />
         )}
       </div>
     </div>

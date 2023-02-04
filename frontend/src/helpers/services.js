@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
 
 import { BASE_URL } from '../constants/misc';
@@ -83,10 +84,11 @@ export const getCourses = async (subjectId, controller) => {
 /**
  * Gets the course info for a given course
  * @param {number} courseId id of the course to get it's information
+ * @param {string} currentUser currently logged user email
  * @param {AbortController} controller controller to abort the request
  * @returns a course information object
  */
-export const getCourseInfo = async (courseId, controller) => {
+export const getCourseInfo = async (courseId, currentUser, controller) => {
   const { data } = await axiosInstance.get(courseInfoUrl('/get-course-info'), {
     params: courseInfoParams({ course: courseId }),
     signal: controller?.signal,
@@ -100,19 +102,21 @@ export const getCourseInfo = async (courseId, controller) => {
  *   @param {number} review.year year when the course was taken
  *   @param {string} review.content review text content
  *   @param {number} review.rate rate value
+ * @param {string} currentUser currently logged user email
  */
-export const sendReview = async (review) => {
+export const sendReview = async (review, currentUser) => {
   await axiosInstance.post(
     sendReviewUrl('/create-review'),
-    sendReviewBody({ review: review }),
+    sendReviewBody({ review: review, email: currentUser }),
   );
 };
 
 /**
  * Delete a review previously written by the user
  * @param {number} reviewId id of the review to be deleted
+ * @param {string} currentUser currently logged user email
  */
-export const deleteReview = async (reviewId) => {
+export const deleteReview = async (reviewId, currentUser) => {
   // TODO change method to DELETE when working with the real BE
   await axiosInstance.get(deleteReviewUrl('/delete-review'), {
     params: deleteReviewParams({ id: reviewId }),

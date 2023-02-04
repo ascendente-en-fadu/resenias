@@ -78,11 +78,12 @@ export const sendReviewUrl = () => {
   return '/crear-resenia';
 };
 
-export const sendReviewBody = ({ review }) => {
+export const sendReviewBody = ({ review, email }) => {
   return {
     anio: review.year,
     contenido: review.content,
     calificacion: review.rate,
+    email: email,
   };
 };
 

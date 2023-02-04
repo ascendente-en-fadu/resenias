@@ -43,6 +43,9 @@ const styles = {
     left: '10px',
     rotate: '90deg',
   },
+  googleLogo: {
+    marginRight: '14px',
+  },
 };
 
 export default styles;

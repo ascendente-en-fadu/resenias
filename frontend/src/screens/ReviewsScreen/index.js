@@ -19,8 +19,9 @@ import styles from './styles';
  *   @param {string} carreer.name name of the current selected carreer
  *   @param {number} carreer.id id of the current selected carreer
  * @param {function} goBack function to be called when the carreer indicator is pressed
+ * @param {string} currentUser currently logged user email
  */
-const ReviewsScreen = ({ carreer, goBack }) => {
+const ReviewsScreen = ({ carreer, goBack, currentUser }) => {
   const [subject, setSubject] = useState();
   const [course, setCourse] = useState();
   const [subjects, setSubjects] = useState();
@@ -92,7 +93,11 @@ const ReviewsScreen = ({ carreer, goBack }) => {
      */
     const getReviewsList = async () => {
       try {
-        const response = await getCourseInfo(course.id, controller);
+        const response = await getCourseInfo(
+          course.id,
+          currentUser,
+          controller,
+        );
         setCourseInfo(response);
       } catch (error) {
         error && console.log(error);
@@ -115,7 +120,7 @@ const ReviewsScreen = ({ carreer, goBack }) => {
   const sendCurrentReview = async (review) => {
     setModalData({
       onConfirm: async () => {
-        await sendReview(review);
+        await sendReview(review, currentUser);
       },
       onResultConfirm: async () => {
         setCourseInfo(undefined);
@@ -137,7 +142,7 @@ const ReviewsScreen = ({ carreer, goBack }) => {
   const deleteOwnReview = async (reviewId) => {
     setModalData({
       onConfirm: async () => {
-        await deleteReview(reviewId);
+        await deleteReview(reviewId, currentUser);
       },
       onResultConfirm: async () => {
         setCourseInfo(undefined);
@@ -203,6 +208,7 @@ ReviewsScreen.propTypes = {
     id: PropTypes.number,
   }).isRequired,
   goBack: PropTypes.func.isRequired,
+  currentUser: PropTypes.string.isRequired,
 };
 
 export default ReviewsScreen;
