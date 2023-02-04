@@ -4,3 +4,4 @@ export * from './onPressEvents';
 export * from './apiTranslations';
 export * from './generateYearsList';
 export * from './getCurrentYear';
+export * from './getReviewYearLabel';

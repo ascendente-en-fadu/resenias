@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { NoReviewsIcon } from '../../images';
-import { getCurrentYear, mergeStyles } from '../../helpers';
+import { getReviewYearLabel, mergeStyles } from '../../helpers';
 import styles from './styles';
-import { REVIEW_YEARS_MAX_COUNT } from '../../constants/misc';
 
 /**
  * Displays a scrollable review list.
@@ -17,11 +16,7 @@ const ReviewsList = ({ reviews = [] }) => {
         <div style={styles.bottom}>
           {reviews.map(({ content, rate, year, id }) => (
             <div style={styles.reviewContainer} key={id}>
-              <span style={styles.dataText}>
-                {year > getCurrentYear() - REVIEW_YEARS_MAX_COUNT
-                  ? 'Cursé en ' + year
-                  : 'Cursé hace mucho'}
-              </span>
+              <span style={styles.dataText}>{getReviewYearLabel(year)}</span>
               <span style={styles.contentText}>{content}</span>
               <span style={styles.dataText}>
                 {'Nota a la cátedra: ' + rate}{' '}
