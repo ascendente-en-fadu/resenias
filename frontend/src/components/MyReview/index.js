@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { DeleteIcon } from '../../images';
 import CustomButton from '../CustomButton';
+import { getCurrentYear } from '../../helpers';
+import { REVIEW_YEARS_MAX_COUNT } from '../../constants/misc';
 import styles from './styles';
 
 /**
@@ -25,7 +27,11 @@ const MyReview = ({ review, deleteOwnReview }) => {
       </CustomButton>
       <div style={styles.reviewContainer}>
         <span style={styles.title}>Tu reseña</span>
-        <span style={styles.dataText}>{'Cursé en ' + review.year}</span>
+        <span style={styles.dataText}>
+          {review.year > getCurrentYear() - REVIEW_YEARS_MAX_COUNT
+            ? 'Cursé en ' + review.year
+            : 'Cursé hace mucho'}
+        </span>
         <span style={styles.contentText}>{review.content}</span>
         <span style={styles.dataText}>
           {'Nota a la cátedra: ' + review.rate}

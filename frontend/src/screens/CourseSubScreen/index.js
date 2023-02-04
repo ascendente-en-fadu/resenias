@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Dropdown, ReviewInput, ReviewsList, MyReview } from '../../components';
-import { RATES, YEARS } from '../../constants/misc';
+import { RATES } from '../../constants/misc';
+import { generateYearsList } from '../../helpers';
 import styles from './styles';
 
 /**
@@ -38,7 +39,7 @@ const CourseSubScreen = ({
             <Dropdown
               placeholder='Año'
               value={year}
-              elements={YEARS}
+              elements={generateYearsList()}
               onChange={setYear}
               customStyles={{
                 bottom: styles.dropdownBottom,
