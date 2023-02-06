@@ -40,7 +40,7 @@ const LoginScreen = ({ setCurrentUser }) => {
       <TitleBanner />
       <div style={styles.buttonContainer}>
         <span style={styles.apologizeText}>
-          Ya se que es una paja iniciar sesión, pero es necesario por razones de
+          Logeate con Google. Ya se que no tenés ganas pero es necesario por
           seguridad.
         </span>
         <CustomButton
