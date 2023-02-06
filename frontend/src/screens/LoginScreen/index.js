@@ -13,6 +13,7 @@ import styles from './styles';
 const LoginScreen = ({ setCurrentUser }) => {
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
+      console.log('Access Token del usuario: ' + codeResponse.access_token);
       if (codeResponse) {
         axios
           .get(
@@ -26,6 +27,7 @@ const LoginScreen = ({ setCurrentUser }) => {
           )
           .then((res) => {
             setCurrentUser(res.data.email);
+            console.log('Mail del usuario: ' + res.data.email);
           })
           .catch((err) => console.log(err));
       }
