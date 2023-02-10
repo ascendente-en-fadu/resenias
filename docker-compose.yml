@@ -20,6 +20,7 @@ services:
       - database
     environment:
       SECRET_KEY: ${SECRET_KEY:?SECRET_KEY required}
+      FERNET_KEY: ${FERNET_KEY:?FERNET_KEY required}
       TZ: America/Argentina/Buenos_Aires
       #db connection
       DB_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD required.}

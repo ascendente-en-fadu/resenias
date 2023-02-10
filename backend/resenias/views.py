@@ -1,7 +1,10 @@
+from decouple import config
+from cryptography.fernet import Fernet
 from urllib.request import urlopen, Request
 import json
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import *
 from .models import *
@@ -9,21 +12,21 @@ from .models import *
 
 class GLoginView(APIView):
     def post(self, request, format=None):
-        # obtener access token
-        access_token = request.data.get('token')
-        url = "https://www.googleapis.com/oauth2/v2/userinfo"
-        # creo el request
-        headers = {
-            "Authorization": f"Bearer {access_token}",
+        google_access_token = request.data.get('token')
+        user_data_url = "https://www.googleapis.com/oauth2/v2/userinfo"
+        request_headers = {
+            "Authorization": f"Bearer {google_access_token}",
             "Accept": "application/json",
         }
-        request = Request(url, headers=headers or {})
-        response = urlopen(request)
-        # storing the JSON response 
-        # from url in data
-        data_json = json.loads(response.read())
-        user_email = data_json.get('email')
-        print(user_email)
+        user_data_request = Request(url=user_data_url, headers=request_headers)
+        user_data_response = urlopen(user_data_request)
+        user_data_json = json.loads(user_data_response.read())
+        user_email = user_data_json.get('email')
+        encryption_key = config('FERNET_KEY')
+        fernet = Fernet(encryption_key)
+        encrypted_email = fernet.encrypt(user_email.encode())
+        str_encypted_email = encrypted_email.decode()
+        return Response({"SessionID": str_encypted_email})
 
 
 class CarreraView(viewsets.ReadOnlyModelViewSet):
