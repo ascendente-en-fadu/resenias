@@ -128,7 +128,7 @@ const ReviewsScreen = ({ carreer, goBack, currentUser }) => {
         setCourseInfo(response);
       },
       questionText:
-        '¿Mandamos esta reseña, master? Igual si te mandaste una cagada podés borrarla y escribir otra.',
+        '¿Mandamos esta reseña, máquina? Igual si te mandaste una cagada podés borrarla y escribir otra.',
       errorText: 'No pudimos guardar tu reseña.',
       successText: 'Tu reseña se guardó con éxito.',
     });
@@ -150,7 +150,7 @@ const ReviewsScreen = ({ carreer, goBack, currentUser }) => {
         setCourseInfo(response);
       },
       questionText:
-        '¿Querés borrar la reseña, master? Igual no pasa nada, vas a poder escribir una reseña nueva.',
+        '¿Querés borrar la reseña, máquina? Igual no pasa nada, vas a poder escribir una reseña nueva.',
       errorText: 'No pudimos borrar tu reseña.',
       successText: 'Tu reseña se borró con éxito.',
     });
