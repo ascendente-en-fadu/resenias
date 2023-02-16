@@ -286,9 +286,21 @@
 		},
 		{
 			"name": "Obtener reseñas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"session_id\": \"gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "{{BASE_URL}}/resenias?catedra=1",
 					"host": [
@@ -386,19 +398,24 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"session_id\": \"gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{BASE_URL}}/borrar-resenia?id=0",
+					"raw": "{{BASE_URL}}/resenias/3/",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
-						"borrar-resenia"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "0"
-						}
+						"resenias",
+						"3",
+						""
 					]
 				}
 			},
@@ -493,7 +510,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"anio\": 2020,\r\n    \"contenido\": \"Re fácil esta cátedra.\",\r\n    \"calificacion\": 2\r\n}",
+					"raw": "{\r\n    \"anio\": 2022,\r\n    \"contenido\": \"Re difìcil esta cátedra.\",\r\n    \"calificacion\": 0,\r\n    \"catedra\": 1,\r\n    \"session_id\": \"gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -501,12 +518,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{BASE_URL}}/crear-resenia",
+					"raw": "{{BASE_URL}}/resenias/",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
-						"crear-resenia"
+						"resenias",
+						""
 					]
 				}
 			},
@@ -594,6 +612,109 @@
 					],
 					"cookie": [],
 					"body": "{}"
+				}
+			]
+		},
+		{
+			"name": "Login via Google",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\":\"ya29.a0AVvZVsrjGUPexktF0su3QLhgowaTCvC1m3Kj-QvnH6EYrdkNMedIJngQQESs7lKnd7gdlN7omAf8JoEZGsX_nun6OKMYSsNKjJyUgbXQ_28C54wL3a_MRkqSt88vrhF_K3U7iFA6g3Sr_PwIlGkQFVbfcUCtTQaCgYKAaESARASFQGbdwaIQ78P_DP7iLENWClvS62X3g0165\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/login",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Respuesta exitosa",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"ya29.a0AVvZVsrjGUPexktF0su3QLhgowaTCvC1m3Kj-QvnH6EYrdkNMedIJngQQESs7lKnd7gdlN7omAf8JoEZGsX_nun6OKMYSsNKjJyUgbXQ_28C54wL3a_MRkqSt88vrhF_K3U7iFA6g3Sr_PwIlGkQFVbfcUCtTQaCgYKAaESARASFQGbdwaIQ78P_DP7iLENWClvS62X3g0165\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.20.1"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Feb 2023 00:44:24 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "156"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"session_id\": \"gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb\"\n}"
 				}
 			]
 		}
