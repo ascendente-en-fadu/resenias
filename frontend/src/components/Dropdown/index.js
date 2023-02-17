@@ -32,6 +32,7 @@ const Dropdown = ({
   const [animate, setAnimate] = useState(false);
 
   const rootRef = useRef(null);
+  const isDisabled = disabled || elements.length === 0;
 
   useEffect(() => {
     if (!rootRef?.current) return;
@@ -56,14 +57,14 @@ const Dropdown = ({
       ref={rootRef}
     >
       <button
-        disabled={disabled}
+        disabled={isDisabled}
         style={mergeStyles([
           styles.buttonTop,
           animate && styles.buttonPressed,
           required && !value && styles.requiredStyle,
         ])}
         {...onPressEvents({
-          start: () => !disabled && setAnimate(true),
+          start: () => !isDisabled && setAnimate(true),
           end: () => {
             setAnimate(false);
             setIsOpen((prev) => !prev);
@@ -72,7 +73,7 @@ const Dropdown = ({
         })}
       >
         <span
-          style={mergeStyles([styles.text, disabled && styles.disabledText])}
+          style={mergeStyles([styles.text, isDisabled && styles.disabledText])}
         >
           {value?.name ?? placeholder}
         </span>
