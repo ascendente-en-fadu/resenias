@@ -26,7 +26,7 @@ class GLoginView(APIView):
         fernet = Fernet(encryption_key)
         encrypted_email = fernet.encrypt(user_email.encode())
         str_encypted_email = encrypted_email.decode()
-        return Response({"SessionID": str_encypted_email})
+        return Response({"session_id": str_encypted_email})
 
 
 class CarreraView(viewsets.ReadOnlyModelViewSet):
