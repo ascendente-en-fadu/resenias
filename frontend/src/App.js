@@ -13,7 +13,7 @@ function App() {
   const isPortrait = useMediaQuery({ query: '(orientation: portrait)' });
   const [carreer, setCarreer] = useState();
   const [carreers, setCarreers] = useState([]);
-  const [currentUser, setCurrentUser] = useState();
+  const [sessionId, setSessionId] = useState();
 
   useEffect(() => {
     const controller = new AbortController();
@@ -67,15 +67,15 @@ function App() {
           <ReviewsScreen
             carreer={carreer}
             goBack={goBack}
-            currentUser={currentUser}
+            sessionId={sessionId}
           />
-        ) : currentUser ? (
+        ) : sessionId ? (
           <CarreersScreen
             setCurrentCarreer={setCurrentCarreer}
             carreers={carreers}
           />
         ) : (
-          <LoginScreen setCurrentUser={setCurrentUser} />
+          <LoginScreen setSessionId={setSessionId} />
         )}
       </div>
     </div>

@@ -13,11 +13,16 @@ import {
   coursesUrl,
   deleteReviewParams,
   deleteReviewUrl,
+  loginResponse,
+  loginUrl,
+  loginBody,
   sendReviewBody,
   sendReviewUrl,
   subjectsParams,
   subjectsResponse,
   subjectsUrl,
+  courseInfoBody,
+  deleteReviewBody,
 } from './apiTranslations';
 
 const axiosInstance = axios.create({ baseURL: BASE_URL, timeout: 15000 });
@@ -47,7 +52,7 @@ axiosInstance.interceptors.response.use(
  * @returns a carreers list
  */
 export const getCarreers = async (controller) => {
-  const { data } = await axiosInstance.get(carreersUrl('/get-carreers'), {
+  const { data } = await axiosInstance.get(carreersUrl(), {
     signal: controller?.signal,
   });
   return carreersResponse(data);
@@ -60,7 +65,7 @@ export const getCarreers = async (controller) => {
  * @returns a subjects list
  */
 export const getSubjects = async (carreerId, controller) => {
-  const { data } = await axiosInstance.get(subjectsUrl('/get-subjects'), {
+  const { data } = await axiosInstance.get(subjectsUrl(), {
     params: subjectsParams({ carreer: carreerId }),
     signal: controller?.signal,
   });
@@ -74,7 +79,7 @@ export const getSubjects = async (carreerId, controller) => {
  * @returns a courses list
  */
 export const getCourses = async (subjectId, controller) => {
-  const { data } = await axiosInstance.get(coursesUrl('/get-courses'), {
+  const { data } = await axiosInstance.get(coursesUrl(), {
     params: coursesParams({ subject: subjectId }),
     signal: controller?.signal,
   });
@@ -84,15 +89,19 @@ export const getCourses = async (subjectId, controller) => {
 /**
  * Gets the course info for a given course
  * @param {number} courseId id of the course to get it's information
- * @param {string} currentUser currently logged user email
+ * @param {string} sessionId session id of the current user
  * @param {AbortController} controller controller to abort the request
  * @returns a course information object
  */
-export const getCourseInfo = async (courseId, currentUser, controller) => {
-  const { data } = await axiosInstance.get(courseInfoUrl('/get-course-info'), {
-    params: courseInfoParams({ course: courseId }),
-    signal: controller?.signal,
-  });
+export const getCourseInfo = async (courseId, sessionId, controller) => {
+  const { data } = await axiosInstance.get(
+    courseInfoUrl(),
+    courseInfoBody({ session_id: sessionId }),
+    {
+      params: courseInfoParams({ course: courseId }),
+      signal: controller?.signal,
+    },
+  );
   return courseInfoResponse(data);
 };
 
@@ -102,23 +111,40 @@ export const getCourseInfo = async (courseId, currentUser, controller) => {
  *   @param {number} review.year year when the course was taken
  *   @param {string} review.content review text content
  *   @param {number} review.rate rate value
- * @param {string} currentUser currently logged user email
+ *   @param {number} review.course course id
+ * @param {string} sessionId session id of the current user
  */
-export const sendReview = async (review, currentUser) => {
+export const sendReview = async (review, sessionId) => {
   await axiosInstance.post(
-    sendReviewUrl('/create-review'),
-    sendReviewBody({ review: review, email: currentUser }),
+    sendReviewUrl(),
+    sendReviewBody({ review: review, session_id: sessionId }),
   );
 };
 
 /**
  * Delete a review previously written by the user
  * @param {number} reviewId id of the review to be deleted
- * @param {string} currentUser currently logged user email
+ * @param {string} sessionId session id of the current user
  */
-export const deleteReview = async (reviewId, currentUser) => {
-  // TODO change method to DELETE when working with the real BE
-  await axiosInstance.get(deleteReviewUrl('/delete-review'), {
-    params: deleteReviewParams({ id: reviewId }),
-  });
+export const deleteReview = async (reviewId, sessionId) => {
+  await axiosInstance.delete(
+    deleteReviewUrl(reviewId),
+    deleteReviewBody({ session_id: sessionId }),
+    {
+      params: deleteReviewParams({ id: reviewId }),
+    },
+  );
+};
+
+/**
+ * Do a login on BE by sending the access token given by the Google Login
+ * @param {string} accessToken currently logged user access token
+ * @returns a session id, to authenticate the user for the necessary requests
+ */
+export const doLogin = async (accessToken) => {
+  const { data } = await axiosInstance.post(
+    loginUrl(),
+    loginBody({ access_token: accessToken }),
+  );
+  return loginResponse(data);
 };

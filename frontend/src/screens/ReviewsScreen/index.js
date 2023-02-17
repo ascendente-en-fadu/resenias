@@ -19,9 +19,9 @@ import styles from './styles';
  *   @param {string} carreer.name name of the current selected carreer
  *   @param {number} carreer.id id of the current selected carreer
  * @param {function} goBack function to be called when the carreer indicator is pressed
- * @param {string} currentUser currently logged user email
+ * @param {string} sessionId session id of the current user
  */
-const ReviewsScreen = ({ carreer, goBack, currentUser }) => {
+const ReviewsScreen = ({ carreer, goBack, sessionId }) => {
   const [subject, setSubject] = useState();
   const [course, setCourse] = useState();
   const [subjects, setSubjects] = useState();
@@ -31,7 +31,7 @@ const ReviewsScreen = ({ carreer, goBack, currentUser }) => {
   const [modalData, setModalData] = useState({});
 
   /**
-   * Sets the current selected course and removes the previously course information
+   * Sets the current selected course and removes the previously selected course information
    */
   const _setCourse = (value) => {
     setCourse(value);
@@ -93,11 +93,7 @@ const ReviewsScreen = ({ carreer, goBack, currentUser }) => {
      */
     const getReviewsList = async () => {
       try {
-        const response = await getCourseInfo(
-          course.id,
-          currentUser,
-          controller,
-        );
+        const response = await getCourseInfo(course.id, sessionId, controller);
         setCourseInfo(response);
       } catch (error) {
         error && console.log(error);
@@ -116,15 +112,16 @@ const ReviewsScreen = ({ carreer, goBack, currentUser }) => {
    *   @param {number} review.year year when the course was taken
    *   @param {string} review.content review text content
    *   @param {number} review.rate rate value
+   *   @param {number} review.course course id
    */
   const sendCurrentReview = async (review) => {
     setModalData({
       onConfirm: async () => {
-        await sendReview(review, currentUser);
+        await sendReview(review, sessionId);
       },
       onResultConfirm: async () => {
         setCourseInfo(undefined);
-        const response = await getCourseInfo(course.id);
+        const response = await getCourseInfo(course.id, sessionId);
         setCourseInfo(response);
       },
       questionText:
@@ -142,11 +139,11 @@ const ReviewsScreen = ({ carreer, goBack, currentUser }) => {
   const deleteOwnReview = async (reviewId) => {
     setModalData({
       onConfirm: async () => {
-        await deleteReview(reviewId, currentUser);
+        await deleteReview(reviewId, sessionId);
       },
       onResultConfirm: async () => {
         setCourseInfo(undefined);
-        const response = await getCourseInfo(course.id);
+        const response = await getCourseInfo(course.id, sessionId);
         setCourseInfo(response);
       },
       questionText:
@@ -178,6 +175,7 @@ const ReviewsScreen = ({ carreer, goBack, currentUser }) => {
             reviews={courseInfo.reviews}
             ownReview={courseInfo.own_review}
             deleteOwnReview={deleteOwnReview}
+            courseId={course.id}
           />
         ) : (
           <NoCourseSubScreen />
@@ -207,7 +205,7 @@ ReviewsScreen.propTypes = {
     id: PropTypes.number,
   }).isRequired,
   goBack: PropTypes.func.isRequired,
-  currentUser: PropTypes.string.isRequired,
+  sessionId: PropTypes.string.isRequired,
 };
 
 export default ReviewsScreen;

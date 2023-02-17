@@ -16,12 +16,14 @@ import styles from './styles';
  *   @param {string} ownReview.content review text content
  *   @param {number} ownReview.rate rate value
  *   @param {number} ownReview.id if of the review
+ * @param {number} courseId currently selected course
  */
 const CourseSubScreen = ({
   sendCurrentReview,
   deleteOwnReview,
   reviews = [],
   ownReview,
+  courseId,
 }) => {
   const [year, setYear] = useState();
   const [rate, setRate] = useState();
@@ -69,6 +71,7 @@ const CourseSubScreen = ({
                   content: content,
                   year: year.id,
                   rate: rate.id,
+                  course: courseId,
                 });
               } else {
                 setMissingFields(true);
@@ -100,6 +103,7 @@ CourseSubScreen.propTypes = {
     rate: PropTypes.number,
     id: PropTypes.number,
   }),
+  courseId: PropTypes.number.isRequired,
 };
 
 export default CourseSubScreen;
