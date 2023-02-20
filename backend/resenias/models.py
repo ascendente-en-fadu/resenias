@@ -58,7 +58,7 @@ class Resenia(models.Model):
         related_name="resenias", related_query_name="resenia",
     )
 
-    # autor (para hacer con google login)
+    autor = models.EmailField()
     calificacion = models.PositiveIntegerField(
         verbose_name="calificación", choices=CALIFICACION_CHOICES,
         blank=True, null=True,
