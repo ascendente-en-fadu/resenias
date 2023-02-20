@@ -9,7 +9,6 @@ from rest_framework.views import APIView
 from .serializers import *
 from .models import *
 
-
 class GLoginView(APIView):
     def post(self, request, format=None):
         google_access_token = request.data.get('token')
