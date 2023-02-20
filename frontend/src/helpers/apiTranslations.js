@@ -47,6 +47,10 @@ export const courseInfoUrl = () => {
   return '/resenias';
 };
 
+export const courseInfoBody = ({ session_id }) => {
+  return { session_id: session_id };
+};
+
 export const courseInfoParams = ({ course }) => {
   return { catedra: course };
 };
@@ -75,24 +79,43 @@ export const courseInfoResponse = (response) => {
 };
 
 export const sendReviewUrl = () => {
-  return '/crear-resenia';
+  return '/resenias';
 };
 
-export const sendReviewBody = ({ review, email }) => {
+export const sendReviewBody = ({ review, session_id }) => {
   return {
     anio: review.year,
     contenido: review.content,
     calificacion: review.rate,
-    email: email,
+    catedra: review.course,
+    session_id: session_id,
   };
 };
 
-export const deleteReviewUrl = () => {
-  return '/borrar-resenia';
+export const deleteReviewUrl = (id) => {
+  return '/resenias/' + id;
+};
+
+export const deleteReviewBody = ({ session_id }) => {
+  return { session_id: session_id };
 };
 
 export const deleteReviewParams = ({ id }) => {
   return {
     id: id,
   };
+};
+
+export const loginUrl = () => {
+  return '/login';
+};
+
+export const loginBody = ({ access_token }) => {
+  return {
+    token: access_token,
+  };
+};
+
+export const loginResponse = (response) => {
+  return response.session_id;
 };

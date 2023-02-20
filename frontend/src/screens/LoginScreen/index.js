@@ -1,40 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useGoogleLogin } from '@react-oauth/google';
-import axios from 'axios';
 
 import { CustomButton, Footer, TitleBanner } from '../../components';
+import { doLogin } from '../../helpers';
 import styles from './styles';
 
 /**
  * Login screen, with a button to do a Google login and a apologize message
- * @param {function} setCurrentUser function to set the current user email
+ * @param {function} setSessionId function to set the current user session id
  */
-const LoginScreen = ({ setCurrentUser }) => {
+const LoginScreen = ({ setSessionId }) => {
   const login = useGoogleLogin({
-    onSuccess: (codeResponse) => {
-      console.log('Access Token del usuario: ' + codeResponse.access_token);
-      if (codeResponse) {
-        axios
-          .get(
-            `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${codeResponse.access_token}`,
-            {
-              headers: {
-                Authorization: `Bearer ${codeResponse.access_token}`,
-                Accept: 'application/json',
-              },
-            },
-          )
-          .then((res) => {
-            setCurrentUser(res.data.email);
-            console.log('Mail del usuario: ' + res.data.email);
-          })
-          .catch((err) => console.log(err));
+    onSuccess: async (codeResponse) => {
+      try {
+        if (codeResponse) {
+          console.log('Access Token del usuario: ' + codeResponse.access_token); // TODO remove this log before going to production
+          const sessionId = await doLogin(codeResponse.access_token);
+          setSessionId(sessionId);
+        } else {
+          throw new Error("The Google Login hasn't returned the access token");
+        }
+      } catch (error) {
+        error && console.log(error);
       }
     },
     onError: (error) => console.log(error),
   });
 
+  /**
+   * Function to set a fake session id, to skip the real Google Login
+   */
+  const setFakeSessionId = () => setSessionId('my-session-id');
   return (
     <div style={styles.container}>
       <TitleBanner />
@@ -45,7 +42,11 @@ const LoginScreen = ({ setCurrentUser }) => {
         </span>
         <CustomButton
           text='Continuar con Google'
-          onPress={login}
+          onPress={
+            process.env.REACT_APP_SKIP_LOGIN === 'true'
+              ? setFakeSessionId
+              : login
+          }
           customStyles={{
             bottom: styles.buttonBottom,
             text: styles.buttonText,
@@ -59,7 +60,7 @@ const LoginScreen = ({ setCurrentUser }) => {
 };
 
 LoginScreen.propTypes = {
-  setCurrentUser: PropTypes.func.isRequired,
+  setSessionId: PropTypes.func.isRequired,
 };
 
 export default LoginScreen;

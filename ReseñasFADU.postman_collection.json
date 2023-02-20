@@ -322,7 +322,23 @@
 					"name": "Respuesta exitosa",
 					"originalRequest": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"session_id\": \"gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{BASE_URL}}/resenias?catedra=1",
 							"host": [
@@ -408,13 +424,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{BASE_URL}}/resenias/3/",
+					"raw": "{{BASE_URL}}/resenias/1/",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
 						"resenias",
-						"3",
+						"1",
 						""
 					]
 				}
@@ -424,20 +440,32 @@
 					"name": "Respuesta exitosa",
 					"originalRequest": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"session_id\": \"gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{BASE_URL}}/borrar-resenia?id=0",
+							"raw": "{{BASE_URL}}/resenias/1/",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
-								"borrar-resenia"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "0"
-								}
+								"resenias",
+								"1",
+								""
 							]
 						}
 					},
@@ -544,12 +572,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/crear-resenia",
+							"raw": "{{BASE_URL}}/resenias/",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
-								"crear-resenia"
+								"resenias",
+								""
 							]
 						}
 					},
