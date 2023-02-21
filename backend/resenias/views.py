@@ -76,3 +76,11 @@ class ReseniaView(viewsets.ModelViewSet):
         if catedra is not None:
             queryset = queryset.filter(catedra=catedra)
         return queryset
+
+    def perform_create(self, serializer):
+        encryption_key = config('FERNET_KEY')
+        fernet = Fernet(encryption_key)
+        encrypted_email = self.request.data.get('session_id')
+        if encrypted_email:
+            email = fernet.decrypt(encrypted_email).decode()
+            serializer.save(autor=email)
