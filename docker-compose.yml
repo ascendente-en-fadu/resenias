@@ -12,7 +12,7 @@ services:
 
   backend:
     build: ./backend
-    command: gunicorn -b 0.0.0.0:8000 --worker-connections=1000 --workers=5 backend.wsgi
+    command: gunicorn -b 0.0.0.0:8000 --worker-class=gevent --timeout=3600 --worker-connections=1000 --workers=5 backend.wsgi
     volumes:
       - ./backend:/app
       - static_files:/app/static
@@ -29,6 +29,7 @@ services:
       #debug
       DEBUGGER_PORT: ${DEBUGGER_PORT:?required}
       DEBUGGER_ENABLE: ${DEBUGGER_ENABLE}
+      GEVENT_SUPPORT: 'True'
 
   frontend:
     build: ./frontend

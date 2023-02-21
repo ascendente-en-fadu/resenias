@@ -3,7 +3,7 @@
 // Ideally, this one should be the only file with spanish named variables in the entire project.
 
 export const carreersUrl = () => {
-  return '/carreras';
+  return '/carreras/';
 };
 
 export const carreersResponse = (response) => {
@@ -14,7 +14,7 @@ export const carreersResponse = (response) => {
 };
 
 export const subjectsUrl = () => {
-  return '/materias';
+  return '/materias/';
 };
 
 export const subjectsParams = ({ carreer }) => {
@@ -29,7 +29,7 @@ export const subjectsResponse = (response) => {
 };
 
 export const coursesUrl = () => {
-  return '/catedras';
+  return '/catedras/';
 };
 
 export const coursesParams = ({ subject }) => {
@@ -44,7 +44,7 @@ export const coursesResponse = (response) => {
 };
 
 export const courseInfoUrl = () => {
-  return '/resenias';
+  return '/resenias/';
 };
 
 export const courseInfoBody = ({ session_id }) => {
@@ -79,7 +79,7 @@ export const courseInfoResponse = (response) => {
 };
 
 export const sendReviewUrl = () => {
-  return '/resenias';
+  return '/resenias/';
 };
 
 export const sendReviewBody = ({ review, session_id }) => {
