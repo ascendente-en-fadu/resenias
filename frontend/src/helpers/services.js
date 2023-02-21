@@ -96,9 +96,11 @@ export const getCourses = async (subjectId, controller) => {
 export const getCourseInfo = async (courseId, sessionId, controller) => {
   const { data } = await axiosInstance.get(
     courseInfoUrl(),
-    courseInfoBody({ session_id: sessionId }),
     {
       params: courseInfoParams({ course: courseId }),
+      headers: {
+        'session_id': sessionId
+      },
       signal: controller?.signal,
     },
   );

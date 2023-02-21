@@ -6,10 +6,10 @@ export const REVIEW_YEARS_MAX_COUNT = 5;
 export const VALID_YEAR_MONTH_LIMIT = 6;
 
 export const RATES = [
-  { id: 0, name: 'Sobre nivel' },
-  { id: 1, name: 'Nivel' },
-  { id: 2, name: 'Bajo nivel' },
-  { id: 3, name: 'Ni idea' },
+  { id: 200000, name: 'Sobre nivel' },
+  { id: 100000, name: 'Nivel' },
+  { id: 0, name: 'Bajo nivel' },
+  { id: 300000, name: 'Ni idea' }, // TODO el Ni Idea es no mandar el campo
 ];
 
 export const APP_VERSION = 'v0.0.1';

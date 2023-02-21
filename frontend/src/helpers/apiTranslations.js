@@ -47,10 +47,6 @@ export const courseInfoUrl = () => {
   return '/resenias/';
 };
 
-export const courseInfoBody = ({ session_id }) => {
-  return { session_id: session_id };
-};
-
 export const courseInfoParams = ({ course }) => {
   return { catedra: course };
 };
