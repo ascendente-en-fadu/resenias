@@ -2,12 +2,12 @@ from decouple import config
 from cryptography.fernet import Fernet
 from urllib.request import urlopen, Request
 import json
-from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import *
 from .models import *
+
 
 class GLoginView(APIView):
     def post(self, request, format=None):
@@ -84,3 +84,18 @@ class ReseniaView(viewsets.ModelViewSet):
         if encrypted_email:
             email = fernet.decrypt(encrypted_email).decode()
             serializer.save(autor=email)
+
+
+class ReseniaPropiaView(generics.ListAPIView):
+    serializer_class = ReseniaSerializer
+
+    def get_queryset(self):
+        """
+        Devuelve una lista de 1 o 0 resenia de un autor para una catedra.
+        """
+        encryption_key = config('FERNET_KEY')
+        fernet = Fernet(encryption_key)
+        encrypted_email = self.request.META.get('HTTP_SESSION_ID')
+        email = fernet.decrypt(encrypted_email).decode()
+        queryset = Resenia.objects.filter(autor=email)
+        return queryset
