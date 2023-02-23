@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "3f30c1bf-f1aa-4efd-8a27-e6ac8fdd5fd7",
 		"name": "ReseñasFADU",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25131802"
 	},
 	"item": [
 		{
@@ -286,28 +287,139 @@
 		},
 		{
 			"name": "Obtener reseñas",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"session_id\": \"gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
+				"header": [
+					{
+						"key": "Session-Id",
+						"value": "gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb",
+						"type": "text"
 					}
-				},
+				],
 				"url": {
-					"raw": "{{BASE_URL}}/resenias?catedra=1",
+					"raw": "{{BASE_URL}}/resenias?catedra=2",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
 						"resenias"
+					],
+					"query": [
+						{
+							"key": "catedra",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Respuesta exitosa",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Session-Id",
+								"value": "gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/resenias?catedra=2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"resenias"
+							],
+							"query": [
+								{
+									"key": "catedra",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "679"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2a7-fQ/MFAxUFZwr+cs4pw8E3Ueq0Uc\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Feb 2023 23:34:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"catedra\": 2,\n        \"anio\": 2021,\n        \"contenido\": \"Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.\",\n        \"calificacion\": 2,\n        \"id\": 2\n    },\n    {\n        \"catedra\": 2,\n        \"anio\": 2019,\n        \"contenido\": \"Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.\",\n        \"calificacion\": 1,\n        \"id\": 3\n    },\n    {\n        \"catedra\": 2,\n        \"anio\": 2020,\n        \"contenido\": \"La mejor cátedra de todas. Va a estar piola cuando volvamos a la presencialidad el mes que viene.\",\n        \"calificacion\": 2,\n        \"id\": 4\n    },\n    {\n        \"catedra\": 2,\n        \"anio\": 2017,\n        \"contenido\": \"Ayudame loco.\",\n        \"calificacion\": 0,\n        \"id\": 5\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener reseña propia",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Session-Id",
+						"value": "gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URL}}/resenia-propia?catedra=1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"resenia-propia"
 					],
 					"query": [
 						{
@@ -324,28 +436,18 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
+								"key": "Session-Id",
+								"value": "gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb",
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"session_id\": \"gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "{{BASE_URL}}/resenias?catedra=1",
+							"raw": "{{BASE_URL}}/resenia-propia?catedra=1",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
-								"resenias"
+								"resenia-propia"
 							],
 							"query": [
 								{
@@ -360,52 +462,60 @@
 					"_postman_previewlanguage": "json",
 					"header": [
 						{
-							"key": "Server",
-							"value": "nginx/1.20.1"
-						},
-						{
-							"key": "Date",
-							"value": "Wed, 01 Feb 2023 22:21:13 GMT"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Content-Length",
-							"value": "303"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
+							"key": "X-Powered-By",
+							"value": "Express"
 						},
 						{
 							"key": "Vary",
-							"value": "Accept, Origin, Cookie"
+							"value": "Origin, Accept-Encoding"
 						},
 						{
-							"key": "Allow",
-							"value": "GET, POST, HEAD, OPTIONS"
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
 						},
 						{
-							"key": "X-Frame-Options",
-							"value": "DENY"
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
 						},
 						{
 							"key": "X-Content-Type-Options",
 							"value": "nosniff"
 						},
 						{
-							"key": "Referrer-Policy",
-							"value": "same-origin"
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
 						},
 						{
-							"key": "Cross-Origin-Opener-Policy",
-							"value": "same-origin"
+							"key": "Content-Length",
+							"value": "185"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b9-iJHH4B0HGGCmaceRU9n3IABbXdI\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Feb 2023 23:38:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n        \"id\": 1,\n        \"catedra\": 1,\n        \"calificacion\": 100000,\n        \"contenido\": \"Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.\",\n        \"anio\": 2019\n    },\n    {\n        \"id\": 2,\n        \"catedra\": 1,\n        \"calificacion\": 100000,\n        \"contenido\": \"Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.\",\n        \"anio\": 2020\n    }\n]"
+					"body": "[\n    {\n        \"catedra\": 1,\n        \"anio\": 2019,\n        \"contenido\": \"Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.\",\n        \"calificacion\": 1,\n        \"id\": 1\n    }\n]"
 				}
 			]
 		},
@@ -413,16 +523,13 @@
 			"name": "Borrar reseña",
 			"request": {
 				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"session_id\": \"gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
+				"header": [
+					{
+						"key": "Session-Id",
+						"value": "gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb",
+						"type": "text"
 					}
-				},
+				],
 				"url": {
 					"raw": "{{BASE_URL}}/resenias/1/",
 					"host": [
@@ -442,21 +549,11 @@
 						"method": "DELETE",
 						"header": [
 							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
+								"key": "Session-Id",
+								"value": "gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb",
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"session_id\": \"gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{BASE_URL}}/resenias/1/",
 							"host": [
@@ -515,7 +612,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Thu, 26 Jan 2023 03:05:00 GMT"
+							"value": "Thu, 23 Feb 2023 23:34:39 GMT"
 						},
 						{
 							"key": "Connection",
@@ -535,10 +632,16 @@
 			"name": "Crear reseña",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Session-Id",
+						"value": "gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"anio\": 2022,\r\n    \"contenido\": \"Re difìcil esta cátedra.\",\r\n    \"calificacion\": 0,\r\n    \"catedra\": 1,\r\n    \"session_id\": \"gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb\"\r\n}",
+					"raw": "{\r\n    \"anio\": 2022,\r\n    \"contenido\": \"Re difìcil esta cátedra.\",\r\n    \"calificacion\": 0,\r\n    \"catedra\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -561,10 +664,16 @@
 					"name": "Respuesta exitosa",
 					"originalRequest": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Session-Id",
+								"value": "gAAAAABj7Xxo6BGaGVBj1I-_79HAxCHDv6r5PAtGkTQ8WfEYR2J2h-oeB-8JYBJg7OvmfU9L6V5lCzI955dSiO6a2YzGnpBi5xt5ScYLPzQcolJzvg4-99ZZXp1z3DOxAZGZe58VIsvb",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"anio\": 2020,\r\n    \"contenido\": \"Re fácil esta cátedra.\",\r\n    \"calificacion\": 2\r\n}",
+							"raw": "{\r\n    \"anio\": 2022,\r\n    \"contenido\": \"Re difìcil esta cátedra.\",\r\n    \"calificacion\": 0,\r\n    \"catedra\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -582,8 +691,8 @@
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
+					"status": "Created",
+					"code": 201,
 					"_postman_previewlanguage": "json",
 					"header": [
 						{
@@ -592,7 +701,7 @@
 						},
 						{
 							"key": "Vary",
-							"value": "Origin, Accept-Encoding"
+							"value": "Origin, X-HTTP-Method-Override, Accept-Encoding"
 						},
 						{
 							"key": "Access-Control-Allow-Credentials",
@@ -611,6 +720,14 @@
 							"value": "-1"
 						},
 						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Location"
+						},
+						{
+							"key": "Location",
+							"value": "http://localhost:3004/resenias//16"
+						},
+						{
 							"key": "X-Content-Type-Options",
 							"value": "nosniff"
 						},
@@ -620,15 +737,15 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "2"
+							"value": "112"
 						},
 						{
 							"key": "ETag",
-							"value": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+							"value": "W/\"70-To5Sa6Jt2Cp4WzjxhsTwD+ZUK9Q\""
 						},
 						{
 							"key": "Date",
-							"value": "Thu, 26 Jan 2023 03:06:47 GMT"
+							"value": "Thu, 23 Feb 2023 23:34:54 GMT"
 						},
 						{
 							"key": "Connection",
@@ -640,7 +757,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{}"
+					"body": "{\n    \"anio\": 2022,\n    \"contenido\": \"Re difìcil esta cátedra.\",\n    \"calificacion\": 0,\n    \"catedra\": 1,\n    \"id\": 16\n}"
 				}
 			]
 		},
