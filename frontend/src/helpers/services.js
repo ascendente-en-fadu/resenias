@@ -3,8 +3,8 @@ import axios from 'axios';
 
 import { BASE_URL } from '../constants/misc';
 import {
-  carreersResponse,
-  carreersUrl,
+  careersResponse,
+  careersUrl,
   courseInfoParams,
   courseInfoResponse,
   courseInfoUrl,
@@ -47,26 +47,26 @@ axiosInstance.interceptors.response.use(
 );
 
 /**
- * Gets the carreers list
+ * Gets the careers list
  * @param {AbortController} controller controller to abort the request
- * @returns a carreers list
+ * @returns a careers list
  */
-export const getCarreers = async (controller) => {
-  const { data } = await axiosInstance.get(carreersUrl(), {
+export const getCareers = async (controller) => {
+  const { data } = await axiosInstance.get(careersUrl(), {
     signal: controller?.signal,
   });
-  return carreersResponse(data);
+  return careersResponse(data);
 };
 
 /**
- * Gets the subjects list for a given carreer
- * @param {number} carreerId id of the carreer to get it's subjects
+ * Gets the subjects list for a given career
+ * @param {number} careerId id of the career to get it's subjects
  * @param {AbortController} controller controller to abort the request
  * @returns a subjects list
  */
-export const getSubjects = async (carreerId, controller) => {
+export const getSubjects = async (careerId, controller) => {
   const { data } = await axiosInstance.get(subjectsUrl(), {
-    params: subjectsParams({ carreer: carreerId }),
+    params: subjectsParams({ career: careerId }),
     signal: controller?.signal,
   });
   return subjectsResponse(data);
@@ -94,16 +94,13 @@ export const getCourses = async (subjectId, controller) => {
  * @returns a course information object
  */
 export const getCourseInfo = async (courseId, sessionId, controller) => {
-  const { data } = await axiosInstance.get(
-    courseInfoUrl(),
-    {
-      params: courseInfoParams({ course: courseId }),
-      headers: {
-        'session_id': sessionId
-      },
-      signal: controller?.signal,
+  const { data } = await axiosInstance.get(courseInfoUrl(), {
+    params: courseInfoParams({ course: courseId }),
+    headers: {
+      session_id: sessionId,
     },
-  );
+    signal: controller?.signal,
+  });
   return courseInfoResponse(data);
 };
 

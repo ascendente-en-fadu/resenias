@@ -15,13 +15,13 @@ import styles from './styles';
 
 /**
  * Reviews screen that shows the course selector, the course information and the review write input.
- * @param {object} carreer current selected carreer
- *   @param {string} carreer.name name of the current selected carreer
- *   @param {number} carreer.id id of the current selected carreer
- * @param {function} goBack function to be called when the carreer indicator is pressed
+ * @param {object} career current selected career
+ *   @param {string} career.name name of the current selected career
+ *   @param {number} career.id id of the current selected career
+ * @param {function} goBack function to be called when the career indicator is pressed
  * @param {string} sessionId session id of the current user
  */
-const ReviewsScreen = ({ carreer, goBack, sessionId }) => {
+const ReviewsScreen = ({ career, goBack, sessionId }) => {
   const [subject, setSubject] = useState();
   const [course, setCourse] = useState();
   const [subjects, setSubjects] = useState();
@@ -55,7 +55,7 @@ const ReviewsScreen = ({ carreer, goBack, sessionId }) => {
      */
     const getSubjectsList = async () => {
       try {
-        const response = await getSubjects(carreer.id, controller);
+        const response = await getSubjects(career.id, controller);
         setSubjects(response);
       } catch (error) {
         error && console.log(error);
@@ -64,7 +64,7 @@ const ReviewsScreen = ({ carreer, goBack, sessionId }) => {
 
     getSubjectsList();
     return () => controller.abort();
-  }, [carreer]);
+  }, [career]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -162,7 +162,7 @@ const ReviewsScreen = ({ carreer, goBack, sessionId }) => {
           courses={courses}
           subject={subject}
           course={course}
-          carreer={carreer}
+          career={career}
           goBack={goBack}
           setCourse={_setCourse}
           setSubject={_setSubject}
@@ -200,7 +200,7 @@ const ReviewsScreen = ({ carreer, goBack, sessionId }) => {
 };
 
 ReviewsScreen.propTypes = {
-  carreer: PropTypes.shape({
+  career: PropTypes.shape({
     name: PropTypes.string,
     id: PropTypes.number,
   }).isRequired,

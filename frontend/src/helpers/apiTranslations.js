@@ -2,11 +2,11 @@
 // This is a translation layer, to convert all field names coming/going to BE from spanish to english.
 // Ideally, this one should be the only file with spanish named variables in the entire project.
 
-export const carreersUrl = () => {
+export const careersUrl = () => {
   return '/carreras/';
 };
 
-export const carreersResponse = (response) => {
+export const careersResponse = (response) => {
   const data = response?.map(({ nombre, id }) => {
     return { name: nombre, id: id };
   });
@@ -17,8 +17,8 @@ export const subjectsUrl = () => {
   return '/materias/';
 };
 
-export const subjectsParams = ({ carreer }) => {
-  return { carrera: carreer };
+export const subjectsParams = ({ career }) => {
+  return { carrera: career };
 };
 
 export const subjectsResponse = (response) => {

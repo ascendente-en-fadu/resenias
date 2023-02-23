@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-import { getCarreers, mergeStyles } from './helpers';
-import { CarreersScreen, LoginScreen, ReviewsScreen } from './screens';
+import { getCareers, mergeStyles } from './helpers';
+import { CareersScreen, LoginScreen, ReviewsScreen } from './screens';
 import styles from './styles';
 
 /**
@@ -11,40 +11,40 @@ import styles from './styles';
 function App() {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   const isPortrait = useMediaQuery({ query: '(orientation: portrait)' });
-  const [carreer, setCarreer] = useState();
-  const [carreers, setCarreers] = useState([]);
+  const [career, setCareer] = useState();
+  const [careers, setCareers] = useState([]);
   const [sessionId, setSessionId] = useState();
 
   useEffect(() => {
     const controller = new AbortController();
     /**
-     * Gets the carreers list
+     * Gets the careers list
      */
-    const getCarreerList = async () => {
+    const getCareerList = async () => {
       try {
-        const response = await getCarreers(controller);
-        setCarreers(response);
+        const response = await getCareers(controller);
+        setCareers(response);
       } catch (error) {
         error && console.log(error);
       }
     };
 
-    getCarreerList();
+    getCareerList();
     return () => controller.abort();
   }, []);
 
   /**
-   * Sets the current selected carreer
+   * Sets the current selected career
    */
-  const setCurrentCarreer = (value) => {
-    setTimeout(() => setCarreer(value), 100);
+  const setCurrentCareer = (value) => {
+    setTimeout(() => setCareer(value), 100);
   };
 
   /**
    * Goes back to the career selection screen
    */
   const goBack = () => {
-    setTimeout(() => setCarreer(false), 100);
+    setTimeout(() => setCareer(false), 100);
   };
 
   return (
@@ -63,16 +63,16 @@ function App() {
             : styles.containerDesktop
         }
       >
-        {carreer ? (
+        {career ? (
           <ReviewsScreen
-            carreer={carreer}
+            career={career}
             goBack={goBack}
             sessionId={sessionId}
           />
         ) : sessionId ? (
-          <CarreersScreen
-            setCurrentCarreer={setCurrentCarreer}
-            carreers={carreers}
+          <CareersScreen
+            setCurrentCareer={setCurrentCareer}
+            careers={careers}
           />
         ) : (
           <LoginScreen setSessionId={setSessionId} />
