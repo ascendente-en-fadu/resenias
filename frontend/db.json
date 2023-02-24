@@ -167,28 +167,28 @@
       "anio": 2019,
       "catedra": 1,
       "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
-      "calificacion": 1,
+      "calificacion": 100000,
       "id": 1
     },
     {
       "catedra": 2,
       "anio": 2021,
       "contenido": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
-      "calificacion": 2,
+      "calificacion": 200000,
       "id": 2
     },
     {
       "catedra": 2,
       "anio": 2019,
       "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
-      "calificacion": 1,
+      "calificacion": 100000,
       "id": 3
     },
     {
       "catedra": 2,
       "anio": 2020,
       "contenido": "La mejor cátedra de todas. Va a estar piola cuando volvamos a la presencialidad el mes que viene.",
-      "calificacion": 2,
+      "calificacion": 200000,
       "id": 4
     },
     {
@@ -202,21 +202,21 @@
       "catedra": 3,
       "anio": 2019,
       "contenido": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
-      "calificacion": 2,
+      "calificacion": 200000,
       "id": 6
     },
     {
       "catedra": 3,
       "anio": 2019,
       "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
-      "calificacion": 1,
+      "calificacion": 100000,
       "id": 9
     },
     {
       "catedra": 3,
       "anio": 2020,
       "contenido": "La mejor cátedra de todas. Va a estar piola cuando volvamos a la presencialidad el mes que viene.",
-      "calificacion": 2,
+      "calificacion": 200000,
       "id": 10
     },
     {
@@ -230,7 +230,7 @@
       "catedra": 3,
       "anio": 2015,
       "contenido": "Ya estoy empezando a necesitar un generador de data automático, porque esto de escribir tantas reseñas se está poniendo molesto. Lo bueno es que mientras escribo esto estoy llenado espacio jeje.",
-      "calificacion": 2,
+      "calificacion": 200000,
       "id": 12
     },
     {
@@ -244,7 +244,7 @@
       "catedra": 4,
       "anio": 2019,
       "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
-      "calificacion": 1,
+      "calificacion": 100000,
       "id": 15
     },
     {
@@ -259,7 +259,7 @@
     "catedra": 1,
     "anio": 2019,
     "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
-    "calificacion": 1,
+    "calificacion": 100000,
     "id": 1
   },
   "login": {
