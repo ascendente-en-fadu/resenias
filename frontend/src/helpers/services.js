@@ -7,7 +7,6 @@ import {
   careersUrl,
   courseInfoParams,
   courseInfoResponse,
-  courseInfoUrl,
   coursesParams,
   coursesResponse,
   coursesUrl,
@@ -21,8 +20,8 @@ import {
   subjectsParams,
   subjectsResponse,
   subjectsUrl,
-  courseInfoBody,
-  deleteReviewBody,
+  reviewsUrl,
+  ownReviewUrl,
 } from './apiTranslations';
 
 const axiosInstance = axios.create({ baseURL: BASE_URL, timeout: 15000 });
@@ -94,14 +93,21 @@ export const getCourses = async (subjectId, controller) => {
  * @returns a course information object
  */
 export const getCourseInfo = async (courseId, sessionId, controller) => {
-  const { data } = await axiosInstance.get(courseInfoUrl(), {
+  const reviewsResponse = await axiosInstance.get(reviewsUrl(), {
     params: courseInfoParams({ course: courseId }),
     headers: {
       session_id: sessionId,
     },
     signal: controller?.signal,
   });
-  return courseInfoResponse(data);
+  const ownReviewResponse = await axiosInstance.get(ownReviewUrl(), {
+    params: courseInfoParams({ course: courseId }),
+    headers: {
+      session_id: sessionId,
+    },
+    signal: controller?.signal,
+  });
+  return courseInfoResponse(reviewsResponse.data, ownReviewResponse.data);
 };
 
 /**
@@ -116,7 +122,12 @@ export const getCourseInfo = async (courseId, sessionId, controller) => {
 export const sendReview = async (review, sessionId) => {
   await axiosInstance.post(
     sendReviewUrl(),
-    sendReviewBody({ review: review, session_id: sessionId }),
+    sendReviewBody({ review: review }),
+    {
+      headers: {
+        session_id: sessionId,
+      },
+    },
   );
 };
 
@@ -126,13 +137,12 @@ export const sendReview = async (review, sessionId) => {
  * @param {string} sessionId session id of the current user
  */
 export const deleteReview = async (reviewId, sessionId) => {
-  await axiosInstance.delete(
-    deleteReviewUrl(reviewId),
-    deleteReviewBody({ session_id: sessionId }),
-    {
-      params: deleteReviewParams({ id: reviewId }),
+  await axiosInstance.delete(deleteReviewUrl(reviewId), {
+    params: deleteReviewParams({ id: reviewId }),
+    headers: {
+      session_id: sessionId,
     },
-  );
+  });
 };
 
 /**

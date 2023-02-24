@@ -43,26 +43,30 @@ export const coursesResponse = (response) => {
   return data;
 };
 
-export const courseInfoUrl = () => {
+export const reviewsUrl = () => {
   return '/resenias/';
+};
+
+export const ownReviewUrl = () => {
+  return '/resenia-propia/';
 };
 
 export const courseInfoParams = ({ course }) => {
   return { catedra: course };
 };
 
-export const courseInfoResponse = (response) => {
+export const courseInfoResponse = (reviewsData, ownReviewData) => {
   const data = {
-    // TODO replace for the corresponding logic when the response is defined
-    // ...(response?.resenia_propia && {
-    //   own_review: {
-    //     year: response.resenia_propia.anio,
-    //     content: response.resenia_propia.contenido,
-    //     rate: response.resenia_propia.calificacion,
-    //     id: response.resenia_propia.id,
-    //   },
-    // }),
-    reviews: response?.map(({ anio, contenido, calificacion, id }) => {
+    ...(ownReviewData &&
+      Object.keys(ownReviewData).length !== 0 && {
+        own_review: {
+          year: ownReviewData.anio,
+          content: ownReviewData.contenido,
+          rate: ownReviewData.calificacion,
+          id: ownReviewData.id,
+        },
+      }),
+    reviews: reviewsData?.map(({ anio, contenido, calificacion, id }) => {
       return {
         year: anio,
         content: contenido,
@@ -78,22 +82,17 @@ export const sendReviewUrl = () => {
   return '/resenias/';
 };
 
-export const sendReviewBody = ({ review, session_id }) => {
+export const sendReviewBody = ({ review }) => {
   return {
     anio: review.year,
     contenido: review.content,
     calificacion: review.rate,
     catedra: review.course,
-    session_id: session_id,
   };
 };
 
 export const deleteReviewUrl = (id) => {
   return '/resenias/' + id;
-};
-
-export const deleteReviewBody = ({ session_id }) => {
-  return { session_id: session_id };
 };
 
 export const deleteReviewParams = ({ id }) => {

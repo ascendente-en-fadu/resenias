@@ -17,7 +17,7 @@ const LoginScreen = ({ setSessionId }) => {
         if (codeResponse) {
           console.log('Access Token del usuario: ' + codeResponse.access_token); // TODO remove this log before going to production
           const sessionId = await doLogin(codeResponse.access_token);
-          setSessionId(sessionId);
+          setSessionId(sessionId + 'asd');
         } else {
           throw new Error("The Google Login hasn't returned the access token");
         }
