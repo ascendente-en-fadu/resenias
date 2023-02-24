@@ -70,7 +70,7 @@ const CourseSubScreen = ({
                 sendCurrentReview({
                   content: content,
                   year: year.id,
-                  rate: rate.id,
+                  ...(rate.id !== -1 && { rate: rate.id }),
                   course: courseId,
                 });
               } else {

@@ -9,7 +9,7 @@ export const RATES = [
   { id: 200000, name: 'Sobre nivel' },
   { id: 100000, name: 'Nivel' },
   { id: 0, name: 'Bajo nivel' },
-  { id: 300000, name: 'Ni idea' }, // TODO el Ni Idea es no mandar el campo
+  { id: -1, name: 'Ni idea' },
 ];
 
 export const APP_VERSION = 'v0.0.1';

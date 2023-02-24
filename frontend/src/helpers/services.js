@@ -96,14 +96,14 @@ export const getCourseInfo = async (courseId, sessionId, controller) => {
   const reviewsResponse = await axiosInstance.get(reviewsUrl(), {
     params: courseInfoParams({ course: courseId }),
     headers: {
-      session_id: sessionId,
+      'Session-Id': sessionId,
     },
     signal: controller?.signal,
   });
   const ownReviewResponse = await axiosInstance.get(ownReviewUrl(), {
     params: courseInfoParams({ course: courseId }),
     headers: {
-      session_id: sessionId,
+      'Session-Id': sessionId,
     },
     signal: controller?.signal,
   });
@@ -125,7 +125,7 @@ export const sendReview = async (review, sessionId) => {
     sendReviewBody({ review: review }),
     {
       headers: {
-        session_id: sessionId,
+        'Session-Id': sessionId,
       },
     },
   );
@@ -140,7 +140,7 @@ export const deleteReview = async (reviewId, sessionId) => {
   await axiosInstance.delete(deleteReviewUrl(reviewId), {
     params: deleteReviewParams({ id: reviewId }),
     headers: {
-      session_id: sessionId,
+      'Session-Id': sessionId,
     },
   });
 };
