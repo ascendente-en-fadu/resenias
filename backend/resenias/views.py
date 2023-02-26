@@ -1,7 +1,8 @@
 from decouple import config
+import json
 from cryptography.fernet import Fernet
 from urllib.request import urlopen, Request
-import json
+from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import viewsets, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -86,16 +87,26 @@ class ReseniaView(viewsets.ModelViewSet):
             serializer.save(autor=email)
 
 
-class ReseniaPropiaView(generics.ListAPIView):
+class ReseniaPropiaView(generics.RetrieveAPIView):
     serializer_class = ReseniaSerializer
 
-    def get_queryset(self):
-        """
-        Devuelve una lista de 1 o 0 resenia de un autor para una catedra.
-        """
+    def get_object(self):
+        # autor
         encryption_key = config('FERNET_KEY')
         fernet = Fernet(encryption_key)
         encrypted_email = self.request.META.get('HTTP_SESSION_ID')
         email = fernet.decrypt(encrypted_email).decode()
-        queryset = Resenia.objects.filter(autor=email)
-        return queryset
+        # catedra
+        catedra = self.request.query_params.get('catedra')
+        try:
+            obj = Resenia.objects.get(autor=email, catedra=catedra)
+        except ObjectDoesNotExist:
+            return None
+        return obj
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if not instance:
+            return Response(None)
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
