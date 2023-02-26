@@ -73,15 +73,23 @@ class ReseniaView(viewsets.ModelViewSet):
         las resenias las filtra con este criterio.
         """
         queryset = Resenia.objects.all()
+        # catedra
         catedra = self.request.query_params.get('catedra')
         if catedra is not None:
             queryset = queryset.filter(catedra=catedra)
+        # autor
+        encryption_key = config('FERNET_KEY')
+        fernet = Fernet(encryption_key)
+        encrypted_email = self.request.META.get('HTTP_SESSION_ID')
+        if encrypted_email:
+            email = fernet.decrypt(encrypted_email).decode()
+            queryset = queryset.exclude(autor=email)
         return queryset
 
     def perform_create(self, serializer):
         encryption_key = config('FERNET_KEY')
         fernet = Fernet(encryption_key)
-        encrypted_email = self.request.data.get('session_id')
+        encrypted_email = self.request.META.get('HTTP_SESSION_ID')
         if encrypted_email:
             email = fernet.decrypt(encrypted_email).decode()
             serializer.save(autor=email)
