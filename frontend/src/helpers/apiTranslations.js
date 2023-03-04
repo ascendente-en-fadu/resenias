@@ -92,13 +92,7 @@ export const sendReviewBody = ({ review }) => {
 };
 
 export const deleteReviewUrl = (id) => {
-  return '/resenias/' + id;
-};
-
-export const deleteReviewParams = ({ id }) => {
-  return {
-    id: id,
-  };
+  return `/resenias/${id}/`;
 };
 
 export const loginUrl = () => {

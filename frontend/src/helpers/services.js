@@ -10,7 +10,6 @@ import {
   coursesParams,
   coursesResponse,
   coursesUrl,
-  deleteReviewParams,
   deleteReviewUrl,
   loginResponse,
   loginUrl,
@@ -138,7 +137,6 @@ export const sendReview = async (review, sessionId) => {
  */
 export const deleteReview = async (reviewId, sessionId) => {
   await axiosInstance.delete(deleteReviewUrl(reviewId), {
-    params: deleteReviewParams({ id: reviewId }),
     headers: {
       'Session-Id': sessionId,
     },
