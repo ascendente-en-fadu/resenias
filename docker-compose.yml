@@ -12,17 +12,24 @@ services:
 
   backend:
     build: ./backend
-    command: gunicorn -b 0.0.0.0:8000 --worker-class=gevent --worker-connections=1000 --workers=5 backend.wsgi
+    command: gunicorn -b 0.0.0.0:8000 --worker-class=gevent --timeout=3600 --worker-connections=1000 --workers=5 backend.wsgi
     volumes:
       - ./backend:/app
       - static_files:/app/static
+    ports:
+      - "${DEBUGGER_PORT:?required}:${DEBUGGER_PORT:?required}"
     depends_on:
       - database
     environment:
       SECRET_KEY: ${SECRET_KEY:?SECRET_KEY required}
+      FERNET_KEY: ${FERNET_KEY:?FERNET_KEY required}
       TZ: America/Argentina/Buenos_Aires
       #db connection
       DB_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD required.}
+      #debug
+      DEBUGGER_PORT: ${DEBUGGER_PORT:?required}
+      DEBUGGER_ENABLE: ${DEBUGGER_ENABLE}
+      GEVENT_SUPPORT: 'True'
 
   frontend:
     build: ./frontend

@@ -7,9 +7,9 @@ import styles from './styles';
 
 /**
  * Course selector component, with a pressable career indicator and subject and course selectors.
- * @param {function} goBack function to be called when the carreer indicator is pressed
- * @param {object} carreer current selected carreer
- *   @param {string} carreer.name carreer visible name
+ * @param {function} goBack function to be called when the career indicator is pressed
+ * @param {object} career current selected career
+ *   @param {string} career.name career visible name
  * @param {array} courses courses list to display on the selector
  * @param {array} subjects subjects list to display on the selector
  * @param {object} course current selected course
@@ -23,7 +23,7 @@ import styles from './styles';
  */
 const CourseSelector = ({
   goBack,
-  carreer,
+  career,
   courses,
   subjects,
   course,
@@ -34,9 +34,9 @@ const CourseSelector = ({
   return (
     <div style={styles.container}>
       <CustomButton
-        text={carreer.name}
+        text={career.name}
         customStyles={{
-          bottom: styles.carreerButtonBottom,
+          bottom: styles.careerButtonBottom,
         }}
         onPress={goBack}
         arrow
@@ -65,7 +65,7 @@ const CourseSelector = ({
 
 CourseSelector.propTypes = {
   goBack: PropTypes.func.isRequired,
-  carreer: PropTypes.object.isRequired,
+  career: PropTypes.object.isRequired,
   courses: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,

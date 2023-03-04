@@ -17,7 +17,7 @@ class CatedraAdmin(admin.ModelAdmin):
 
 
 class ReseniaAdmin(admin.ModelAdmin):
-    list_display = ('catedra', 'calificacion', 'anio', 'created', 'updated')
+    list_display = ('catedra', 'calificacion', 'anio', 'created', 'updated', 'autor')
 
 
 # Register your models here.

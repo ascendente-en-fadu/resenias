@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { DeleteIcon } from '../../images';
 import CustomButton from '../CustomButton';
+import { getRateLabel, getReviewYearLabel } from '../../helpers';
 import styles from './styles';
 
 /**
@@ -15,6 +16,7 @@ import styles from './styles';
  * @param {function} deleteOwnReview function to be called when the delete button is pressed, receiving the review id as an argument
  */
 const MyReview = ({ review, deleteOwnReview }) => {
+  const reviewRateLabel = getRateLabel(review.rate);
   return (
     <div style={styles.bottom}>
       <CustomButton
@@ -25,11 +27,13 @@ const MyReview = ({ review, deleteOwnReview }) => {
       </CustomButton>
       <div style={styles.reviewContainer}>
         <span style={styles.title}>Tu reseña</span>
-        <span style={styles.dataText}>{'Cursé en ' + review.year}</span>
+        <span style={styles.dataText}>{getReviewYearLabel(review.year)}</span>
         <span style={styles.contentText}>{review.content}</span>
-        <span style={styles.dataText}>
-          {'Nota a la cátedra: ' + review.rate}
-        </span>
+        {reviewRateLabel && (
+          <span style={styles.dataText}>
+            {'Nota a la cátedra: ' + reviewRateLabel}
+          </span>
+        )}
       </div>
     </div>
   );

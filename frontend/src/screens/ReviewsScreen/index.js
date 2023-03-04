@@ -15,12 +15,13 @@ import styles from './styles';
 
 /**
  * Reviews screen that shows the course selector, the course information and the review write input.
- * @param {object} carreer current selected carreer
- *   @param {string} carreer.name name of the current selected carreer
- *   @param {number} carreer.id id of the current selected carreer
- * @param {function} goBack function to be called when the carreer indicator is pressed
+ * @param {object} career current selected career
+ *   @param {string} career.name name of the current selected career
+ *   @param {number} career.id id of the current selected career
+ * @param {function} goBack function to be called when the career indicator is pressed
+ * @param {string} sessionId session id of the current user
  */
-const ReviewsScreen = ({ carreer, goBack }) => {
+const ReviewsScreen = ({ career, goBack, sessionId }) => {
   const [subject, setSubject] = useState();
   const [course, setCourse] = useState();
   const [subjects, setSubjects] = useState();
@@ -30,7 +31,7 @@ const ReviewsScreen = ({ carreer, goBack }) => {
   const [modalData, setModalData] = useState({});
 
   /**
-   * Sets the current selected course and removes the previously course information
+   * Sets the current selected course and removes the previously selected course information
    */
   const _setCourse = (value) => {
     setCourse(value);
@@ -54,7 +55,7 @@ const ReviewsScreen = ({ carreer, goBack }) => {
      */
     const getSubjectsList = async () => {
       try {
-        const response = await getSubjects(carreer.id, controller);
+        const response = await getSubjects(career.id, controller);
         setSubjects(response);
       } catch (error) {
         error && console.log(error);
@@ -63,7 +64,7 @@ const ReviewsScreen = ({ carreer, goBack }) => {
 
     getSubjectsList();
     return () => controller.abort();
-  }, [carreer]);
+  }, [career]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -92,7 +93,7 @@ const ReviewsScreen = ({ carreer, goBack }) => {
      */
     const getReviewsList = async () => {
       try {
-        const response = await getCourseInfo(course.id, controller);
+        const response = await getCourseInfo(course.id, sessionId, controller);
         setCourseInfo(response);
       } catch (error) {
         error && console.log(error);
@@ -111,19 +112,20 @@ const ReviewsScreen = ({ carreer, goBack }) => {
    *   @param {number} review.year year when the course was taken
    *   @param {string} review.content review text content
    *   @param {number} review.rate rate value
+   *   @param {number} review.course course id
    */
   const sendCurrentReview = async (review) => {
     setModalData({
       onConfirm: async () => {
-        await sendReview(review);
+        await sendReview(review, sessionId);
       },
       onResultConfirm: async () => {
         setCourseInfo(undefined);
-        const response = await getCourseInfo(course.id);
+        const response = await getCourseInfo(course.id, sessionId);
         setCourseInfo(response);
       },
       questionText:
-        '¿Mandamos esta reseña, master? Igual si te mandaste una cagada podés borrarla y escribir otra.',
+        '¿Mandamos esta reseña, máquina? Igual si te mandaste una cagada podés borrarla y escribir otra.',
       errorText: 'No pudimos guardar tu reseña.',
       successText: 'Tu reseña se guardó con éxito.',
     });
@@ -137,15 +139,15 @@ const ReviewsScreen = ({ carreer, goBack }) => {
   const deleteOwnReview = async (reviewId) => {
     setModalData({
       onConfirm: async () => {
-        await deleteReview(reviewId);
+        await deleteReview(reviewId, sessionId);
       },
       onResultConfirm: async () => {
         setCourseInfo(undefined);
-        const response = await getCourseInfo(course.id);
+        const response = await getCourseInfo(course.id, sessionId);
         setCourseInfo(response);
       },
       questionText:
-        '¿Querés borrar la reseña, master? Igual no pasa nada, vas a poder escribir una reseña nueva.',
+        '¿Querés borrar la reseña, máquina? Igual no pasa nada, vas a poder escribir una reseña nueva.',
       errorText: 'No pudimos borrar tu reseña.',
       successText: 'Tu reseña se borró con éxito.',
     });
@@ -160,7 +162,7 @@ const ReviewsScreen = ({ carreer, goBack }) => {
           courses={courses}
           subject={subject}
           course={course}
-          carreer={carreer}
+          career={career}
           goBack={goBack}
           setCourse={_setCourse}
           setSubject={_setSubject}
@@ -173,6 +175,7 @@ const ReviewsScreen = ({ carreer, goBack }) => {
             reviews={courseInfo.reviews}
             ownReview={courseInfo.own_review}
             deleteOwnReview={deleteOwnReview}
+            courseId={course.id}
           />
         ) : (
           <NoCourseSubScreen />
@@ -181,7 +184,6 @@ const ReviewsScreen = ({ carreer, goBack }) => {
       <Footer />
       {showModal && (
         <FullScreenModal
-          text={modalData.text}
           onConfirm={modalData.onConfirm}
           onResultConfirm={modalData.onResultConfirm}
           questionText={modalData.questionText}
@@ -198,11 +200,12 @@ const ReviewsScreen = ({ carreer, goBack }) => {
 };
 
 ReviewsScreen.propTypes = {
-  carreer: PropTypes.shape({
+  career: PropTypes.shape({
     name: PropTypes.string,
     id: PropTypes.number,
   }).isRequired,
   goBack: PropTypes.func.isRequired,
+  sessionId: PropTypes.string.isRequired,
 };
 
 export default ReviewsScreen;

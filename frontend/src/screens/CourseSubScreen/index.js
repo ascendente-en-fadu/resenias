@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Dropdown, ReviewInput, ReviewsList, MyReview } from '../../components';
-import { RATES, YEARS } from '../../constants/misc';
+import { RATES } from '../../constants/misc';
+import { generateYearsList } from '../../helpers';
 import styles from './styles';
 
 /**
@@ -15,12 +16,14 @@ import styles from './styles';
  *   @param {string} ownReview.content review text content
  *   @param {number} ownReview.rate rate value
  *   @param {number} ownReview.id if of the review
+ * @param {number} courseId currently selected course
  */
 const CourseSubScreen = ({
   sendCurrentReview,
   deleteOwnReview,
   reviews = [],
   ownReview,
+  courseId,
 }) => {
   const [year, setYear] = useState();
   const [rate, setRate] = useState();
@@ -38,7 +41,7 @@ const CourseSubScreen = ({
             <Dropdown
               placeholder='Año'
               value={year}
-              elements={YEARS}
+              elements={generateYearsList()}
               onChange={setYear}
               customStyles={{
                 bottom: styles.dropdownBottom,
@@ -67,7 +70,8 @@ const CourseSubScreen = ({
                 sendCurrentReview({
                   content: content,
                   year: year.id,
-                  rate: rate.id,
+                  ...(rate.id !== -1 && { rate: rate.id }),
+                  course: courseId,
                 });
               } else {
                 setMissingFields(true);
@@ -99,6 +103,7 @@ CourseSubScreen.propTypes = {
     rate: PropTypes.number,
     id: PropTypes.number,
   }),
+  courseId: PropTypes.number.isRequired,
 };
 
 export default CourseSubScreen;

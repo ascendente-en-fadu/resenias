@@ -2,11 +2,11 @@
 // This is a translation layer, to convert all field names coming/going to BE from spanish to english.
 // Ideally, this one should be the only file with spanish named variables in the entire project.
 
-export const carreersUrl = () => {
-  return '/obtener-carreras';
+export const careersUrl = () => {
+  return '/carreras/';
 };
 
-export const carreersResponse = (response) => {
+export const careersResponse = (response) => {
   const data = response?.map(({ nombre, id }) => {
     return { name: nombre, id: id };
   });
@@ -14,22 +14,22 @@ export const carreersResponse = (response) => {
 };
 
 export const subjectsUrl = () => {
-  return '/obtener-materias';
+  return '/materias/';
 };
 
-export const subjectsParams = ({ carreer }) => {
-  return { carrera: carreer };
+export const subjectsParams = ({ career }) => {
+  return { carrera: career };
 };
 
 export const subjectsResponse = (response) => {
-  const data = response?.materias?.map(({ nombre, id }) => {
+  const data = response?.map(({ nombre, id }) => {
     return { name: nombre, id: id };
   });
   return data;
 };
 
 export const coursesUrl = () => {
-  return '/obtener-catedras';
+  return '/catedras/';
 };
 
 export const coursesParams = ({ subject }) => {
@@ -37,46 +37,49 @@ export const coursesParams = ({ subject }) => {
 };
 
 export const coursesResponse = (response) => {
-  const data = response?.catedras?.map(({ nombre, id }) => {
+  const data = response?.map(({ nombre, id }) => {
     return { name: nombre, id: id };
   });
   return data;
 };
 
-export const courseInfoUrl = () => {
-  return '/obtener-info-de-catedra';
+export const reviewsUrl = () => {
+  return '/resenias/';
+};
+
+export const ownReviewUrl = () => {
+  return '/resenia-propia/';
 };
 
 export const courseInfoParams = ({ course }) => {
   return { catedra: course };
 };
 
-export const courseInfoResponse = (response) => {
+export const courseInfoResponse = (reviewsData, ownReviewData) => {
   const data = {
-    ...(response?.resenia_propia && {
-      own_review: {
-        year: response.resenia_propia.anio,
-        content: response.resenia_propia.contenido,
-        rate: response.resenia_propia.calificacion,
-        id: response.resenia_propia.id,
-      },
+    ...(ownReviewData &&
+      Object.keys(ownReviewData).length !== 0 && {
+        own_review: {
+          year: ownReviewData.anio,
+          content: ownReviewData.contenido,
+          rate: ownReviewData.calificacion,
+          id: ownReviewData.id,
+        },
+      }),
+    reviews: reviewsData?.map(({ anio, contenido, calificacion, id }) => {
+      return {
+        year: anio,
+        content: contenido,
+        rate: calificacion,
+        id: id,
+      };
     }),
-    reviews: response?.resenias?.map(
-      ({ anio, contenido, calificacion, id }) => {
-        return {
-          year: anio,
-          content: contenido,
-          rate: calificacion,
-          id: id,
-        };
-      },
-    ),
   };
   return data;
 };
 
 export const sendReviewUrl = () => {
-  return '/crear-resenia';
+  return '/resenias/';
 };
 
 export const sendReviewBody = ({ review }) => {
@@ -84,15 +87,24 @@ export const sendReviewBody = ({ review }) => {
     anio: review.year,
     contenido: review.content,
     calificacion: review.rate,
+    catedra: review.course,
   };
 };
 
-export const deleteReviewUrl = () => {
-  return '/borrar-resenia';
+export const deleteReviewUrl = (id) => {
+  return `/resenias/${id}/`;
 };
 
-export const deleteReviewParams = ({ id }) => {
+export const loginUrl = () => {
+  return '/login';
+};
+
+export const loginBody = ({ access_token }) => {
   return {
-    id: id,
+    token: access_token,
   };
+};
+
+export const loginResponse = (response) => {
+  return response.session_id;
 };

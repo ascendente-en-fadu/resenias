@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from resenias import views
+from resenias.views import *
 
 router = routers.DefaultRouter()
 router.register(r'carreras', views.CarreraView, 'carrera')
@@ -27,4 +28,6 @@ router.register(r'resenias', views.ReseniaView, 'resenia')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('api/login', GLoginView.as_view()),
+    path('api/resenia-propia/', ReseniaPropiaView.as_view()),
 ]

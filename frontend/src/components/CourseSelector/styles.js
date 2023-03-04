@@ -15,7 +15,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
   },
-  carreerButtonBottom: {
+  careerButtonBottom: {
     flex: 2,
     marginBottom: '12px',
   },

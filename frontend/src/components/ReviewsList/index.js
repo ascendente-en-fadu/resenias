@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { NoReviewsIcon } from '../../images';
-import { mergeStyles } from '../../helpers';
+import { getRateLabel, getReviewYearLabel, mergeStyles } from '../../helpers';
 import styles from './styles';
 
 /**
@@ -16,11 +16,13 @@ const ReviewsList = ({ reviews = [] }) => {
         <div style={styles.bottom}>
           {reviews.map(({ content, rate, year, id }) => (
             <div style={styles.reviewContainer} key={id}>
-              <span style={styles.dataText}>{'Cursé en ' + year}</span>
+              <span style={styles.dataText}>{getReviewYearLabel(year)}</span>
               <span style={styles.contentText}>{content}</span>
-              <span style={styles.dataText}>
-                {'Nota a la cátedra: ' + rate}{' '}
-              </span>
+              {getRateLabel(rate) && (
+                <span style={styles.dataText}>
+                  {'Nota a la cátedra: ' + getRateLabel(rate)}
+                </span>
+              )}
               {id !== reviews[reviews.length - 1]?.id && (
                 <div style={styles.divider} />
               )}
