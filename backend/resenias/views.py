@@ -3,7 +3,7 @@ import json
 from cryptography.fernet import Fernet
 from urllib.request import urlopen, Request
 from django.core.exceptions import ObjectDoesNotExist
-from rest_framework import viewsets, generics
+from rest_framework import viewsets, generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import *
@@ -77,6 +77,10 @@ class ReseniaView(viewsets.ModelViewSet):
         catedra = self.request.query_params.get('catedra')
         if catedra is not None:
             queryset = queryset.filter(catedra=catedra)
+        return queryset
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
         # autor
         encryption_key = config('FERNET_KEY')
         fernet = Fernet(encryption_key)
@@ -84,15 +88,47 @@ class ReseniaView(viewsets.ModelViewSet):
         if encrypted_email:
             email = fernet.decrypt(encrypted_email).decode()
             queryset = queryset.exclude(autor=email)
-        return queryset
 
-    def perform_create(self, serializer):
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        encrypted_email = request.META.get('HTTP_SESSION_ID')
+        if not encrypted_email:
+            error_msge = 'No se puede crear una reseña sin iniciar sesión.'
+            return Response(error_msge, status=status.HTTP_401_UNAUTHORIZED)
         encryption_key = config('FERNET_KEY')
         fernet = Fernet(encryption_key)
-        encrypted_email = self.request.META.get('HTTP_SESSION_ID')
-        if encrypted_email:
-            email = fernet.decrypt(encrypted_email).decode()
-            serializer.save(autor=email)
+        email = fernet.decrypt(encrypted_email).decode()
+        catedra_id = request.data.get('catedra')
+        if Resenia.objects.filter(catedra__id=catedra_id, autor=email).exists():
+            error_msge = 'No se puede crear más de una reseña para la misma cátedra.'
+            return Response(error_msge, status=status.HTTP_403_FORBIDDEN)
+        serializer.save(autor=email)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        encrypted_email = request.META.get('HTTP_SESSION_ID')
+        if not encrypted_email:
+            error_msge = 'No se puede borrar una reseña sin iniciar sesión.'
+            return Response(error_msge, status=status.HTTP_401_UNAUTHORIZED)
+        encryption_key = config('FERNET_KEY')
+        fernet = Fernet(encryption_key)
+        email = fernet.decrypt(encrypted_email).decode()
+        if instance.autor != email:
+            error_msge = 'No se puede borrar una reseña ajena.'
+            return Response(error_msge, status=status.HTTP_403_FORBIDDEN)
+        self.perform_destroy(instance)
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class ReseniaPropiaView(generics.RetrieveAPIView):
