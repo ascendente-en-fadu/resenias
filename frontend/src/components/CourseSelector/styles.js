@@ -3,7 +3,7 @@ import Colors from '../../constants/colors';
 const styles = {
   container: {
     backgroundColor: Colors.buttonBottom,
-    borderRadius: 12,
+    borderRadius: 24,
     position: 'relative',
     width: '100%',
     height: '100%',

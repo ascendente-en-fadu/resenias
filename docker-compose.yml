@@ -4,7 +4,7 @@ services:
   database:
     image: postgres:12.7-alpine
     volumes:
-        - ./backup_data/db:/var/lib/postgresql/data
+        - db_data:/var/lib/postgresql/data
     environment:
         - POSTGRES_DB=postgres
         - POSTGRES_USER=postgres
@@ -50,4 +50,5 @@ services:
         - backend
 
 volumes:
+  db_data:
   static_files:

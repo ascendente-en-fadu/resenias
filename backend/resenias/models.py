@@ -18,7 +18,7 @@ class Materia(models.Model):
     )
 
     def __str__(self) -> str:
-        return self.nombre
+        return f'{self.nombre} ({self.carrera.nombre})'
 
 
 class Catedra(models.Model):
