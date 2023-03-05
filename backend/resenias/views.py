@@ -77,7 +77,7 @@ class ReseniaView(viewsets.ModelViewSet):
         catedra = self.request.query_params.get('catedra')
         if catedra is not None:
             queryset = queryset.filter(catedra=catedra)
-        return queryset
+        return queryset.order_by('-created')
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
