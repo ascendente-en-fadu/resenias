@@ -15,11 +15,11 @@ const LoginScreen = ({ setSessionId }) => {
     onSuccess: async (codeResponse) => {
       try {
         if (codeResponse) {
-          console.log('Access Token del usuario: ' + codeResponse.access_token); // TODO remove this log before going to production
+          console.log('Successful Google login');
           const sessionId = await doLogin(codeResponse.access_token);
           setSessionId(sessionId);
         } else {
-          throw new Error("The Google Login hasn't returned the access token");
+          throw new Error("The Google login hasn't returned the access token");
         }
       } catch (error) {
         error && console.log(error);
@@ -37,8 +37,7 @@ const LoginScreen = ({ setSessionId }) => {
       <TitleBanner />
       <div style={styles.buttonContainer}>
         <span style={styles.apologizeText}>
-          Logeate con Google. Ya se que no tenés ganas pero es necesario por
-          seguridad.
+          Logueate con Google. Ya se que no tenés ganas, pero es necesario por temas de seguridad.
         </span>
         <CustomButton
           text='Continuar con Google'
