@@ -25,12 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUGGER_ENABLE', cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [config('DOMAIN')]
 
 # se tiene que agregar esto en django 4 (necesite agregarlo para entrar al admin)
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8000']
+CSRF_TRUSTED_ORIGINS = [f'{config("PROTOCOL")}://{config("DOMAIN")}:8000']
 
 # Application definition
 
@@ -146,9 +146,9 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:80',
+    f'{config("PROTOCOL")}://{config("DOMAIN")}',
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:80',
+    f'{config("PROTOCOL")}://{config("DOMAIN")}',
 ]

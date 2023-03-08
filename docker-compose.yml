@@ -29,6 +29,9 @@ services:
       #debug
       DEBUGGER_PORT: ${DEBUGGER_PORT:?required}
       DEBUGGER_ENABLE: ${DEBUGGER_ENABLE}
+      #url
+      DOMAIN: ${DOMAIN}
+      PROTOCOL: ${PROTOCOL}
       GEVENT_SUPPORT: 'True'
 
   frontend:

@@ -10,12 +10,13 @@ https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/
 import os
 import time
 from django.core.wsgi import get_wsgi_application
+from decouple import config
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 
 application = get_wsgi_application()
 
-if os.environ.get('DEBUGGER_ENABLE'):
+if config('DEBUGGER_ENABLE', cast=bool):
     while True:
         try:
             # Visual Studio Code debugger
