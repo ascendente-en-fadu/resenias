@@ -8,4 +8,4 @@ export const RATES = [
   { id: -1, name: 'Ni idea' },
 ];
 
-export const APP_VERSION = 'v0.0.2';
+export const APP_VERSION = 'v1.0.0';

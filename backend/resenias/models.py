@@ -39,7 +39,7 @@ class Catedra(models.Model):
     )
 
     def __str__(self) -> str:
-        return self.nombre
+        return f'{self.nombre} ({self.materia.nombre} - {self.materia.carrera.nombre})'
 
 
 class Resenia(models.Model):
