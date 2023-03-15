@@ -11,7 +11,12 @@ const Footer = () => {
     <div style={styles.container}>
       <div style={styles.linkContainer}>
         <CafecitoIcon width='1.2em' />
-        <a href='https://cafecito.app/ascendente_en_fadu' style={styles.link}>
+        <a
+          href='https://cafecito.app/ascendente_en_fadu'
+          target='_blank'
+          rel='noreferrer'
+          style={styles.link}
+        >
           Invitame un cafecito
         </a>
       </div>
@@ -19,11 +24,15 @@ const Footer = () => {
         <InstagramIcon width='1.2em' />
         <a
           href='https://www.instagram.com/ascendente_en_fadu/?hl=es'
+          target='_blank'
+          rel='noreferrer'
           style={styles.link}
         >
           @ascendente_en_fadu
         </a>
-        <span style={styles.version}>{'Versión v' + process.env.REACT_APP_VERSION}</span>
+        <span style={styles.version}>
+          {'Versión v' + process.env.REACT_APP_VERSION}
+        </span>
       </div>
     </div>
   );
