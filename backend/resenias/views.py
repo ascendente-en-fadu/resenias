@@ -61,7 +61,7 @@ class CatedraView(viewsets.ReadOnlyModelViewSet):
         materia = self.request.query_params.get('materia')
         if materia is not None:
             queryset = queryset.filter(materia=materia)
-        return queryset
+        return queryset.order_by('nombre')
 
 
 class ReseniaView(viewsets.ModelViewSet):
@@ -73,7 +73,6 @@ class ReseniaView(viewsets.ModelViewSet):
         las resenias las filtra con este criterio.
         """
         queryset = Resenia.objects.all()
-        # catedra
         catedra = self.request.query_params.get('catedra')
         if catedra is not None:
             queryset = queryset.filter(catedra=catedra)
