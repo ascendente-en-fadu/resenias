@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import CustomButton from '../CustomButton';
 import { mergeStyles } from '../../helpers';
+import { MAX_REVIEW_INPUT_CHARS } from '../../constants/misc';
 import styles from './styles';
 
 /**
@@ -23,8 +24,9 @@ const ReviewInput = ({ onPress, required }) => {
       <textarea
         style={styles.input}
         placeholder='Escribí una reseña'
+        value={content}
         onChange={(event) => {
-          setContent(event.target.value);
+          if (event.target.value.length <= MAX_REVIEW_INPUT_CHARS) setContent(event.target.value);
         }}
       />
       <CustomButton

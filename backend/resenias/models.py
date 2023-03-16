@@ -63,7 +63,10 @@ class Resenia(models.Model):
         verbose_name="calificación", choices=CALIFICACION_CHOICES,
         blank=True, null=True,
     )
-    contenido = models.TextField(help_text="Escriba su reseña en este campo.")
+    contenido = models.TextField(
+        max_length=2500,
+        help_text="Escriba su reseña en este campo."
+    )
     anio = models.PositiveIntegerField(
         verbose_name="año de cursada", validators=[validar_anio]
     )
