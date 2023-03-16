@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "@react-oauth/google": "^0.6.1",
@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-custom-mock": "json-server --host 192.168.1.99 --watch db.json --port 3004 --delay 200",
+    "start-custom-mock": "json-server --host 192.168.0.8 --watch db.json --port 3004 --delay 200",
     "start-mock": "json-server --watch db.json --port 3004"
   },
   "eslintConfig": {
