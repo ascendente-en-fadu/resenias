@@ -37,7 +37,7 @@ const LoginScreen = ({ setSessionId }) => {
       <TitleBanner />
       <div style={styles.buttonContainer}>
         <span style={styles.apologizeText}>
-          Por el momento, la página no está disponible. Estamos trabajando para resolverlo, intentá de nuevo en un rato.
+          Logueate con Google. Ya se que no tenés ganas, pero es necesario por temas de seguridad.
         </span>
         <CustomButton
           text='Continuar con Google'
@@ -51,7 +51,6 @@ const LoginScreen = ({ setSessionId }) => {
             text: styles.buttonText,
           }}
           googleLogo
-          disabled
         />
       </div>
       <Footer />
