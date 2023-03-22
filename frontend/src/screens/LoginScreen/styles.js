@@ -26,7 +26,7 @@ const styles = {
     fontFamily: Fonts.light,
   },
   apologizeText: {
-    color: Colors.gray,
+    color: Colors.bannerText,
     fontSize: 16,
     textAlign: 'center',
     fontFamily: Fonts.light,
