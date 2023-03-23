@@ -17,4 +17,4 @@ Para iniciar el proyecto por primera vez, se deben seguir los siguientes pasos:
 7) Ejecutar `python3 manage.py createsuperuser` e ingresar la información solicitada para crear un usuario de administrador.
 8) Salir de la terminal del container con `exit`.
 
-En caso de tener un archivo `.sql` de backup de la base de datos, para restaurarla se debe ejecutar `sh ./restore-database.sh path-to-backup-file`.
+En caso de tener un archivo `.sql` de backup de la base de datos, para restaurarla se debe ejecutar `sh ./restore-database.sh path-to-backup-file`. También es necesario copiar la `POSTGRES_PASSWORD` correspondiente a esa base en el archivo `.env`.
