@@ -25,6 +25,7 @@ const styles = {
     fontSize: 16,
     color: Colors.gray,
     fontFamily: Fonts.light,
+    whiteSpace: 'pre-line',
   },
   dataText: {
     fontSize: 16,
