@@ -94,72 +94,114 @@
     {
       "materia": 1,
       "nombre": "Charmander+",
-      "id": 1
+      "id": 1,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 1,
       "nombre": "Squirtle+",
-      "id": 2
+      "id": 2,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 1,
       "nombre": "Bulbasaur+",
-      "id": 3
+      "id": 3,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 1,
       "nombre": "Pikachu+",
-      "id": 4
+      "id": 4,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 1,
       "nombre": "Gastly+",
-      "id": 5
+      "id": 5,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 1,
       "nombre": "Magikarp+",
-      "id": 6
+      "id": 6,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "Gómez",
-      "id": 7
+      "id": 7,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "González",
-      "id": 8
+      "id": 8,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "Rodríguez",
-      "id": 9
+      "id": 9,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "Gutiérrez",
-      "id": 10
+      "id": 10,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "Hernández",
-      "id": 11
+      "id": 11,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "Martínez",
-      "id": 12
+      "id": 12,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "Fernández",
-      "id": 13
+      "id": 13,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "Pérez",
-      "id": 14
+      "id": 14,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     }
   ],
   "resenias": [
