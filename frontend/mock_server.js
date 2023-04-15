@@ -78,14 +78,23 @@ const reviewsMiddleware = (req, res, next) => {
   }
 };
 
+/**
+ * Middleware to add a delay to every response
+ */
+const delayMiddleware = (req, res, next) => {
+  const delay = process.argv[3] || 0;
+  setTimeout(next, delay);
+};
+
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
+server.use(delayMiddleware);
 
 server.use('/api/resenia-propia', ownReviewMiddleware);
 server.use('/api/login', loginMiddleware);
 server.use('/api/resenias', reviewsMiddleware);
 server.use('/api', router);
 
-server.listen(3004, () => {
+server.listen(3004, process.argv[2], () => {
   console.log('JSON Server is running');
 });

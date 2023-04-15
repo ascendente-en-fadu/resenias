@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-custom-mock": "json-server --host 192.168.0.8 --watch db.json --port 3004 --delay 200",
+    "start-custom-mock": "node mock_server.js 192.168.0.1 2000",
     "start-mock": "node mock_server.js"
   },
   "eslintConfig": {
