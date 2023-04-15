@@ -94,72 +94,114 @@
     {
       "materia": 1,
       "nombre": "Charmander+",
-      "id": 1
+      "id": 1,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 1,
       "nombre": "Squirtle+",
-      "id": 2
+      "id": 2,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 1,
       "nombre": "Bulbasaur+",
-      "id": 3
+      "id": 3,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 1,
       "nombre": "Pikachu+",
-      "id": 4
+      "id": 4,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 1,
       "nombre": "Gastly+",
-      "id": 5
+      "id": 5,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 1,
       "nombre": "Magikarp+",
-      "id": 6
+      "id": 6,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "Gómez",
-      "id": 7
+      "id": 7,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "González",
-      "id": 8
+      "id": 8,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "Rodríguez",
-      "id": 9
+      "id": 9,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "Gutiérrez",
-      "id": 10
+      "id": 10,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "Hernández",
-      "id": 11
+      "id": 11,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "Martínez",
-      "id": 12
+      "id": 12,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "Fernández",
-      "id": 13
+      "id": 13,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     },
     {
       "materia": 2,
       "nombre": "Pérez",
-      "id": 14
+      "id": 14,
+      "turno_maniana": false,
+      "turno_tarde": false,
+      "turno_noche": false
     }
   ],
   "resenias": [
@@ -168,101 +210,107 @@
       "catedra": 1,
       "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
       "calificacion": 100000,
-      "id": 1
+      "id": 1,
+      "autor": "other"
     },
     {
       "catedra": 2,
       "anio": 2021,
       "contenido": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
       "calificacion": 200000,
-      "id": 2
+      "id": 2,
+      "autor": "own"
     },
     {
       "catedra": 2,
       "anio": 2019,
       "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
       "calificacion": 100000,
-      "id": 3
+      "id": 3,
+      "autor": "other"
     },
     {
       "catedra": 2,
       "anio": 2020,
       "contenido": "La mejor cátedra de todas. Va a estar piola cuando volvamos a la presencialidad el mes que viene.",
       "calificacion": 200000,
-      "id": 4
+      "id": 4,
+      "autor": "other"
     },
     {
       "catedra": 2,
       "anio": 2017,
       "contenido": "Ayudame loco.",
       "calificacion": 0,
-      "id": 5
+      "id": 5,
+      "autor": "other"
     },
     {
       "catedra": 3,
       "anio": 2019,
       "contenido": "Me recomendaron un drive para bajar programas piratas que está re piola. 10/10.",
       "calificacion": 200000,
-      "id": 6
+      "id": 6,
+      "autor": "other"
     },
     {
       "catedra": 3,
       "anio": 2019,
       "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
       "calificacion": 100000,
-      "id": 9
+      "id": 9,
+      "autor": "other"
     },
     {
       "catedra": 3,
       "anio": 2020,
       "contenido": "La mejor cátedra de todas. Va a estar piola cuando volvamos a la presencialidad el mes que viene.",
       "calificacion": 200000,
-      "id": 10
+      "id": 10,
+      "autor": "other"
     },
     {
       "catedra": 3,
       "anio": 2022,
       "contenido": "Ayudame loco.",
       "calificacion": 0,
-      "id": 11
+      "id": 11,
+      "autor": "other"
     },
     {
       "catedra": 3,
       "anio": 2015,
       "contenido": "Ya estoy empezando a necesitar un generador de data automático, porque esto de escribir tantas reseñas se está poniendo molesto. Lo bueno es que mientras escribo esto estoy llenado espacio jeje.",
       "calificacion": 200000,
-      "id": 12
+      "id": 12,
+      "autor": "other"
     },
     {
       "catedra": 4,
       "anio": 2021,
       "contenido": "Ya se me acabó la imaginación, equisde.",
       "calificacion": 0,
-      "id": 13
+      "id": 13,
+      "autor": "other"
     },
     {
       "catedra": 4,
       "anio": 2019,
       "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
       "calificacion": 100000,
-      "id": 15
+      "id": 15,
+      "autor": "other"
     },
     {
       "catedra": 4,
       "anio": 2020,
       "contenido": "Me reprobó por un diseño de una aspiradora, malísimo. Aunque ahora que lo pienso, quizás me excedí un poquito pero bueno, los voy a calificar mal igual.",
       "calificacion": 0,
-      "id": 14
+      "id": 14,
+      "autor": "own"
     }
   ],
-  "resenia-propia": {
-    "catedra": 1,
-    "anio": 2019,
-    "contenido": "Me dormí unas siestas tremendas en las teóricas pero igual aprobé, no me quejo.",
-    "calificacion": 100000,
-    "id": 1
-  },
   "login": {
-    "session_id": "ya29.a0AVvZVsrjGUPexktF0su3QLhgowaTCvC1m3Kj-QvnH6EYrdkNMedIJngQQESs7lKnd7gdlN7omAf8JoEZGsX_nun6OKMYSsNKjJyUgbXQ_28C54wL3a_MRkqSt88vrhF_K3U7iFA6g3Sr_PwIlGkQFVbfcUCtTQaCgYKAaESARASFQGbdwaIQ78P_DP7iLENWClvS62X3g0165"
+    "session_id": "some-session-id"
   }
 }
