@@ -38,8 +38,7 @@ const isValidReview = (review) => {
  * Middleware for the own review endpoint, that returns the current user's review
  */
 const ownReviewMiddleware = (req, res) => {
-  const ownReview = getMyReview({ catedra: req.query.catedra });
-  res.json(ownReview ?? {});
+  res.json(getMyReview({ catedra: req.query.catedra }));
 };
 
 /**
@@ -47,7 +46,7 @@ const ownReviewMiddleware = (req, res) => {
  */
 const loginMiddleware = (req, res) => {
   res.json({
-    session_id: 'some-session-id',
+    session_id: 'my-session-id',
   });
 };
 
@@ -71,7 +70,7 @@ const reviewsMiddleware = (req, res, next) => {
       if (getMyReview({ id: req.path.replaceAll('/', '') })) {
         next();
       } else {
-        res.sendStatus(403);
+        res.sendStatus(404);
       }
       break;
     default:
