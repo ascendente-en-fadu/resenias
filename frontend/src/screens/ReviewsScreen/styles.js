@@ -11,8 +11,11 @@ const styles = {
   },
   subScreenContainer: {
     flex: 1,
-    overflowY: 'clip',
+    overflowY: 'auto',
     paddingBottom: '12px',
+  },
+  subScreenContainerLandscape: {
+    overflowY: 'visible',
   },
 };
 

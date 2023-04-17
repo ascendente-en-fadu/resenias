@@ -13,6 +13,7 @@ const styles = {
     borderWidth: '1px',
     overflowY: 'auto',
     padding: '16px 0',
+    boxSizing: 'border-box',
   },
   bottomNoReviews: {
     flex: 1,

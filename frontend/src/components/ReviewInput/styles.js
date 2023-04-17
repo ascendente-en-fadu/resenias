@@ -17,14 +17,13 @@ const styles = {
   input: {
     backgroundColor: Colors.transparent,
     height: '72px',
-    width: '100%',
     outline: 'none',
     border: 'none',
     fontSize: 16,
     color: Colors.lightGray,
     fontFamily: Fonts.light,
     boxSizing: 'border-box',
-    padding: '16px',
+    margin: '12px',
     resize: 'none',
   },
   button: {
