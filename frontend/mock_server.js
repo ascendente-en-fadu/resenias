@@ -28,7 +28,7 @@ const getMyReview = ({ catedra, id }) => {
 const isValidReview = (review) => {
   return (
     review.anio >= 2000 &&
-    review.anio < new Date().getFullYear() &&
+    review.anio <= new Date().getFullYear() &&
     review.contenido &&
     review.contenido.length <= 2500
   );
