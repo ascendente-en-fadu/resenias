@@ -10,6 +10,7 @@ const styles = {
     justifyContent: 'space-around',
     flex: 1,
     alignItems: 'center',
+    minHeight: '400px',
   },
   buttonsColumnContainer: {
     display: 'flex',

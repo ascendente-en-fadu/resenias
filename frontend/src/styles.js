@@ -9,20 +9,14 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
-  },
-  pageMobileLandscape: {
-    height: '250%',
+    overflowY: 'auto',
   },
   containerMobile: {
     width: '90%',
     height: '95%',
   },
   containerDesktop: {
-    width: '40%',
-    height: '95%',
-  },
-  containerMobileLandscape: {
-    width: '60%',
+    width: '650px',
     height: '95%',
   },
 };

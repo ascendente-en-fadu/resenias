@@ -37,6 +37,7 @@ const styles = {
     padding: '0 16px',
     border: 'none',
     justifyContent: 'space-between',
+    width: '100%',
   },
   requiredStyle: {
     border: '1px solid',
