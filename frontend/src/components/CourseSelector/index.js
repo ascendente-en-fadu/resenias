@@ -36,10 +36,10 @@ const CourseSelector = ({
       <CustomButton
         text={career.name}
         customStyles={{
-          bottom: styles.careerButtonBottom,
+          container: styles.careerButtonContainer,
         }}
         onPress={goBack}
-        arrow
+        iconName='arrowLeft'
       />
       <div style={styles.selectorsContainer}>
         <Dropdown

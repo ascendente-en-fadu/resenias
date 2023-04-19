@@ -8,7 +8,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     width: '80%',
-    maxWidth: '500px', // TODO: find a better way to avoid extremely wide modals on desktop screens
+    maxWidth: '500px',
   },
   buttonsContainer: {
     flex: 1,
@@ -30,23 +30,25 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    zIndex: '2',
   },
-  buttonText: {
+  leftButtonTop: {
     fontSize: 16,
     color: Colors.lightGray,
     fontFamily: Fonts.semiBold,
   },
-  buttonBottom: {
-    height: '32px',
+  leftButtonContainer: {
     flex: 1,
   },
-  rightButtonBottom: {
-    height: '32px',
+  rightButtonContainer: {
     marginLeft: '8px',
     flex: 1,
   },
   rightButtonTop: {
     backgroundColor: Colors.confirmationButton,
+    fontSize: 16,
+    color: Colors.lightGray,
+    fontFamily: Fonts.semiBold,
   },
   rightButtonHighlight: {
     backgroundColor: Colors.confirmationButtonHighlight,

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { NoReviewsIcon } from '../../images';
+import Icon from '../Icon';
 import { getRateLabel, getReviewYearLabel, mergeStyles } from '../../helpers';
 import styles from './styles';
 
@@ -31,7 +31,7 @@ const ReviewsList = ({ reviews = [] }) => {
         </div>
       ) : (
         <div style={mergeStyles([styles.bottom, styles.bottomNoReviews])}>
-          <NoReviewsIcon width='4em' />
+          <Icon name='noReviews' customStyles={styles.noReviewsIcon} />
           <span style={styles.noReviewsText}>
             {'Todavía no hay reseñas para esta cátedra :('}
           </span>

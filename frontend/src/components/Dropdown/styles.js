@@ -60,7 +60,7 @@ const styles = {
     maxHeight: '400px',
     borderRadius: '16px',
     border: '1px solid #000000',
-    zIndex: '1',
+    zIndex: '2',
   },
   listOpen: {
     transform: 'scaleY(1)',
@@ -72,6 +72,9 @@ const styles = {
     backgroundColor: Colors.transparent,
     border: 'none',
     margin: '4px 0',
+  },
+  arrow: {
+    width: '1.5em',
   },
 };
 

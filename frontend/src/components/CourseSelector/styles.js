@@ -7,7 +7,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
   },
-  careerButtonBottom: {
+  careerButtonContainer: {
     marginBottom: '12px',
   },
   selectorsContainer: {

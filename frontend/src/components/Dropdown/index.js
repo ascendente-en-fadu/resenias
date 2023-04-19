@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { mergeStyles, onPressEvents } from '../../helpers';
-import { ArrowIcon } from '../../images';
+import Icon from '../Icon';
 import styles from './styles';
 
 /**
@@ -77,7 +77,7 @@ const Dropdown = ({
         >
           {value?.name ?? placeholder}
         </span>
-        <ArrowIcon width='1.5em' />
+        <Icon name='arrowDown' customStyles={styles.arrow} />
       </button>
       <div
         style={mergeStyles([

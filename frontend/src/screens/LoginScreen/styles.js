@@ -8,21 +8,18 @@ const styles = {
     flex: 1,
     padding: '15px',
   },
-  buttonContainer: {
+  continueContainer: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
     flex: 1,
   },
-  buttonBottom: {
-    width: '250px',
-    height: '60px',
-  },
   buttonText: {
     color: Colors.lightGray,
     fontSize: 16,
     fontFamily: Fonts.light,
+    padding: '18px 24px',
   },
   apologizeText: {
     color: Colors.gray,

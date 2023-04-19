@@ -24,6 +24,9 @@ const styles = {
     flex: 1,
     textAlign: 'end',
   },
+  icon: {
+    width: '1.2em',
+  },
 };
 
 export default styles;

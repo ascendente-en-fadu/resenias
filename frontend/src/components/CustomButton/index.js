@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { mergeStyles, onPressEvents } from '../../helpers';
-import { ArrowIcon, GoogleIcon } from '../../images';
+import Icon from '../Icon';
 import styles from './styles';
 
 /**
@@ -11,65 +11,59 @@ import styles from './styles';
  * @param {any} children if present, replaces the whole content of the button for the children component
  * @param {string} text button text
  * @param {object} customStyles
+ *   @param {object} customStyles.container custom styles for the button container
  *   @param {object} customStyles.top custom styles for the top layer of the button
  *   @param {object} customStyles.bottom custom styles for the bottom layer of the button
- *   @param {object} customStyles.text custom styles for the button text
  *   @param {object} customStyles.highlight custom styles for the button higlight color
  * @param {function} onPress function to be called when the button in pressed
- * @param {bool} arrow if true, displays an arrow icon on the right of the button
- * @param {bool} googleLogo if true, displays a Google icon on the right of the button
+ * @param {string} iconName name of the icon to display in the button
  * @param {bool} disabled if true, the button is not interactable
  */
 const CustomButton = ({
-  children,
   text,
   customStyles = {},
   onPress,
-  arrow,
-  googleLogo,
+  iconName,
   disabled,
 }) => {
   const [animate, setAnimate] = useState(false);
+  const hasIcon = Boolean(iconName);
+  const hasText = Boolean(text);
 
   return (
-    <button
-      disabled={disabled}
-      style={mergeStyles([styles.buttonBottom, customStyles.bottom])}
-      {...onPressEvents({
-        start: () => !disabled && setAnimate(true),
-        end: () => {
-          setAnimate(false);
-          onPress();
-        },
-        cancel: () => animate && setAnimate(false),
-      })}
-    >
+    <div style={mergeStyles([styles.container, customStyles.container])}>
       <div
+        disabled={disabled}
         style={mergeStyles([
-          styles.buttonTop,
+          styles.top,
+          hasIcon && hasText && styles.topWithIconAndText,
+          disabled && styles.disabledText,
           customStyles.top,
-          animate && { ...styles.buttonPressed, ...customStyles.highlight },
+          animate && { ...styles.pressed, ...customStyles.highlight },
         ])}
+        {...onPressEvents({
+          start: () => !disabled && setAnimate(true),
+          end: () => {
+            setAnimate(false);
+            onPress();
+          },
+          cancel: () => animate && setAnimate(false),
+        })}
       >
-        {children ? (
-          children
-        ) : (
-          <>
-            {arrow && <ArrowIcon width='3em' style={styles.arrow} />}
-            {googleLogo && <GoogleIcon width='2em' style={styles.googleLogo} />}
-            <span
-              style={mergeStyles([
-                styles.text,
-                customStyles.text,
-                disabled && styles.disabledText,
-              ])}
-            >
-              {text}
-            </span>
-          </>
+        {hasIcon && (
+          <Icon
+            name={iconName}
+            customStyles={mergeStyles([
+              styles.icon,
+              hasText && styles.iconWithText,
+            ])}
+          />
         )}
+        <span style={styles.text}>{text}</span>
+        {hasIcon && hasText && <div style={styles.rightMargin} />}
       </div>
-    </button>
+      <div style={mergeStyles([styles.bottom, customStyles.bottom])} />
+    </div>
   );
 };
 
@@ -77,14 +71,13 @@ CustomButton.propTypes = {
   children: PropTypes.any,
   text: PropTypes.string,
   customStyles: PropTypes.shape({
+    container: PropTypes.object,
     bottom: PropTypes.object,
     top: PropTypes.object,
     highlight: PropTypes.object,
-    text: PropTypes.object,
   }),
   onPress: PropTypes.func.isRequired,
-  arrow: PropTypes.bool,
-  googleLogo: PropTypes.bool,
+  iconName: PropTypes.string,
   disabled: PropTypes.bool,
 };
 

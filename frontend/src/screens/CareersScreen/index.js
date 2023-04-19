@@ -22,7 +22,7 @@ const CareersScreen = ({ setCurrentCareer, careers }) => {
               text={career.name}
               key={career.id}
               onPress={() => setCurrentCareer(career)}
-              customStyles={{ bottom: styles.buttonsBottom }}
+              customStyles={{ container: styles.buttonContainer }}
             />
           ))}
         </div>
@@ -32,7 +32,7 @@ const CareersScreen = ({ setCurrentCareer, careers }) => {
               text={career.name}
               key={career.id}
               onPress={() => setCurrentCareer(career)}
-              customStyles={{ bottom: styles.buttonsBottom }}
+              customStyles={{ container: styles.buttonContainer }}
             />
           ))}
         </div>

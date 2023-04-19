@@ -16,9 +16,8 @@ const styles = {
     alignItems: 'center',
     flex: 1,
   },
-  buttonsBottom: {
-    width: '120px',
-    margin: '20px 0px',
+  buttonContainer: {
+    width: '8em',
   },
 };
 

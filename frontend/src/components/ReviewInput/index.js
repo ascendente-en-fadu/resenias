@@ -26,12 +26,13 @@ const ReviewInput = ({ onPress, required }) => {
         placeholder='Escribí una reseña'
         value={content}
         onChange={(event) => {
-          if (event.target.value.length <= MAX_REVIEW_INPUT_CHARS) setContent(event.target.value);
+          if (event.target.value.length <= MAX_REVIEW_INPUT_CHARS)
+            setContent(event.target.value);
         }}
       />
       <CustomButton
         text={'ENVIAR'}
-        customStyles={{ bottom: styles.button, text: styles.buttonText }}
+        customStyles={{ top: styles.buttonText }}
         onPress={() => {
           onPress(content);
         }}

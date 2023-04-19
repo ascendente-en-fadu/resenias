@@ -52,6 +52,9 @@ const styles = {
     marginTop: '12px',
     textAlign: 'center',
   },
+  noReviewsIcon: {
+    width: '4em',
+  },
 };
 
 export default styles;

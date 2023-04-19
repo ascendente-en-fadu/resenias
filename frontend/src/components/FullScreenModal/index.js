@@ -63,8 +63,8 @@ const FullScreenModal = ({
             <CustomButton
               text='Mejor no'
               customStyles={{
-                text: styles.buttonText,
-                bottom: styles.buttonBottom,
+                top: styles.leftButtonTop,
+                container: styles.leftButtonContainer,
               }}
               onPress={onClose}
               disabled={modalState === LOADING_STATE}
@@ -72,8 +72,7 @@ const FullScreenModal = ({
             <CustomButton
               text='Si, dale'
               customStyles={{
-                text: styles.buttonText,
-                bottom: styles.rightButtonBottom,
+                container: styles.rightButtonContainer,
                 top: styles.rightButtonTop,
                 highlight: styles.rightButtonHighlight,
               }}
@@ -86,8 +85,8 @@ const FullScreenModal = ({
             <CustomButton
               text='Aceptar'
               customStyles={{
-                text: styles.buttonText,
-                bottom: styles.buttonBottom,
+                top: styles.leftButtonTop,
+                container: styles.leftButtonContainer,
               }}
               onPress={onClose}
             />

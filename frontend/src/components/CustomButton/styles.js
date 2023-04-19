@@ -2,43 +2,60 @@ import Colors from '../../constants/colors';
 import { Fonts } from '../../fonts';
 
 const styles = {
-  buttonBottom: {
+  container: {
+    position: 'relative',
+    display: 'flex',
+  },
+  bottom: {
+    position: 'absolute',
     backgroundColor: Colors.buttonBottom,
-    border: 'none',
     borderRadius: 18,
-    padding: '0px',
-    height: '70px',
+    inset: '0px',
+  },
+  top: {
+    position: 'relative',
+    flex: 1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.buttonTop,
+    color: Colors.lightGray,
+    fontSize: 30,
+    fontFamily: Fonts.extraBold,
+    padding: '.5em .5em',
+    inset: '-5px 5px 5px -5px',
+    borderRadius: 18,
+    transition: 'all .05s',
+    zIndex: '1',
+    minWidth: '0px',
+    userSelect: 'none',
+  },
+  topWithIconAndText: {
+    justifyContent: 'space-between',
+  },
+  pressed: {
+    backgroundColor: Colors.pressedButton,
+    inset: '0px',
   },
   text: {
-    fontSize: 30,
-    color: Colors.lightGray,
-    fontFamily: Fonts.extraBold,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
   },
   disabledText: {
     color: Colors.gray,
   },
-  buttonTop: {
-    position: 'relative',
+  rightMargin: {
+    maxWidth: '2em',
+    flex: 1,
     height: '100%',
-    inset: '-5px 5px 5px -5px',
-    borderRadius: 18,
-    backgroundColor: Colors.buttonTop,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transition: 'all .05s',
   },
-  buttonPressed: {
-    inset: '0px',
-    backgroundColor: Colors.pressedButton,
+  icon: {
+    width: '1.5em',
+    minWidth: '1.5em',
   },
-  arrow: {
-    position: 'absolute',
-    left: '10px',
-    rotate: '90deg',
-  },
-  googleLogo: {
-    marginRight: '14px',
+  iconWithText: {
+    marginRight: '0.5em',
   },
 };
 

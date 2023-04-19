@@ -7,3 +7,4 @@ export { default as ReviewInput } from './ReviewInput';
 export { default as ReviewsList } from './ReviewsList';
 export { default as MyReview } from './MyReview';
 export { default as FullScreenModal } from './FullScreenModal';
+export { default as Icon } from './Icon';

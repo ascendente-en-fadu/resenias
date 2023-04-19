@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { CafecitoIcon, InstagramIcon } from '../../images';
 import styles from './styles';
+import Icon from '../Icon';
 
 /**
  * Footer with the contact and cafecito links.
@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <div style={styles.container}>
       <div style={styles.linkContainer}>
-        <CafecitoIcon width='1.2em' />
+        <Icon name='cafecito' customStyles={styles.icon} />
         <a
           href='https://cafecito.app/ascendente_en_fadu'
           target='_blank'
@@ -21,7 +21,7 @@ const Footer = () => {
         </a>
       </div>
       <div style={styles.linkContainer}>
-        <InstagramIcon width='1.2em' />
+        <Icon name='instagram' customStyles={styles.icon} />
         <a
           href='https://www.instagram.com/ascendente_en_fadu/?hl=es'
           target='_blank'

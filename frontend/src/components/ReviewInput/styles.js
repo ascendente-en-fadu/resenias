@@ -25,9 +25,8 @@ const styles = {
     margin: '12px',
     resize: 'none',
   },
-  button: {
+  buttonBottom: {
     backgroundColor: Colors.transparent,
-    height: '32px',
   },
   buttonText: {
     fontSize: 16,

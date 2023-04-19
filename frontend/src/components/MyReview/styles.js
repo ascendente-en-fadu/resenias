@@ -31,13 +31,15 @@ const styles = {
     color: Colors.lightGray,
     fontFamily: Fonts.semiBold,
   },
-  deleteBottom: {
+  deleteButtonContainer: {
     position: 'absolute',
-    backgroundColor: Colors.transparent,
     top: '-3px',
     right: '3px',
     width: '3em',
     height: '3em',
+  },
+  deleteButtonTop: {
+    fontSize: 16,
   },
 };
 

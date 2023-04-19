@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { DeleteIcon } from '../../images';
 import CustomButton from '../CustomButton';
 import { getRateLabel, getReviewYearLabel } from '../../helpers';
 import styles from './styles';
@@ -20,11 +19,13 @@ const MyReview = ({ review, deleteOwnReview }) => {
   return (
     <div style={styles.bottom}>
       <CustomButton
-        customStyles={{ bottom: styles.deleteBottom }}
+        customStyles={{
+          container: styles.deleteButtonContainer,
+          top: styles.deleteButtonTop,
+        }}
         onPress={() => deleteOwnReview(review.id)}
-      >
-        <DeleteIcon width='1.5em' />
-      </CustomButton>
+        iconName='delete'
+      />
       <div style={styles.reviewContainer}>
         <span style={styles.title}>Tu reseña</span>
         <span style={styles.dataText}>{getReviewYearLabel(review.year)}</span>

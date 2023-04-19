@@ -32,10 +32,10 @@ const styles = {
     alignItems: 'center',
   },
   ratesList: {
-    zIndex: 1,
+    zIndex: 2,
   },
   yearsList: {
-    zIndex: 2,
+    zIndex: 3,
   },
   question: {
     color: Colors.lightGray,

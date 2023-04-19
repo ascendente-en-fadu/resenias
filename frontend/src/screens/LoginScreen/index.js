@@ -35,9 +35,10 @@ const LoginScreen = ({ setSessionId }) => {
   return (
     <div style={styles.container}>
       <TitleBanner />
-      <div style={styles.buttonContainer}>
+      <div style={styles.continueContainer}>
         <span style={styles.apologizeText}>
-          Logueate con Google. Ya se que no tenés ganas, pero es necesario por temas de seguridad.
+          Logueate con Google. Ya se que no tenés ganas, pero es necesario por
+          temas de seguridad.
         </span>
         <CustomButton
           text='Continuar con Google'
@@ -47,10 +48,9 @@ const LoginScreen = ({ setSessionId }) => {
               : login
           }
           customStyles={{
-            bottom: styles.buttonBottom,
-            text: styles.buttonText,
+            top: styles.buttonText,
           }}
-          googleLogo
+          iconName='google'
         />
       </div>
       <Footer />
