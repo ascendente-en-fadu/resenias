@@ -52,7 +52,7 @@ const CourseSelector = ({
         />
         <Dropdown
           placeholder='Cátedra'
-          customStyles={{ list: styles.list }}
+          customStyles={{ bottom: styles.dropdownRight, list: styles.list }}
           onChange={setCourse}
           value={course}
           disabled={!subject || !courses}

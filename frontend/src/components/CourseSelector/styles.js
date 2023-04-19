@@ -4,22 +4,18 @@ const styles = {
   container: {
     backgroundColor: Colors.buttonBottom,
     borderRadius: 24,
-    position: 'relative',
-    width: '100%',
-    height: '100%',
     display: 'flex',
     flexDirection: 'column',
   },
+  careerButtonBottom: {
+    marginBottom: '12px',
+  },
   selectorsContainer: {
-    flex: 1,
     display: 'flex',
     justifyContent: 'space-between',
   },
-  careerButtonBottom: {
-    flex: 2,
-    marginBottom: '12px',
-  },
-  dropdownLeft: { marginRight: '12px' },
+  dropdownRight: { minWidth: '48%' },
+  dropdownLeft: { marginRight: '4%', minWidth: '48%' },
   list: { zIndex: 3 },
 };
 

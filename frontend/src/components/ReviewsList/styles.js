@@ -11,7 +11,6 @@ const styles = {
     border: 'solid',
     borderColor: Colors.gray,
     borderWidth: '1px',
-    overflowY: 'auto',
     padding: '16px 0',
     boxSizing: 'border-box',
   },
@@ -34,12 +33,9 @@ const styles = {
     fontFamily: Fonts.semiBold,
   },
   reviewContainer: {
-    width: '100%',
-    flex: 1,
     display: 'flex',
     flexDirection: 'column',
-    paddingLeft: '24px',
-    paddingRight: '24px',
+    padding: '0px 24px',
     boxSizing: 'border-box',
   },
   divider: {

@@ -5,15 +5,15 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
-    height: '100%',
-    justifyContent: 'space-between',
+    flex: 1,
+    padding: '15px',
   },
   buttonContainer: {
     display: 'flex',
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
+    flex: 1,
   },
   buttonBottom: {
     width: '250px',
@@ -22,7 +22,6 @@ const styles = {
   buttonText: {
     color: Colors.lightGray,
     fontSize: 16,
-    textAlign: 'center',
     fontFamily: Fonts.light,
   },
   apologizeText: {

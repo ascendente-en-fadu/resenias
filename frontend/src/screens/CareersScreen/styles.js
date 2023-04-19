@@ -2,26 +2,23 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
-    height: '100%',
-    justifyContent: 'space-between',
+    flex: 1,
+    padding: '15px',
   },
   buttonsContainer: {
     display: 'flex',
-    justifyContent: 'space-around',
     flex: 1,
-    alignItems: 'center',
-    minHeight: '400px',
   },
   buttonsColumnContainer: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
     justifyContent: 'space-around',
-    height: '100%',
+    alignItems: 'center',
+    flex: 1,
   },
   buttonsBottom: {
     width: '120px',
-    height: '70px',
+    margin: '20px 0px',
   },
 };
 

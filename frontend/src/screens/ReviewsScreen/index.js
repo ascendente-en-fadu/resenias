@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
 
 import { CourseSelector, Footer, FullScreenModal } from '../../components';
 import NoCourseSubScreen from '../NoCourseSubScreen';
@@ -10,7 +9,6 @@ import {
   getCourseInfo,
   getCourses,
   getSubjects,
-  mergeStyles,
   sendReview,
 } from '../../helpers';
 import styles from './styles';
@@ -31,8 +29,6 @@ const ReviewsScreen = ({ career, goBack, sessionId }) => {
   const [courseInfo, setCourseInfo] = useState();
   const [showModal, setShowModal] = useState();
   const [modalData, setModalData] = useState({});
-
-  const isLandscape = useMediaQuery({ query: '(max-height: 650px)' });
 
   /**
    * Sets the current selected course and removes the previously selected course information
@@ -160,24 +156,17 @@ const ReviewsScreen = ({ career, goBack, sessionId }) => {
 
   return (
     <div style={styles.container}>
-      <div style={styles.selectorContainer}>
-        <CourseSelector
-          subjects={subjects}
-          courses={courses}
-          subject={subject}
-          course={course}
-          career={career}
-          goBack={goBack}
-          setCourse={_setCourse}
-          setSubject={_setSubject}
-        />
-      </div>
-      <div
-        style={mergeStyles([
-          styles.subScreenContainer,
-          isLandscape && styles.subScreenContainerLandscape,
-        ])}
-      >
+      <CourseSelector
+        subjects={subjects}
+        courses={courses}
+        subject={subject}
+        course={course}
+        career={career}
+        goBack={goBack}
+        setCourse={_setCourse}
+        setSubject={_setSubject}
+      />
+      <div style={styles.subScreenContainer}>
         {course && courseInfo ? (
           <CourseSubScreen
             sendCurrentReview={sendCurrentReview}

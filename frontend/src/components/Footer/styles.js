@@ -13,7 +13,7 @@ const styles = {
     marginLeft: '5px',
   },
   linkContainer: {
-    margin: '5px 0',
+    marginTop: '10px',
     display: 'flex',
     flexDirection: 'row',
   },

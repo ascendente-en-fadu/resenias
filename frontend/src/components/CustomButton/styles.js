@@ -6,9 +6,8 @@ const styles = {
     backgroundColor: Colors.buttonBottom,
     border: 'none',
     borderRadius: 18,
-    position: 'relative',
-    width: '100%',
-    height: '100%',
+    padding: '0px',
+    height: '70px',
   },
   text: {
     fontSize: 30,
@@ -19,11 +18,9 @@ const styles = {
     color: Colors.gray,
   },
   buttonTop: {
-    position: 'absolute',
-    top: '-5px',
-    left: '-5px',
-    bottom: '5px',
-    right: '5px',
+    position: 'relative',
+    height: '100%',
+    inset: '-5px 5px 5px -5px',
     borderRadius: 18,
     backgroundColor: Colors.buttonTop,
     display: 'flex',
@@ -32,10 +29,7 @@ const styles = {
     transition: 'all .05s',
   },
   buttonPressed: {
-    top: '0px',
-    left: '0px',
-    bottom: '0px',
-    right: '0px',
+    inset: '0px',
     backgroundColor: Colors.pressedButton,
   },
   arrow: {

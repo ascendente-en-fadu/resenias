@@ -25,10 +25,7 @@ const styles = {
   },
   modal: {
     position: 'fixed',
-    top: '0px',
-    left: '0px',
-    bottom: '0px',
-    right: '0px',
+    inset: '0px',
     backgroundColor: Colors.modalBackground,
     display: 'flex',
     justifyContent: 'center',
@@ -41,10 +38,12 @@ const styles = {
   },
   buttonBottom: {
     height: '32px',
+    flex: 1,
   },
   rightButtonBottom: {
     height: '32px',
     marginLeft: '8px',
+    flex: 1,
   },
   rightButtonTop: {
     backgroundColor: Colors.confirmationButton,

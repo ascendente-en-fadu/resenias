@@ -2,20 +2,12 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
-    height: '100%',
-    justifyContent: 'space-between',
-  },
-  selectorContainer: {
-    height: '130px',
-    flexShrink: 0,
+    flex: 1,
+    padding: '15px',
   },
   subScreenContainer: {
+    display: 'flex',
     flex: 1,
-    overflowY: 'auto',
-    paddingBottom: '12px',
-  },
-  subScreenContainerLandscape: {
-    overflowY: 'visible',
   },
 };
 

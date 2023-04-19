@@ -5,7 +5,6 @@ const styles = {
   bottom: {
     backgroundColor: Colors.buttonBottom,
     borderRadius: 24,
-    position: 'relative',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',

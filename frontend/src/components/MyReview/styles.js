@@ -9,6 +9,12 @@ const styles = {
     backgroundColor: Colors.buttonBottom,
     position: 'relative',
   },
+  reviewContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    boxSizing: 'border-box',
+    padding: '16px',
+  },
   title: {
     fontSize: 24,
     color: Colors.lightGray,
@@ -25,13 +31,6 @@ const styles = {
     color: Colors.lightGray,
     fontFamily: Fonts.semiBold,
   },
-  reviewContainer: {
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    boxSizing: 'border-box',
-    padding: '16px',
-  },
   deleteBottom: {
     position: 'absolute',
     backgroundColor: Colors.transparent,
@@ -39,7 +38,6 @@ const styles = {
     right: '3px',
     width: '3em',
     height: '3em',
-    margin: '0px',
   },
 };
 

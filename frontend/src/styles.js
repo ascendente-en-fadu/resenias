@@ -3,21 +3,20 @@ import Colors from './constants/colors';
 const styles = {
   page: {
     backgroundColor: Colors.screenBackground,
-    height: '100%',
-    width: '100%',
     display: 'flex',
-    alignItems: 'center',
     justifyContent: 'center',
-    position: 'relative',
+    height: '100%',
     overflowY: 'auto',
   },
   containerMobile: {
-    width: '90%',
-    height: '95%',
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
   },
   containerDesktop: {
-    width: '650px',
-    height: '95%',
+    width: '700px',
+    display: 'flex',
+    flexDirection: 'column',
   },
 };
 

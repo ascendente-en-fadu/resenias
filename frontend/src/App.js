@@ -9,7 +9,7 @@ import styles from './styles';
  * Main app screen, with responsive logic to be adapted to desktop, phone portrait and phone landscape displays.
  */
 function App() {
-  const isMobile = useMediaQuery({ query: '(max-width: 800px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 700px)' });
   const [career, setCareer] = useState();
   const [careers, setCareers] = useState([]);
   const [sessionId, setSessionId] = useState();

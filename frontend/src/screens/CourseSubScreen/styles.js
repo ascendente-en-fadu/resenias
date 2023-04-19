@@ -4,7 +4,6 @@ import { Fonts } from '../../fonts';
 const styles = {
   container: {
     display: 'flex',
-    height: '100%',
     alignItems: 'center',
     flexDirection: 'column',
     flex: 1,
@@ -30,7 +29,7 @@ const styles = {
     width: '100%',
     justifyContent: 'space-between',
     marginBottom: '12px',
-    flex: 1,
+    alignItems: 'center',
   },
   ratesList: {
     zIndex: 1,
@@ -42,11 +41,10 @@ const styles = {
     color: Colors.lightGray,
     fontSize: 16,
     fontFamily: Fonts.light,
-    flex: 1,
+    width: '45%',
   },
   dropdownBottom: {
-    flex: 1,
-    minHeight: '40px',
+    width: '45%',
   },
 };
 
