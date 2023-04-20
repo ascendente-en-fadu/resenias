@@ -2,54 +2,25 @@ import Colors from '../../constants/colors';
 import { Fonts } from '../../fonts';
 
 const styles = {
-  buttonBottom: {
-    backgroundColor: Colors.buttonBottom,
-    borderRadius: 24,
-    height: '40px',
-    width: '100%',
-  },
-  buttonNoBottom: {
-    backgroundColor: Colors.transparent,
-  },
-  text: {
-    fontSize: 16,
-    color: Colors.lightGray,
-    fontFamily: Fonts.light,
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    marginRight: '8px',
-  },
-  disabledText: {
-    color: Colors.gray,
+  container: {
+    position: 'relative',
   },
   buttonTop: {
-    position: 'relative',
-    height: '100%',
-    width: '100%',
-    inset: '-5px 5px 5px -5px',
-    borderRadius: 24,
-    backgroundColor: Colors.buttonTop,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     transition: 'all .05s',
-    padding: '0 16px',
     border: 'none',
+    fontSize: 16,
+    fontFamily: Fonts.light,
+    flexDirection: 'row-reverse',
   },
   requiredStyle: {
     border: '1px solid',
     borderColor: Colors.bannerText,
   },
-  buttonPressed: {
-    inset: '0px',
-    backgroundColor: Colors.pressedButton,
-  },
   list: {
-    position: 'relative',
+    position: 'absolute',
     left: '0px',
     right: '0px',
-    top: '8px',
+    top: '2.5em',
     backgroundColor: Colors.buttonBottom,
     display: 'flex',
     flexDirection: 'column',
@@ -60,7 +31,6 @@ const styles = {
     maxHeight: '400px',
     borderRadius: '16px',
     border: '1px solid #000000',
-    zIndex: '2',
   },
   listOpen: {
     transform: 'scaleY(1)',
@@ -71,10 +41,7 @@ const styles = {
     fontFamily: Fonts.light,
     backgroundColor: Colors.transparent,
     border: 'none',
-    margin: '4px 0',
-  },
-  arrow: {
-    width: '1.5em',
+    margin: '.3em 0',
   },
 };
 

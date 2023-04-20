@@ -16,7 +16,7 @@ const styles = {
   },
   dropdownRight: { minWidth: '48%' },
   dropdownLeft: { marginRight: '4%', minWidth: '48%' },
-  list: { zIndex: 3 },
+  list: { zIndex: 4 },
 };
 
 export default styles;

@@ -44,7 +44,7 @@ const CourseSubScreen = ({
               elements={generateYearsList()}
               onChange={setYear}
               customStyles={{
-                bottom: styles.dropdownBottom,
+                container: styles.dropdownContainer,
                 list: styles.yearsList,
               }}
               required={missingFields}
@@ -58,7 +58,7 @@ const CourseSubScreen = ({
               elements={RATES}
               onChange={setRate}
               customStyles={{
-                bottom: styles.dropdownBottom,
+                container: styles.dropdownContainer,
                 list: styles.ratesList,
               }}
               required={missingFields}

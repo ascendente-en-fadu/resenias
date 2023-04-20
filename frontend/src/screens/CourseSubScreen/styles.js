@@ -43,7 +43,7 @@ const styles = {
     fontFamily: Fonts.light,
     width: '45%',
   },
-  dropdownBottom: {
+  dropdownContainer: {
     width: '45%',
   },
 };

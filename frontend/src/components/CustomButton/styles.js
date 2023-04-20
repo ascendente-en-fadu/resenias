@@ -22,7 +22,7 @@ const styles = {
     color: Colors.lightGray,
     fontSize: 30,
     fontFamily: Fonts.extraBold,
-    padding: '.5em .5em',
+    padding: '.5em 12px',
     inset: '-5px 5px 5px -5px',
     borderRadius: 18,
     transition: 'all .05s',
@@ -41,18 +41,20 @@ const styles = {
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
+    margin: '0px 4px',
   },
   disabledText: {
     color: Colors.gray,
   },
   rightMargin: {
-    maxWidth: '2em',
+    maxWidth: 'calc(1.5em + 12px)',
     flex: 1,
     height: '100%',
   },
   icon: {
     width: '1.5em',
     minWidth: '1.5em',
+    margin: '0px 4px',
   },
   iconWithText: {
     marginRight: '0.5em',

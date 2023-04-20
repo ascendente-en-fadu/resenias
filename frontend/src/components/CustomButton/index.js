@@ -13,11 +13,11 @@ import styles from './styles';
  * @param {object} customStyles
  *   @param {object} customStyles.container custom styles for the button container
  *   @param {object} customStyles.top custom styles for the top layer of the button
- *   @param {object} customStyles.bottom custom styles for the bottom layer of the button
  *   @param {object} customStyles.highlight custom styles for the button higlight color
  * @param {function} onPress function to be called when the button in pressed
  * @param {string} iconName name of the icon to display in the button
  * @param {bool} disabled if true, the button is not interactable
+ * @param {bool} disableCenteringCorrection if true, the button text will not be forced to be centered when it's displayed alongside an icon
  */
 const CustomButton = ({
   text,
@@ -25,6 +25,7 @@ const CustomButton = ({
   onPress,
   iconName,
   disabled,
+  disableCenteringCorrection,
 }) => {
   const [animate, setAnimate] = useState(false);
   const hasIcon = Boolean(iconName);
@@ -50,19 +51,13 @@ const CustomButton = ({
           cancel: () => animate && setAnimate(false),
         })}
       >
-        {hasIcon && (
-          <Icon
-            name={iconName}
-            customStyles={mergeStyles([
-              styles.icon,
-              hasText && styles.iconWithText,
-            ])}
-          />
-        )}
+        {hasIcon && <Icon name={iconName} customStyles={styles.icon} />}
         <span style={styles.text}>{text}</span>
-        {hasIcon && hasText && <div style={styles.rightMargin} />}
+        {hasIcon && hasText && !disableCenteringCorrection && (
+          <div style={styles.rightMargin} />
+        )}
       </div>
-      <div style={mergeStyles([styles.bottom, customStyles.bottom])} />
+      <div style={styles.bottom} />
     </div>
   );
 };
@@ -72,13 +67,13 @@ CustomButton.propTypes = {
   text: PropTypes.string,
   customStyles: PropTypes.shape({
     container: PropTypes.object,
-    bottom: PropTypes.object,
     top: PropTypes.object,
     highlight: PropTypes.object,
   }),
   onPress: PropTypes.func.isRequired,
   iconName: PropTypes.string,
   disabled: PropTypes.bool,
+  disableCenteringCorrection: PropTypes.bool,
 };
 
 export default CustomButton;
