@@ -18,6 +18,7 @@ const styles = {
   },
   buttonContainer: {
     width: '8em',
+    margin: '10px 0px',
   },
 };
 

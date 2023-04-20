@@ -25,6 +25,7 @@ const MyReview = ({ review, deleteOwnReview }) => {
         }}
         onPress={() => deleteOwnReview(review.id)}
         iconName='delete'
+        disableBottom
       />
       <div style={styles.reviewContainer}>
         <span style={styles.title}>Tu reseña</span>

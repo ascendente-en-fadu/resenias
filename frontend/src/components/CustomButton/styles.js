@@ -56,9 +56,6 @@ const styles = {
     minWidth: '1.5em',
     margin: '0px 4px',
   },
-  iconWithText: {
-    marginRight: '0.5em',
-  },
 };
 
 export default styles;

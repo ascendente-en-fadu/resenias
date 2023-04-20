@@ -8,7 +8,6 @@ import styles from './styles';
 /**
  * Career selection button, with a centered text and a press animation. Optionally, an arrow on the left side can be shown.
  * Alternatively, the content con be replaced by a childer component.
- * @param {any} children if present, replaces the whole content of the button for the children component
  * @param {string} text button text
  * @param {object} customStyles
  *   @param {object} customStyles.container custom styles for the button container
@@ -18,6 +17,7 @@ import styles from './styles';
  * @param {string} iconName name of the icon to display in the button
  * @param {bool} disabled if true, the button is not interactable
  * @param {bool} disableCenteringCorrection if true, the button text will not be forced to be centered when it's displayed alongside an icon
+ * @param {bool} disableBottom if true, the bottom part of the button is removed
  */
 const CustomButton = ({
   text,
@@ -26,6 +26,7 @@ const CustomButton = ({
   iconName,
   disabled,
   disableCenteringCorrection,
+  disableBottom,
 }) => {
   const [animate, setAnimate] = useState(false);
   const hasIcon = Boolean(iconName);
@@ -52,18 +53,17 @@ const CustomButton = ({
         })}
       >
         {hasIcon && <Icon name={iconName} customStyles={styles.icon} />}
-        <span style={styles.text}>{text}</span>
+        {hasText && <span style={styles.text}>{text}</span>}
         {hasIcon && hasText && !disableCenteringCorrection && (
           <div style={styles.rightMargin} />
         )}
       </div>
-      <div style={styles.bottom} />
+      {!disableBottom && <div style={styles.bottom} />}
     </div>
   );
 };
 
 CustomButton.propTypes = {
-  children: PropTypes.any,
   text: PropTypes.string,
   customStyles: PropTypes.shape({
     container: PropTypes.object,
@@ -74,6 +74,7 @@ CustomButton.propTypes = {
   iconName: PropTypes.string,
   disabled: PropTypes.bool,
   disableCenteringCorrection: PropTypes.bool,
+  disableBottom: PropTypes.bool,
 };
 
 export default CustomButton;

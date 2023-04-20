@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { CourseSelector, Footer, FullScreenModal } from '../../components';
-import NoCourseSubScreen from '../NoCourseSubScreen';
-import CourseSubScreen from '../CourseSubScreen';
+import {
+  CourseSelector,
+  Footer,
+  FullScreenModal,
+  MyReview,
+  ReviewInput,
+  ReviewsList,
+} from '../../components';
 import {
   deleteReview,
   getCourseInfo,
@@ -166,19 +171,27 @@ const ReviewsScreen = ({ career, goBack, sessionId }) => {
         setCourse={_setCourse}
         setSubject={_setSubject}
       />
-      <div style={styles.subScreenContainer}>
-        {course && courseInfo ? (
-          <CourseSubScreen
-            sendCurrentReview={sendCurrentReview}
-            reviews={courseInfo.reviews}
-            ownReview={courseInfo.own_review}
-            deleteOwnReview={deleteOwnReview}
-            courseId={course.id}
-          />
-        ) : (
-          <NoCourseSubScreen />
-        )}
-      </div>
+      {course && courseInfo ? (
+        <div style={styles.ownReviewContainer}>
+          {courseInfo.own_review ? (
+            <MyReview
+              review={courseInfo.own_review}
+              deleteOwnReview={deleteOwnReview}
+            />
+          ) : (
+            <ReviewInput
+              sendCurrentReview={sendCurrentReview}
+              courseId={course.id}
+            />
+          )}
+          <ReviewsList reviews={courseInfo.reviews} />
+        </div>
+      ) : (
+        <div style={styles.censorshipAdviceContainer}>
+          Ojito con las reseñas que escribís que si te vas de boca las borro.
+          Podés usar palabrotas pero mantené el respeto.
+        </div>
+      )}
       <Footer />
       {showModal && (
         <FullScreenModal
