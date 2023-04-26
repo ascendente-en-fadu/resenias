@@ -66,6 +66,7 @@ const Dropdown = ({
           ]),
         }}
         disableCenteringCorrection
+        noDelay
       />
       <div
         style={mergeStyles([
