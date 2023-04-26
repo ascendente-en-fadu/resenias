@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   CourseSelector,
@@ -17,41 +17,28 @@ import {
   sendReview,
 } from '../../helpers';
 import styles from './styles';
+import {
+  selectCourse,
+  selectSubject,
+  setCourseInfo,
+  setCoursesList,
+  setSubjectsList,
+  unselectCareer,
+  unsetCourseInfo,
+} from '../../redux';
 
 /**
  * Reviews screen that shows the course selector, the course information and the review write input.
- * @param {object} career current selected career
- *   @param {string} career.name name of the current selected career
- *   @param {number} career.id id of the current selected career
- * @param {function} goBack function to be called when the career indicator is pressed
- * @param {string} sessionId session id of the current user
  */
-const ReviewsScreen = ({ career, goBack, sessionId }) => {
-  const [subject, setSubject] = useState();
-  const [course, setCourse] = useState();
-  const [subjects, setSubjects] = useState();
-  const [courses, setCourses] = useState();
-  const [courseInfo, setCourseInfo] = useState();
+const ReviewsScreen = () => {
   const [showModal, setShowModal] = useState();
   const [modalData, setModalData] = useState({});
-
-  /**
-   * Sets the current selected course and removes the previously selected course information
-   */
-  const _setCourse = (value) => {
-    setCourse(value);
-    setCourseInfo(undefined);
-  };
-
-  /**
-   * Sets the current selected subject and removes the previously selected course, the course list, and the course info
-   */
-  const _setSubject = (value) => {
-    setSubject(value);
-    setCourse(undefined);
-    setCourses(undefined);
-    setCourseInfo(undefined);
-  };
+  const sessionId = useSelector((state) => state.session.sessionId);
+  const careers = useSelector((state) => state.reviews.careers);
+  const subjects = useSelector((state) => state.reviews.subjects);
+  const courses = useSelector((state) => state.reviews.courses);
+  const courseInfo = useSelector((state) => state.reviews.courseInfo);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const controller = new AbortController();
@@ -60,8 +47,8 @@ const ReviewsScreen = ({ career, goBack, sessionId }) => {
      */
     const getSubjectsList = async () => {
       try {
-        const response = await getSubjects(career.id, controller);
-        setSubjects(response);
+        const response = await getSubjects(careers.selected.id, controller);
+        dispatch(setSubjectsList(response));
       } catch (error) {
         error && console.log(error);
       }
@@ -69,7 +56,7 @@ const ReviewsScreen = ({ career, goBack, sessionId }) => {
 
     getSubjectsList();
     return () => controller.abort();
-  }, [career]);
+  }, [careers.selected]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -78,18 +65,18 @@ const ReviewsScreen = ({ career, goBack, sessionId }) => {
      */
     const getCoursesList = async () => {
       try {
-        const response = await getCourses(subject.id, controller);
-        setCourses(response);
+        const response = await getCourses(subjects.selected.id, controller);
+        dispatch(setCoursesList(response));
       } catch (error) {
         error && console.log(error);
       }
     };
 
-    if (subject) {
+    if (subjects.selected) {
       getCoursesList();
     }
     return () => controller.abort();
-  }, [subject]);
+  }, [subjects.selected]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -98,18 +85,22 @@ const ReviewsScreen = ({ career, goBack, sessionId }) => {
      */
     const getReviewsList = async () => {
       try {
-        const response = await getCourseInfo(course.id, sessionId, controller);
-        setCourseInfo(response);
+        const response = await getCourseInfo(
+          courses.selected.id,
+          sessionId,
+          controller,
+        );
+        dispatch(setCourseInfo(response));
       } catch (error) {
         error && console.log(error);
       }
     };
 
-    if (course) {
+    if (courses.selected) {
       getReviewsList();
     }
     return () => controller.abort();
-  }, [course]);
+  }, [courses.selected]);
 
   /**
    * Sends a review written by the user to BE and refreshes the course info
@@ -125,9 +116,9 @@ const ReviewsScreen = ({ career, goBack, sessionId }) => {
         await sendReview(review, sessionId);
       },
       onResultConfirm: async () => {
-        setCourseInfo(undefined);
-        const response = await getCourseInfo(course.id, sessionId);
-        setCourseInfo(response);
+        dispatch(unsetCourseInfo());
+        const response = await getCourseInfo(courses.selected.id, sessionId);
+        dispatch(setCourseInfo(response));
       },
       questionText:
         '¿Mandamos esta reseña, máquina? Igual si te mandaste una cagada podés borrarla y escribir otra.',
@@ -147,9 +138,9 @@ const ReviewsScreen = ({ career, goBack, sessionId }) => {
         await deleteReview(reviewId, sessionId);
       },
       onResultConfirm: async () => {
-        setCourseInfo(undefined);
-        const response = await getCourseInfo(course.id, sessionId);
-        setCourseInfo(response);
+        dispatch(unsetCourseInfo());
+        const response = await getCourseInfo(courses.selected.id, sessionId);
+        dispatch(setCourseInfo(response));
       },
       questionText:
         '¿Querés borrar la reseña, máquina? Igual no pasa nada, vas a poder escribir una reseña nueva.',
@@ -162,16 +153,16 @@ const ReviewsScreen = ({ career, goBack, sessionId }) => {
   return (
     <div style={styles.container}>
       <CourseSelector
-        subjects={subjects}
-        courses={courses}
-        subject={subject}
-        course={course}
-        career={career}
-        goBack={goBack}
-        setCourse={_setCourse}
-        setSubject={_setSubject}
+        subjects={subjects.list}
+        courses={courses.list}
+        subject={subjects.selected}
+        course={courses.selected}
+        career={careers.selected}
+        goBack={() => dispatch(unselectCareer())}
+        setCourse={(payload) => dispatch(selectCourse(payload))}
+        setSubject={(payload) => dispatch(selectSubject(payload))}
       />
-      {course && courseInfo ? (
+      {courses.selected && courseInfo ? (
         <div style={styles.ownReviewContainer}>
           {courseInfo.own_review ? (
             <MyReview
@@ -181,7 +172,7 @@ const ReviewsScreen = ({ career, goBack, sessionId }) => {
           ) : (
             <ReviewInput
               sendCurrentReview={sendCurrentReview}
-              courseId={course.id}
+              courseId={courses.selected.id}
             />
           )}
           <ReviewsList reviews={courseInfo.reviews} />
@@ -208,15 +199,6 @@ const ReviewsScreen = ({ career, goBack, sessionId }) => {
       )}
     </div>
   );
-};
-
-ReviewsScreen.propTypes = {
-  career: PropTypes.shape({
-    name: PropTypes.string,
-    id: PropTypes.number,
-  }).isRequired,
-  goBack: PropTypes.func.isRequired,
-  sessionId: PropTypes.string.isRequired,
 };
 
 export default ReviewsScreen;

@@ -35,19 +35,18 @@ const CustomButton = ({
   return (
     <div style={mergeStyles([styles.container, customStyles.container])}>
       <div
-        disabled={disabled}
         style={mergeStyles([
           styles.top,
           hasIcon && hasText && styles.topWithIconAndText,
-          disabled && styles.disabledText,
           customStyles.top,
+          disabled && styles.disabledText,
           animate && { ...styles.pressed, ...customStyles.highlight },
         ])}
         {...onPressEvents({
           start: () => !disabled && setAnimate(true),
           end: () => {
             setAnimate(false);
-            onPress();
+            !disabled && onPress();
           },
           cancel: () => animate && setAnimate(false),
         })}

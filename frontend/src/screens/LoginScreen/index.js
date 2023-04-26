@@ -1,23 +1,44 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { CustomButton, Footer, TitleBanner } from '../../components';
-import { doLogin } from '../../helpers';
+import { doLogin, getCareers } from '../../helpers';
+import { setCareersList, setSessionId } from '../../redux';
 import styles from './styles';
 
 /**
  * Login screen, with a button to do a Google login and a apologize message
- * @param {function} setSessionId function to set the current user session id
  */
-const LoginScreen = ({ setSessionId }) => {
+const LoginScreen = () => {
+  const careers = useSelector((state) => state.reviews.careers);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const controller = new AbortController();
+    /**
+     * Gets the careers list
+     */
+    const getCareerList = async () => {
+      try {
+        const response = await getCareers(controller);
+        dispatch(setCareersList(response));
+      } catch (error) {
+        error && console.log(error);
+      }
+    };
+
+    getCareerList();
+    return () => controller.abort();
+  }, []);
+
   const login = useGoogleLogin({
     onSuccess: async (codeResponse) => {
       try {
         if (codeResponse) {
           console.log('Successful Google login');
           const sessionId = await doLogin(codeResponse.access_token);
-          setSessionId(sessionId);
+          dispatch(setSessionId(sessionId));
         } else {
           throw new Error("The Google login hasn't returned the access token");
         }
@@ -31,7 +52,7 @@ const LoginScreen = ({ setSessionId }) => {
   /**
    * Function to set a fake session id, to skip the real Google Login
    */
-  const setFakeSessionId = () => setSessionId('my-session-id');
+  const setFakeSessionId = () => dispatch(setSessionId('my-session-id'));
   return (
     <div style={styles.container}>
       <TitleBanner />
@@ -51,15 +72,12 @@ const LoginScreen = ({ setSessionId }) => {
             top: styles.buttonText,
           }}
           iconName='google'
+          disabled={careers.list.length === 0}
         />
       </div>
       <Footer />
     </div>
   );
-};
-
-LoginScreen.propTypes = {
-  setSessionId: PropTypes.func.isRequired,
 };
 
 export default LoginScreen;

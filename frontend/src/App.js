@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { useSelector } from 'react-redux';
 
-import { getCareers } from './helpers';
 import { CareersScreen, LoginScreen, ReviewsScreen } from './screens';
 import styles from './styles';
 
@@ -10,58 +10,18 @@ import styles from './styles';
  */
 function App() {
   const isMobile = useMediaQuery({ query: '(max-width: 700px)' });
-  const [career, setCareer] = useState();
-  const [careers, setCareers] = useState([]);
-  const [sessionId, setSessionId] = useState();
-
-  useEffect(() => {
-    const controller = new AbortController();
-    /**
-     * Gets the careers list
-     */
-    const getCareerList = async () => {
-      try {
-        const response = await getCareers(controller);
-        setCareers(response);
-      } catch (error) {
-        error && console.log(error);
-      }
-    };
-
-    getCareerList();
-    return () => controller.abort();
-  }, []);
-
-  /**
-   * Sets the current selected career
-   */
-  const setCurrentCareer = (value) => {
-    setTimeout(() => setCareer(value), 100);
-  };
-
-  /**
-   * Goes back to the career selection screen
-   */
-  const goBack = () => {
-    setTimeout(() => setCareer(false), 100);
-  };
+  const sessionId = useSelector((state) => state.session.sessionId);
+  const careers = useSelector((state) => state.reviews.careers);
 
   return (
     <div style={styles.page}>
       <div style={isMobile ? styles.containerMobile : styles.containerDesktop}>
-        {career ? (
-          <ReviewsScreen
-            career={career}
-            goBack={goBack}
-            sessionId={sessionId}
-          />
+        {careers.selected ? (
+          <ReviewsScreen />
         ) : sessionId ? (
-          <CareersScreen
-            setCurrentCareer={setCurrentCareer}
-            careers={careers}
-          />
+          <CareersScreen />
         ) : (
-          <LoginScreen setSessionId={setSessionId} />
+          <LoginScreen />
         )}
       </div>
     </div>
