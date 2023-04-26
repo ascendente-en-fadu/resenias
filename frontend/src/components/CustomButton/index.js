@@ -47,7 +47,7 @@ const CustomButton = ({
           start: () => !disabled && setAnimate(true),
           end: () => {
             setAnimate(false);
-            onPress();
+            setTimeout(onPress, 100);
           },
           cancel: () => animate && setAnimate(false),
         })}
