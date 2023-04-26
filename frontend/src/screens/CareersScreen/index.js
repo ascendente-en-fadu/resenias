@@ -2,15 +2,15 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { CustomButton, Footer, TitleBanner } from '../../components';
-import styles from './styles';
 import { selectCareer } from '../../redux';
+import styles from './styles';
 
 /**
  * Career selection screen that shows the careers list.
  */
 const CareersScreen = () => {
-  const dispatch = useDispatch();
   const careers = useSelector((state) => state.reviews.careers);
+  const dispatch = useDispatch();
 
   return (
     <div style={styles.container}>

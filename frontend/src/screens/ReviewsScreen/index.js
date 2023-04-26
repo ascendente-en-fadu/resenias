@@ -16,7 +16,6 @@ import {
   getSubjects,
   sendReview,
 } from '../../helpers';
-import styles from './styles';
 import {
   selectCourse,
   selectSubject,
@@ -26,6 +25,7 @@ import {
   unselectCareer,
   unsetCourseInfo,
 } from '../../redux';
+import styles from './styles';
 
 /**
  * Reviews screen that shows the course selector, the course information and the review write input.

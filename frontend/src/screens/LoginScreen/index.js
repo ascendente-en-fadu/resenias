@@ -8,7 +8,7 @@ import { setCareersList, setSessionId } from '../../redux';
 import styles from './styles';
 
 /**
- * Login screen, with a button to do a Google login and a apologize message
+ * Login screen, with a button to do a Google login and a apologize message. Displays an error message if the careers requests fails, assuming a backend failure.
  */
 const LoginScreen = () => {
   const [isBackendOffline, setBackendOffline] = useState(false);
