@@ -34,7 +34,8 @@ const CustomButton = ({
 
   return (
     <div style={mergeStyles([styles.container, customStyles.container])}>
-      <div
+      <button
+        disabled={disabled}
         style={mergeStyles([
           styles.top,
           hasIcon && hasText && styles.topWithIconAndText,
@@ -46,7 +47,7 @@ const CustomButton = ({
           start: () => !disabled && setAnimate(true),
           end: () => {
             setAnimate(false);
-            !disabled && onPress();
+            onPress();
           },
           cancel: () => animate && setAnimate(false),
         })}
@@ -56,7 +57,7 @@ const CustomButton = ({
         {hasIcon && hasText && !disableCenteringCorrection && (
           <div style={styles.rightMargin} />
         )}
-      </div>
+      </button>
       {!disableBottom && <div style={styles.bottom} />}
     </div>
   );

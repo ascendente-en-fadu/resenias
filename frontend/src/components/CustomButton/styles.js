@@ -29,6 +29,7 @@ const styles = {
     zIndex: '1',
     minWidth: '0px',
     userSelect: 'none',
+    borderWidth: '0px',
   },
   topWithIconAndText: {
     justifyContent: 'space-between',
