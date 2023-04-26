@@ -29,6 +29,19 @@ const styles = {
     marginBottom: '28px',
     width: '250px',
   },
+  errorIcon: {
+    width: '100px',
+  },
+  errorText: {
+    fontSize: 26,
+    fontFamily: Fonts.extraBold,
+    color: Colors.lightGray,
+    marginBottom: '32px',
+    marginTop: '8px',
+  },
+  link: {
+    color: Colors.gray,
+  },
 };
 
 export default styles;

@@ -4,6 +4,7 @@ import {
   ArrowIcon,
   CafecitoIcon,
   DeleteIcon,
+  ErrorIcon,
   GoogleIcon,
   InstagramIcon,
   NoReviewsIcon,
@@ -35,6 +36,7 @@ const Icon = ({ name, customStyles }) => {
       google: <GoogleIcon style={customStyles} />,
       instagram: <InstagramIcon style={customStyles} />,
       noReviews: <NoReviewsIcon style={customStyles} />,
+      error: <ErrorIcon style={customStyles} />,
     };
   };
 
