@@ -59,12 +59,12 @@ const LoginScreen = () => {
   return (
     <div style={styles.container}>
       <TitleBanner />
-      <div style={styles.continueContainer}>
+      <main style={styles.contentContainer}>
         {isBackendOffline ? (
           <>
             <Icon name='error' customStyles={styles.errorIcon} />
             <span style={styles.errorText}>ERROR</span>
-            <span style={styles.apologizeText}>
+            <p style={styles.apologizeText}>
               Esto no debería pasar, pero la página no está funcando. Volvé a
               intentar más tarde o escribime a{' '}
               <a
@@ -76,14 +76,14 @@ const LoginScreen = () => {
                 @ascendente_en_fadu
               </a>
               .
-            </span>
+            </p>
           </>
         ) : (
           <>
-            <span style={styles.apologizeText}>
+            <p style={styles.apologizeText}>
               Logueate con Google. Ya se que no tenés ganas, pero es necesario
               por temas de seguridad.
-            </span>
+            </p>
             <CustomButton
               text='Continuar con Google'
               onPress={
@@ -99,7 +99,7 @@ const LoginScreen = () => {
             />
           </>
         )}
-      </div>
+      </main>
       <Footer />
     </div>
   );

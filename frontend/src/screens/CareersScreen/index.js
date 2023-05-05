@@ -15,30 +15,32 @@ const CareersScreen = () => {
   return (
     <div style={styles.container}>
       <TitleBanner />
-      <div style={styles.buttonsContainer}>
-        <div style={styles.buttonsColumnContainer}>
+      <main style={styles.buttonsContainer}>
+        <ul style={styles.buttonsColumnContainer}>
           {careers.list.slice(0, careers.list.length / 2).map((career) => (
-            <CustomButton
-              text={career.name}
-              key={career.id}
-              onPress={() => dispatch(selectCareer(career))}
-              customStyles={{ container: styles.buttonContainer }}
-            />
-          ))}
-        </div>
-        <div style={styles.buttonsColumnContainer}>
-          {careers.list
-            .slice(careers.list.length / 2, careers.list.length)
-            .map((career) => (
+            <li key={career.id}>
               <CustomButton
                 text={career.name}
-                key={career.id}
                 onPress={() => dispatch(selectCareer(career))}
                 customStyles={{ container: styles.buttonContainer }}
               />
+            </li>
+          ))}
+        </ul>
+        <ul style={styles.buttonsColumnContainer}>
+          {careers.list
+            .slice(careers.list.length / 2, careers.list.length)
+            .map((career) => (
+              <li key={career.id}>
+                <CustomButton
+                  text={career.name}
+                  onPress={() => dispatch(selectCareer(career))}
+                  customStyles={{ container: styles.buttonContainer }}
+                />
+              </li>
             ))}
-        </div>
-      </div>
+        </ul>
+      </main>
       <Footer />
     </div>
   );

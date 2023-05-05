@@ -19,10 +19,10 @@ const ReviewInput = ({ sendCurrentReview, courseId }) => {
   const [missingFields, setMissingFields] = useState();
 
   return (
-    <div style={styles.container}>
-      <div style={styles.title}>Armá tu reseña</div>
+    <section style={styles.container}>
+      <h2 style={styles.title}>Armá tu reseña</h2>
       <div style={styles.selectionContainer}>
-        <div style={styles.question}>¿En qué año cursaste?</div>
+        <span style={styles.question}>¿En qué año cursaste?</span>
         <Dropdown
           placeholder='Año'
           value={year}
@@ -36,7 +36,7 @@ const ReviewInput = ({ sendCurrentReview, courseId }) => {
         />
       </div>
       <div style={styles.selectionContainer}>
-        <div style={styles.question}>Calificá tu experiencia</div>
+        <span style={styles.question}>Calificá tu experiencia</span>
         <Dropdown
           placeholder='Calificación'
           value={rate}
@@ -82,7 +82,7 @@ const ReviewInput = ({ sendCurrentReview, courseId }) => {
           disableBottom
         />
       </div>
-    </div>
+    </section>
   );
 };
 

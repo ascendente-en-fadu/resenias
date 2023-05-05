@@ -12,6 +12,9 @@ const styles = {
     fontFamily: Fonts.light,
     flexDirection: 'row-reverse',
   },
+  buttonContainer: {
+    width: '100%',
+  },
   requiredStyle: {
     border: '1px solid',
     borderColor: Colors.bannerText,
@@ -41,7 +44,9 @@ const styles = {
     fontFamily: Fonts.light,
     backgroundColor: Colors.transparent,
     border: 'none',
-    margin: '.3em 0',
+    margin: '.3em',
+    textAlign: 'center',
+    userSelect: 'none',
   },
 };
 

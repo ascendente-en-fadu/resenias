@@ -8,8 +8,8 @@ import Icon from '../Icon';
  */
 const Footer = () => {
   return (
-    <div style={styles.container}>
-      <div style={styles.linkContainer}>
+    <footer style={styles.container}>
+      <address style={styles.linkContainer}>
         <Icon name='cafecito' customStyles={styles.icon} />
         <a
           href='https://cafecito.app/ascendente_en_fadu'
@@ -19,8 +19,8 @@ const Footer = () => {
         >
           Invitame un cafecito
         </a>
-      </div>
-      <div style={styles.linkContainer}>
+      </address>
+      <address style={styles.linkContainer}>
         <Icon name='instagram' customStyles={styles.icon} />
         <a
           href='https://www.instagram.com/ascendente_en_fadu/?hl=es'
@@ -33,8 +33,8 @@ const Footer = () => {
         <span style={styles.version}>
           {'Versión v' + process.env.REACT_APP_VERSION}
         </span>
-      </div>
-    </div>
+      </address>
+    </footer>
   );
 };
 

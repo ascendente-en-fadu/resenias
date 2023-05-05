@@ -8,7 +8,7 @@ const styles = {
     flex: 1,
     padding: '15px',
   },
-  continueContainer: {
+  contentContainer: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

@@ -2,6 +2,9 @@ import Colors from '../../constants/colors';
 import { Fonts } from '../../fonts';
 
 const styles = {
+  container: {
+    width: '100%',
+  },
   bottom: {
     marginTop: '12px',
     borderRadius: 24,
@@ -40,8 +43,8 @@ const styles = {
   },
   divider: {
     width: '90%',
-    height: '1px',
-    backgroundColor: Colors.gray,
+    borderWidth: '1px 0px',
+    borderColor: Colors.gray,
     alignSelf: 'center',
     margin: '16px 0',
   },

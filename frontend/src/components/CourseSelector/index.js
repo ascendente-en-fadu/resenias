@@ -32,7 +32,7 @@ const CourseSelector = ({
   setSubject,
 }) => {
   return (
-    <div style={styles.container}>
+    <header style={styles.container}>
       <CustomButton
         text={career.name}
         customStyles={{
@@ -41,7 +41,7 @@ const CourseSelector = ({
         onPress={goBack}
         iconName='arrowLeft'
       />
-      <div style={styles.selectorsContainer}>
+      <nav style={styles.selectorsContainer}>
         <Dropdown
           placeholder='Materia'
           customStyles={{ container: styles.dropdownLeft, list: styles.list }}
@@ -58,8 +58,8 @@ const CourseSelector = ({
           disabled={!subject || !courses}
           elements={courses}
         />
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 

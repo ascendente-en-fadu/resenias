@@ -17,7 +17,7 @@ import styles from './styles';
 const MyReview = ({ review, deleteOwnReview }) => {
   const reviewRateLabel = getRateLabel(review.rate);
   return (
-    <div style={styles.bottom}>
+    <section style={styles.bottom}>
       <CustomButton
         customStyles={{
           container: styles.deleteButtonContainer,
@@ -28,16 +28,16 @@ const MyReview = ({ review, deleteOwnReview }) => {
         disableBottom
       />
       <div style={styles.reviewContainer}>
-        <span style={styles.title}>Tu reseña</span>
-        <span style={styles.dataText}>{getReviewYearLabel(review.year)}</span>
-        <span style={styles.contentText}>{review.content}</span>
+        <h2 style={styles.title}>Tu reseña</h2>
+        <h4 style={styles.dataText}>{getReviewYearLabel(review.year)}</h4>
+        <p style={styles.contentText}>{review.content}</p>
         {reviewRateLabel && (
-          <span style={styles.dataText}>
+          <h4 style={styles.dataText}>
             {'Nota a la cátedra: ' + reviewRateLabel}
-          </span>
+          </h4>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

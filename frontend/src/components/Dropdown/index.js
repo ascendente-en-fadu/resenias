@@ -64,11 +64,12 @@ const Dropdown = ({
             styles.buttonTop,
             required && !value && styles.requiredStyle,
           ]),
+          container: styles.buttonContainer,
         }}
         disableCenteringCorrection
         noDelay
       />
-      <div
+      <ol
         style={mergeStyles([
           styles.list,
           customStyles.list,
@@ -76,7 +77,7 @@ const Dropdown = ({
         ])}
       >
         {elements.map((element) => (
-          <button
+          <li
             style={styles.items}
             key={element.id}
             {...onPressEvents({
@@ -87,9 +88,9 @@ const Dropdown = ({
             })}
           >
             {element.name}
-          </button>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   );
 };

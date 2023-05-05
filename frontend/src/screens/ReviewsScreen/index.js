@@ -163,7 +163,7 @@ const ReviewsScreen = () => {
         setSubject={(payload) => dispatch(selectSubject(payload))}
       />
       {courses.selected && courseInfo ? (
-        <div style={styles.ownReviewContainer}>
+        <main style={styles.ownReviewContainer}>
           {courseInfo.own_review ? (
             <MyReview
               review={courseInfo.own_review}
@@ -176,12 +176,12 @@ const ReviewsScreen = () => {
             />
           )}
           <ReviewsList reviews={courseInfo.reviews} />
-        </div>
+        </main>
       ) : (
-        <div style={styles.censorshipAdviceContainer}>
+        <p style={styles.censorshipAdviceContainer}>
           Ojito con las reseñas que escribís que si te vas de boca las borro.
           Podés usar palabrotas pero mantené el respeto.
-        </div>
+        </p>
       )}
       <Footer />
       {showModal && (

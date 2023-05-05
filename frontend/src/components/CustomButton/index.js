@@ -35,9 +35,19 @@ const CustomButton = ({
   const hasText = Boolean(text);
 
   return (
-    <div style={mergeStyles([styles.container, customStyles.container])}>
+    <button
+      style={mergeStyles([styles.container, customStyles.container])}
+      {...onPressEvents({
+        start: () => !disabled && setAnimate(true),
+        end: () => {
+          setAnimate(false);
+          noDelay ? onPress() : setTimeout(onPress, 80);
+        },
+        cancel: () => animate && setAnimate(false),
+      })}
+      disabled={disabled}
+    >
       <div
-        disabled={disabled}
         style={mergeStyles([
           styles.top,
           hasIcon && hasText && styles.topWithIconAndText,
@@ -45,14 +55,6 @@ const CustomButton = ({
           disabled && styles.disabledText,
           animate && { ...styles.pressed, ...customStyles.highlight },
         ])}
-        {...onPressEvents({
-          start: () => !disabled && setAnimate(true),
-          end: () => {
-            setAnimate(false);
-            setTimeout(onPress, noDelay ? 0 : 80);
-          },
-          cancel: () => animate && setAnimate(false),
-        })}
       >
         {hasIcon && <Icon name={iconName} customStyles={styles.icon} />}
         {hasText && <span style={styles.text}>{text}</span>}
@@ -61,7 +63,7 @@ const CustomButton = ({
         )}
       </div>
       {!disableBottom && <div style={styles.bottom} />}
-    </div>
+    </button>
   );
 };
 
