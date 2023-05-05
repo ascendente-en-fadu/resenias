@@ -1,22 +1,11 @@
-import Colors from './constants/colors';
-
 const styles = {
-  page: {
-    backgroundColor: Colors.screenBackground,
-    display: 'flex',
-    justifyContent: 'center',
-    height: '100%',
-    overflowY: 'auto',
-  },
-  containerMobile: {
+  container: {
     width: '100%',
+    maxWidth: '700px',
+    minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
-  },
-  containerDesktop: {
-    width: '700px',
-    display: 'flex',
-    flexDirection: 'column',
+    margin: '0 auto',
   },
 };
 
