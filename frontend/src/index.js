@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { store } from './redux';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ModalContextProvider } from './context';
 import './index.css';
 import './fonts/fonts.css';
 
@@ -14,7 +15,9 @@ root.render(
   <React.StrictMode>
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
       <Provider store={store}>
-        <App />
+        <ModalContextProvider>
+          <App />
+        </ModalContextProvider>
       </Provider>
     </GoogleOAuthProvider>
   </React.StrictMode>,

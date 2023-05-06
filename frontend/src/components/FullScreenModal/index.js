@@ -56,8 +56,8 @@ const FullScreenModal = ({
 
   return (
     <div style={styles.modal}>
-      <div style={styles.container}>
-        <span style={styles.text}>{texts[modalState]}</span>
+      <article style={styles.container}>
+        <p style={styles.text}>{texts[modalState]}</p>
         {modalState === QUESTION_STATE || modalState === LOADING_STATE ? (
           <div style={styles.buttonsContainer}>
             <CustomButton
@@ -92,7 +92,7 @@ const FullScreenModal = ({
             />
           </div>
         )}
-      </div>
+      </article>
     </div>
   );
 };

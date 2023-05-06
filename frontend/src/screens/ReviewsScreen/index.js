@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
   CourseSelector,
   Footer,
-  FullScreenModal,
   MyReview,
   ReviewInput,
   ReviewsList,
@@ -25,20 +24,20 @@ import {
   unselectCareer,
   unsetCourseInfo,
 } from '../../redux';
+import { ModalContext } from '../../context';
 import styles from './styles';
 
 /**
  * Reviews screen that shows the course selector, the course information and the review write input.
  */
 const ReviewsScreen = () => {
-  const [showModal, setShowModal] = useState();
-  const [modalData, setModalData] = useState({});
   const sessionId = useSelector((state) => state.session.sessionId);
   const careers = useSelector((state) => state.reviews.careers);
   const subjects = useSelector((state) => state.reviews.subjects);
   const courses = useSelector((state) => state.reviews.courses);
   const courseInfo = useSelector((state) => state.reviews.courseInfo);
   const dispatch = useDispatch();
+  const modal = useContext(ModalContext);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -111,7 +110,7 @@ const ReviewsScreen = () => {
    *   @param {number} review.course course id
    */
   const sendCurrentReview = async (review) => {
-    setModalData({
+    modal.setModalData({
       onConfirm: async () => {
         await sendReview(review, sessionId);
       },
@@ -125,7 +124,6 @@ const ReviewsScreen = () => {
       errorText: 'No pudimos guardar tu reseña.',
       successText: 'Tu reseña se guardó con éxito.',
     });
-    setShowModal(true);
   };
 
   /**
@@ -133,7 +131,7 @@ const ReviewsScreen = () => {
    * @param {number} reviewId id of the review to be deleted
    */
   const deleteOwnReview = async (reviewId) => {
-    setModalData({
+    modal.setModalData({
       onConfirm: async () => {
         await deleteReview(reviewId, sessionId);
       },
@@ -147,7 +145,6 @@ const ReviewsScreen = () => {
       errorText: 'No pudimos borrar tu reseña.',
       successText: 'Tu reseña se borró con éxito.',
     });
-    setShowModal(true);
   };
 
   return (
@@ -184,19 +181,6 @@ const ReviewsScreen = () => {
         </p>
       )}
       <Footer />
-      {showModal && (
-        <FullScreenModal
-          onConfirm={modalData.onConfirm}
-          onResultConfirm={modalData.onResultConfirm}
-          questionText={modalData.questionText}
-          errorText={modalData.errorText}
-          successText={modalData.successText}
-          onClose={() => {
-            setShowModal(false);
-            setModalData({});
-          }}
-        />
-      )}
     </div>
   );
 };
