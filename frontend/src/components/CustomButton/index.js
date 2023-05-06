@@ -30,7 +30,7 @@ const CustomButton = ({
   disableBottom,
   noDelay,
 }) => {
-  const [animate, setAnimate] = useState(false);
+  const [isPressed, setPressed] = useState(false);
   const hasIcon = Boolean(iconName);
   const hasText = Boolean(text);
 
@@ -38,12 +38,14 @@ const CustomButton = ({
     <button
       style={mergeStyles([styles.container, customStyles.container])}
       {...onPressEvents({
-        start: () => !disabled && setAnimate(true),
+        start: () => !disabled && setPressed(true),
         end: () => {
-          setAnimate(false);
-          noDelay ? onPress() : setTimeout(onPress, 80);
+          if (isPressed) {
+            setPressed(false);
+            noDelay ? onPress() : setTimeout(onPress, 80);
+          }
         },
-        cancel: () => animate && setAnimate(false),
+        cancel: () => isPressed && setPressed(false),
       })}
       disabled={disabled}
     >
@@ -53,7 +55,7 @@ const CustomButton = ({
           hasIcon && hasText && styles.topWithIconAndText,
           customStyles.top,
           disabled && styles.disabledText,
-          animate && { ...styles.pressed, ...customStyles.highlight },
+          isPressed && { ...styles.pressed, ...customStyles.highlight },
         ])}
       >
         {hasIcon && <Icon name={iconName} customStyles={styles.icon} />}
