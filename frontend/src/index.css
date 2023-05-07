@@ -18,32 +18,24 @@ body,
 #root {
   height: 100%;
 }
-address {
-  font-style: normal;
-}
 
+/* This removes the default styles from the html elements */
 h1,
 h2,
-h4 {
-  margin: 0;
-  font-weight: normal;
-}
-
-p {
-  margin: 0;
-}
-
-button {
-  padding: 0;
-  border: 0;
-  background-color: transparent;
-  font-size: unset;
-}
-
+h4,
+address,
+p,
+button,
 ul,
 ol {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+  margin: unset;
+  padding: unset;
+  margin: unset;
+  background-color: unset;
+  border: unset;
+  font-weight: unset;
+  font-style: unset;
+  font-size: unset;
   text-align: unset;
+  list-style-type: none;
 }

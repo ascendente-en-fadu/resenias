@@ -14,8 +14,9 @@ const styles = {
     alignItems: 'center',
     flexDirection: 'column',
     flex: 1,
-    margin: '18px 0px',
+    padding: '18px 0px',
     gap: '18px',
+    overflowY: 'auto',
   },
 };
 

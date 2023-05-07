@@ -37,7 +37,6 @@ const styles = {
     width: '45%',
   },
   requiredStyle: {
-    border: '1px solid',
     borderColor: Colors.bannerText,
   },
   inputBottom: {
@@ -46,6 +45,8 @@ const styles = {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
+    border: '1px solid',
+    borderColor: Colors.transparent,
   },
   input: {
     backgroundColor: Colors.transparent,

@@ -7,16 +7,16 @@ const styles = {
   },
   buttonTop: {
     transition: 'all .05s',
-    border: 'none',
     fontSize: 16,
     fontFamily: Fonts.light,
     flexDirection: 'row-reverse',
+    border: '1px solid',
+    borderColor: Colors.transparent,
   },
   buttonContainer: {
     width: '100%',
   },
   requiredStyle: {
-    border: '1px solid',
     borderColor: Colors.bannerText,
   },
   list: {
