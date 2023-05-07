@@ -2,13 +2,6 @@ import Colors from '../../constants/colors';
 import { Fonts } from '../../fonts';
 
 const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    flex: 1,
-    padding: '15px',
-    justifyContent: 'space-between',
-  },
   censorshipAdviceContainer: {
     fontSize: 16,
     textAlign: 'center',
@@ -16,11 +9,13 @@ const styles = {
     color: Colors.gray,
     fontFamily: Fonts.light,
   },
-  ownReviewContainer: {
+  reviews: {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
     flex: 1,
+    margin: '18px 0px',
+    gap: '18px',
   },
 };
 

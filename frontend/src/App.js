@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { CareersScreen, LoginScreen, ReviewsScreen } from './screens';
+import { Footer } from './components';
 import styles from './styles';
 
 /**
@@ -20,6 +21,7 @@ function App() {
       ) : (
         <LoginScreen />
       )}
+      <Footer />
     </div>
   );
 }

@@ -1,10 +1,4 @@
 const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    flex: 1,
-    padding: '15px',
-  },
   buttonsContainer: {
     display: 'flex',
     flex: 1,

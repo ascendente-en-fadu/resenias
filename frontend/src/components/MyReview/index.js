@@ -17,7 +17,7 @@ import styles from './styles';
 const MyReview = ({ review, deleteOwnReview }) => {
   const reviewRateLabel = getRateLabel(review.rate);
   return (
-    <section style={styles.bottom}>
+    <section style={styles.container}>
       <CustomButton
         customStyles={{
           container: styles.deleteButtonContainer,

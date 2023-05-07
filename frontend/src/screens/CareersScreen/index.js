@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { CustomButton, Footer, TitleBanner } from '../../components';
+import { CustomButton, TitleBanner } from '../../components';
 import { selectCareer } from '../../redux';
 import styles from './styles';
 
@@ -13,7 +13,7 @@ const CareersScreen = () => {
   const dispatch = useDispatch();
 
   return (
-    <div style={styles.container}>
+    <>
       <TitleBanner />
       <main style={styles.buttonsContainer}>
         <ul style={styles.buttonsColumnContainer}>
@@ -41,8 +41,7 @@ const CareersScreen = () => {
             ))}
         </ul>
       </main>
-      <Footer />
-    </div>
+    </>
   );
 };
 

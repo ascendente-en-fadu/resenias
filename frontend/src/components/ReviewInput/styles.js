@@ -7,19 +7,18 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     width: '80%',
+    gap: '18px',
   },
   title: {
     color: Colors.lightGray,
     fontSize: 32,
     fontFamily: Fonts.light,
-    marginBottom: '12px',
-    marginTop: '6px',
+    lineHeight: '0.8em',
   },
   selectionContainer: {
     display: 'flex',
     width: '100%',
     justifyContent: 'space-between',
-    marginBottom: '12px',
     alignItems: 'center',
   },
   ratesList: {

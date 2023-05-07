@@ -2,8 +2,7 @@ import Colors from '../../constants/colors';
 import { Fonts } from '../../fonts';
 
 const styles = {
-  bottom: {
-    marginTop: '12px',
+  container: {
     borderRadius: 24,
     width: '100%',
     backgroundColor: Colors.buttonBottom,

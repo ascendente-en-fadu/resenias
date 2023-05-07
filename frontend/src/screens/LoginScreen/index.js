@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { CustomButton, Footer, Icon, TitleBanner } from '../../components';
+import { CustomButton, Icon, TitleBanner } from '../../components';
 import { doLogin, getCareers } from '../../helpers';
 import { setCareersList, setSessionId } from '../../redux';
 import styles from './styles';
@@ -57,7 +57,7 @@ const LoginScreen = () => {
    */
   const setFakeSessionId = () => dispatch(setSessionId('my-session-id'));
   return (
-    <div style={styles.container}>
+    <>
       <TitleBanner />
       <main style={styles.contentContainer}>
         {isBackendOffline ? (
@@ -100,8 +100,7 @@ const LoginScreen = () => {
           </>
         )}
       </main>
-      <Footer />
-    </div>
+    </>
   );
 };
 

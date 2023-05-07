@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   CourseSelector,
-  Footer,
   MyReview,
   ReviewInput,
   ReviewsList,
@@ -148,7 +147,7 @@ const ReviewsScreen = () => {
   };
 
   return (
-    <div style={styles.container}>
+    <>
       <CourseSelector
         subjects={subjects.list}
         courses={courses.list}
@@ -160,7 +159,7 @@ const ReviewsScreen = () => {
         setSubject={(payload) => dispatch(selectSubject(payload))}
       />
       {courses.selected && courseInfo ? (
-        <main style={styles.ownReviewContainer}>
+        <main style={styles.reviews}>
           {courseInfo.own_review ? (
             <MyReview
               review={courseInfo.own_review}
@@ -180,8 +179,7 @@ const ReviewsScreen = () => {
           Podés usar palabrotas pero mantené el respeto.
         </p>
       )}
-      <Footer />
-    </div>
+    </>
   );
 };
 

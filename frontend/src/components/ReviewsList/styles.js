@@ -6,15 +6,13 @@ const styles = {
     width: '100%',
   },
   bottom: {
-    marginTop: '12px',
     borderRadius: 24,
-    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     border: 'solid',
     borderColor: Colors.gray,
     borderWidth: '1px',
-    padding: '16px 0',
+    padding: '16px 24px',
     boxSizing: 'border-box',
   },
   bottomNoReviews: {
@@ -23,6 +21,7 @@ const styles = {
     boxSizing: 'border-box',
     justifyContent: 'center',
     alignItems: 'center',
+    gap: '12px',
   },
   contentText: {
     fontSize: 16,
@@ -38,7 +37,6 @@ const styles = {
   reviewContainer: {
     display: 'flex',
     flexDirection: 'column',
-    padding: '0px 24px',
     boxSizing: 'border-box',
   },
   divider: {
@@ -52,7 +50,6 @@ const styles = {
     fontSize: 16,
     color: Colors.gray,
     fontFamily: Fonts.light,
-    marginTop: '12px',
     textAlign: 'center',
   },
   noReviewsIcon: {
