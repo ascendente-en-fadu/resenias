@@ -7,12 +7,6 @@ const styles = {
     alignItems: 'center',
     flexDirection: 'column',
   },
-  buttonText: {
-    color: Colors.lightGray,
-    fontSize: 16,
-    fontFamily: Fonts.light,
-    padding: '18px 24px',
-  },
   apologizeText: {
     color: Colors.gray,
     fontSize: 16,
@@ -20,6 +14,19 @@ const styles = {
     fontFamily: Fonts.light,
     width: '250px',
     marginBottom: '24px',
+  },
+  errorIcon: {
+    width: '100px',
+  },
+  errorText: {
+    fontSize: 26,
+    fontFamily: Fonts.extraBold,
+    color: Colors.lightGray,
+    marginBottom: '32px',
+    marginTop: '8px',
+  },
+  link: {
+    color: Colors.gray,
   },
 };
 

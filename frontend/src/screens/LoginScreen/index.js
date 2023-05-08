@@ -1,39 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import { CustomButton, Icon, TitleBanner } from '../../components';
-import { doLogin, getCareers } from '../../helpers';
-import { setCareersList, setSessionId } from '../../redux';
+import { CustomButton, TitleBanner } from '../../components';
+import { doLogin } from '../../helpers';
+import { setSessionId } from '../../redux';
 import styles from './styles';
 
 /**
- * Login screen, with a button to do a Google login and a apologize message. Displays an error message if the careers requests fails, assuming a backend failure.
+ * Login screen, with a button to do a Google login and a apologize message.
  */
 const LoginScreen = () => {
-  const [isBackendOffline, setBackendOffline] = useState(false);
-  const careers = useSelector((state) => state.reviews.careers);
+  const careersList = useSelector((state) => state.reviews.careersList);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    const controller = new AbortController();
-    /**
-     * Gets the careers list
-     */
-    const getCareerList = async () => {
-      try {
-        const response = await getCareers(controller);
-        dispatch(setCareersList(response));
-        setBackendOffline(false);
-      } catch (error) {
-        error && console.log(error);
-        setBackendOffline(true);
-      }
-    };
-
-    getCareerList();
-    return () => controller.abort();
-  }, []);
+  const navigate = useNavigate();
 
   const login = useGoogleLogin({
     onSuccess: async (codeResponse) => {
@@ -41,7 +22,7 @@ const LoginScreen = () => {
         if (codeResponse) {
           console.log('Successful Google login');
           const sessionId = await doLogin(codeResponse.access_token);
-          dispatch(setSessionId(sessionId));
+          doClientLogin(sessionId);
         } else {
           throw new Error("The Google login hasn't returned the access token");
         }
@@ -55,50 +36,40 @@ const LoginScreen = () => {
   /**
    * Function to set a fake session id, to skip the real Google Login
    */
-  const setFakeSessionId = () => dispatch(setSessionId('my-session-id'));
+  const setFakeSessionId = () => {
+    doClientLogin('my-session-id');
+  };
+
+  /**
+   * Makes the login in the client local state and navigates to the careers screen
+   */
+  const doClientLogin = (sessionId) => {
+    localStorage.setItem('sessionId', sessionId);
+    dispatch(setSessionId(sessionId));
+    navigate('/carreras', { replace: true });
+  };
+
   return (
     <>
       <TitleBanner />
       <main style={styles.contentContainer}>
-        {isBackendOffline ? (
-          <>
-            <Icon name='error' customStyles={styles.errorIcon} />
-            <span style={styles.errorText}>ERROR</span>
-            <p style={styles.apologizeText}>
-              Esto no debería pasar, pero la página no está funcando. Volvé a
-              intentar más tarde o escribime a{' '}
-              <a
-                href='https://www.instagram.com/ascendente_en_fadu/?hl=es'
-                target='_blank'
-                rel='noreferrer'
-                style={styles.link}
-              >
-                @ascendente_en_fadu
-              </a>
-              .
-            </p>
-          </>
-        ) : (
-          <>
-            <p style={styles.apologizeText}>
-              Logueate con Google. Ya se que no tenés ganas, pero es necesario
-              por temas de seguridad.
-            </p>
-            <CustomButton
-              text='Continuar con Google'
-              onPress={
-                process.env.REACT_APP_SKIP_LOGIN === 'true'
-                  ? setFakeSessionId
-                  : login
-              }
-              customStyles={{
-                top: styles.buttonText,
-              }}
-              iconName='google'
-              disabled={careers.list.length === 0}
-            />
-          </>
-        )}
+        <p style={styles.apologizeText}>
+          Logueate con Google. Ya se que no tenés ganas, pero es necesario por
+          temas de seguridad.
+        </p>
+        <CustomButton
+          text='Continuar con Google'
+          onPress={
+            process.env.REACT_APP_SKIP_LOGIN === 'true'
+              ? setFakeSessionId
+              : login
+          }
+          customStyles={{
+            top: styles.buttonText,
+          }}
+          iconName='google'
+          disabled={careersList.length === 0}
+        />
       </main>
     </>
   );

@@ -1,12 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import styles from './styles';
 import Icon from '../Icon';
+import { mergeStyles } from '../../helpers';
 
 /**
  * Footer with the contact and cafecito links.
+ * @param {bool} isBackendOffline if true, the logout link is not displayed
  */
-const Footer = () => {
+const Footer = ({ isBackendOffline }) => {
+  const careersList = useSelector((state) => state.reviews.careersList);
+  const sessionId = useSelector((state) => state.session.sessionId);
+
   return (
     <footer style={styles.container}>
       <address style={styles.linkContainer}>
@@ -19,6 +27,15 @@ const Footer = () => {
         >
           Invitame un cafecito
         </a>
+
+        {sessionId && careersList.length !== 0 && !isBackendOffline && (
+          <Link
+            style={mergeStyles([styles.version, styles.logout])}
+            to={'/logout'}
+          >
+            Cerrar sesión
+          </Link>
+        )}
       </address>
       <address style={styles.linkContainer}>
         <Icon name='instagram' customStyles={styles.icon} />
@@ -38,4 +55,7 @@ const Footer = () => {
   );
 };
 
+Footer.propTypes = {
+  isBackendOffline: PropTypes.bool,
+};
 export default Footer;

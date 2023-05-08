@@ -34,7 +34,7 @@ const CourseSelector = ({
   return (
     <header style={styles.container}>
       <CustomButton
-        text={career.name}
+        text={career?.name ?? '-'}
         customStyles={{
           container: styles.careerButtonContainer,
         }}
@@ -65,7 +65,7 @@ const CourseSelector = ({
 
 CourseSelector.propTypes = {
   goBack: PropTypes.func.isRequired,
-  career: PropTypes.object.isRequired,
+  career: PropTypes.object,
   courses: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,

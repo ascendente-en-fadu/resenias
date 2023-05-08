@@ -1,10 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  careers: {
-    list: [],
-    selected: undefined,
-  },
+  careersList: [],
   subjects: {
     list: [],
     selected: undefined,
@@ -21,18 +18,10 @@ export const reviewsSlice = createSlice({
   initialState,
   reducers: {
     setCareersList: (state, action) => {
-      state.careers.list = action.payload;
+      state.careersList = action.payload;
     },
-    selectCareer: (state, action) => {
+    clearSelections: (state) => {
       const { subjects, courses, courseInfo } = initialState;
-      state.careers.selected = action.payload;
-      state.subjects = subjects;
-      state.courses = courses;
-      state.courseInfo = courseInfo;
-    },
-    unselectCareer: (state) => {
-      const { subjects, courses, courseInfo } = initialState;
-      state.careers.selected = undefined;
       state.subjects = subjects;
       state.courses = courses;
       state.courseInfo = courseInfo;
@@ -64,8 +53,7 @@ export const reviewsSlice = createSlice({
 
 export const {
   setCareersList,
-  selectCareer,
-  unselectCareer,
+  clearSelections,
   setSubjectsList,
   selectSubject,
   setCoursesList,

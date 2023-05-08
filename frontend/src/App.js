@@ -1,27 +1,15 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
-import { CareersScreen, LoginScreen, ReviewsScreen } from './screens';
-import { Footer } from './components';
+import { CustomRouter } from './routing';
 import styles from './styles';
 
 /**
- * Main app screen, with responsive logic to be adapted to desktop, phone portrait and phone landscape displays.
+ * Main app screen
  */
 function App() {
-  const sessionId = useSelector((state) => state.session.sessionId);
-  const careers = useSelector((state) => state.reviews.careers);
-
   return (
     <div style={styles.container}>
-      {careers.selected ? (
-        <ReviewsScreen />
-      ) : sessionId ? (
-        <CareersScreen />
-      ) : (
-        <LoginScreen />
-      )}
-      <Footer />
+      <CustomRouter />
     </div>
   );
 }

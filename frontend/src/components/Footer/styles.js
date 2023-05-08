@@ -24,6 +24,9 @@ const styles = {
     flex: 1,
     textAlign: 'end',
   },
+  logout: {
+    color: Colors.lightGray,
+  },
   icon: {
     width: '1.2em',
   },

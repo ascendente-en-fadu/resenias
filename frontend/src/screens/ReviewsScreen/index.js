@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import {
   CourseSelector,
@@ -15,12 +16,12 @@ import {
   sendReview,
 } from '../../helpers';
 import {
+  clearSelections,
   selectCourse,
   selectSubject,
   setCourseInfo,
   setCoursesList,
   setSubjectsList,
-  unselectCareer,
   unsetCourseInfo,
 } from '../../redux';
 import { ModalContext } from '../../context';
@@ -31,30 +32,44 @@ import styles from './styles';
  */
 const ReviewsScreen = () => {
   const sessionId = useSelector((state) => state.session.sessionId);
-  const careers = useSelector((state) => state.reviews.careers);
+  const careersList = useSelector((state) => state.reviews.careersList);
   const subjects = useSelector((state) => state.reviews.subjects);
   const courses = useSelector((state) => state.reviews.courses);
   const courseInfo = useSelector((state) => state.reviews.courseInfo);
   const dispatch = useDispatch();
   const modal = useContext(ModalContext);
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  const selectedCareer = careersList.find(
+    (career) => career.id === Number(searchParams.get('carrera')),
+  );
 
   useEffect(() => {
     const controller = new AbortController();
     /**
-     * Gets the subjects list from BE and saves it to local state
+     * Gets the subjects list from BE and saves it to local state. Before that, clears any previous subject and course data.
      */
     const getSubjectsList = async () => {
       try {
-        const response = await getSubjects(careers.selected.id, controller);
+        dispatch(clearSelections());
+        const response = await getSubjects(selectedCareer.id, controller);
         dispatch(setSubjectsList(response));
       } catch (error) {
         error && console.log(error);
       }
     };
 
-    getSubjectsList();
+    if (careersList.length !== 0) {
+      if (selectedCareer) {
+        getSubjectsList();
+      } else {
+        console.log('Reviews redirect');
+        navigate('/carreras', { replace: true });
+      }
+    }
     return () => controller.abort();
-  }, [careers.selected]);
+  }, [careersList]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -153,8 +168,8 @@ const ReviewsScreen = () => {
         courses={courses.list}
         subject={subjects.selected}
         course={courses.selected}
-        career={careers.selected}
-        goBack={() => dispatch(unselectCareer())}
+        career={selectedCareer}
+        goBack={() => navigate('/carreras')}
         setCourse={(payload) => dispatch(selectCourse(payload))}
         setSubject={(payload) => dispatch(selectSubject(payload))}
       />
