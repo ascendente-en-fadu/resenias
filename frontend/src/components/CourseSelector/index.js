@@ -44,7 +44,7 @@ const CourseSelector = ({
       <nav style={styles.selectorsContainer}>
         <Dropdown
           placeholder='Materia'
-          customStyles={{ container: styles.dropdownLeft, list: styles.list }}
+          customStyles={{ container: styles.dropdown, list: styles.list }}
           onChange={setSubject}
           value={subject}
           disabled={!subjects}
@@ -52,7 +52,7 @@ const CourseSelector = ({
         />
         <Dropdown
           placeholder='Cátedra'
-          customStyles={{ container: styles.dropdownRight, list: styles.list }}
+          customStyles={{ container: styles.dropdown, list: styles.list }}
           onChange={setCourse}
           value={course}
           disabled={!subject || !courses}

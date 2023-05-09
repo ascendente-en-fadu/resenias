@@ -11,7 +11,7 @@ const styles = {
     color: Colors.lightGray,
     fontSize: 16,
     fontFamily: Fonts.light,
-    padding: '18px 24px',
+    padding: '16px',
   },
   apologizeText: {
     color: Colors.gray,

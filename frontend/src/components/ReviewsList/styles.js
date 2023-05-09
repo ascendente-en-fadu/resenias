@@ -23,21 +23,22 @@ const styles = {
     alignItems: 'center',
     gap: '12px',
   },
-  contentText: {
-    fontSize: 16,
-    color: Colors.gray,
-    fontFamily: Fonts.light,
-    whiteSpace: 'pre-line',
+  reviewContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    boxSizing: 'border-box',
   },
   dataText: {
     fontSize: 16,
     color: Colors.gray,
     fontFamily: Fonts.semiBold,
   },
-  reviewContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    boxSizing: 'border-box',
+  contentText: {
+    fontSize: 16,
+    color: Colors.gray,
+    fontFamily: Fonts.light,
+    whiteSpace: 'pre-line',
+    margin: '4px 0',
   },
   divider: {
     width: '90%',

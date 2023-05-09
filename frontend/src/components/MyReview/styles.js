@@ -13,6 +13,7 @@ const styles = {
     flexDirection: 'column',
     boxSizing: 'border-box',
     padding: '16px',
+    gap: '8px',
   },
   title: {
     fontSize: 24,
@@ -34,11 +35,10 @@ const styles = {
     position: 'absolute',
     top: '-3px',
     right: '3px',
-    width: '3em',
-    height: '3em',
   },
   deleteButtonTop: {
-    fontSize: 16,
+    fontSize: 18,
+    padding: '10px',
   },
 };
 

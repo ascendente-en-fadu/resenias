@@ -4,7 +4,7 @@ import { Fonts } from '../../fonts';
 const styles = {
   container: {
     backgroundColor: Colors.buttonBottom,
-    borderRadius: 12,
+    borderRadius: 18,
     display: 'flex',
     flexDirection: 'column',
     width: '80%',
@@ -36,6 +36,7 @@ const styles = {
     fontSize: 16,
     color: Colors.lightGray,
     fontFamily: Fonts.semiBold,
+    padding: '.4em 12px',
   },
   leftButtonContainer: {
     flex: 1,
@@ -49,6 +50,7 @@ const styles = {
     fontSize: 16,
     color: Colors.lightGray,
     fontFamily: Fonts.semiBold,
+    padding: '.4em 12px',
   },
   rightButtonHighlight: {
     backgroundColor: Colors.confirmationButtonHighlight,

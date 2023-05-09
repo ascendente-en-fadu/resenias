@@ -12,6 +12,7 @@ const styles = {
     flexDirection: 'row-reverse',
     border: '1px solid',
     borderColor: Colors.transparent,
+    padding: '.4em 12px',
   },
   buttonContainer: {
     width: '100%',
@@ -32,7 +33,7 @@ const styles = {
     transformOrigin: 'top',
     overflowY: 'auto',
     maxHeight: '400px',
-    borderRadius: '16px',
+    borderRadius: 18,
     border: '1px solid #000000',
   },
   listOpen: {

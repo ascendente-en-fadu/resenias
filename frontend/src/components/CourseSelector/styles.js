@@ -14,8 +14,10 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
   },
-  dropdownRight: { minWidth: '48%' },
-  dropdownLeft: { marginRight: '4%', minWidth: '48%' },
+  dropdown: {
+    flex: 1,
+    maxWidth: 'calc(50% - 6px)',
+  },
   list: { zIndex: 4 },
 };
 

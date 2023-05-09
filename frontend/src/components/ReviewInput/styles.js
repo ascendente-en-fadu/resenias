@@ -31,10 +31,10 @@ const styles = {
     color: Colors.lightGray,
     fontSize: 16,
     fontFamily: Fonts.light,
-    width: '45%',
+    width: '40%',
   },
   dropdownContainer: {
-    width: '45%',
+    width: '50%',
   },
   requiredStyle: {
     borderColor: Colors.bannerText,
@@ -64,6 +64,7 @@ const styles = {
     fontSize: 16,
     color: Colors.lightGray,
     fontFamily: Fonts.semiBold,
+    padding: '.5em 12px',
   },
 };
 
