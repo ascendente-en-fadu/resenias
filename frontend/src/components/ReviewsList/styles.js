@@ -2,17 +2,17 @@ import Colors from '../../constants/colors';
 import { Fonts } from '../../fonts';
 
 const styles = {
-  bottom: {
-    marginTop: '12px',
-    borderRadius: 24,
+  container: {
     width: '100%',
+  },
+  bottom: {
+    borderRadius: 24,
     display: 'flex',
     flexDirection: 'column',
     border: 'solid',
     borderColor: Colors.gray,
     borderWidth: '1px',
-    overflowY: 'auto',
-    padding: '16px 0',
+    padding: '16px 24px',
     boxSizing: 'border-box',
   },
   bottomNoReviews: {
@@ -21,31 +21,29 @@ const styles = {
     boxSizing: 'border-box',
     justifyContent: 'center',
     alignItems: 'center',
+    gap: '12px',
   },
-  contentText: {
-    fontSize: 16,
-    color: Colors.gray,
-    fontFamily: Fonts.light,
-    whiteSpace: 'pre-line',
+  reviewContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    boxSizing: 'border-box',
   },
   dataText: {
     fontSize: 16,
     color: Colors.gray,
     fontFamily: Fonts.semiBold,
   },
-  reviewContainer: {
-    width: '100%',
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    paddingLeft: '24px',
-    paddingRight: '24px',
-    boxSizing: 'border-box',
+  contentText: {
+    fontSize: 16,
+    color: Colors.gray,
+    fontFamily: Fonts.light,
+    whiteSpace: 'pre-line',
+    margin: '4px 0',
   },
   divider: {
     width: '90%',
-    height: '1px',
-    backgroundColor: Colors.gray,
+    borderWidth: '1px 0px',
+    borderColor: Colors.gray,
     alignSelf: 'center',
     margin: '16px 0',
   },
@@ -53,8 +51,10 @@ const styles = {
     fontSize: 16,
     color: Colors.gray,
     fontFamily: Fonts.light,
-    marginTop: '12px',
     textAlign: 'center',
+  },
+  noReviewsIcon: {
+    width: '4em',
   },
 };
 

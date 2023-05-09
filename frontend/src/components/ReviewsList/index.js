@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { NoReviewsIcon } from '../../images';
+import Icon from '../Icon';
 import { getRateLabel, getReviewYearLabel, mergeStyles } from '../../helpers';
 import styles from './styles';
 
@@ -11,33 +11,33 @@ import styles from './styles';
  */
 const ReviewsList = ({ reviews = [] }) => {
   return (
-    <>
+    <section style={styles.container}>
       {reviews.length > 0 ? (
-        <div style={styles.bottom}>
+        <ul style={styles.bottom}>
           {reviews.map(({ content, rate, year, id }) => (
-            <div style={styles.reviewContainer} key={id}>
-              <span style={styles.dataText}>{getReviewYearLabel(year)}</span>
-              <span style={styles.contentText}>{content}</span>
+            <li style={styles.reviewContainer} key={id}>
+              <h4 style={styles.dataText}>{getReviewYearLabel(year)}</h4>
+              <p style={styles.contentText}>{content}</p>
               {getRateLabel(rate) && (
-                <span style={styles.dataText}>
+                <h4 style={styles.dataText}>
                   {'Nota a la cátedra: ' + getRateLabel(rate)}
-                </span>
+                </h4>
               )}
               {id !== reviews[reviews.length - 1]?.id && (
-                <div style={styles.divider} />
+                <hr style={styles.divider} />
               )}
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       ) : (
         <div style={mergeStyles([styles.bottom, styles.bottomNoReviews])}>
-          <NoReviewsIcon width='4em' />
-          <span style={styles.noReviewsText}>
+          <Icon name='noReviews' customStyles={styles.noReviewsIcon} />
+          <p style={styles.noReviewsText}>
             {'Todavía no hay reseñas para esta cátedra :('}
-          </span>
+          </p>
         </div>
       )}
-    </>
+    </section>
   );
 };
 

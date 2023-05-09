@@ -1,23 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useGoogleLogin } from '@react-oauth/google';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import { CustomButton, Footer, TitleBanner } from '../../components';
+import { CustomButton, TitleBanner } from '../../components';
 import { doLogin } from '../../helpers';
+import { setSessionId } from '../../redux';
 import styles from './styles';
 
 /**
- * Login screen, with a button to do a Google login and a apologize message
- * @param {function} setSessionId function to set the current user session id
+ * Login screen, with a button to do a Google login and a apologize message.
  */
-const LoginScreen = ({ setSessionId }) => {
+const LoginScreen = () => {
+  const careersList = useSelector((state) => state.reviews.careersList);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const login = useGoogleLogin({
     onSuccess: async (codeResponse) => {
       try {
         if (codeResponse) {
           console.log('Successful Google login');
           const sessionId = await doLogin(codeResponse.access_token);
-          setSessionId(sessionId);
+          doClientLogin(sessionId);
         } else {
           throw new Error("The Google login hasn't returned the access token");
         }
@@ -31,14 +36,27 @@ const LoginScreen = ({ setSessionId }) => {
   /**
    * Function to set a fake session id, to skip the real Google Login
    */
-  const setFakeSessionId = () => setSessionId('my-session-id');
+  const setFakeSessionId = () => {
+    doClientLogin('my-session-id');
+  };
+
+  /**
+   * Makes the login in the client local state and navigates to the careers screen
+   */
+  const doClientLogin = (sessionId) => {
+    localStorage.setItem('sessionId', sessionId);
+    dispatch(setSessionId(sessionId));
+    navigate('/carreras', { replace: true });
+  };
+
   return (
-    <div style={styles.container}>
+    <>
       <TitleBanner />
-      <div style={styles.buttonContainer}>
-        <span style={styles.apologizeText}>
-          Logueate con Google. Ya se que no tenés ganas, pero es necesario por temas de seguridad.
-        </span>
+      <main style={styles.contentContainer}>
+        <p style={styles.apologizeText}>
+          Logueate con Google. Ya se que no tenés ganas, pero es necesario por
+          temas de seguridad.
+        </p>
         <CustomButton
           text='Continuar con Google'
           onPress={
@@ -47,19 +65,14 @@ const LoginScreen = ({ setSessionId }) => {
               : login
           }
           customStyles={{
-            bottom: styles.buttonBottom,
-            text: styles.buttonText,
+            top: styles.buttonText,
           }}
-          googleLogo
+          iconName='google'
+          disabled={careersList.length === 0}
         />
-      </div>
-      <Footer />
-    </div>
+      </main>
+    </>
   );
-};
-
-LoginScreen.propTypes = {
-  setSessionId: PropTypes.func.isRequired,
 };
 
 export default LoginScreen;

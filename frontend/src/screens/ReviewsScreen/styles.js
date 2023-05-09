@@ -1,21 +1,22 @@
+import Colors from '../../constants/colors';
+import { Fonts } from '../../fonts';
+
 const styles = {
-  container: {
+  censorshipAdviceContainer: {
+    fontSize: 16,
+    textAlign: 'center',
+    margin: '0% 10%',
+    color: Colors.gray,
+    fontFamily: Fonts.light,
+  },
+  reviews: {
     display: 'flex',
+    alignItems: 'center',
     flexDirection: 'column',
-    height: '100%',
-    justifyContent: 'space-between',
-  },
-  selectorContainer: {
-    height: '130px',
-    flexShrink: 0,
-  },
-  subScreenContainer: {
     flex: 1,
+    padding: '18px 0px',
+    gap: '18px',
     overflowY: 'auto',
-    paddingBottom: '12px',
-  },
-  subScreenContainerLandscape: {
-    overflowY: 'visible',
   },
 };
 

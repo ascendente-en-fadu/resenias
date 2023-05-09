@@ -1,16 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
-import { CafecitoIcon, InstagramIcon } from '../../images';
 import styles from './styles';
+import Icon from '../Icon';
+import { mergeStyles } from '../../helpers';
 
 /**
  * Footer with the contact and cafecito links.
+ * @param {bool} isBackendOffline if true, the logout link is not displayed
  */
-const Footer = () => {
+const Footer = ({ isBackendOffline }) => {
+  const careersList = useSelector((state) => state.reviews.careersList);
+  const sessionId = useSelector((state) => state.session.sessionId);
+
   return (
-    <div style={styles.container}>
-      <div style={styles.linkContainer}>
-        <CafecitoIcon width='1.2em' />
+    <footer style={styles.container}>
+      <address style={styles.linkContainer}>
+        <Icon name='cafecito' customStyles={styles.icon} />
         <a
           href='https://cafecito.app/ascendente_en_fadu'
           target='_blank'
@@ -19,9 +27,18 @@ const Footer = () => {
         >
           Invitame un cafecito
         </a>
-      </div>
-      <div style={styles.linkContainer}>
-        <InstagramIcon width='1.2em' />
+
+        {sessionId && careersList.length !== 0 && !isBackendOffline && (
+          <Link
+            style={mergeStyles([styles.version, styles.logout])}
+            to={'/logout'}
+          >
+            Cerrar sesión
+          </Link>
+        )}
+      </address>
+      <address style={styles.linkContainer}>
+        <Icon name='instagram' customStyles={styles.icon} />
         <a
           href='https://www.instagram.com/ascendente_en_fadu/?hl=es'
           target='_blank'
@@ -33,9 +50,12 @@ const Footer = () => {
         <span style={styles.version}>
           {'Versión v' + process.env.REACT_APP_VERSION}
         </span>
-      </div>
-    </div>
+      </address>
+    </footer>
   );
 };
 
+Footer.propTypes = {
+  isBackendOffline: PropTypes.bool,
+};
 export default Footer;

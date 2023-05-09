@@ -82,7 +82,7 @@ const reviewsMiddleware = (req, res, next) => {
  * Middleware to add a delay to every response
  */
 const delayMiddleware = (req, res, next) => {
-  const delay = process.argv[3] || 0;
+  const delay = process.env.npm_config_DELAY || 0;
   setTimeout(next, delay);
 };
 
@@ -95,6 +95,6 @@ server.use('/api/login', loginMiddleware);
 server.use('/api/resenias', reviewsMiddleware);
 server.use('/api', router);
 
-server.listen(3004, process.argv[2], () => {
+server.listen(3004, process.env.npm_config_IP, () => {
   console.log('JSON Server is running');
 });

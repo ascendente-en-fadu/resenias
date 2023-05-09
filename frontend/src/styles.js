@@ -1,23 +1,14 @@
-import Colors from './constants/colors';
-
 const styles = {
-  page: {
-    backgroundColor: Colors.screenBackground,
-    height: '100%',
+  container: {
     width: '100%',
+    maxWidth: '700px',
+    height: '100%',
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'relative',
-    overflowY: 'auto',
-  },
-  containerMobile: {
-    width: '90%',
-    height: '95%',
-  },
-  containerDesktop: {
-    width: '650px',
-    height: '95%',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    margin: '0 auto',
+    padding: '15px',
+    boxSizing: 'border-box',
   },
 };
 

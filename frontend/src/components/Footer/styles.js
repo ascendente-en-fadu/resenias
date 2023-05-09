@@ -13,7 +13,7 @@ const styles = {
     marginLeft: '5px',
   },
   linkContainer: {
-    margin: '5px 0',
+    marginTop: '10px',
     display: 'flex',
     flexDirection: 'row',
   },
@@ -23,6 +23,12 @@ const styles = {
     fontFamily: Fonts.light,
     flex: 1,
     textAlign: 'end',
+  },
+  logout: {
+    color: Colors.lightGray,
+  },
+  icon: {
+    width: '1.2em',
   },
 };
 
