@@ -32,19 +32,19 @@ const CourseSelector = ({
   setSubject,
 }) => {
   return (
-    <div style={styles.container}>
+    <header style={styles.container}>
       <CustomButton
-        text={career.name}
+        text={career?.name ?? '-'}
         customStyles={{
-          bottom: styles.careerButtonBottom,
+          container: styles.careerButtonContainer,
         }}
         onPress={goBack}
-        arrow
+        iconName='arrowLeft'
       />
-      <div style={styles.selectorsContainer}>
+      <nav style={styles.selectorsContainer}>
         <Dropdown
           placeholder='Materia'
-          customStyles={{ bottom: styles.dropdownLeft, list: styles.list }}
+          customStyles={{ container: styles.dropdown, list: styles.list }}
           onChange={setSubject}
           value={subject}
           disabled={!subjects}
@@ -52,20 +52,20 @@ const CourseSelector = ({
         />
         <Dropdown
           placeholder='Cátedra'
-          customStyles={{ list: styles.list }}
+          customStyles={{ container: styles.dropdown, list: styles.list }}
           onChange={setCourse}
           value={course}
           disabled={!subject || !courses}
           elements={courses}
         />
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 
 CourseSelector.propTypes = {
   goBack: PropTypes.func.isRequired,
-  career: PropTypes.object.isRequired,
+  career: PropTypes.object,
   courses: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,

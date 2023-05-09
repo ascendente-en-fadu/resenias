@@ -4,11 +4,11 @@ import { Fonts } from '../../fonts';
 const styles = {
   container: {
     backgroundColor: Colors.buttonBottom,
-    borderRadius: 12,
+    borderRadius: 18,
     display: 'flex',
     flexDirection: 'column',
     width: '80%',
-    maxWidth: '500px', // TODO: find a better way to avoid extremely wide modals on desktop screens
+    maxWidth: '500px',
   },
   buttonsContainer: {
     flex: 1,
@@ -25,29 +25,32 @@ const styles = {
   },
   modal: {
     position: 'fixed',
-    top: '0px',
-    left: '0px',
-    bottom: '0px',
-    right: '0px',
+    inset: '0px',
     backgroundColor: Colors.modalBackground,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    zIndex: '2',
   },
-  buttonText: {
+  leftButtonTop: {
     fontSize: 16,
     color: Colors.lightGray,
     fontFamily: Fonts.semiBold,
+    padding: '.4em 12px',
   },
-  buttonBottom: {
-    height: '32px',
+  leftButtonContainer: {
+    flex: 1,
   },
-  rightButtonBottom: {
-    height: '32px',
+  rightButtonContainer: {
     marginLeft: '8px',
+    flex: 1,
   },
   rightButtonTop: {
     backgroundColor: Colors.confirmationButton,
+    fontSize: 16,
+    color: Colors.lightGray,
+    fontFamily: Fonts.semiBold,
+    padding: '.4em 12px',
   },
   rightButtonHighlight: {
     backgroundColor: Colors.confirmationButtonHighlight,

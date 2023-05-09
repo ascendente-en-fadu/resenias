@@ -2,90 +2,86 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { mergeStyles, onPressEvents } from '../../helpers';
-import { ArrowIcon, GoogleIcon } from '../../images';
+import Icon from '../Icon';
 import styles from './styles';
 
 /**
  * Career selection button, with a centered text and a press animation. Optionally, an arrow on the left side can be shown.
  * Alternatively, the content con be replaced by a childer component.
- * @param {any} children if present, replaces the whole content of the button for the children component
  * @param {string} text button text
  * @param {object} customStyles
+ *   @param {object} customStyles.container custom styles for the button container
  *   @param {object} customStyles.top custom styles for the top layer of the button
- *   @param {object} customStyles.bottom custom styles for the bottom layer of the button
- *   @param {object} customStyles.text custom styles for the button text
  *   @param {object} customStyles.highlight custom styles for the button higlight color
  * @param {function} onPress function to be called when the button in pressed
- * @param {bool} arrow if true, displays an arrow icon on the right of the button
- * @param {bool} googleLogo if true, displays a Google icon on the right of the button
+ * @param {string} iconName name of the icon to display in the button
  * @param {bool} disabled if true, the button is not interactable
+ * @param {bool} disableCenteringCorrection if true, the button text will not be forced to be centered when it's displayed alongside an icon
+ * @param {bool} disableBottom if true, the bottom part of the button is removed
+ * @param {bool} noDelay if true, the onPress will be called immidiately when the user releases the press. This eliminates the delay that allow the user to fully see the animation before the onPress was called.
  */
 const CustomButton = ({
-  children,
   text,
   customStyles = {},
   onPress,
-  arrow,
-  googleLogo,
+  iconName,
   disabled,
+  disableCenteringCorrection,
+  disableBottom,
+  noDelay,
 }) => {
-  const [animate, setAnimate] = useState(false);
+  const [isPressed, setPressed] = useState(false);
+  const hasIcon = Boolean(iconName);
+  const hasText = Boolean(text);
 
   return (
     <button
-      disabled={disabled}
-      style={mergeStyles([styles.buttonBottom, customStyles.bottom])}
+      style={mergeStyles([styles.container, customStyles.container])}
       {...onPressEvents({
-        start: () => !disabled && setAnimate(true),
+        start: () => !disabled && setPressed(true),
         end: () => {
-          setAnimate(false);
-          onPress();
+          if (isPressed) {
+            setPressed(false);
+            noDelay ? onPress() : setTimeout(onPress, 80);
+          }
         },
-        cancel: () => animate && setAnimate(false),
+        cancel: () => isPressed && setPressed(false),
       })}
+      disabled={disabled}
     >
       <div
         style={mergeStyles([
-          styles.buttonTop,
+          styles.top,
+          hasIcon && hasText && styles.topWithIconAndText,
           customStyles.top,
-          animate && { ...styles.buttonPressed, ...customStyles.highlight },
+          disabled && styles.disabledText,
+          isPressed && { ...styles.pressed, ...customStyles.highlight },
         ])}
       >
-        {children ? (
-          children
-        ) : (
-          <>
-            {arrow && <ArrowIcon width='3em' style={styles.arrow} />}
-            {googleLogo && <GoogleIcon width='2em' style={styles.googleLogo} />}
-            <span
-              style={mergeStyles([
-                styles.text,
-                customStyles.text,
-                disabled && styles.disabledText,
-              ])}
-            >
-              {text}
-            </span>
-          </>
+        {hasIcon && <Icon name={iconName} customStyles={styles.icon} />}
+        {hasText && <span style={styles.text}>{text}</span>}
+        {hasIcon && hasText && !disableCenteringCorrection && (
+          <div style={styles.rightMargin} />
         )}
       </div>
+      {!disableBottom && <div style={styles.bottom} />}
     </button>
   );
 };
 
 CustomButton.propTypes = {
-  children: PropTypes.any,
   text: PropTypes.string,
   customStyles: PropTypes.shape({
-    bottom: PropTypes.object,
+    container: PropTypes.object,
     top: PropTypes.object,
     highlight: PropTypes.object,
-    text: PropTypes.object,
   }),
   onPress: PropTypes.func.isRequired,
-  arrow: PropTypes.bool,
-  googleLogo: PropTypes.bool,
+  iconName: PropTypes.string,
   disabled: PropTypes.bool,
+  disableCenteringCorrection: PropTypes.bool,
+  disableBottom: PropTypes.bool,
+  noDelay: PropTypes.bool,
 };
 
 export default CustomButton;

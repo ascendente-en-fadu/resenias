@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import axios from 'axios';
 
 import {
@@ -22,7 +21,10 @@ import {
   ownReviewUrl,
 } from './apiTranslations';
 
-const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_BASE_URL, timeout: 15000 });
+const axiosInstance = axios.create({
+  baseURL: process.env.REACT_APP_BASE_URL,
+  timeout: 15000,
+});
 
 axiosInstance.interceptors.request.use((req) => {
   console.log('Request ' + req.url);

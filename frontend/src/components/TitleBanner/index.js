@@ -7,11 +7,11 @@ import styles from './styles';
  */
 const TitleBanner = () => {
   return (
-    <div style={styles.container}>
-      <span style={styles.title1}>Ascendente en FADU</span>
-      <span style={styles.title2}>RESEÑAS</span>
-      <span style={styles.title3}>FADU</span>
-    </div>
+    <header style={styles.container}>
+      <h4 style={styles.title1}>Ascendente en FADU</h4>
+      <h1 style={styles.title2}>RESEÑAS</h1>
+      <h2 style={styles.title3}>FADU</h2>
+    </header>
   );
 };
 

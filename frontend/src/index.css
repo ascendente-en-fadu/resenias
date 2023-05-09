@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #06001f;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -16,4 +17,25 @@ html,
 body,
 #root {
   height: 100%;
+}
+
+/* This removes the default styles from the html elements */
+h1,
+h2,
+h4,
+address,
+p,
+button,
+ul,
+ol {
+  margin: unset;
+  padding: unset;
+  margin: unset;
+  background-color: unset;
+  border: unset;
+  font-weight: unset;
+  font-style: unset;
+  font-size: unset;
+  text-align: unset;
+  list-style-type: none;
 }

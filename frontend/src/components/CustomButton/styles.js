@@ -2,49 +2,59 @@ import Colors from '../../constants/colors';
 import { Fonts } from '../../fonts';
 
 const styles = {
-  buttonBottom: {
-    backgroundColor: Colors.buttonBottom,
-    border: 'none',
-    borderRadius: 18,
+  container: {
     position: 'relative',
-    width: '100%',
-    height: '100%',
+    display: 'flex',
+  },
+  bottom: {
+    position: 'absolute',
+    backgroundColor: Colors.buttonBottom,
+    borderRadius: 18,
+    inset: '0px',
+  },
+  top: {
+    position: 'relative',
+    flex: 1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.buttonTop,
+    color: Colors.lightGray,
+    fontSize: 24,
+    fontFamily: Fonts.extraBold,
+    padding: '.8em 12px',
+    inset: '-5px 5px 5px -5px',
+    borderRadius: 18,
+    transition: 'all .05s',
+    zIndex: '1',
+    minWidth: '0px',
+    userSelect: 'none',
+  },
+  topWithIconAndText: {
+    justifyContent: 'space-between',
+  },
+  pressed: {
+    backgroundColor: Colors.pressedButton,
+    inset: '0px',
   },
   text: {
-    fontSize: 30,
-    color: Colors.lightGray,
-    fontFamily: Fonts.extraBold,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    margin: '0px 4px',
   },
   disabledText: {
     color: Colors.gray,
   },
-  buttonTop: {
-    position: 'absolute',
-    top: '-5px',
-    left: '-5px',
-    bottom: '5px',
-    right: '5px',
-    borderRadius: 18,
-    backgroundColor: Colors.buttonTop,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transition: 'all .05s',
+  rightMargin: {
+    maxWidth: 'calc(1.5em + 12px)',
+    flex: 1,
+    height: '100%',
   },
-  buttonPressed: {
-    top: '0px',
-    left: '0px',
-    bottom: '0px',
-    right: '0px',
-    backgroundColor: Colors.pressedButton,
-  },
-  arrow: {
-    position: 'absolute',
-    left: '10px',
-    rotate: '90deg',
-  },
-  googleLogo: {
-    marginRight: '14px',
+  icon: {
+    width: '1.5em',
+    minWidth: '1.5em',
+    margin: '0px 4px',
   },
 };
 

@@ -2,14 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { mergeStyles, onPressEvents } from '../../helpers';
-import { ArrowIcon } from '../../images';
+import CustomButton from '../CustomButton';
 import styles from './styles';
 
 /**
  * Dropdown that displays a list of elements to choose from.
  * @param {object} customStyles
  *   @param {object} customStyles.list custom styles for the list container
- *   @param {object} customStyles.bottom custom styles for the bottom layer of the button
+ *   @param {object} customStyles.container custom styles for the button container
  * @param {function} onChange function to be called when an element is clicked, taking the element as an argument
  * @param {object} value current selected value
  *   @param {string} value.name current selected value name to be shown
@@ -29,7 +29,6 @@ const Dropdown = ({
   required,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [animate, setAnimate] = useState(false);
 
   const rootRef = useRef(null);
   const isDisabled = disabled || elements.length === 0;
@@ -42,7 +41,6 @@ const Dropdown = ({
     const handleClick = (evt) => {
       if (!rootRef.current.contains(evt.target) && isOpen) {
         setIsOpen(false);
-        setAnimate(false);
       }
     };
     document.addEventListener(`mouseup`, handleClick);
@@ -53,33 +51,25 @@ const Dropdown = ({
 
   return (
     <div
-      style={mergeStyles([styles.buttonBottom, customStyles.bottom])}
+      style={mergeStyles([styles.container, customStyles.container])}
       ref={rootRef}
     >
-      <button
+      <CustomButton
+        iconName='arrowDown'
         disabled={isDisabled}
-        style={mergeStyles([
-          styles.buttonTop,
-          animate && styles.buttonPressed,
-          required && !value && styles.requiredStyle,
-        ])}
-        {...onPressEvents({
-          start: () => !isDisabled && setAnimate(true),
-          end: () => {
-            setAnimate(false);
-            setIsOpen((prev) => !prev);
-          },
-          cancel: () => animate && setAnimate(false),
-        })}
-      >
-        <span
-          style={mergeStyles([styles.text, isDisabled && styles.disabledText])}
-        >
-          {value?.name ?? placeholder}
-        </span>
-        <ArrowIcon width='1.5em' />
-      </button>
-      <div
+        onPress={() => setIsOpen((prev) => !prev)}
+        text={value?.name ?? placeholder}
+        customStyles={{
+          top: mergeStyles([
+            styles.buttonTop,
+            required && !value && styles.requiredStyle,
+          ]),
+          container: styles.buttonContainer,
+        }}
+        disableCenteringCorrection
+        noDelay
+      />
+      <ol
         style={mergeStyles([
           styles.list,
           customStyles.list,
@@ -87,21 +77,20 @@ const Dropdown = ({
         ])}
       >
         {elements.map((element) => (
-          <button
+          <li
             style={styles.items}
             key={element.id}
             {...onPressEvents({
               end: () => {
                 if (element.id !== value?.id) onChange(element);
-                setAnimate(false);
                 setIsOpen((prev) => !prev);
               },
             })}
           >
             {element.name}
-          </button>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   );
 };
@@ -109,7 +98,7 @@ const Dropdown = ({
 Dropdown.propTypes = {
   placeholder: PropTypes.string,
   customStyles: PropTypes.shape({
-    bottom: PropTypes.object,
+    container: PropTypes.object,
     list: PropTypes.object,
   }),
   onChange: PropTypes.func.isRequired,
