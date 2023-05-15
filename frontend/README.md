@@ -11,7 +11,7 @@ Teniendo Node instalado, ejecutar `npm install` y después `npm start` desde est
 #### Algunas convenciones
 
 - Todo el código, los comentarios y los nombres de los commits tienen que estar en inglés.
-- Todo el código debe respetar la configuración de estilo y sintaxis de Prettier y ESLint (la extensión necesaria está configurada como _recomendada_ para el proyecto).
+- Todo el código debe respetar la configuración de estilo y sintaxis de Prettier y ESLint (ambas extensiones están configuradas como _recomendadas_ para el proyecto).
 
 #### Diseño de UI
 
