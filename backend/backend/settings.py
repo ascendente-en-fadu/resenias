@@ -30,7 +30,7 @@ DEBUG = config('DEBUGGER_ENABLE', cast=bool)
 ALLOWED_HOSTS = [config('DOMAIN')]
 
 # se tiene que agregar esto en django 4 (necesite agregarlo para entrar al admin)
-CSRF_TRUSTED_ORIGINS = [f'{config("PROTOCOL")}://{config("DOMAIN")}:8000']
+CSRF_TRUSTED_ORIGINS = [f'{config("PROTOCOL")}://{config("DOMAIN")}:8443']
 
 # Application definition
 
