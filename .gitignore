@@ -1,4 +1,4 @@
-.env
-.pem
-.key
+*.env
+*.pem
+*.key
 backup_data/
