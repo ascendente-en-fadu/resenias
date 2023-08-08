@@ -1,4 +1,4 @@
 .env
-backup_data/
 .pem
 .key
+backup_data/
