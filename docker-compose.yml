@@ -43,8 +43,8 @@ services:
     ports:
       - 8001:8001
 
-  nginx_backend_server:
-    build: ./nginx_backend_server
+  nginx_server:
+    build: ./nginx_server
     volumes:
       - static_files:/home/app/static
     ports:
