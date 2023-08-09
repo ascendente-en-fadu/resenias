@@ -1,2 +1,5 @@
-.env
+*.env
+*.pem
+*.key
+*.swp
 backup_data/
