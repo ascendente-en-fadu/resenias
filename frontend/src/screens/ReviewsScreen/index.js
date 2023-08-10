@@ -64,7 +64,6 @@ const ReviewsScreen = () => {
       if (selectedCareer) {
         getSubjectsList();
       } else {
-        console.log('Reviews redirect');
         navigate('/carreras', { replace: true });
       }
     }

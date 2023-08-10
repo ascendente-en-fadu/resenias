@@ -1,7 +1,7 @@
 # Reseñas FADU
 
 Página de reseñas para cátedras de FADU de [@ascendente_en_fadu](https://www.instagram.com/ascendente_en_fadu/?hl=es).  
-Actualmente disponible en [http://reseñasfadu.com.ar/](http://xn--reseasfadu-w9a.com.ar/).
+Actualmente disponible en [https://reseñasfadu.com.ar/](https://xn--reseasfadu-w9a.com.ar/).
 
 ## Sobre el desarrollo
 
