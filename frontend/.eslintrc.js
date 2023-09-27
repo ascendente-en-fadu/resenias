@@ -4,13 +4,19 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
+  extends: [
+    'react-app',
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:jest/recommended',
+    'prettier',
+  ],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['react', 'jest'],
   rules: {
     'require-jsdoc': [
       'error',
