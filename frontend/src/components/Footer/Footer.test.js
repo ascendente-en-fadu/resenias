@@ -3,8 +3,8 @@ import { screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
 
-import Footer from '.';
 import { renderWithProviders } from '../../helpers';
+import Footer from '.';
 
 const stateMock = {
   session: {
@@ -28,43 +28,7 @@ const stateMock = {
   },
 };
 
-test('The IG icon is displayed', () => {
-  renderWithProviders(
-    <MemoryRouter>
-      <Footer />
-    </MemoryRouter>,
-  );
-
-  const element = screen.queryByText('instagram');
-  expect(element).toBeInTheDocument();
-});
-
-test('The logout link is not displayed if the backend is offline', () => {
-  renderWithProviders(
-    <MemoryRouter>
-      <Footer isBackendOffline={false} />
-    </MemoryRouter>,
-  );
-
-  const element = screen.queryByText('Cerrar sesión');
-  expect(element).not.toBeInTheDocument();
-});
-
-test('The logout link is not displayed if there is no career list', () => {
-  renderWithProviders(
-    <MemoryRouter>
-      <Footer />
-    </MemoryRouter>,
-    {
-      preloadedState: { session: stateMock.session },
-    },
-  );
-
-  const element = screen.queryByText('Cerrar sesión');
-  expect(element).not.toBeInTheDocument();
-});
-
-test('The logout link is displayed if the user is logged and there is a career list', () => {
+test('The links and texts are displayed to a logged user, when the backend is online', () => {
   renderWithProviders(
     <MemoryRouter>
       <Footer />
@@ -74,28 +38,61 @@ test('The logout link is displayed if the user is logged and there is a career l
     },
   );
 
-  const element = screen.queryByText('Cerrar sesión');
-  expect(element).toBeInTheDocument();
+  const igLink = screen.getByText('instagram');
+  expect(igLink).toBeInTheDocument();
+
+  const logoutLink = screen.getByText('Cerrar sesión');
+  expect(logoutLink).toBeInTheDocument();
+
+  const cafecitoLink = screen.getByText('Invitame un cafecito');
+  expect(cafecitoLink).toBeInTheDocument();
+
+  const versionLink = screen.getByText('Versión v', { exact: false });
+  expect(versionLink).toBeInTheDocument();
 });
 
-test('The cafecito link is displayed', () => {
+test('The links and texts are displayed to an unlogged user, except by the logout link', () => {
   renderWithProviders(
     <MemoryRouter>
       <Footer />
     </MemoryRouter>,
+    {
+      preloadedState: { reviews: stateMock.reviews },
+    },
   );
 
-  const element = screen.queryByText('Invitame un cafecito');
-  expect(element).toBeInTheDocument();
+  const igLink = screen.getByText('instagram');
+  expect(igLink).toBeInTheDocument();
+
+  const logoutLink = screen.queryByText('Cerrar sesión');
+  expect(logoutLink).not.toBeInTheDocument();
+
+  const cafecitoLink = screen.getByText('Invitame un cafecito');
+  expect(cafecitoLink).toBeInTheDocument();
+
+  const versionLink = screen.getByText('Versión v', { exact: false });
+  expect(versionLink).toBeInTheDocument();
 });
 
-test('The version text is displayed', () => {
+test('The links and texts are displayed to an user when the backend is offline, except by the logout link', () => {
   renderWithProviders(
     <MemoryRouter>
-      <Footer />
+      <Footer isBackendOffline={true} />
     </MemoryRouter>,
+    {
+      preloadedState: stateMock,
+    },
   );
 
-  const element = screen.queryByText('Versión v', { exact: false });
-  expect(element).toBeInTheDocument();
+  const igLink = screen.getByText('instagram');
+  expect(igLink).toBeInTheDocument();
+
+  const logoutLink = screen.queryByText('Cerrar sesión');
+  expect(logoutLink).not.toBeInTheDocument();
+
+  const cafecitoLink = screen.getByText('Invitame un cafecito');
+  expect(cafecitoLink).toBeInTheDocument();
+
+  const versionLink = screen.getByText('Versión v', { exact: false });
+  expect(versionLink).toBeInTheDocument();
 });
