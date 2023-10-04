@@ -16,7 +16,6 @@ const review = {
 
 const deleteOwnReview = jest.fn();
 
-// eslint-disable-next-line jest/no-done-callback
 test('The review content is displayed', (done) => {
   render(
     <MyReview

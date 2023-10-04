@@ -31,5 +31,6 @@ module.exports = {
     'jsx-quotes': ['error', 'prefer-single'],
     'no-unused-vars': 'error',
     'react/react-in-jsx-scope': 'off',
+    'jest/no-done-callback': 'off',
   },
 };
