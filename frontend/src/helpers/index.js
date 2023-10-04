@@ -6,3 +6,5 @@ export * from './generateYearsList';
 export * from './getCurrentYear';
 export * from './getReviewYearLabel';
 export * from './getRateLabel';
+export * from './testUtils';
+export * from './setupTests';
