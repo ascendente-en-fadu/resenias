@@ -7,10 +7,7 @@ import { sessionReducer } from '../redux/sessionSlice';
 import { reviewsReducer } from '../redux/reviewsSlice';
 
 /**
- *
- * @param {*} ui
- * @param {*} param1
- * @returns
+ * Render function to be used in Jest tests where Redux access in needed.
  */
 export const renderWithProviders = (
   ui,
@@ -27,9 +24,7 @@ export const renderWithProviders = (
   } = {},
 ) => {
   /**
-   *
-   * @param {*} param0
-   * @returns
+   * Component wrapper that gives Redux access to the children component tree.
    */
   const Wrapper = (
     // eslint-disable-next-line react/prop-types
