@@ -30,12 +30,12 @@ const styles = {
   },
   dataText: {
     fontSize: 16,
-    color: Colors.gray,
+    color: Colors.lightGray,
     fontFamily: Fonts.semiBold,
   },
   contentText: {
     fontSize: 16,
-    color: Colors.gray,
+    color: Colors.lightGray,
     fontFamily: Fonts.light,
     whiteSpace: 'pre-line',
     margin: '4px 0',
