@@ -49,6 +49,7 @@ const CourseSelector = ({
           value={subject}
           disabled={!subjects}
           elements={subjects}
+          id='dropdown-subject'
         />
         <Dropdown
           placeholder='Cátedra'
@@ -57,6 +58,7 @@ const CourseSelector = ({
           value={course}
           disabled={!subject || !courses}
           elements={courses}
+          id='dropdown-course'
         />
       </nav>
     </header>

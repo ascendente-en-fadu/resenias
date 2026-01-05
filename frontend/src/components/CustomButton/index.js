@@ -19,6 +19,7 @@ import styles from './styles';
  * @param {bool} disableCenteringCorrection if true, the button text will not be forced to be centered when it's displayed alongside an icon
  * @param {bool} disableBottom if true, the bottom part of the button is removed
  * @param {bool} noDelay if true, the onPress will be called immidiately when the user releases the press. This eliminates the delay that allow the user to fully see the animation before the onPress was called.
+ * @param {string} id id to identify the button for analytics purposes
  */
 const CustomButton = ({
   text,
@@ -29,6 +30,7 @@ const CustomButton = ({
   disableCenteringCorrection,
   disableBottom,
   noDelay,
+  id,
 }) => {
   const [isPressed, setPressed] = useState(false);
   const hasIcon = Boolean(iconName);
@@ -57,9 +59,14 @@ const CustomButton = ({
           disabled && styles.disabledText,
           isPressed && { ...styles.pressed, ...customStyles.highlight },
         ])}
+        id={id}
       >
         {hasIcon && <Icon name={iconName} customStyles={styles.icon} />}
-        {hasText && <span style={styles.text}>{text}</span>}
+        {hasText && (
+          <span id={id} style={styles.text}>
+            {text}
+          </span>
+        )}
         {hasIcon && hasText && !disableCenteringCorrection && (
           <div style={styles.rightMargin} />
         )}
@@ -82,6 +89,7 @@ CustomButton.propTypes = {
   disableCenteringCorrection: PropTypes.bool,
   disableBottom: PropTypes.bool,
   noDelay: PropTypes.bool,
+  id: PropTypes.string,
 };
 
 export default CustomButton;

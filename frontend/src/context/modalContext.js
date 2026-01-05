@@ -21,6 +21,7 @@ export const ModalContextProvider = ({ children }) => {
           errorText={modalData.errorText}
           successText={modalData.successText}
           onClose={() => setModalData({})}
+          id={modalData.id}
         />
       )}
     </ModalContext.Provider>
