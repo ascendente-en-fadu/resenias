@@ -23,6 +23,7 @@ const CareersScreen = () => {
                 text={career.name}
                 onPress={() => navigate(`/resenias?carrera=${career.id}`)}
                 customStyles={{ container: styles.buttonContainer }}
+                id='button-career'
               />
             </li>
           ))}
@@ -36,6 +37,7 @@ const CareersScreen = () => {
                   text={career.name}
                   onPress={() => navigate(`/resenias?carrera=${career.id}`)}
                   customStyles={{ container: styles.buttonContainer }}
+                  id='button-career'
                 />
               </li>
             ))}

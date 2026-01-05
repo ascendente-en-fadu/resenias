@@ -18,6 +18,7 @@ import styles from './styles';
  * @param {array} elements elements array to be displayed in the list
  * @param {string} placeholder text to be shown when no option is selected
  * @param {bool} required if there is no option selected, displays a warning style
+ * @param {string} id ids to identify dropdown items for analytics purposes
  */
 const Dropdown = ({
   customStyles = {},
@@ -27,6 +28,7 @@ const Dropdown = ({
   elements = [],
   placeholder,
   required,
+  id,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -80,6 +82,7 @@ const Dropdown = ({
           <li
             style={styles.items}
             key={element.id}
+            id={id}
             {...onPressEvents({
               end: () => {
                 if (element.id !== value?.id) onChange(element);
@@ -114,6 +117,7 @@ Dropdown.propTypes = {
     }),
   ),
   required: PropTypes.bool,
+  id: PropTypes.string,
 };
 
 export default Dropdown;

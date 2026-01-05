@@ -13,7 +13,8 @@ import styles from './styles';
  * @param {function} onResultConfirm function to be called when the onConfirm is finished successfully. It's result will be ignored by the modal state.
  * @param {string} questionText text to be shown before the confirmation
  * @param {string} successText text to be shown if the confirmation succeeds
- * @param {string} errorText texto to be shown if the confirmation fails
+ * @param {string} errorText text to be shown if the confirmation fails
+ * @param {string} id id to identify modal confirmation for analytics purposes
  */
 const FullScreenModal = ({
   onClose,
@@ -22,6 +23,7 @@ const FullScreenModal = ({
   questionText,
   successText,
   errorText,
+  id,
 }) => {
   const QUESTION_STATE = 'question';
   const LOADING_STATE = 'loading';
@@ -78,6 +80,7 @@ const FullScreenModal = ({
               }}
               onPress={onPressConfirmButton}
               disabled={modalState === LOADING_STATE}
+              id={id}
             />
           </div>
         ) : (
@@ -104,6 +107,7 @@ FullScreenModal.propTypes = {
   questionText: PropTypes.string.isRequired,
   successText: PropTypes.string.isRequired,
   errorText: PropTypes.string.isRequired,
+  id: PropTypes.string,
 };
 
 export default FullScreenModal;

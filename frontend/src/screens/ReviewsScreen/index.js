@@ -136,6 +136,7 @@ const ReviewsScreen = () => {
         '¿Mandamos esta reseña, máquina? Igual si te mandaste una cagada podés borrarla y escribir otra.',
       errorText: 'No pudimos guardar tu reseña.',
       successText: 'Tu reseña se guardó con éxito.',
+      id: 'button-send-review-confirm',
     });
   };
 
@@ -157,6 +158,7 @@ const ReviewsScreen = () => {
         '¿Querés borrar la reseña, máquina? Igual no pasa nada, vas a poder escribir una reseña nueva.',
       errorText: 'No pudimos borrar tu reseña.',
       successText: 'Tu reseña se borró con éxito.',
+      id: 'button-delete-review-confirm',
     });
   };
 

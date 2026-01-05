@@ -24,6 +24,7 @@ const Footer = ({ isBackendOffline }) => {
           target='_blank'
           rel='noreferrer'
           style={styles.link}
+          id='link-footer-cafecito'
         >
           Invitame un cafecito
         </a>
@@ -32,6 +33,7 @@ const Footer = ({ isBackendOffline }) => {
           <Link
             style={mergeStyles([styles.version, styles.logout])}
             to={'/logout'}
+            id='link-footer-logout'
           >
             Cerrar sesión
           </Link>
@@ -44,6 +46,7 @@ const Footer = ({ isBackendOffline }) => {
           target='_blank'
           rel='noreferrer'
           style={styles.link}
+          id='link-footer-ascendente'
         >
           @ascendente_en_fadu
         </a>
